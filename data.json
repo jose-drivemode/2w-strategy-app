@@ -1,0 +1,761 @@
+[
+  {
+    "id": 0,
+    "number": "00",
+    "title": "Governance and Mandate",
+    "type": "precondition",
+    "full": true,
+    "description": "This section is not a Decision Domain. It is a prerequisite. The seven Decision Domains that follow cannot be meaningfully acted upon until the questions raised here are resolved by Honda 2W leadership. DriveMode cannot answer these questions alone. The central question is this: Is DriveMode mandated to **lead** Honda's connected motorcycle strategy - owning the platform, the rider relationship, and the partner ecosystem - or is DriveMode mandated to **execute** a strategy that Honda 2W defines? Neither answer is wrong. But the answer determines everything that follows: governance structure, investment level, capability priorities, and the relevance of each of the seven Decision Domains below. In the absence of an explicit answer, the current default - informally defined, financially misaligned - is operationally equivalent to Execute, without the clarity that would allow DriveMode to perform even that role effectively.",
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "The existence of an organizational capability gap is confirmed by Honda's own VP-level executives on the record in December 2024, and the specific gaps (understaffed platform/infrastructure, no cybersecurity function) are corroborated by the Engineering Skills Map. Confidence is Medium rather than High for two reasons: the executive statements are a single recorded moment without external corroboration, and the automotive transformation cases (CARIAD, Toyota Woven) used for comparison are secondary references that require independent verification before being treated as established fact.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Acknowledged Capability Gap",
+        "missionSource": "M4",
+        "confidence": "Low",
+        "claim": "Honda VP-level executives explicitly stated in December 2024 that DriveMode was acquired for capabilities Honda lacks, and that DriveMode is tasked with training Honda employees in \"modern SW development best practices.\" This is a direct, on-record admission that transformation is necessary.",
+        "sources": "Honda VP-level executive statements (`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`); single source - strong signal but unverified externally."
+      },
+      {
+        "label": "Structural Mismatch",
+        "missionSource": "M4",
+        "confidence": "Low–Medium",
+        "claim": "The Honda/DriveMode relationship has unresolved governance, informally defined decision rights, and a software cost allocation model (global/local revenue ratio) that creates conflicting incentives - documented across multiple independent repository sources from 2017 to 2026.",
+        "sources": "`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`; `wiki/brain-dumps/2026-06-25_software_cost_allocation_and_strategy.md`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-25_engineering_department_skills_map.md` - four independent signals converging on same conclusion."
+      },
+      {
+        "label": "Capability Hotspots",
+        "missionSource": "M4",
+        "confidence": "Medium",
+        "claim": "The most severe un-resourced gaps are in OTA infrastructure (2 systems engineers; competitors deliver monthly OTA at scale), Cybersecurity (no dedicated function among 51 personnel), Data Engineering (no dedicated role evidenced), and Platform Product Management (PM structure oriented to feature delivery, not platform strategy).",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`."
+      },
+      {
+        "label": "Competitor Precedent",
+        "missionSource": "M3/M4",
+        "confidence": "Medium",
+        "claim": "VW's CARIAD failure is the most documented cautionary case: governance ambiguity between software subsidiary and hardware parent engineering teams caused cascading delays and a €14B loss before the program was abandoned. Honda/DriveMode shows the exact same early-stage governance pattern.",
+        "sources": "VW Group financial disclosures (M3); OEM transformation case analysis (M4 - secondary reference, requires independent verification). Overall confidence Medium: the CARIAD facts are High, but the Honda relevance is an M4 inference."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "The Innovator's Dilemma",
+        "body": "Large, successful companies often struggle to adapt to disruptive innovations because their existing processes and business models are optimized for their current success, not the future. They often acquire or incubate new capabilities in separate entities (like DriveMode)."
+      },
+      {
+        "title": "Agile vs. Waterfall",
+        "body": "Software development culture (iterative, fast-paced, \"agile\") often clashes with traditional manufacturing culture (linear, plan-driven, \"waterfall\"). Successful transformations require a hybrid model or clear \"zones\" where different models can operate."
+      },
+      {
+        "title": "The \"Tour of Duty\" Model (LinkedIn)",
+        "body": "Modern tech organizations often retain top talent by offering specific, challenging, multi-year \"missions\" rather than a life-long career path, a model very different from traditional corporate structures."
+      }
+    ],
+    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. The current relationship between Honda and DriveMode shows classic signs of early-stage friction. Without a clear, deliberate, and fully-backed plan for governance, funding, and talent management, even the best technical strategy will fail due to internal organizational dysfunction. This is the most critical, non-technical risk to the entire program. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Governance Tension: Autonomy vs. Integration",
+        "signal": "DriveMode was acquired to be a fast-moving, modern software entity, which requires autonomy from the slower, more bureaucratic processes of the parent company.",
+        "counterSignal": "To be effective, the connected vehicle platform must be deeply integrated with Honda's core functions: vehicle hardware engineering, marketing, sales, and the dealer network.",
+        "theTension": "How to grant the software organization (DriveMode) the autonomy it needs to be fast and innovative, while ensuring the deep integration with the parent company (Honda) required for the product to actually succeed in the market."
+      },
+      {
+        "title": "The Talent Tension: Acquiring Skills vs. Evolving Culture",
+        "signal": "The fastest way to gain new capabilities is to acquire them externally (like the DriveMode acquisition).",
+        "counterSignal": "The automotive industry is littered with examples of acquired software talent leaving due to a clash with the parent company's hardware-centric culture. A successful long-term strategy requires evolving the core culture, not just buying a pocket of new skills.",
+        "theTension": "How to balance the short-term need to acquire specialized software talent with the long-term, more difficult challenge of evolving the core organizational culture to one that can attract, retain, and empower that talent."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Hybrid Governance Design",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The research shows the current governance model is \"informally defined\" and \"unresolved,\" leading to conflicting incentives. This is the #1 organizational risk factor identified in the analysis of failed transformations like CARIAD."
+        ],
+        "implication": "The organization lacks a formal, proven model for managing a subsidiary software entity. This is the most urgent capability to develop or acquire (e.g., by bringing in outside experts who have managed similar transformations)."
+      },
+      {
+        "capability": "Software-Centric Financial Planning",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The \"unresolved\" issue of software cost allocation proves the organization's financial planning processes are still rooted in a hardware-sales model."
+        ],
+        "implication": "Without the ability to financially model, fund, and measure the success of long-term software platforms (which have different cost structures and ROI profiles than a vehicle), any strategic plan is purely theoretical."
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "number": "01",
+    "title": "The Future of Rider Ownership",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "Rider ownership and payment patterns are drawn from 20+ independent Western and European sources (app reviews, owner forums, enthusiast press), and competitor success and failure cases are confirmed from public disclosures. Confidence is Medium rather than High because all rider sentiment reflects Western markets - direct evidence from Japan and Southeast Asia, Honda's core volume markets, is absent. The ownership patterns described here may not transfer to Asian rider behaviour.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Ownership vs. Access Framing",
+        "missionSource": "M1",
+        "confidence": "High",
+        "claim": "Riders draw a sharp distinction between features they feel they **own** (ride data, permanent access) and services they **access** (navigation, subscriptions). The highest frustration comes from OEMs holding personal ride data hostage.",
+        "sources": "app store reviews (Honda, Kawasaki, BMW), owner forums (ADVrider, UK-Yankee), enthusiast press; 20+ independent sources."
+      },
+      {
+        "label": "Willingness to Pay",
+        "missionSource": "M1",
+        "confidence": "High",
+        "claim": "Riders resist paying for pre-installed hardware but will pay for high-stakes outcomes like theft tracking and crash detection.",
+        "sources": "Monimoto (£149 + £36/yr), BikeTrac (£299 + £99/yr), EatSleepRIDE Crashlight ($49/yr); Kawasaki Canada voice subscription near-universal rejection."
+      },
+      {
+        "label": "Competitor Failure",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "Harley-Davidson H-D Connect was discontinued August 2020 due to an insufficient user base, proving brand alone does not ensure platform adoption.",
+        "sources": "triketalk.com, hdforums.com, hdlivewireforum.com; community petition to restore service active as of 2026."
+      },
+      {
+        "label": "Competitor Success",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "Indian and Chinese competitors are building operational platforms for lifecycle ownership with tiered subscriptions, measurable KPIs, and multi-model deployment. Hero MotoCorp's Battery-as-a-Service model (monthly subscription from ₹1,242/month, including battery replacement guarantee) and CFMOTO's RIDE app (geofenced anti-theft with 4G remote lock, digital key, OTA firmware updates) demonstrate that connected subscription models are operational beyond Western markets. TVS's Crash Alert system (automatic GPS alert to emergency contacts) adds a third concurrent implementation.",
+        "sources": "Hero COE structure (67% faster rollout; 19% MAU uplift; 30% service bookings); TVS Motor CDAO role; Ather 46% R&D workforce; `sources/2026-06-26_hero_deep_dive.md`; `sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "Hardware + Service (e.g., Apple, Peloton)",
+        "body": "Successful ecosystems create a software \"moat\" that drives hardware upgrades and subscription revenue through a superior, integrated experience."
+      },
+      {
+        "title": "Data Portability & Trust (e.g., GDPR, Health Tech)",
+        "body": "Mature digital markets trend towards giving users more control over their personal data to build trust."
+      },
+      {
+        "title": "Open vs. Closed Ecosystems (e.g., Android vs. iOS)",
+        "body": "A foundational strategic choice exists between the faster scale of an open platform versus the greater control and potential value capture of a closed \"walled garden.\""
+      }
+    ],
+    "implications": "The battle for rider ownership is not about having a mobile app; it is about controlling the lifecycle value stream (service, accessories, financing, resale, and the next vehicle purchase). Losing this battle risks relegating the OEM to a \"dumb hardware\" provider, while others capture the profitable, ongoing relationship. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Monetization Tension: Proven Niche Payments vs. Broad Subscription Resistance",
+        "signal": "Riders demonstrate a clear willingness to pay for specific, high-stakes outcomes like theft tracking and crash alerts.",
+        "counterSignal": "The same riders show near-universal rejection of broad subscription models for general access and features they feel should be included with the vehicle.",
+        "theTension": "How to capture proven willingness to pay for specific outcomes without triggering widespread resistance to a general subscription model."
+      },
+      {
+        "title": "The Experience Tension: Brand Control vs. Feature Excellence",
+        "signal": "A strong, controlled brand experience is a core tenet of a premium OEM strategy.",
+        "counterSignal": "OEM apps are systemically rated as inferior to best-in-class third-party apps for core \"jobs-to-be-done\" like navigation and route planning.",
+        "theTension": "How to deliver the best-in-class user experience the market demands, even if it means relinquishing total brand control by partnering with superior applications."
+      },
+      {
+        "title": "The Data Tension: Strategic Asset vs. User Trust",
+        "signal": "The most advanced competitors are building platforms to leverage rider data as a strategic asset for improving their products and services.",
+        "counterSignal": "The #1 source of rider anger discovered in the research is the perception of personal ride data being \"held hostage\" or used opaquely by the OEM.",
+        "theTension": "How to leverage the strategic value of rider data without violating the user's sense of ownership and destroying the trust required to collect that data in the first place."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Business Model Design",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The issue of software cost governance remains unresolved, indicating a lack of institutional processes for valuing and funding service-based business models.",
+          "The only proven monetization patterns in the market are for specific, tangible outcomes, a model unfamiliar to the current hardware-sales organization."
+        ],
+        "implication": "Lacking this capability, any decision on the \"Monetization Tension\" will be based on incomplete financial assumptions, posing a significant business risk."
+      },
+      {
+        "capability": "API Product Management",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The research found no evidence of a public developer program, published APIs, or dedicated API product managers for the motorcycle division."
+        ],
+        "implication": "An \"open ecosystem\" strategy to resolve the \"Experience Tension\" is not currently viable; the capability to enable a third-party developer ecosystem must be built or acquired first."
+      },
+      {
+        "capability": "Data Privacy Governance",
+        "assessment": "Invest / Scale",
+        "evidence": [
+          "Baseline legal compliance exists.",
+          "However, the \"data held hostage\" pattern is a primary source of rider anger, proving that the current capability is insufficient for building strategic trust."
+        ],
+        "implication": "To navigate the \"Data Tension,\" the current compliance-level capability must be scaled into a strategic, user-centric function that builds rider trust."
+      },
+      {
+        "capability": "Digital Partnership Management",
+        "assessment": "Leverage / Optimize",
+        "evidence": [
+          "Honda has a world-class, mature capability in managing complex, long-term partnerships in manufacturing and motorsports."
+        ],
+        "implication": "This is an existing strength that can be leveraged. It needs to be optimized and adapted for the faster cadence and different integration needs of digital platform partnerships."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "number": "02",
+    "title": "Software as Competitive Infrastructure",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "Competitor infrastructure benchmarks (Hero, Ather) and automotive financial failures (CARIAD, Ford) are drawn from public and investor-grade disclosures. Confidence is Medium rather than High because the internal capability picture - team headcount and skill gaps - comes from a single internal source (the Engineering Skills Map) that has not been independently verified. The financial precedents are automotive-scale; their direct applicability to a motorcycle OEM at lower vehicle volumes is an inference, not a measured data point.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Competitor Benchmark",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "Hero MotoCorp (AWS + Excelfore eSync for OTA), Ather Energy (Google Cloud + BigQuery), and CFMOTO (Alibaba Cloud primary; AWS/Azure for GDPR-compliant Western regions) are all operating production-grade cloud-native platforms with OTA update capabilities. CFMOTO's dual-cloud architecture - Alibaba Cloud for domestic and Asian operations, AWS/Azure for regulatory compliance in Western markets - is the first documented case of infrastructure-level regional differentiation in the competitor set, and a direct precedent for the regional architecture challenge Honda faces.",
+        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_hero_deep_dive.md`; Ather Energy annual report; 40+ competitor sources across 10 OEMs."
+      },
+      {
+        "label": "Systemic Failure Pattern",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "Widespread rider complaints about Bluetooth connectivity failures across Yamaha Y-Connect and Kawasaki Rideology confirm that infrastructure reliability is a non-trivial technical challenge and a key differentiator.",
+        "sources": "App store reviews (both platforms); independent OEM complaints converging on same structural failure."
+      },
+      {
+        "label": "Financial Cautionary Tale",
+        "missionSource": "M3",
+        "confidence": "High",
+        "claim": "Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses - VW CARIAD (€14B total; €2.1B operating loss 2022; subsequently replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($19.5B total write-down, December 2025).",
+        "sources": "VW Group financial disclosures; Ford investor reports."
+      },
+      {
+        "label": "Internal Capability",
+        "missionSource": "M4",
+        "confidence": "Low–Medium",
+        "claim": "The engineering department consists of 51 personnel with a high density of senior talent - but platform/infrastructure is staffed by only 3 people (4% of headcount) and systems engineering by 2 people (3%), the exact teams that underpin a scalable connected vehicle platform.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; four independent repository signals converging on same conclusion."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "The Cloud Computing Shift (IaaS/PaaS)",
+        "body": "Companies increasingly outsource undifferentiated infrastructure (servers, databases) to hyperscale providers (AWS, Azure, GCP) to focus engineering resources on their unique customer-facing applications."
+      },
+      {
+        "title": "The Rise of SaaS Platforms",
+        "body": "The success of platforms like Salesforce demonstrates a winning strategy of paying for a best-in-class service for a non-core function rather than building an inferior version in-house."
+      },
+      {
+        "title": "The Telco Capital Trap",
+        "body": "The telecommunications industry shows that owning and operating scaled, reliable infrastructure is a high-capital, low-margin business requiring a fundamentally different operating model."
+      }
+    ],
+    "implications": "Software infrastructure is the foundational, non-negotiable layer for any connected vehicle strategy. An unreliable or unscalable infrastructure guarantees the failure of any rider-facing application. Possessing a reliable, efficient, and secure software infrastructure is rapidly becoming \"table stakes,\" and the organizational structure to support it is a key differentiator. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Investment Tension: The High Cost of Building vs. The High Cost of Failing",
+        "signal": "The financial evidence from the auto industry shows that attempting a large-scale, proprietary software \"build\" is exceptionally high-risk and can destroy billions in capital.",
+        "counterSignal": "The market evidence from riders shows that unreliable software (e.g., connectivity drops) is a primary source of frustration that damages brand equity. Under-investment also leads to failure.",
+        "theTension": "How to make the necessary, substantial investment to achieve a reliable infrastructure without falling into the \"big bang\" proprietary build trap that has crippled larger automotive players."
+      },
+      {
+        "title": "The Control Tension: Strategic Differentiation vs. Commodity Outsourcing",
+        "signal": "A deep, senior engineering team exists in-house, capable of building sophisticated, proprietary systems.",
+        "counterSignal": "The most successful new competitors are building on top of commodity cloud platforms (AWS, GCP), and the dominant pattern in tech is to outsource non-core infrastructure to focus on unique value.",
+        "theTension": "Which parts of the software stack are a true source of competitive differentiation (and must be built by our expert team), and which parts are commodity infrastructure that should be managed by a world-class partner?"
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Cloud Architecture & Engineering",
+        "assessment": "Leverage / Optimize",
+        "evidence": [
+          "The department contains two large Mobile/Backend engineering branches and a Cross-Functional Engineering pod, totaling over 30 engineers, including multiple Staff-level and System Architects. This is a formidable in-house talent pool.",
+          "The Cross-Functional pod includes 2 Sr. DevOps Engineers, indicating an existing, dedicated function for managing cloud infrastructure and deployment pipelines."
+        ],
+        "implication": "The organization has the senior technical talent to architect and build a world-class, scalable cloud platform. The challenge is not acquiring talent, but focusing this powerful team on a clear infrastructure strategy and optimizing their impact."
+      },
+      {
+        "capability": "OTA & Embedded Systems Engineering",
+        "assessment": "Invest / Scale",
+        "evidence": [
+          "A dedicated \"Systems Engineering Branch\" exists in Tokyo, staffed with a System Architect and a Senior Software Engineer. This provides a foundation of expertise.",
+          "However, with only two dedicated personnel, this team is insufficient to develop, validate, and manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs, a cadence far beyond the capacity of the current team."
+        ],
+        "implication": "While foundational knowledge exists, the organization cannot currently deliver a competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset."
+      },
+      {
+        "capability": "Cybersecurity",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The detailed organizational framework does not show a dedicated cybersecurity function, team, or specific skill set listed for any of the 51 personnel."
+        ],
+        "implication": "This is a critical, high-severity gap. A connected vehicle platform without a dedicated security capability represents an extreme and unacceptable brand, safety, and regulatory risk. This capability must be acquired, either by hiring a dedicated team or engaging a specialist partner."
+      },
+      {
+        "capability": "Infrastructure Vendor Management",
+        "assessment": "Leverage / Optimize",
+        "evidence": [
+          "Honda possesses a world-class, mature capability in managing a complex global supply chain and hardware vendors.",
+          "The existence of Sr. DevOps roles implies experience managing infrastructure-as-code and interfacing with cloud vendor services and APIs."
+        ],
+        "implication": "The core vendor management skill exists and can be adapted from hardware to software. The DevOps function can lead the technical side of managing cloud/SaaS vendor relationships."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "number": "03",
+    "title": "Platform vs. Product Strategy",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "Rider preference for best-in-class third-party apps over OEM apps is strongly evidenced from Western markets (20+ sources; Calimoto 3M+ users). Competitor platform strategies for Hero, TVS, and Ather are confirmed from public disclosures. Confidence is Medium because the financial evidence comes from automotive OEMs at significantly larger scale, and the successful platform cases are India-centric - it is not confirmed whether the same strategy translates to Honda's global market mix.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Voice of Rider",
+        "missionSource": "M1",
+        "confidence": "High",
+        "claim": "Third-party apps that excel at a single \"job-to-be-done\" - Calimoto for scenic routing (3M+ users), REVER for route discovery, EatSleepRIDE for crash detection - are consistently preferred over comprehensive-but-mediocre OEM apps.",
+        "sources": "app store reviews, Calimoto user base data, enthusiast press; 20+ independent sources."
+      },
+      {
+        "label": "Competitor Success",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "The most advanced competitors have adopted clear platform strategies enabling multi-model deployment, tiered subscriptions, and data-driven product development. CFMOTO's systems integrator model is the most concrete documented implementation of platform-over-product thinking in the sector: they build only the app layer and vehicle integration in-house, sourcing every platform component (cloud, safety electronics, battery, AI) from specialized partners, then own the integration layer above it. Hero MotoCorp, TVS Motor, and Ather Energy follow similar integrator patterns with 7+ model deployment each.",
+        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; Hero COE structure; TVS Motor Databricks + CDAO role; Ather 64-feature OTA cadence; TVS 8-year connected services track record."
+      },
+      {
+        "label": "Competitor Failure",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "Ola Electric's technically sophisticated proprietary platform (MoveOS, Krutrim AI, Ola Maps, full OTA) did not prevent a market share collapse from 35%+ to ~15% (2025), proving that platform investment cannot compensate for service quality failures and capital overextension.",
+        "sources": "techstory.in, e-vehicleinfo.com, peoplematters.in; three layoff rounds totalling 1,620+ employees in 24 months."
+      },
+      {
+        "label": "Internal Capability",
+        "missionSource": "M4",
+        "confidence": "Low–Medium",
+        "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 people) and systems engineering (2 people) - the exact capabilities that underpin a true platform strategy.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "Operating Systems (e.g., Windows, Android)",
+        "body": "The most successful platforms succeed by enabling a vast ecosystem of third-party applications, creating value far beyond what the platform owner could build alone. Their primary product is the set of APIs and tools for developers."
+      },
+      {
+        "title": "Content Platforms (e.g., YouTube, Netflix)",
+        "body": "These platforms succeed through a dual strategy: providing a world-class consumption experience while also investing heavily in \"Original\" content (products) to differentiate and lock in users."
+      },
+      {
+        "title": "E-commerce (e.g., Amazon Marketplace vs. Brand.com)",
+        "body": "Brands constantly face the choice between leveraging a massive existing platform (Amazon) for its scale and traffic, versus building a proprietary product experience (their own website) for greater control and brand identity."
+      }
+    ],
+    "implications": "The choice between a \"Platform\" or \"Product\" strategy is not just a technical decision; it is a fundamental choice about where the organization believes it can create defensible value. A \"Product\" strategy focuses on building a world-class, self-contained application. A \"Platform\" strategy focuses on enabling others (including internal teams and third parties) to build value on top of a shared, stable core. Attempting to do both without a clear focus often results in a mediocre platform that supports mediocre products. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Value Capture Tension: Direct Control vs. Ecosystem Scale",
+        "signal": "A proprietary, all-in-one product (app) gives the OEM total control over the user experience and captures 100% of any potential revenue.",
+        "counterSignal": "The most valuable platforms in history (Windows, iOS, Android) created astronomical value by enabling an ecosystem of third-party developers, capturing only a fraction of the total value they enabled.",
+        "theTension": "How to reconcile the desire to own and control the entire user experience (Product strategy) with the evidence that the greatest value is often created by enabling an ecosystem of others (Platform strategy)."
+      },
+      {
+        "title": "The Resource Allocation Tension: Feature Velocity vs. Foundational Stability",
+        "signal": "Business stakeholders and customers often demand new, visible features, pushing engineering resources toward application-level \"product\" development.",
+        "counterSignal": "The research shows that the most common failure mode for OEM apps is infrastructure instability (e.g., Bluetooth drops), a problem solved by deep, non-visible \"platform\" engineering.",
+        "theTension": "How to allocate limited engineering resources between building new, marketable features (Product) and the deep, often invisible work of ensuring the underlying platform is stable, scalable, and secure (Platform)."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Platform Product Management",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The organizational map confirms the existence of dedicated Product Managers. However, a pure Product Manager role is typically focused on user needs and feature prioritization, which is distinct from the technical discipline of managing a platform-as-a-product for developer-users."
+        ],
+        "implication": "The organization is structured to define user-facing products but is not currently equipped to manage a platform-as-a-product. This capability must be deliberately built or acquired."
+      },
+      {
+        "capability": "Multi-Model Software Architecture",
+        "assessment": "Invest / Scale",
+        "evidence": [
+          "The senior-heavy engineering team has the raw talent to design a modular architecture.",
+          "However, the most successful competitors have a proven track record of deploying their platform across 7+ models, a scaled capability that is not yet demonstrated."
+        ],
+        "implication": "The talent is in-house, but the process and demonstrated experience of building a single software core that can be configured and deployed across the vast diversity of Honda's model lineup needs to be built and proven."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "number": "04",
+    "title": "Regional Differentiation vs. Global Scale",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Low",
+    "domainConfidenceNote": "This domain has the weakest evidence base of all eight. Honda's existing localization actions are confirmed from product documentation, and competitor regional strategies are drawn from public disclosures. However, the research found almost no direct rider voice from Japan or Southeast Asia - Honda's primary volume markets. All rider sentiment in this domain reflects Western users. Strategic decisions about regional differentiation should not be made from this evidence alone until Asia-Pacific rider research has been conducted.",
+    "domainWarning": true,
+    "signals": [
+      {
+        "label": "Honda's Localization Actions",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "Honda is already practicing deep, functional localization - RoadSync Duo carries India-only security features and battery-swapping integration in specific SEA markets. At the infrastructure level, Honda is a member of the Swappable Batteries Motorcycle Consortium (SBMC) alongside CFMOTO, KTM, Yamaha, and Piaggio, working to standardize light EV battery specifications across brands - signalling that Honda is approaching battery infrastructure localization through industry standardization rather than proprietary investment.",
+        "sources": "`sources/2026-06-23_honda_roadsync_duo_app_store.pdf`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-26_cfmoto_deep_dive.md`."
+      },
+      {
+        "label": "Voice of Rider - Critical Evidence Gap",
+        "missionSource": "M1",
+        "confidence": "Low",
+        "claim": "While Western riders prioritize navigation and scenic routing, direct rider voice from Japan and Southeast Asia is almost entirely absent from the research base. All substantive forum evidence comes from Western markets.",
+        "sources": "20+ sources (US, UK, Europe, India); zero substantive primary sources from Japan or SEA. This is the most significant evidentiary gap given Honda's geographic priorities."
+      },
+      {
+        "label": "Competitor Strategy",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "The most digitally advanced competitors (Hero, Ather, TVS) are almost entirely India-centric, succeeding through deep regional focus rather than global platforms. Suzuki's connected service (3.1M India downloads) is also India-only.",
+        "sources": "Hero/Ather/TVS public disclosures; Suzuki Ride Connect India press release; 40+ competitor sources."
+      },
+      {
+        "label": "Market Dynamics",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "Asia-Pacific represents 41.7% of the connected motorcycle market with a 35.8% CAGR - the largest and fastest-growing segment globally. The first direct SEA competitor data point in this research (MForce, Malaysia's largest domestic manufacturer and distributor of Benelli, Keeway, SYM, and Zontes) shows no proprietary app, no digital ecosystem, and entirely externally-sourced white-label connectivity on its own brands. This can be read as a demand signal (SEA riders do not require connected services from their OEM) or a laggard gap (an unserved market with no current incumbent). Without direct rider voice it is impossible to distinguish between the two.",
+        "sources": "ABI Research connected motorcycle market data; `sources/2026-06-26_deep_dive_mforce.md`."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "\"Glocalization\" (e.g., McDonald's, Netflix)",
+        "body": "Successful global brands often operate on a \"glocal\" model: they maintain a consistent global brand and core product/platform, but allow significant regional autonomy to adapt menus, content libraries, and marketing to local tastes."
+      },
+      {
+        "title": "Digital Services (e.g., Uber, Spotify)",
+        "body": "Digital platforms often face significant hurdles in new regions due to local payment systems, regulatory environments, mapping data availability, and consumer habits, forcing them to run quasi-independent regional operations."
+      }
+    ],
+    "implications": "A \"one-size-fits-all\" global software platform is destined to fail. It will be too complex and expensive for price-sensitive regions, while simultaneously lacking the specific features required by high-value regions. The strategic question is not whether to localize, but how to architect a platform that allows for deep regional differentiation without fracturing into multiple, unsustainable, one-off codebases. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Experience Tension: Global Consistency vs. Local Relevancy",
+        "signal": "A global brand like Honda strives for a consistent, high-quality user experience for all its customers, regardless of location.",
+        "counterSignal": "Rider needs are fundamentally different by region. Indian riders may prioritize theft alerts, while European riders prioritize GDPR compliance and advanced navigation. A single global feature set cannot be optimally relevant to both.",
+        "theTension": "How to provide a globally consistent brand experience while ensuring the product is deeply relevant and tailored to the unique needs of each local market."
+      },
+      {
+        "title": "The Platform Tension: Shared Core vs. Regional Autonomy",
+        "signal": "Building a single, shared global platform maximizes engineering efficiency, reduces costs, and allows for faster deployment of core updates.",
+        "counterSignal": "Enabling deep regional differentiation (like India-only features or unique hardware integrations) adds significant complexity to the core platform, slowing down development and increasing testing costs for everyone.",
+        "theTension": "How to design a software and hardware platform that provides the economic benefits of a shared global core while allowing for the necessary flexibility and autonomy to meet divergent regional requirements."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "International Product Management",
+        "assessment": "Invest / Scale",
+        "evidence": [
+          "The existence of two distinct Product Leadership Groups provides a structure that could be adapted to focus on specific international markets.",
+          "However, the research shows a critical gap in market intelligence for Honda's core Asian markets, indicating this structure is not yet being effectively used for data-driven, region-specific product strategy."
+        ],
+        "implication": "A foundational structure exists, but it requires significant investment in market-specific research and a clear mandate for the PM teams to focus on regional needs to become effective."
+      },
+      {
+        "capability": "Modular & Extensible Architecture",
+        "assessment": "Invest / Scale",
+        "evidence": [
+          "The senior-heavy engineering team has the raw talent to design a modular architecture.",
+          "However, there is no evidence that the current platform is architected for this \"glocal\" model. The current approach appears to be ad-hoc feature-gating, which is not scalable."
+        ],
+        "implication": "A significant, deliberate investment in platform architecture is required to move from a reactive, one-off regionalization model to a strategic, scalable one. Without this, costs will spiral as more regions are supported."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "number": "05",
+    "title": "Data as a Strategic Asset",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "Rider sentiment around data ownership is among the most consistently evidenced findings in the research - the \"data held hostage\" pattern appears across 20+ independent Western sources. Competitor data platform investments by Ather, Hero, and TVS are confirmed from public technical disclosures. Confidence is Medium rather than High because Honda's internal data ambitions and current collection capabilities rest on a single internal source (December 2024 executive statements) that has not been independently verified.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Voice of Rider - Data Ownership",
+        "missionSource": "M1",
+        "confidence": "High",
+        "claim": "The #1 source of rider anger across all forums and app reviews is the perception of personal ride data being \"held hostage\" or inaccessible upon subscription cancellation. Conversely, riders actively consent to data collection when it delivers direct, tangible value - theft tracking, Ather's \"Warped\" annual ride report.",
+        "sources": "European subscription-cancellation complaints (forums, app store reviews); Ather Energy engagement data; 20+ independent sources."
+      },
+      {
+        "label": "Competitor Benchmark",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "The most advanced competitors have invested in dedicated data platforms capable of turning vehicle telemetry into product intelligence, using three distinct approaches. CFMOTO's T-Box IoT gateway creates a real-time digital twin of each vehicle synced to their cloud, enabling automated fault notifications, proactive maintenance alerts, and OTA firmware pushes. Hero MotoCorp built a Connected Vehicle Platform (CVP) on AWS + Excelfore eSync, using telemetry for battery degradation prediction and remote OTA ECU updates. TVS Motor acquired telematics firm Intellicar and US AI firm Predictronics Corporation rather than building capabilities from scratch, then deployed the PDX predictive maintenance platform and EV battery digital twins. Yamaha, Kawasaki, Suzuki, and Harley-Davidson show no evidence of equivalent investment.",
+        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_hero_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`; Ather/Hero/TVS public technical disclosures."
+      },
+      {
+        "label": "Internal Ambition",
+        "missionSource": "M4",
+        "confidence": "Low",
+        "claim": "Honda's connected services vision explicitly includes using data for defect detection, usage evaluation, and product development feedback loops.",
+        "sources": "`raw/2026Q2_organizational_capability_assessment.md`; single source - treat as directional intent, not confirmed capability."
+      },
+      {
+        "label": "Data Collection Foundation",
+        "missionSource": "M4",
+        "confidence": "Low–Medium",
+        "claim": "The RoadSync Duo app already collects location data, usage patterns, and user identifiers, creating a foundational data asset - but no dedicated data engineering, analytics, or data science function is evidenced within the DriveMode organization.",
+        "sources": "`sources/2026-06-23_honda_roadsync_duo_app_store.pdf`; `sources/2026-06-25_engineering_department_skills_map.md` (absence of data engineering role confirmed)."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "Data as the New Oil (Early 2010s)",
+        "body": "The initial \"big data\" thesis was to collect as much data as possible and find ways to monetize it, often through advertising or selling aggregate data. This model has since faced significant privacy and regulatory headwinds."
+      },
+      {
+        "title": "Data as a Service Enhancer (Modern)",
+        "body": "Leading tech companies (e.g., Netflix, Amazon) primarily use customer data to improve their own core service - personalizing recommendations, optimizing logistics, and refining product features. The data's value is realized by increasing customer retention and lifetime value, not by selling the data itself."
+      },
+      {
+        "title": "Federated Learning & On-Device AI",
+        "body": "A growing trend is to process data on edge devices (like a phone or vehicle) without sending raw personal data to the cloud, preserving privacy while still allowing for model training and feature personalization."
+      }
+    ],
+    "implications": "Data is not an asset to be extracted; it is a medium for a two-way relationship with the rider. A strategy based on hoarding or opaquely exploiting rider data is doomed to fail due to user backlash and mistrust. A successful strategy must treat the rider's data as the rider's property, and in exchange for access, provide tangible value back in the form of improved safety, security, and ownership experiences. The ability to do this effectively is a key differentiator between the market leaders and the laggards. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Value Tension: Long-Term Insight vs. Short-Term Privacy Risk",
+        "signal": "Collecting rich, long-term rider data is essential for the strategic ambition of using AI/ML for predictive maintenance and product improvement.",
+        "counterSignal": "Every piece of data collected increases the company's exposure to privacy regulations (like GDPR), cybersecurity risks, and the reputational damage of a potential data breach.",
+        "theTension": "How to collect the rich data needed for long-term strategic advantage while managing the immediate and significant privacy, security, and reputational risks."
+      },
+      {
+        "title": "The Control Tension: Centralized Data Lake vs. Rider Data Ownership",
+        "signal": "To be effective, data science and analytics teams require large, centralized \"data lakes\" to train models and discover patterns.",
+        "counterSignal": "Riders react with extreme negativity to any sense that they do not own or control their own data, especially their personal ride history.",
+        "theTension": "How to build the powerful, centralized data platform needed for advanced analytics while architecting the system in a way that honors the rider's fundamental sense of ownership and control over their information."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Data Engineering & Analytics",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The engineering organizational map shows strong capability in backend and mobile application development, but no dedicated \"Data Engineering,\" \"Data Science,\" or \"Analytics\" function.",
+          "Advanced competitors have explicitly partnered with or built on sophisticated data platforms (Databricks, Google BigQuery), a capability for which there is no evidence at DriveMode."
+        ],
+        "implication": "The organization can collect data from the app but is not currently equipped to process, analyze, or derive strategic insights from that data at scale. This is a critical gap."
+      },
+      {
+        "capability": "Data Product Management",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The PM organization is structured for delivering user-facing features. There is no evidence of the specialized skill of \"Data Product Management,\" which focuses on creating internal data platforms, tools, and services for other teams (like R&D or marketing) to consume."
+        ],
+        "implication": "Without this capability, any data collected will likely remain siloed in a database, failing to be integrated into the broader business for functions like predictive maintenance or product planning."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "number": "06",
+    "title": "Partner Ecosystem Strategy",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "Navigation partnership patterns across competitors are confirmed from product documentation, and cloud infrastructure partnerships (Hero/AWS, Ather/GCP) are confirmed from public disclosures. The financial case against proprietary builds comes from investor-grade sources. Confidence is Medium because the identified insurance partnership opportunity is an inference from absence - no competitor has a documented insurance partnership, but absence of documentation does not confirm the space is truly uncontested - and the financial evidence is automotive-scale, making its applicability to motorcycle investment decisions an inference.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Identified Open Space",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "Across all 10 competitors analyzed, no OEM has a documented partnership with an insurance provider for telematics-based services, marking this as an uncontested strategic space.",
+        "sources": "40+ competitor sources across Yamaha, Kawasaki, Hero, Ather, TVS, Ola, Bajaj, KTM, Suzuki, Harley-Davidson. Caveat: this is an inference from absence - a partnership may exist but not be publicly disclosed."
+      },
+      {
+        "label": "Common Practice",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "Navigation and mapping is the most common third-party integration point across incumbents: Yamaha partners with Garmin globally; Kawasaki with HERE; Ather with Google Maps. This signals a consistent industry default of \"buy\" for navigation capability.",
+        "sources": "Yamaha, Kawasaki, and Ather product documentation and press releases; 40+ competitor sources."
+      },
+      {
+        "label": "Competitor Enabler",
+        "missionSource": "M2",
+        "confidence": "High",
+        "claim": "The most advanced competitors use layered partnership models rather than vertical integration. CFMOTO is the most complete documented case: engine platform (KTM), safety electronics (Bosch/Continental/RDS), cloud (Alibaba/AWS/Azure), battery (Ampace/CATL), and AI (Potential Motors) are all sourced from specialist partners - CFMOTO builds only the app integration layer and vehicle design in-house. Hero MotoCorp extends this further into ecosystem partnerships: a Gogoro JV for battery-swapping infrastructure, an Ather Grid interoperability agreement (sharing charging network with a direct competitor), and an ONDC B2B marketplace for the dealer parts supply chain. The pattern across all advanced competitors is the same: own the integration layer, partner for everything beneath it.",
+        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_hero_deep_dive.md`; Hero COE public disclosures; Ather Energy annual report."
+      },
+      {
+        "label": "Financial Imperative",
+        "missionSource": "M3",
+        "confidence": "High",
+        "claim": "Build-vs-integrate analysis strongly favors partnership for non-software-native OEMs. VW spent €14B to fail at a proprietary build, then committed $5.8B to license from Rivian what it could not build in-house. For a motorcycle OEM at lower vehicle volumes and ASPs, a proprietary platform build is financially very difficult to justify.",
+        "sources": "VW Group financial disclosures; Rivian–VW partnership announcement; McKinsey connected vehicles analysis."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "API-First Ecosystems (e.g., Stripe, Twilio)",
+        "body": "The most successful modern platforms are not monolithic applications, but toolkits of APIs that allow other businesses to build on top of them. They create value by enabling their partners' success."
+      },
+      {
+        "title": "\"Co-opetition\" (e.g., Samsung & Google)",
+        "body": "It is common for major tech players to be both partners and competitors simultaneously. Samsung relies on Google's Android OS (partner) while building its own apps and services to compete for user loyalty."
+      },
+      {
+        "title": "Franchise & Dealer Models",
+        "body": "For decades, successful global brands (from fast food to automotive) have used partnership models with local dealers/franchisees to achieve global scale while leveraging local market expertise and capital."
+      }
+    ],
+    "implications": "A \"do-it-all-yourself\" strategy for a connected platform is a documented failure mode. The ability to identify, manage, and build a successful partner ecosystem is not an optional tactic; it is a core, strategic requirement for managing cost, mitigating risk, and delivering a best-in-class user experience. The central strategic question is not if we should partner, but where on the stack and how to structure those partnerships to retain a defensible position. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Value Tension: Faster Time-to-Market vs. Shared Value Capture",
+        "signal": "Partnering with an established leader (e.g., for navigation) can get a best-in-class capability to market in months, not years.",
+        "counterSignal": "A partnership requires sharing revenue, data, or the customer relationship, reducing the total value captured directly by the OEM.",
+        "theTension": "How to balance the need for execution speed, which favors partnership, with the desire to capture the maximum lifetime value from the rider relationship, which favors building in-house."
+      },
+      {
+        "title": "The Brand Tension: Best-in-Class Experience vs. Brand Dilution",
+        "signal": "Integrating a partner's well-regarded service (e.g., a familiar navigation UI on the dashboard) can significantly improve the user experience.",
+        "counterSignal": "Ceding control of a core part of the user interface to a third party can dilute the OEM's brand and make the experience feel generic or fragmented.",
+        "theTension": "How to leverage partners to provide a superior user experience without weakening the unique brand identity and sense of a cohesive, OEM-built ecosystem."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Digital Partnership Management",
+        "assessment": "Leverage / Optimize",
+        "evidence": [
+          "Honda has a world-class, mature capability in managing complex, long-term partnerships in its hardware and motorsports divisions."
+        ],
+        "implication": "This is a core institutional strength. The challenge is to adapt this proven capability to the faster, more agile, and technically different world of software and platform partnerships."
+      },
+      {
+        "capability": "API Product Management",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The research found no evidence of a public developer program, published APIs, or dedicated API product managers, which are the foundational elements for building a scalable partner ecosystem rather than just a few one-off integrations."
+        ],
+        "implication": "Without this capability, partnerships will remain one-off, resource-intensive projects, and the organization will be unable to scale an ecosystem strategy."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "number": "07",
+    "title": "Investment Prioritization",
+    "type": "domain",
+    "full": true,
+    "domainConfidence": "Medium",
+    "domainConfidenceNote": "The financial failure cases (CARIAD, Ford) and the table-stakes vs. monetizable investment hierarchy come from automotive investor disclosures. The internal capability gaps that constrain investment sequencing are drawn from the Engineering Skills Map. Confidence is Medium rather than High because no motorcycle-specific connected service financial data exists - all revenue projections and platform cost estimates are inferred from automotive and fleet analogues operating at significantly different scale and price points. Investment decisions in this domain cannot be grounded in direct motorcycle market evidence.",
+    "domainWarning": false,
+    "signals": [
+      {
+        "label": "Cost Hierarchy",
+        "missionSource": "M3",
+        "confidence": "High",
+        "claim": "The financial evidence establishes a clear investment hierarchy: basic connectivity (embedded SIM/eSIM, basic OTA, remote access) is table stakes - a cost of doing business with no independent revenue line at any OEM. Only specific safety/security services have demonstrated monetization at scale: GM OnStar Safety ($120–$780/yr tiers); GM Super Cruise ($234M revenue, 2025).",
+        "sources": "ABI Research ($31.77B global OEM connectivity spend); GM investor reports; McKinsey connected vehicles projections (2030)."
+      },
+      {
+        "label": "Risk of Ruin",
+        "missionSource": "M3",
+        "confidence": "High",
+        "claim": "Two automotive OEMs have suffered catastrophic failures attempting proprietary software platform builds: VW CARIAD (€14B total investment; program abandoned; replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($4.7B in 2023 + $5B in 2024 losses; $19.5B total write-down, December 2025). Common failure pattern: scope overreach, culture mismatch, underestimated integration complexity, multi-year cash burn before revenue.",
+        "sources": "VW Group and Ford investor disclosures (primary financial sources)."
+      },
+      {
+        "label": "Competitor R&D Investment Benchmarks",
+        "missionSource": "M2",
+        "confidence": "Medium",
+        "claim": "The deep dives provide first motorcycle-sector R&D investment reference points. CFMOTO invests 6.18% of revenue in R&D ($170M on $2.73B FY2025 revenue), holding 2,119+ active patents with a global R&D network across China, Italy, USA, and Austria. TVS Motor acquired Intellicar (telematics) and Predictronics Corporation (AI predictive maintenance) rather than building capabilities organically, and invested £200M+ in the Norton Motorcycles acquisition to gain premium engineering capacity. Both signal that capability acquisition via M&A is an active investment strategy alongside organic R&D.",
+        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`."
+      },
+      {
+        "label": "Unresolved Governance",
+        "missionSource": "M4",
+        "confidence": "Low–Medium",
+        "claim": "Honda's internal model for allocating software costs and funding platform development remains unresolved as of 2026. The software cost split (global/local revenue ratio) functions as a financial governance mechanism that creates local-optimization incentives rather than enabling platform investment.",
+        "sources": "`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`; `wiki/brain-dumps/2026-06-25_software_cost_allocation_and_strategy.md`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-25_engineering_department_skills_map.md` - four independent signals converging on same conclusion."
+      },
+      {
+        "label": "Capability Gaps - Investment Binding Constraint",
+        "missionSource": "M4",
+        "confidence": "Medium",
+        "claim": "The most severe internal capability gaps - OTA infrastructure, Cybersecurity, Data Engineering, Platform PM - are in technically expensive domains requiring sustained long-term investment. Four of the fourteen capability areas assessed have a recommended approach of \"Partner\" rather than \"Build,\" directly shaping what investment sequencing is realistic.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`; `wiki/outputs/2026-06-26_signal_strengthening_findings.md`."
+      }
+    ],
+    "crossIndustrySubtitle": "Interpretive Analogy",
+    "crossIndustryPatterns": [
+      {
+        "title": "Venture Capital Portfolio Strategy",
+        "body": "VC firms mitigate risk by making many small, early-stage bets, and then concentrating a large amount of follow-on funding only on the handful of proven winners. They avoid making a single, massive bet on an unproven idea."
+      },
+      {
+        "title": "Corporate Budgeting (Project vs. Product)",
+        "body": "Traditional corporations fund discrete \"projects\" with a defined start, end, and budget. Modern software companies fund persistent \"products\" or \"platforms\" with continuous, operational budgets, recognizing that the work is never \"done.\""
+      }
+    ],
+    "implications": "Investment strategy is the ultimate expression of the organization's priorities. A traditional, project-based funding model is fundamentally incompatible with the continuous, operational nature of a software platform. Without a clear financial model and a deliberate investment sequence, the organization risks either a catastrophic \"big bang\" failure or \"death by a thousand cuts\" from funding a series of disconnected, un-scalable features. ---",
+    "tensionsNote": null,
+    "tensions": [
+      {
+        "title": "The Pacing Tension: \"Big Bet\" Transformation vs. Incremental Evolution",
+        "signal": "To catch up with advanced competitors, a large, decisive \"big bet\" on a platform and team might be necessary to break through organizational inertia.",
+        "counterSignal": "The financial evidence shows that large \"big bets\" on proprietary software have the highest risk of catastrophic failure. An incremental, evidence-based approach is financially safer.",
+        "theTension": "How to invest at a pace sufficient to be competitive without taking on the level of financial and execution risk that has crippled larger players."
+      },
+      {
+        "title": "The Allocation Tension: Funding New Features vs. Maintaining the Core",
+        "signal": "The business will naturally want to prioritize investment in new, marketable features that are visible to customers.",
+        "counterSignal": "A significant portion of any software budget is consumed by non-glamorous but critical \"keep the lights on\" work: security patches, infrastructure maintenance, and refactoring to manage technical debt. Neglecting this work leads to the instability seen across current OEM apps.",
+        "theTension": "How to allocate capital between funding exciting, innovative new features and the non-negotiable, but often invisible, work of ensuring the underlying platform is secure, stable, and maintainable."
+      }
+    ],
+    "capabilities": [
+      {
+        "capability": "Software-Centric Financial Planning",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "The \"unresolved\" issue of software cost allocation proves the organization's financial planning processes are still rooted in a hardware-sales model."
+        ],
+        "implication": "This is a critical gap. Without the ability to financially model, fund, and measure the success of long-term software platforms (which have different cost structures and ROI profiles than a vehicle), any strategic plan is purely theoretical."
+      },
+      {
+        "capability": "Portfolio Management / Venture-Style Funding",
+        "assessment": "Explore / Acquire",
+        "evidence": [
+          "There is no evidence of a mechanism for making small, experimental bets and then doubling down on winners, as seen in VC or modern tech portfolio management. The current structure appears geared toward large, pre-approved projects."
+        ],
+        "implication": "The organization may be forced to make a single \"big bet\" because it lacks the process to manage a portfolio of smaller, iterative experiments, thereby increasing financial risk."
+      }
+    ]
+  }
+]

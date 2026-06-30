@@ -29,7 +29,7 @@
   .legend-divider { height: 16px; width: 1px; background: #EDE9E4; }
   .ov-tally { font-size: 12px; color: #7A8A96; }
   .ov-grid-wrap { flex: 1; padding: 28px 40px; overflow: hidden; background: linear-gradient(140deg, #F9F7F4 0%, #F0EEE9 100%); }
-  .ov-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 16px; height: 100%; }
+  .ov-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 16px; height: 100%; }
 
   /* Domain cards */
   .domain-card { border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; transition: box-shadow 0.15s; }
@@ -198,6 +198,12 @@
 <script>
 const STORAGE_KEY = 'drivemode_wkshp_v1';
 
+// Render inline **bold** markdown as DOM nodes
+function renderInline(text) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return parts.map((p, i) => i % 2 === 1 ? el('strong', null, p) : p);
+}
+
 // Signal type → unified color (border + label + badge share one hue)
 function signalTypeConfig(label) {
   const l = label.toLowerCase();
@@ -220,8 +226,7 @@ function domainConfidenceConfig(conf) {
   return                     { bg: '#FFF0EF', color: '#B91C1C', border: '#B91C1C30' };
 }
 
-const DATA = [
-  { id: 0, number: '01', title: 'The Future of Rider Ownership', full: false },
+let DATA = [];
   {
     id: 1, number: '02', title: 'Software as Competitive Infrastructure', full: true,
     domainConfidence: 'Medium',
@@ -318,13 +323,6 @@ const DATA = [
       },
     ],
   },
-  { id: 2, number: '03', title: 'Platform vs. Product Strategy', full: false },
-  { id: 3, number: '04', title: 'Regional Differentiation vs. Global Scale', full: false },
-  { id: 4, number: '05', title: 'Data as a Strategic Asset', full: false },
-  { id: 5, number: '06', title: 'Organizational Transformation', full: false },
-  { id: 6, number: '07', title: 'Partner Ecosystem Strategy', full: false },
-  { id: 7, number: '08', title: 'Investment Prioritization', full: false },
-];
 
 // ── State ──
 let state = {
@@ -401,11 +399,13 @@ function buildOverview() {
   const anchored      = Object.values(state.domainStates).filter(s => s === 'anchor').length;
   const deprioritized = Object.values(state.domainStates).filter(s => s === 'deprioritize').length;
   const ignored       = Object.values(state.domainStates).filter(s => s === 'ignore').length;
+  const domainCount   = DATA.filter(d => d.type !== 'precondition').length;
+  const hasPrecondition = DATA.some(d => d.type === 'precondition');
 
   return el('div', { id: 'overview' },
     el('div', { class: 'ov-header' },
       el('div', null,
-        el('h1', { class: 'ov-title' }, 'The Eight Decision Domains'),
+        el('h1', { class: 'ov-title' }, hasPrecondition ? `Governance Precondition + ${domainCount} Decision Domains` : `The ${domainCount} Decision Domains`),
         el('p', { class: 'ov-subtitle' }, 'Click a domain to explore · decisions persist across sessions'),
       ),
       el('div', { class: 'ov-legend' },
@@ -429,15 +429,17 @@ function buildDomainCard(d) {
   const v   = getVotes(d.id);
   const tot = v.anchor + v.deprioritize + v.ignore;
   const bc  = s ? badgeColors(s) : null;
+  const isPrecondition = d.type === 'precondition';
 
   let cardStyle;
   if      (s === 'anchor')       cardStyle = { background: '#E8F2F5', border: '2px solid #1E4D5C', cursor: 'pointer' };
   else if (s === 'deprioritize') cardStyle = { background: '#F5F7FA', border: '2px solid #A0B0BA', cursor: 'pointer' };
   else if (s === 'ignore')       cardStyle = { background: '#E8EDF0', border: '2px solid #C8D5DF', cursor: 'pointer', opacity: '0.55' };
+  else if (isPrecondition)       cardStyle = { background: '#FFF8EC', border: '1.5px solid #D4920A', cursor: 'pointer' };
   else if (d.full)               cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
   else                           cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
 
-  const numColor   = s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
+  const numColor   = isPrecondition ? '#B06D00' : s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
   const titleColor = (s && s !== 'anchor') ? '#6B7A86' : '#1A2332';
 
   const voteBarEl = (!s && tot > 0) ? el('div', { class: 'vote-bar' },
@@ -449,7 +451,11 @@ function buildDomainCard(d) {
   const card = el('div', { class: `domain-card${d.full ? ' clickable' : ''}`, style: cardStyle },
     el('div', { class: 'card-top' },
       el('span', { class: 'card-num', style: { color: numColor } }, d.number),
-      bc ? el('span', { class: 'card-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s)) : el('span'),
+      bc
+        ? el('span', { class: 'card-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s))
+        : isPrecondition
+          ? el('span', { class: 'card-badge', style: { background: '#FFF0D0', color: '#B06D00', border: '1px solid #D4920A' } }, 'PRECONDITION')
+          : el('span'),
     ),
     el('div', null,
       voteBarEl,
@@ -473,7 +479,7 @@ function buildDetail() {
     el('div', { class: 'dt-header' },
       el('button', { class: 'dt-back', onClick: () => { state.view = 'overview'; state.activeId = null; state.drag = null; render(); } }, '← Overview'),
       el('div', { class: 'dt-title-wrap' },
-        el('p', { class: 'dt-domain-counter' }, `Domain ${dom.number} of 08`),
+        el('p', { class: 'dt-domain-counter' }, dom.type === 'precondition' ? 'Governance Precondition' : `Domain ${dom.number} of ${String(DATA.filter(d => d.type !== 'precondition').length).padStart(2,'0')}`),
         el('h1', { class: 'dt-domain-title' }, dom.title),
       ),
       bc ? el('span', { class: 'dt-locked-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s)) : el('span'),
@@ -518,7 +524,7 @@ function buildEvidencePanel(dom) {
             el('span', { class: 'signal-label', style: { color: tc.color } }, sig.label),
             el('span', { class: 'signal-meta-badge', style: { background: tc.badgeBg, color: tc.color } }, badgeText),
           ),
-          el('p', { class: 'signal-claim' }, sig.claim),
+          el('p', { class: 'signal-claim' }, ...renderInline(sig.claim)),
           sig.sources ? el('p', { class: 'signal-sources' }, sig.sources) : null,
         );
       }),
@@ -574,6 +580,10 @@ function buildAnalysisPanel(dom, id, s) {
 
   // Scroll area: capabilities → tensions → implication (synthesis at end)
   const scrollArea = el('div', { class: 'decision-scroll' },
+    dom.description ? el('div', { style: { marginBottom: '28px', padding: '18px 22px', background: '#FFF8EC', borderLeft: '3px solid #D4920A', borderRadius: '0 6px 6px 0' } },
+      el('p', { style: { fontSize: '9px', fontWeight: '700', color: '#B06D00', textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '10px' } }, 'Precondition'),
+      el('p', { style: { fontSize: '14px', fontFamily: "'EB Garamond', serif", lineHeight: '1.7', color: '#1A2332' } }, ...renderInline(dom.description)),
+    ) : null,
     el('p', { class: 'section-label' }, 'Drivemode Capabilities Analysis'),
     el('div', { class: 'caps-analysis-list' }, ...capCards),
     el('div', { class: 'section-divider' }),
@@ -737,7 +747,13 @@ window.addEventListener('mouseup', () => { if (state.drag) { persist(); state.dr
 
 // ── Init ──
 loadState();
-render();
+fetch('data.json')
+  .then(r => r.json())
+  .then(json => { DATA = json; render(); })
+  .catch(() => {
+    document.getElementById('app').innerHTML =
+      '<p style="padding:48px;font-family:Inter,sans-serif;font-size:14px;color:#8A9BAA;">Could not load domain data. Make sure data.json is present.</p>';
+  });
 </script>
 </body>
 </html>
