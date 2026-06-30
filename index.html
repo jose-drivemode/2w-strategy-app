@@ -204,6 +204,23 @@ function renderInline(text) {
   return parts.map((p, i) => i % 2 === 1 ? el('strong', null, p) : p);
 }
 
+// Apply lever-position-driven typography to signal/counter-signal elements
+// pct 0 = full left (signal), pct 100 = full right (counter-signal)
+function applyLeverStyles(pct, signalEl, counterEl) {
+  const l = 1 - pct / 100;
+  const r = pct / 100;
+  if (signalEl) {
+    signalEl.style.fontWeight = Math.round(400 + l * 300);
+    signalEl.style.fontSize   = (11 + l * 2).toFixed(1) + 'px';
+    signalEl.style.opacity    = (0.55 + l * 0.45).toFixed(2);
+  }
+  if (counterEl) {
+    counterEl.style.fontWeight = Math.round(400 + r * 300);
+    counterEl.style.fontSize   = (11 + r * 2).toFixed(1) + 'px';
+    counterEl.style.opacity    = (0.55 + r * 0.45).toFixed(2);
+  }
+}
+
 // Signal type → unified color (border + label + badge share one hue)
 function signalTypeConfig(label) {
   const l = label.toLowerCase();
@@ -491,7 +508,7 @@ function buildAnalysisPanel(dom, id, s) {
     el('p', { class: 'section-label' }, 'Drivemode Capabilities Analysis'),
     el('div', { class: 'caps-analysis-list' }, ...capCards),
     el('div', { class: 'section-divider' }),
-    el('p', { class: 'section-label' }, 'Strategic Tensions'),
+    el('p', { class: 'section-label' }, 'Strategic Trade-offs'),
     dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
     el('div', { class: 'tensions-list' }, ...tensionItems),
     // Implication: synthesis at bottom of scroll, after reading everything
@@ -508,37 +525,45 @@ function buildAnalysisPanel(dom, id, s) {
 }
 
 function buildTension(t, i, id) {
-  const parts  = t.title.split(': ');
-  const pct    = getTensionPos(id, i);
-  const bar    = el('div', { class: 'tension-bar' });
-  const marker = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
+  const parts    = t.title.split(': ');
+  const pct      = getTensionPos(id, i);
+  const bar      = el('div', { class: 'tension-bar' });
+  const marker   = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
+  const signalEl = el('p', { class: 'tension-signal' }, t.signal);
+  const counterEl = el('p', { class: 'tension-counter-signal' }, t.counterSignal);
   bar.appendChild(marker);
+
+  // Apply typography reflecting current lever position
+  applyLeverStyles(pct, signalEl, counterEl);
 
   bar.addEventListener('click', (e) => {
     if (state.drag) return;
     const r = bar.getBoundingClientRect();
     const p = Math.round(Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)));
     state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [i]: p };
-    persist(); marker.style.left = p + '%';
+    persist();
+    marker.style.left = p + '%';
+    applyLeverStyles(p, signalEl, counterEl);
   });
+
   marker.addEventListener('mousedown', (e) => {
     e.preventDefault();
     const r = bar.getBoundingClientRect();
-    state.drag = { ti: i, left: r.left, width: r.width, marker, id };
+    state.drag = { ti: i, left: r.left, width: r.width, marker, id, signalEl, counterEl };
   });
 
   return el('div', { class: 'tension-item' },
     el('div', { class: 'tension-title-row' },
-      el('span', { class: 'tension-name' }, parts[0]),
+      el('span', { class: 'tension-name' }, parts[0].replace(/\bTension\b/g, 'Trade-off')),
       el('span', { class: 'tension-subtitle' }, parts.slice(1).join(': ')),
     ),
     el('div', { class: 'tension-spectrum-row' },
-      el('p', { class: 'tension-signal' }, t.signal),
+      signalEl,
       bar,
-      el('p', { class: 'tension-counter-signal' }, t.counterSignal),
+      counterEl,
     ),
     el('p', { class: 'tension-description' },
-      el('span', { class: 'tension-description-label' }, 'The Tension: '),
+      el('span', { class: 'tension-description-label' }, 'The Trade-off: '),
       t.theTension,
     ),
   );
@@ -642,10 +667,11 @@ function clearState(id) { delete state.domainStates[id]; persist(); render(); }
 // ── Drag ──
 window.addEventListener('mousemove', (e) => {
   if (!state.drag) return;
-  const { left, width, marker, id, ti } = state.drag;
+  const { left, width, marker, id, ti, signalEl, counterEl } = state.drag;
   const pct = Math.round(Math.max(0, Math.min(100, ((e.clientX - left) / width) * 100)));
   state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [ti]: pct };
   marker.style.left = pct + '%';
+  applyLeverStyles(pct, signalEl, counterEl);
 });
 window.addEventListener('mouseup', () => { if (state.drag) { persist(); state.drag = null; } });
 
