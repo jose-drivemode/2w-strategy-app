@@ -21,13 +21,13 @@
   #overview { width: 100%; height: 100%; display: flex; flex-direction: column; }
   .ov-header { padding: 18px 40px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
   .ov-title { font-size: 26px; font-family: 'EB Garamond', serif; color: #1A2332; margin-bottom: 3px; }
-  .ov-subtitle { font-size: 12px; color: #8A9BAA; }
+  .ov-subtitle { font-size: 12px; color: #7A8A96; }
   .ov-legend { display: flex; align-items: center; gap: 20px; }
   .legend-items { display: flex; gap: 12px; align-items: center; }
   .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #5A7B87; }
   .legend-swatch { width: 8px; height: 8px; border-radius: 2px; }
   .legend-divider { height: 16px; width: 1px; background: #EDE9E4; }
-  .ov-tally { font-size: 12px; color: #A0B0BA; }
+  .ov-tally { font-size: 12px; color: #7A8A96; }
   .ov-grid-wrap { flex: 1; padding: 28px 40px; overflow: hidden; background: linear-gradient(140deg, #F9F7F4 0%, #F0EEE9 100%); }
   .ov-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 16px; height: 100%; }
 
@@ -47,10 +47,10 @@
   ───────────────────────────────────────── */
   #detail { width: 100%; height: 100%; display: flex; flex-direction: column; animation: fadeIn 0.2s ease-out; }
   .dt-header { padding: 12px 32px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; align-items: center; gap: 20px; }
-  .dt-back { padding: 7px 14px; border: 1px solid #EDE9E4; background: white; color: #8A9BAA; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
+  .dt-back { padding: 7px 14px; border: 1px solid #EDE9E4; background: white; color: #7A8A96; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
   .dt-back:hover { background: #F9F7F4; }
   .dt-title-wrap { flex: 1; min-width: 0; }
-  .dt-domain-counter { font-size: 10px; color: #A0B0BA; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; margin-bottom: 2px; }
+  .dt-domain-counter { font-size: 10px; color: #8A9BAA; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; margin-bottom: 2px; }
   .dt-domain-title { font-size: 22px; font-family: 'EB Garamond', serif; color: #1A2332; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .dt-locked-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
   .dt-body { flex: 1; display: grid; grid-template-columns: 330px 1fr; overflow: hidden; }
@@ -65,14 +65,12 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 0;
   }
 
-  /* Section label */
   .section-label {
     font-size: 9px;
     font-weight: 700;
-    color: #B0BEC5;
+    color: #A0B0BA;
     text-transform: uppercase;
     letter-spacing: 1.4px;
     margin-bottom: 12px;
@@ -81,7 +79,7 @@
   /* Domain confidence header */
   .domain-confidence-block {
     background: white;
-    border: 1px solid #EDE9E4;
+    border: 1px solid #E8E4DE;
     border-radius: 6px;
     padding: 12px 14px;
     margin-bottom: 18px;
@@ -95,7 +93,7 @@
   .confidence-meta-label {
     font-size: 9px;
     font-weight: 700;
-    color: #B0BEC5;
+    color: #A0B0BA;
     text-transform: uppercase;
     letter-spacing: 1.2px;
   }
@@ -106,10 +104,12 @@
     border-radius: 3px;
     letter-spacing: 0.4px;
   }
+  /* Domain confidence uses green/amber/red — its only job is to communicate
+     overall evidence reliability, isolated in its own block */
   .confidence-sources-text {
     font-size: 11px;
-    color: #6B7A86;
-    line-height: 1.5;
+    color: #4A5A68;
+    line-height: 1.55;
   }
   .confidence-warning {
     display: flex;
@@ -123,9 +123,12 @@
     line-height: 1.5;
   }
 
-  /* Enriched signal cards */
-  .signals-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
+  /* Signal cards — unified color per card:
+     border + label + badge all share the same category color.
+     Confidence level is expressed in badge text, not a second color. */
+  .signals-list { display: flex; flex-direction: column; gap: 8px; }
   .signal-card {
+    background: white;
     border-left: 3px solid transparent;
     border-radius: 0 6px 6px 0;
     padding: 12px 13px;
@@ -141,7 +144,7 @@
     font-size: 11px;
     font-weight: 700;
     line-height: 1.3;
-    letter-spacing: 0.2px;
+    /* color set inline — same as card border */
   }
   .signal-meta-badge {
     font-size: 9px;
@@ -151,16 +154,17 @@
     white-space: nowrap;
     flex-shrink: 0;
     letter-spacing: 0.3px;
+    /* bg/color set inline — same hue as card border */
   }
   .signal-claim {
     font-size: 11.5px;
-    color: #2E3D4A;
+    color: #2A3848;
     line-height: 1.6;
     margin-bottom: 8px;
   }
   .signal-sources {
     font-size: 10px;
-    color: #A0B0BA;
+    color: #8A9BAA;
     font-style: italic;
     line-height: 1.5;
     padding-top: 7px;
@@ -169,11 +173,11 @@
 
   /* Cross-industry patterns */
   .evidence-section-gap { margin-top: 20px; }
-  .patterns-list { display: flex; flex-direction: column; gap: 0; }
-  .pattern-item { padding: 11px 0; border-top: 1px solid #EAE7E2; }
+  .patterns-list { display: flex; flex-direction: column; }
+  .pattern-item { padding: 11px 0; border-top: 1px solid #E8E4DE; }
   .pattern-item:first-child { border-top: none; padding-top: 0; }
-  .pattern-title { font-size: 12px; font-weight: 600; color: #3A4A58; line-height: 1.35; margin-bottom: 4px; }
-  .pattern-body { font-size: 11.5px; color: #6B7A86; line-height: 1.6; }
+  .pattern-title { font-size: 12px; font-weight: 600; color: #2A3848; line-height: 1.35; margin-bottom: 4px; }
+  .pattern-body { font-size: 11.5px; color: #4A5A68; line-height: 1.6; }
 
   /* ─────────────────────────────────────────
      RIGHT PANEL — ANALYSIS & DECISION
@@ -191,7 +195,7 @@
 
   .section-divider { border-top: 1px solid #F0EDE8; margin-bottom: 26px; }
 
-  /* Capabilities analysis cards */
+  /* Capabilities cards */
   .caps-analysis-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
   .cap-card {
     border-left: 3px solid transparent;
@@ -219,23 +223,23 @@
   .cap-evidence-label {
     font-size: 9px;
     font-weight: 700;
-    color: #C0CAD2;
+    color: #B0BEC5;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 6px;
   }
   .cap-evidence-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
   .cap-evidence-item { display: flex; gap: 8px; align-items: flex-start; }
-  .cap-evidence-dot { color: #C0CAD2; font-size: 11px; line-height: 1.6; flex-shrink: 0; }
-  .cap-evidence-text { font-size: 11px; color: #5A6A7A; line-height: 1.6; }
+  .cap-evidence-dot { color: #B0BEC5; font-size: 11px; line-height: 1.6; flex-shrink: 0; }
+  .cap-evidence-text { font-size: 11px; color: #3D4D5C; line-height: 1.6; }
   .cap-implication-wrap { border-top: 1px solid #ECEAE6; padding-top: 10px; }
-  .cap-implication-label { font-size: 9px; font-weight: 700; color: #C0CAD2; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .cap-implication-label { font-size: 9px; font-weight: 700; color: #B0BEC5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
   .cap-implication-text {
     font-size: 13px;
     font-family: 'EB Garamond', serif;
     font-style: italic;
-    color: #5A6A7A;
-    line-height: 1.6;
+    color: #3D4D5C;
+    line-height: 1.65;
   }
 
   /* Strategic tensions */
@@ -243,19 +247,13 @@
   .tension-item { padding: 18px 0; border-top: 1px solid #F0EDE8; }
   .tension-title-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
   .tension-name { font-size: 15px; font-weight: 600; color: #1A2332; font-family: 'EB Garamond', serif; }
-  .tension-subtitle { font-size: 11px; color: #A0B0BA; font-style: italic; }
-  .tension-spectrum-row {
-    display: grid;
-    grid-template-columns: 1fr 120px 1fr;
-    gap: 16px;
-    align-items: center;
-    margin-bottom: 12px;
-  }
+  .tension-subtitle { font-size: 11px; color: #8A9BAA; font-style: italic; }
+  .tension-spectrum-row { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 16px; align-items: center; margin-bottom: 12px; }
   .tension-signal { font-size: 11px; color: #0099FF; line-height: 1.5; text-align: right; }
   .tension-bar { height: 6px; background: linear-gradient(90deg, #0099FF, #E61E8C); border-radius: 3px; position: relative; cursor: pointer; }
   .tension-marker { position: absolute; width: 18px; height: 18px; background: white; border: 2.5px solid #1E4D5C; border-radius: 50%; transform: translate(-50%, -50%); top: 50%; cursor: ew-resize; box-shadow: 0 1px 6px rgba(0,0,0,0.25); user-select: none; z-index: 2; }
   .tension-counter-signal { font-size: 11px; color: #E61E8C; line-height: 1.5; text-align: left; }
-  .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #5A6A7A; line-height: 1.65; }
+  .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #3D4D5C; line-height: 1.65; }
   .tension-description-label { color: #1A2332; font-weight: 600; font-style: normal; }
 
   /* ─────────────────────────────────────────
@@ -263,18 +261,18 @@
   ───────────────────────────────────────── */
   .voting-panel { border-top: 2px solid #F0EDE8; padding: 16px 40px; flex-shrink: 0; background: #FAFAF8; }
   .voting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-  .voting-action-btn { font-size: 11px; color: #8A9BAA; background: none; border: none; cursor: pointer; text-decoration: underline; }
+  .voting-action-btn { font-size: 11px; color: #7A8A96; background: none; border: none; cursor: pointer; text-decoration: underline; }
   .vote-options-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px; }
   .vote-option { display: flex; flex-direction: column; gap: 8px; align-items: center; }
   .vote-btn { width: 100%; padding: 11px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 0.5px; }
   .vote-count { font-size: 22px; font-weight: 700; display: block; line-height: 1.2; }
-  .vote-label { font-size: 10px; color: #A0B0BA; display: block; text-align: center; }
+  .vote-label { font-size: 10px; color: #8A9BAA; display: block; text-align: center; }
   .vote-count-wrap { text-align: center; }
   .lock-btn { width: 100%; padding: 12px; background: #1E4D5C; color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.3px; transition: background 0.15s; }
   .lock-btn:hover { background: #163A47; }
   .locked-display { display: flex; align-items: center; gap: 16px; padding: 14px 20px; background: #F0EEE9; border-radius: 8px; animation: slideUp 0.2s ease-out; }
   .locked-badge-lg { padding: 7px 18px; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
-  .locked-summary { font-size: 13px; color: #5A6A7A; }
+  .locked-summary { font-size: 13px; color: #3D4D5C; }
 </style>
 </head>
 <body>
@@ -283,32 +281,21 @@
 <script>
 const STORAGE_KEY = 'drivemode_wkshp_v1';
 
-// ── Signal type → visual config ──
+// ── Signal type → ONE color (used for border + label + badge together) ──
 function signalTypeConfig(label) {
   const l = label.toLowerCase();
   if (l.includes('competitor') || l.includes('benchmark'))
-    return { border: '#1A6FCC', bg: '#EEF5FF', labelColor: '#1A6FCC' };
+    return { color: '#1A6FCC', badgeBg: '#EEF5FF' };
   if (l.includes('failure') || l.includes('pattern') || l.includes('risk'))
-    return { border: '#C2820A', bg: '#FFFAEC', labelColor: '#B06D00' };
+    return { color: '#B06D00', badgeBg: '#FFF8EC' };
   if (l.includes('financial') || l.includes('cautionary') || l.includes('loss'))
-    return { border: '#C0392B', bg: '#FFF4F3', labelColor: '#AD2A1F' };
+    return { color: '#AD2A1F', badgeBg: '#FFF4F3' };
   if (l.includes('internal') || l.includes('capability') || l.includes('asset'))
-    return { border: '#1A7A58', bg: '#EEF9F4', labelColor: '#1A7A58' };
-  return { border: '#8A9BAA', bg: '#F4F3F0', labelColor: '#5A6A7A' };
+    return { color: '#1A7A58', badgeBg: '#EEF9F4' };
+  return { color: '#5A6A7A', badgeBg: '#F4F3F0' };
 }
 
-// ── Confidence level → badge colors ──
-function confidenceConfig(conf) {
-  if (!conf) return { bg: '#F0F0F0', color: '#888' };
-  const c = conf.toLowerCase();
-  if (c === 'high')        return { bg: '#E6F7F0', color: '#0F7A52' };
-  if (c === 'medium')      return { bg: '#FFF6E0', color: '#A36A00' };
-  if (c === 'low–medium' || c === 'low-medium')
-                           return { bg: '#FFF0E6', color: '#C2410C' };
-  return                          { bg: '#FFF0EF', color: '#B91C1C' }; // Low
-}
-
-// ── Domain-level confidence ──
+// ── Domain-level confidence — isolated to the header block only ──
 function domainConfidenceConfig(conf) {
   if (!conf) return { bg: '#F0F0F0', color: '#888', border: '#88888830' };
   const c = conf.toLowerCase();
@@ -474,7 +461,7 @@ function stateLabel(s) {
 }
 
 function badgeColors(s) {
-  if (s === 'anchor')      return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
+  if (s === 'anchor')       return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
   if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
   return                          { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
 }
@@ -549,8 +536,8 @@ function buildOverview() {
 }
 
 function buildDomainCard(d) {
-  const s = state.domainStates[d.id];
-  const v = getVotes(d.id);
+  const s   = state.domainStates[d.id];
+  const v   = getVotes(d.id);
   const tot = v.anchor + v.deprioritize + v.ignore;
 
   let cardStyle;
@@ -562,7 +549,7 @@ function buildDomainCard(d) {
 
   const numColor   = s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
   const titleColor = (s && s !== 'anchor') ? '#6B7A86' : '#1A2332';
-  const bc = s ? badgeColors(s) : null;
+  const bc         = s ? badgeColors(s) : null;
 
   const voteBarEl = (!s && tot > 0) ? el('div', { class: 'vote-bar' },
     el('div', { class: 'vote-bar-seg', style: { flex: String(v.anchor || 0), background: '#1E4D5C' } }),
@@ -584,10 +571,7 @@ function buildDomainCard(d) {
 
   if (d.full) {
     card.addEventListener('click', () => {
-      state.view = 'detail';
-      state.activeId = d.id;
-      state.drag = null;
-      render();
+      state.view = 'detail'; state.activeId = d.id; state.drag = null; render();
     });
   }
   return card;
@@ -602,17 +586,14 @@ function buildDetail() {
 
   return el('div', { id: 'detail' },
     el('div', { class: 'dt-header' },
-      el('button', {
-        class: 'dt-back',
+      el('button', { class: 'dt-back',
         onClick: () => { state.view = 'overview'; state.activeId = null; state.drag = null; render(); },
       }, '← Overview'),
       el('div', { class: 'dt-title-wrap' },
         el('p', { class: 'dt-domain-counter' }, `Domain ${dom.number} of 08`),
         el('h1', { class: 'dt-domain-title' }, dom.title),
       ),
-      bc
-        ? el('span', { class: 'dt-locked-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s))
-        : el('span'),
+      bc ? el('span', { class: 'dt-locked-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s)) : el('span'),
     ),
     el('div', { class: 'dt-body' },
       buildEvidencePanel(dom),
@@ -623,65 +604,53 @@ function buildDetail() {
 
 // ── LEFT: Evidence panel ──
 function buildEvidencePanel(dom) {
-  const children = [];
+  const nodes = [];
 
-  // Domain confidence header
+  // Domain confidence header (green/amber/red applies HERE only)
   if (dom.domainConfidence) {
-    const dc = domainConfidenceConfig(dom.domainConfidence);
-    const sourcesText = (dom.domainSources || []).join('; ');
-
-    const warningEl = dom.domainWarning
-      ? el('div', { class: 'confidence-warning' },
-          el('span', null, '⚠'),
-          el('span', null, 'Do not treat as established fact. Data from a single source — treat as hypothesis requiring validation.'),
-        )
-      : null;
-
-    children.push(
+    const dc  = domainConfidenceConfig(dom.domainConfidence);
+    const src = (dom.domainSources || []).join('; ');
+    nodes.push(
       el('div', { class: 'domain-confidence-block' },
         el('div', { class: 'confidence-header-row' },
           el('span', { class: 'confidence-meta-label' }, 'Signal Confidence'),
-          el('span', {
-            class: 'confidence-level-badge',
+          el('span', { class: 'confidence-level-badge',
             style: { background: dc.bg, color: dc.color, border: `1px solid ${dc.border}` },
           }, dom.domainConfidence.toUpperCase()),
         ),
-        el('p', { class: 'confidence-sources-text' }, sourcesText),
-        warningEl,
+        el('p', { class: 'confidence-sources-text' }, src),
+        dom.domainWarning ? el('div', { class: 'confidence-warning' },
+          el('span', null, '⚠'),
+          el('span', null, 'Do not treat as established fact. Single-source data — treat as hypothesis requiring validation.'),
+        ) : null,
       ),
     );
   }
 
-  // Signals
-  children.push(el('p', { class: 'section-label' }, 'Observed Signals'));
-
-  const signalCards = (dom.signals || []).map(sig => {
-    const tc = signalTypeConfig(sig.label);
-    const cc = confidenceConfig(sig.confidence);
-    const badgeText = sig.missionSource && sig.confidence
-      ? `${sig.missionSource} · ${sig.confidence}`
-      : sig.confidence || '';
-
-    return el('div', { class: 'signal-card', style: { borderLeftColor: tc.border, background: tc.bg } },
-      el('div', { class: 'signal-card-header' },
-        el('span', { class: 'signal-label', style: { color: tc.labelColor } }, sig.label),
-        el('span', {
-          class: 'signal-meta-badge',
-          style: { background: cc.bg, color: cc.color },
-        }, badgeText),
-      ),
-      el('p', { class: 'signal-claim' }, sig.claim),
-      sig.sources ? el('p', { class: 'signal-sources' }, sig.sources) : null,
-    );
-  });
-
-  children.push(el('div', { class: 'signals-list' }, ...signalCards));
+  // Signals — each card's border + label + badge share one color (category)
+  nodes.push(el('p', { class: 'section-label' }, 'Observed Signals'));
+  nodes.push(
+    el('div', { class: 'signals-list' },
+      ...(dom.signals || []).map(sig => {
+        const tc        = signalTypeConfig(sig.label);
+        const badgeText = [sig.missionSource, sig.confidence].filter(Boolean).join(' · ');
+        return el('div', { class: 'signal-card', style: { borderLeftColor: tc.color } },
+          el('div', { class: 'signal-card-header' },
+            el('span', { class: 'signal-label', style: { color: tc.color } }, sig.label),
+            el('span', { class: 'signal-meta-badge', style: { background: tc.badgeBg, color: tc.color } }, badgeText),
+          ),
+          el('p', { class: 'signal-claim' }, sig.claim),
+          sig.sources ? el('p', { class: 'signal-sources' }, sig.sources) : null,
+        );
+      }),
+    ),
+  );
 
   // Cross-industry patterns
-  if (dom.crossIndustryPatterns && dom.crossIndustryPatterns.length) {
-    children.push(el('div', { class: 'evidence-section-gap' }));
-    children.push(el('p', { class: 'section-label' }, 'Cross-Industry Patterns'));
-    children.push(
+  if ((dom.crossIndustryPatterns || []).length) {
+    nodes.push(el('div', { class: 'evidence-section-gap' }));
+    nodes.push(el('p', { class: 'section-label' }, 'Cross-Industry Patterns'));
+    nodes.push(
       el('div', { class: 'patterns-list' },
         ...dom.crossIndustryPatterns.map(p =>
           el('div', { class: 'pattern-item' },
@@ -693,20 +662,17 @@ function buildEvidencePanel(dom) {
     );
   }
 
-  return el('div', { class: 'evidence-panel' }, ...children);
+  return el('div', { class: 'evidence-panel' }, ...nodes);
 }
 
 // ── RIGHT: Analysis panel ──
 function buildAnalysisPanel(dom, id, s) {
   const capCards = (dom.capabilities || []).map(cap => {
     const color = capColor(cap.assessment);
-    const icon  = capIcon(cap.assessment);
-
     return el('div', { class: 'cap-card', style: { borderLeftColor: color } },
       el('div', { class: 'cap-card-header' },
-        el('span', { class: 'cap-card-name' }, `${icon}  ${cap.capability}`),
-        el('span', {
-          class: 'cap-assessment-badge',
+        el('span', { class: 'cap-card-name' }, `${capIcon(cap.assessment)}  ${cap.capability}`),
+        el('span', { class: 'cap-assessment-badge',
           style: { background: color + '18', color, border: `1px solid ${color}40` },
         }, cap.assessment),
       ),
@@ -730,28 +696,26 @@ function buildAnalysisPanel(dom, id, s) {
 
   const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
 
-  const scrollArea = el('div', { class: 'decision-scroll' },
-    el('p', { class: 'section-label' }, 'Implication'),
-    el('p', { class: 'implication-text' }, dom.implications),
-    el('div', { class: 'section-divider' }),
-    el('p', { class: 'section-label' }, 'Capabilities Analysis'),
-    el('div', { class: 'caps-analysis-list' }, ...capCards),
-    el('div', { class: 'section-divider' }),
-    el('p', { class: 'section-label' }, 'Strategic Tensions'),
-    el('div', { class: 'tensions-list' }, ...tensionItems),
+  return el('div', { class: 'decision-panel' },
+    el('div', { class: 'decision-scroll' },
+      el('p', { class: 'section-label' }, 'Implication'),
+      el('p', { class: 'implication-text' }, dom.implications),
+      el('div', { class: 'section-divider' }),
+      el('p', { class: 'section-label' }, 'Capabilities Analysis'),
+      el('div', { class: 'caps-analysis-list' }, ...capCards),
+      el('div', { class: 'section-divider' }),
+      el('p', { class: 'section-label' }, 'Strategic Tensions'),
+      el('div', { class: 'tensions-list' }, ...tensionItems),
+    ),
+    buildVotingPanel(id, s),
   );
-
-  return el('div', { class: 'decision-panel' }, scrollArea, buildVotingPanel(id, s));
 }
 
 function buildTension(t, i, id) {
   const parts    = t.title.split(': ');
-  const mainTitle = parts[0];
-  const subtitle  = parts.slice(1).join(': ');
-  const pct       = getTensionPos(id, i);
-
-  const bar    = el('div', { class: 'tension-bar' });
-  const marker = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
+  const pct      = getTensionPos(id, i);
+  const bar      = el('div', { class: 'tension-bar' });
+  const marker   = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
   bar.appendChild(marker);
 
   bar.addEventListener('click', (e) => {
@@ -759,8 +723,7 @@ function buildTension(t, i, id) {
     const r = bar.getBoundingClientRect();
     const p = Math.round(Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)));
     state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [i]: p };
-    persist();
-    marker.style.left = p + '%';
+    persist(); marker.style.left = p + '%';
   });
 
   marker.addEventListener('mousedown', (e) => {
@@ -771,8 +734,8 @@ function buildTension(t, i, id) {
 
   return el('div', { class: 'tension-item' },
     el('div', { class: 'tension-title-row' },
-      el('span', { class: 'tension-name' }, mainTitle),
-      el('span', { class: 'tension-subtitle' }, subtitle),
+      el('span', { class: 'tension-name' }, parts[0]),
+      el('span', { class: 'tension-subtitle' }, parts.slice(1).join(': ')),
     ),
     el('div', { class: 'tension-spectrum-row' },
       el('p', { class: 'tension-signal' }, t.signal),
@@ -793,7 +756,7 @@ function buildVotingPanel(id, s) {
   const hasLocked  = !!s;
 
   let actionBtn = null;
-  if (hasLocked)        actionBtn = el('button', { class: 'voting-action-btn', onClick: () => clearState(id) }, 'Change decision');
+  if (hasLocked)           actionBtn = el('button', { class: 'voting-action-btn', onClick: () => clearState(id) }, 'Change decision');
   else if (totalVotes > 0) actionBtn = el('button', { class: 'voting-action-btn', onClick: () => resetVotes(id) }, 'Reset votes');
 
   let content;
@@ -814,25 +777,22 @@ function buildVotingPanel(id, s) {
       { key: 'ignore',       label: 'IGNORE',       btnStyle: { background: '#F5F7FA', color: '#7A8A96', border: '2px solid #C8D5DF' }, countColor: '#C8D5DF' },
     ];
 
-    const optionsGrid = el('div', { class: 'vote-options-grid' },
-      ...optDefs.map(opt => {
-        const count = votes[opt.key];
-        return el('div', { class: 'vote-option' },
-          el('button', { class: 'vote-btn', style: opt.btnStyle, onClick: () => addVote(id, opt.key) }, opt.label),
-          el('div', { class: 'vote-count-wrap' },
-            el('span', { class: 'vote-count', style: { color: opt.countColor } }, String(count)),
-            el('span', { class: 'vote-label' }, count === 1 ? 'vote' : 'votes'),
-          ),
-        );
-      }),
+    content = el('div', null,
+      el('div', { class: 'vote-options-grid' },
+        ...optDefs.map(opt => {
+          const count = votes[opt.key];
+          return el('div', { class: 'vote-option' },
+            el('button', { class: 'vote-btn', style: opt.btnStyle, onClick: () => addVote(id, opt.key) }, opt.label),
+            el('div', { class: 'vote-count-wrap' },
+              el('span', { class: 'vote-count', style: { color: opt.countColor } }, String(count)),
+              el('span', { class: 'vote-label' }, count === 1 ? 'vote' : 'votes'),
+            ),
+          );
+        }),
+      ),
+      totalVotes > 0 ? el('button', { class: 'lock-btn', onClick: () => lockState(id) },
+        `Lock In Decision — ${stateLabel(leadingKey)} leading with ${leadingCount} ${leadingCount === 1 ? 'vote' : 'votes'}`) : null,
     );
-
-    const lockBtn = totalVotes > 0
-      ? el('button', { class: 'lock-btn', onClick: () => lockState(id) },
-          `Lock In Decision — ${stateLabel(leadingKey)} leading with ${leadingCount} ${leadingCount === 1 ? 'vote' : 'votes'}`)
-      : null;
-
-    content = el('div', null, optionsGrid, lockBtn);
   }
 
   return el('div', { class: 'voting-panel' },
@@ -850,12 +810,10 @@ function addVote(id, opt) {
   state.domainVotes[id] = { ...prev, [opt]: prev[opt] + 1 };
   persist(); render();
 }
-
 function resetVotes(id) {
   state.domainVotes[id] = { anchor: 0, deprioritize: 0, ignore: 0 };
   persist(); render();
 }
-
 function lockState(id) {
   const v = getVotes(id);
   if (!Math.max(v.anchor, v.deprioritize, v.ignore)) return;
@@ -864,7 +822,6 @@ function lockState(id) {
   state.domainStates[id] = winner;
   persist(); render();
 }
-
 function clearState(id) {
   delete state.domainStates[id];
   persist(); render();
@@ -878,7 +835,6 @@ window.addEventListener('mousemove', (e) => {
   state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [ti]: pct };
   marker.style.left = pct + '%';
 });
-
 window.addEventListener('mouseup', () => {
   if (state.drag) { persist(); state.drag = null; }
 });
