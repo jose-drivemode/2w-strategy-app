@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leadership Workshop — Strategic Decision Framework</title>
+<title>Leadership Workshop: Strategic Decision Framework</title>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,7 +43,7 @@
   .card-nodata { font-size: 11px; color: #C0C8CC; margin-top: 5px; font-style: italic; }
 
   /* ─────────────────────────────────────────
-     DETAIL — SHELL
+     DETAIL
   ───────────────────────────────────────── */
   #detail { width: 100%; height: 100%; display: flex; flex-direction: column; animation: fadeIn 0.2s ease-out; }
   .dt-header { padding: 12px 32px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; align-items: center; gap: 20px; }
@@ -126,7 +126,7 @@
   .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #3D4D5C; line-height: 1.65; }
   .tension-description-label { color: #1A2332; font-weight: 600; font-style: normal; }
 
-  /* Implication / synthesis block — end of scroll, before facilitation area */
+  /* Implication / synthesis block */
   .implication-block {
     margin-top: 28px;
     padding: 22px 24px;
@@ -149,7 +149,7 @@
     border-top: 1px solid #EDE9E4;
   }
 
-  /* Toggle bar — always visible */
+  /* Toggle bar */
   .facilitation-toggle-bar {
     display: flex;
     justify-content: space-between;
@@ -170,7 +170,7 @@
     letter-spacing: 0.2px;
   }
 
-  /* Voting panel — inside facilitation area when enabled */
+  /* Voting panel */
   .voting-panel {
     padding: 16px 40px 18px;
     background: #FAFAF8;
@@ -212,7 +212,7 @@ function signalTypeConfig(label) {
   return { color: '#5A6A7A', badgeBg: '#F4F3F0' };
 }
 
-// Domain-level confidence — isolated to the header block only
+// Domain-level confidence (isolated to header block only)
 function domainConfidenceConfig(conf) {
   const c = (conf || '').toLowerCase();
   if (c === 'high')   return { bg: '#E6F7F0', color: '#0F7A52', border: '#0F7A5230' };
@@ -244,13 +244,13 @@ const DATA = [
       {
         label: 'Financial Cautionary Tale',
         missionSource: 'M3', confidence: 'High',
-        claim: 'Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses — VW CARIAD (€14B total; €2.1B operating loss 2022; subsequently replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($19.5B total write-down, December 2025).',
+        claim: 'Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses: VW CARIAD (€14B total; €2.1B operating loss 2022; subsequently replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($19.5B total write-down, December 2025).',
         sources: 'VW Group financial disclosures; Ford investor reports.',
       },
       {
         label: 'Internal Capability',
         missionSource: 'M4', confidence: 'Low–Medium',
-        claim: 'The engineering department consists of 51 personnel with a high density of senior talent — but platform/infrastructure is staffed by only 3 people (4% of headcount) and systems engineering by 2 people (3%), the exact teams that underpin a scalable connected vehicle platform.',
+        claim: 'The engineering department consists of 51 personnel with a high density of senior talent, but platform/infrastructure is staffed by only 3 people (4% of headcount) and systems engineering by 2 people (3%), the exact teams that underpin a scalable connected vehicle platform.',
         sources: 'Engineering Department Skills Map and Organizational Framework (primary repository source); four independent repository signals converging on same conclusion.',
       },
     ],
@@ -268,19 +268,19 @@ const DATA = [
         body: 'The telecommunications industry shows that owning and operating scaled, reliable infrastructure is a high-capital, low-margin business requiring a fundamentally different operating model.',
       },
     ],
-    implications: 'Software infrastructure is the foundational, non-negotiable layer for any connected vehicle strategy. An unreliable or unscalable infrastructure guarantees the failure of any rider-facing application. Possessing a reliable, efficient, and secure software infrastructure is rapidly becoming "table stakes" — and the organizational structure to support it is the true differentiator.',
+    implications: 'Software infrastructure is the foundational, non-negotiable layer for any connected vehicle strategy. An unreliable or unscalable infrastructure guarantees the failure of any rider-facing application. Possessing a reliable, efficient, and secure software infrastructure is rapidly becoming "table stakes", and the organizational structure to support it is the true differentiator.',
     tensions: [
       {
         title: 'The Investment Tension: The High Cost of Building vs. The High Cost of Failing',
         signal: 'A large-scale proprietary software "build" is exceptionally high-risk and can destroy billions in capital, as the auto industry has demonstrated.',
-        counterSignal: 'Unreliable software — connectivity drops, app failures — is a primary rider frustration that damages brand equity. Under-investment also leads to failure.',
+        counterSignal: 'Unreliable software (connectivity drops, app failures) is a primary rider frustration that damages brand equity. Under-investment also leads to failure.',
         theTension: 'How to make the necessary, substantial investment to achieve reliable infrastructure without falling into the "big bang" proprietary build trap that has crippled larger automotive players.',
       },
       {
         title: 'The Control Tension: Strategic Differentiation vs. Commodity Outsourcing',
         signal: 'A deep, senior engineering team exists in-house, capable of building sophisticated, proprietary systems.',
         counterSignal: 'The most successful new competitors build on top of commodity cloud platforms. The dominant pattern is to outsource non-core infrastructure and focus on unique value.',
-        theTension: 'Which parts of the software stack are a true source of competitive differentiation and must be built by our expert team — and which are commodity infrastructure best managed by a world-class partner?',
+        theTension: 'Which parts of the software stack are a true source of competitive differentiation and must be built by our expert team, and which are commodity infrastructure best managed by a world-class partner?',
       },
     ],
     capabilities: [
@@ -295,7 +295,7 @@ const DATA = [
       {
         capability: 'OTA & Embedded Systems Engineering', assessment: 'Invest / Scale',
         evidence: [
-          'A dedicated Systems Engineering Branch exists in Tokyo with a System Architect and Sr. Software Engineer — a foundational foothold.',
+          'A dedicated Systems Engineering Branch exists in Tokyo with a System Architect and Sr. Software Engineer, providing a foundational foothold.',
           'At only two personnel, this team cannot develop, validate, and manage OTA campaigns for a global, multi-model fleet. Ather delivers monthly OTAs; this cadence is currently out of reach.',
         ],
         implication: 'Foundational knowledge exists, but the organization cannot yet deliver competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset.',
@@ -500,7 +500,7 @@ function buildEvidencePanel(dom) {
         el('p', { class: 'confidence-sources-text' }, src),
         dom.domainWarning ? el('div', { class: 'confidence-warning' },
           el('span', null, '⚠'),
-          el('span', null, 'Do not treat as established fact. Single-source data — treat as hypothesis requiring validation.'),
+          el('span', null, 'Do not treat as established fact. Single-source data; treat as a hypothesis requiring validation.'),
         ) : null,
       ),
     );
@@ -578,7 +578,7 @@ function buildAnalysisPanel(dom, id, s) {
     el('div', { class: 'section-divider' }),
     el('p', { class: 'section-label' }, 'Strategic Tensions'),
     el('div', { class: 'tensions-list' }, ...tensionItems),
-    // Implication lives at the bottom of scroll — synthesis after reading everything
+    // Implication: synthesis at bottom of scroll, after reading everything
     dom.implications ? el('div', { class: 'implication-block' },
       el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication'),
       el('p', { class: 'implication-text' }, dom.implications),
@@ -638,7 +638,7 @@ function buildFacilitationArea(id, s) {
       ? { background: '#1E4D5C', color: 'white', border: '1px solid #1E4D5C' }
       : { background: 'white', color: '#7A8A96', border: '1px solid #D0D8DF' },
     onClick: () => { state.facilitationMode = !state.facilitationMode; render(); },
-  }, isOn ? 'Enabled — Turn off' : 'Enable voting');
+  }, isOn ? 'Enabled · Turn off' : 'Enable voting');
 
   const toggleBar = el('div', { class: 'facilitation-toggle-bar' },
     el('div', { class: 'facilitation-toggle-left' },
@@ -699,7 +699,7 @@ function buildVotingPanel(id, s) {
         }),
       ),
       totalVotes > 0 ? el('button', { class: 'lock-btn', onClick: () => lockState(id) },
-        `Lock In Decision — ${stateLabel(leadingKey)} leading with ${leadingCount} ${leadingCount === 1 ? 'vote' : 'votes'}`) : null,
+        `Lock In Decision: ${stateLabel(leadingKey)} leading with ${leadingCount} ${leadingCount === 1 ? 'vote' : 'votes'}`) : null,
     );
   }
 
