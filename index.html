@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Workshop — Strategic Decision Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; overflow: hidden; background: #F9F7F4; height: 100vh; width: 100vw; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: #D8D4CE; border-radius: 2px; }
+  button { font-family: 'Inter', sans-serif; }
+  .app { width: 100vw; height: 100vh; display: flex; flex-direction: column; background: #F9F7F4; overflow: hidden; }
+
+  /* ── OVERVIEW ── */
+  #overview { width: 100%; height: 100%; display: flex; flex-direction: column; }
+  .ov-header { padding: 18px 40px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
+  .ov-title { font-size: 26px; font-family: 'EB Garamond', serif; color: #1A2332; margin-bottom: 3px; }
+  .ov-subtitle { font-size: 12px; color: #8A9BAA; }
+  .ov-legend { display: flex; align-items: center; gap: 20px; }
+  .legend-items { display: flex; gap: 12px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #5A7B87; }
+  .legend-swatch { width: 8px; height: 8px; border-radius: 2px; }
+  .legend-divider { height: 16px; width: 1px; background: #EDE9E4; }
+  .ov-tally { font-size: 12px; color: #A0B0BA; }
+  .ov-grid-wrap { flex: 1; padding: 28px 40px; overflow: hidden; background: linear-gradient(140deg, #F9F7F4 0%, #F0EEE9 100%); }
+  .ov-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 16px; height: 100%; }
+
+  /* Domain cards */
+  .domain-card { border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; transition: box-shadow 0.15s; }
+  .domain-card.clickable:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .card-num { font-size: 11px; font-weight: 600; }
+  .card-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
+  .vote-bar { height: 3px; background: #EDE9E4; border-radius: 2px; overflow: hidden; display: flex; margin-bottom: 10px; }
+  .vote-bar-seg { transition: flex 0.3s; min-width: 0; }
+  .card-title { font-size: 16px; line-height: 1.3; font-family: 'EB Garamond', serif; margin-top: 4px; }
+  .card-nodata { font-size: 11px; color: #C0C8CC; margin-top: 5px; font-style: italic; }
+
+  /* ── DETAIL ── */
+  #detail { width: 100%; height: 100%; display: flex; flex-direction: column; animation: fadeIn 0.2s ease-out; }
+  .dt-header { padding: 12px 32px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; align-items: center; gap: 20px; }
+  .dt-back { padding: 7px 14px; border: 1px solid #EDE9E4; background: white; color: #8A9BAA; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
+  .dt-title-wrap { flex: 1; min-width: 0; }
+  .dt-domain-counter { font-size: 10px; color: #A0B0BA; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; margin-bottom: 2px; }
+  .dt-domain-title { font-size: 22px; font-family: 'EB Garamond', serif; color: #1A2332; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dt-locked-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
+  .dt-body { flex: 1; display: grid; grid-template-columns: 290px 1fr; overflow: hidden; }
+
+  /* Evidence panel */
+  .evidence-panel { background: #F4F3F0; border-right: 1px solid #EDE9E4; padding: 22px 20px; overflow-y: auto; display: flex; flex-direction: column; }
+  .section-label { font-size: 10px; font-weight: 700; color: #A0B0BA; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 14px; }
+  .signals-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
+  .signal-type { font-size: 11px; font-weight: 700; color: #1A2332; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 3px; }
+  .signal-body { font-size: 12px; color: #5A6A7A; line-height: 1.55; }
+  .evidence-divider { border-top: 1px solid #E0DDD8; margin-bottom: 18px; }
+  .caps-list { display: flex; flex-direction: column; gap: 12px; }
+  .cap-item { display: flex; align-items: flex-start; gap: 8px; }
+  .cap-icon { font-size: 14px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .cap-name { font-size: 12px; font-weight: 600; color: #1A2332; line-height: 1.3; margin-bottom: 2px; }
+  .cap-rating { font-size: 10px; font-weight: 700; }
+
+  /* Decision panel */
+  .decision-panel { display: flex; flex-direction: column; overflow: hidden; background: white; }
+  .decision-scroll { flex: 1; padding: 24px 36px; overflow-y: auto; }
+  .implication-text { font-size: 18px; line-height: 1.65; color: #1A2332; font-family: 'EB Garamond', serif; margin-bottom: 28px; }
+  .content-divider { border-top: 1px solid #F0EDE8; margin-bottom: 22px; }
+  .tensions-list { display: flex; flex-direction: column; }
+  .tension-item { padding: 14px 0; border-top: 1px solid #F0EDE8; }
+  .tension-title-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .tension-main-title { font-size: 15px; font-weight: 600; color: #1A2332; font-family: 'EB Garamond', serif; }
+  .tension-subtitle { font-size: 11px; color: #A0B0BA; font-style: italic; }
+  .tension-spectrum-row { display: grid; grid-template-columns: 150px 1fr 150px; gap: 14px; align-items: center; margin-bottom: 8px; }
+  .tension-signal { font-size: 11px; color: #0099FF; line-height: 1.45; }
+  .tension-bar { height: 6px; background: linear-gradient(90deg, #0099FF, #E61E8C); border-radius: 3px; position: relative; cursor: pointer; }
+  .tension-marker { position: absolute; width: 18px; height: 18px; background: white; border: 2.5px solid #1E4D5C; border-radius: 50%; transform: translate(-50%, -50%); top: 50%; cursor: ew-resize; box-shadow: 0 1px 6px rgba(0,0,0,0.25); user-select: none; z-index: 2; }
+  .tension-counter-signal { font-size: 11px; color: #E61E8C; line-height: 1.45; text-align: right; }
+  .tension-the-tension { font-size: 12px; color: #5A6A7A; line-height: 1.55; }
+  .tension-bold { color: #1A2332; font-weight: 600; }
+
+  /* Voting panel */
+  .voting-panel { border-top: 2px solid #F0EDE8; padding: 16px 36px; flex-shrink: 0; background: #FAFAF8; }
+  .voting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .voting-action-btn { font-size: 11px; color: #8A9BAA; background: none; border: none; cursor: pointer; text-decoration: underline; }
+  .vote-options-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .vote-option { display: flex; flex-direction: column; gap: 8px; align-items: center; }
+  .vote-btn { width: 100%; padding: 11px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 0.5px; }
+  .vote-count { font-size: 22px; font-weight: 700; display: block; line-height: 1.2; }
+  .vote-label { font-size: 10px; color: #A0B0BA; display: block; text-align: center; }
+  .vote-count-wrap { text-align: center; }
+  .lock-btn { width: 100%; padding: 12px; background: #1E4D5C; color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.3px; }
+  .locked-display { display: flex; align-items: center; gap: 16px; padding: 14px 20px; background: #F4F3F0; border-radius: 8px; animation: slideUp 0.2s ease-out; }
+  .locked-badge-lg { padding: 7px 18px; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
+  .locked-summary { font-size: 13px; color: #5A6A7A; }
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+
+<script>
+const STORAGE_KEY = 'drivemode_wkshp_v1';
+
+const DATA = [
+  { id: 0, number: '01', title: 'The Future of Rider Ownership', full: false },
+  {
+    id: 1, number: '02', title: 'Software as Competitive Infrastructure', full: true,
+    signals: [
+      { type: 'Competitor Benchmark', signal: 'Advanced competitors (Hero, Ather) are already operating on cloud-native platforms (AWS, GCP) and delivering monthly Over-the-Air (OTA) updates, setting a new industry benchmark for infrastructure performance.' },
+      { type: 'Systemic Failure Pattern', signal: 'Widespread rider complaints about Bluetooth connectivity failures across multiple incumbent OEMs (Yamaha, Kawasaki) prove that reliable infrastructure is a non-trivial technical challenge and a key differentiator.' },
+      { type: 'Financial Cautionary Tale', signal: "Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses — VW's €14B CARIAD failure and Ford's $19.5B FNV4 write-down are stark industry warnings." },
+      { type: 'Internal Capability', signal: 'The engineering department consists of 51 personnel, with high-density senior talent and dedicated teams for backend, infrastructure, and systems engineering.' },
+    ],
+    implications: 'Software infrastructure is the foundational, non-negotiable layer for any connected vehicle strategy. An unreliable or unscalable infrastructure guarantees the failure of any rider-facing application. Possessing reliable, efficient, and secure software infrastructure is rapidly becoming "table stakes" — and the organizational structure to support it is the true differentiator.',
+    tensions: [
+      {
+        title: 'The Investment Tension: The High Cost of Building vs. The High Cost of Failing',
+        signal: 'Financial evidence from the auto industry shows that attempting a large-scale proprietary software "build" is exceptionally high-risk and can destroy billions in capital.',
+        counterSignal: 'Rider evidence shows that unreliable software — connectivity drops, app failures — is a primary frustration that damages brand equity. Under-investment also leads to failure.',
+        theTension: 'How to make the necessary, substantial investment to achieve reliable infrastructure without falling into the "big bang" proprietary build trap that has crippled larger automotive players.',
+      },
+      {
+        title: 'The Control Tension: Strategic Differentiation vs. Commodity Outsourcing',
+        signal: 'A deep, senior engineering team exists in-house, capable of building sophisticated, proprietary systems.',
+        counterSignal: 'The most successful new competitors build on top of commodity cloud platforms (AWS, GCP). The dominant industry pattern is to outsource non-core infrastructure to focus on unique value.',
+        theTension: 'Which parts of the software stack are a true source of competitive differentiation and must be built in-house — and which parts are commodity infrastructure best managed by a world-class partner?',
+      },
+    ],
+    capabilities: [
+      { capability: 'Cloud Architecture & Engineering', assessment: 'Leverage / Optimize' },
+      { capability: 'OTA & Embedded Systems Engineering', assessment: 'Invest / Scale' },
+      { capability: 'Cybersecurity', assessment: 'Explore / Acquire' },
+      { capability: 'Infrastructure Vendor Management', assessment: 'Leverage / Optimize' },
+    ],
+  },
+  { id: 2, number: '03', title: 'Platform vs. Product Strategy', full: false },
+  { id: 3, number: '04', title: 'Regional Differentiation vs. Global Scale', full: false },
+  { id: 4, number: '05', title: 'Data as a Strategic Asset', full: false },
+  { id: 5, number: '06', title: 'Organizational Transformation', full: false },
+  { id: 6, number: '07', title: 'Partner Ecosystem Strategy', full: false },
+  { id: 7, number: '08', title: 'Investment Prioritization', full: false },
+];
+
+// ── State ──
+let state = {
+  view: 'overview',
+  activeId: null,
+  domainStates: {},
+  domainVotes: {},
+  tensionPos: {},
+  drag: null,
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const { domainStates, domainVotes, tensionPos } = JSON.parse(raw);
+      state.domainStates = domainStates || {};
+      state.domainVotes = domainVotes || {};
+      state.tensionPos = tensionPos || {};
+    }
+  } catch (e) {}
+}
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      domainStates: state.domainStates,
+      domainVotes: state.domainVotes,
+      tensionPos: state.tensionPos,
+    }));
+  } catch (e) {}
+}
+
+function render() {
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  if (state.view === 'overview') {
+    app.appendChild(buildOverview());
+  } else {
+    app.appendChild(buildDetail());
+  }
+}
+
+// ── Helpers ──
+function stateLabel(s) {
+  return s === 'anchor' ? 'ANCHOR' : s === 'deprioritize' ? 'DEPRIORITIZE' : 'IGNORE';
+}
+
+function badgeColors(s) {
+  if (s === 'anchor') return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
+  if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
+  return { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
+}
+
+function capColor(a) {
+  return a === 'Leverage / Optimize' ? '#00C490' : a === 'Invest / Scale' ? '#0099FF' : '#E61E8C';
+}
+function capIcon(a) {
+  return a === 'Leverage / Optimize' ? '✓' : a === 'Invest / Scale' ? '→' : '◆';
+}
+
+function getVotes(id) {
+  return state.domainVotes[id] || { anchor: 0, deprioritize: 0, ignore: 0 };
+}
+
+function getTensionPos(id, ti) {
+  return ((state.tensionPos[id] || {})[ti]) ?? 40;
+}
+
+function el(tag, attrs, ...children) {
+  const e = document.createElement(tag);
+  if (attrs) {
+    Object.entries(attrs).forEach(([k, v]) => {
+      if (k === 'class') e.className = v;
+      else if (k === 'style') Object.assign(e.style, v);
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2).toLowerCase(), v);
+      else e.setAttribute(k, v);
+    });
+  }
+  children.flat().forEach(c => {
+    if (c == null || c === false) return;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  });
+  return e;
+}
+
+// ── Overview ──
+function buildOverview() {
+  const anchored = Object.values(state.domainStates).filter(s => s === 'anchor').length;
+  const deprioritized = Object.values(state.domainStates).filter(s => s === 'deprioritize').length;
+  const ignored = Object.values(state.domainStates).filter(s => s === 'ignore').length;
+
+  const header = el('div', { class: 'ov-header' },
+    el('div', null,
+      el('h1', { class: 'ov-title' }, 'The Eight Decision Domains'),
+      el('p', { class: 'ov-subtitle' }, 'Click a domain to explore · decisions persist across sessions'),
+    ),
+    el('div', { class: 'ov-legend' },
+      el('div', { class: 'legend-items' },
+        el('div', { class: 'legend-item' },
+          el('div', { class: 'legend-swatch', style: { background: '#E8F2F5', border: '1.5px solid #1E4D5C' } }),
+          'ANCHOR',
+        ),
+        el('div', { class: 'legend-item' },
+          el('div', { class: 'legend-swatch', style: { background: '#F5F7FA', border: '1.5px solid #A0B0BA' } }),
+          'DEPRIORITIZE',
+        ),
+        el('div', { class: 'legend-item' },
+          el('div', { class: 'legend-swatch', style: { background: '#E8EDF0', border: '1.5px solid #C8D5DF' } }),
+          'IGNORE',
+        ),
+      ),
+      el('div', { class: 'legend-divider' }),
+      el('span', { class: 'ov-tally' }, `${anchored} anchored · ${deprioritized} deprioritized · ${ignored} ignored`),
+    ),
+  );
+
+  const grid = el('div', { class: 'ov-grid' },
+    ...DATA.map(d => buildDomainCard(d)),
+  );
+
+  const gridWrap = el('div', { class: 'ov-grid-wrap' }, grid);
+
+  const overview = el('div', { id: 'overview' }, header, gridWrap);
+  return overview;
+}
+
+function buildDomainCard(d) {
+  const s = state.domainStates[d.id];
+  const v = getVotes(d.id);
+  const tot = v.anchor + v.deprioritize + v.ignore;
+
+  // Card style
+  let cardStyle = {};
+  if (s === 'anchor') {
+    cardStyle = { background: '#E8F2F5', border: '2px solid #1E4D5C', cursor: 'pointer' };
+  } else if (s === 'deprioritize') {
+    cardStyle = { background: '#F5F7FA', border: '2px solid #A0B0BA', cursor: 'pointer' };
+  } else if (s === 'ignore') {
+    cardStyle = { background: '#E8EDF0', border: '2px solid #C8D5DF', cursor: 'pointer', opacity: '0.55' };
+  } else if (d.full) {
+    cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
+  } else {
+    cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
+  }
+
+  // Number color
+  const numColor = s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
+  // Title color
+  const titleColor = (s && s !== 'anchor') ? '#6B7A86' : '#1A2332';
+
+  const numEl = el('span', { class: 'card-num', style: { color: numColor } }, d.number);
+
+  let badgeEl = null;
+  if (s) {
+    const bc = badgeColors(s);
+    badgeEl = el('span', { class: 'card-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s));
+  }
+
+  const topRow = el('div', { class: 'card-top' }, numEl, badgeEl || el('span'));
+
+  let voteBarEl = null;
+  if (!s && tot > 0) {
+    voteBarEl = el('div', { class: 'vote-bar' },
+      el('div', { class: 'vote-bar-seg', style: { flex: String(v.anchor || 0), background: '#1E4D5C' } }),
+      el('div', { class: 'vote-bar-seg', style: { flex: String(v.deprioritize || 0), background: '#8A9BAA' } }),
+      el('div', { class: 'vote-bar-seg', style: { flex: String(v.ignore || 0), background: '#B8C4CC' } }),
+    );
+  }
+
+  const titleEl = el('h3', { class: 'card-title', style: { color: titleColor } }, d.title);
+  const nodataEl = !d.full ? el('p', { class: 'card-nodata' }, 'Data coming soon') : null;
+
+  const bottom = el('div', null, voteBarEl, titleEl, nodataEl);
+
+  const card = el('div', {
+    class: `domain-card${d.full ? ' clickable' : ''}`,
+    style: cardStyle,
+  }, topRow, bottom);
+
+  if (d.full) {
+    card.addEventListener('click', () => {
+      state.view = 'detail';
+      state.activeId = d.id;
+      state.drag = null;
+      render();
+    });
+  }
+
+  return card;
+}
+
+// ── Detail ──
+function buildDetail() {
+  const id = state.activeId;
+  const dom = DATA.find(d => d.id === id);
+  const s = state.domainStates[id];
+
+  const backBtn = el('button', { class: 'dt-back', onClick: () => { state.view = 'overview'; state.activeId = null; state.drag = null; render(); } }, '← Overview');
+
+  const titleWrap = el('div', { class: 'dt-title-wrap' },
+    el('p', { class: 'dt-domain-counter' }, `Domain ${dom.number} of 08`),
+    el('h1', { class: 'dt-domain-title' }, dom.title),
+  );
+
+  let headerBadge = null;
+  if (s) {
+    const bc = badgeColors(s);
+    headerBadge = el('span', { class: 'dt-locked-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s));
+  }
+
+  const dtHeader = el('div', { class: 'dt-header' }, backBtn, titleWrap, headerBadge || el('span'));
+
+  const body = el('div', { class: 'dt-body' },
+    buildEvidencePanel(dom),
+    buildDecisionPanel(dom, id, s),
+  );
+
+  const detail = el('div', { id: 'detail' }, dtHeader, body);
+  return detail;
+}
+
+function buildEvidencePanel(dom) {
+  const signalsEl = el('div', { class: 'signals-list' },
+    ...(dom.signals || []).map(sig =>
+      el('div', null,
+        el('p', { class: 'signal-type' }, sig.type),
+        el('p', { class: 'signal-body' }, sig.signal),
+      )
+    ),
+  );
+
+  const capsEl = el('div', { class: 'caps-list' },
+    ...(dom.capabilities || []).map(cap => {
+      const color = capColor(cap.assessment);
+      return el('div', { class: 'cap-item' },
+        el('span', { class: 'cap-icon', style: { color } }, capIcon(cap.assessment)),
+        el('div', null,
+          el('p', { class: 'cap-name' }, cap.capability),
+          el('p', { class: 'cap-rating', style: { color } }, cap.assessment),
+        ),
+      );
+    }),
+  );
+
+  return el('div', { class: 'evidence-panel' },
+    el('p', { class: 'section-label' }, 'Observed Signals'),
+    signalsEl,
+    el('div', { class: 'evidence-divider' }),
+    el('p', { class: 'section-label' }, 'Required Capabilities'),
+    capsEl,
+  );
+}
+
+function buildDecisionPanel(dom, id, s) {
+  const tensionsEl = el('div', { class: 'tensions-list' },
+    ...(dom.tensions || []).map((t, i) => buildTension(t, i, id)),
+  );
+
+  const scrollArea = el('div', { class: 'decision-scroll' },
+    el('p', { class: 'section-label' }, 'Implication'),
+    el('p', { class: 'implication-text' }, dom.implications),
+    el('div', { class: 'content-divider' }),
+    el('p', { class: 'section-label' }, 'Strategic Tensions'),
+    tensionsEl,
+  );
+
+  const votingPanel = buildVotingPanel(id, s);
+
+  return el('div', { class: 'decision-panel' }, scrollArea, votingPanel);
+}
+
+function buildTension(t, i, id) {
+  const parts = t.title.split(': ');
+  const mainTitle = parts[0];
+  const subtitle = parts.slice(1).join(': ');
+  const pct = getTensionPos(id, i);
+
+  const bar = el('div', { class: 'tension-bar' });
+  const marker = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
+  bar.appendChild(marker);
+
+  // Bar click
+  bar.addEventListener('click', (e) => {
+    if (state.drag) return;
+    const r = bar.getBoundingClientRect();
+    const p = Math.round(Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)));
+    state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [i]: p };
+    persist();
+    marker.style.left = p + '%';
+  });
+
+  // Drag
+  marker.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    const r = bar.getBoundingClientRect();
+    state.drag = { ti: i, left: r.left, width: r.width, marker, id };
+  });
+
+  const titleRow = el('div', { class: 'tension-title-row' },
+    el('span', { class: 'tension-main-title' }, mainTitle),
+    el('span', { class: 'tension-subtitle' }, subtitle),
+  );
+
+  const spectrumRow = el('div', { class: 'tension-spectrum-row' },
+    el('p', { class: 'tension-signal' }, t.signal),
+    bar,
+    el('p', { class: 'tension-counter-signal' }, t.counterSignal),
+  );
+
+  const tensionDesc = el('p', { class: 'tension-the-tension' },
+    el('span', { class: 'tension-bold' }, 'The Tension: '),
+    t.theTension,
+  );
+
+  return el('div', { class: 'tension-item' }, titleRow, spectrumRow, tensionDesc);
+}
+
+function buildVotingPanel(id, s) {
+  const votes = getVotes(id);
+  const totalVotes = votes.anchor + votes.deprioritize + votes.ignore;
+  const hasLocked = !!s;
+
+  const headerLabel = el('p', { class: 'section-label' }, 'Group Decision');
+
+  let actionBtn = null;
+  if (hasLocked) {
+    actionBtn = el('button', { class: 'voting-action-btn', onClick: () => { clearState(id); } }, 'Change decision');
+  } else if (totalVotes > 0) {
+    actionBtn = el('button', { class: 'voting-action-btn', onClick: () => { resetVotes(id); } }, 'Reset votes');
+  }
+
+  const votingHeader = el('div', { class: 'voting-header' }, headerLabel, actionBtn || el('span'));
+
+  let content;
+  if (hasLocked) {
+    const bc = badgeColors(s);
+    const badge = el('span', { class: 'locked-badge-lg', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s));
+    const summary = el('p', { class: 'locked-summary' }, `Set by group vote · ${totalVotes} ${totalVotes === 1 ? 'vote' : 'votes'} cast`);
+    content = el('div', { class: 'locked-display' }, badge, summary);
+  } else {
+    const maxV = Math.max(votes.anchor, votes.deprioritize, votes.ignore);
+    const leadingKey = votes.anchor >= votes.deprioritize && votes.anchor >= votes.ignore ? 'anchor'
+      : votes.deprioritize >= votes.ignore ? 'deprioritize' : 'ignore';
+    const leadingCount = maxV;
+
+    const optDefs = [
+      { key: 'anchor', label: 'ANCHOR', btnStyle: { background: '#E8F2F5', color: '#1E4D5C', border: '2px solid #1E4D5C' }, countColor: '#1E4D5C' },
+      { key: 'deprioritize', label: 'DEPRIORITIZE', btnStyle: { background: '#F5F7FA', color: '#5A7B87', border: '2px solid #A0B0BA' }, countColor: '#A0B0BA' },
+      { key: 'ignore', label: 'IGNORE', btnStyle: { background: '#F5F7FA', color: '#7A8A96', border: '2px solid #C8D5DF' }, countColor: '#C8D5DF' },
+    ];
+
+    const optionsGrid = el('div', { class: 'vote-options-grid' },
+      ...optDefs.map(opt => {
+        const count = votes[opt.key];
+        const btn = el('button', {
+          class: 'vote-btn',
+          style: opt.btnStyle,
+          onClick: () => { addVote(id, opt.key); },
+        }, opt.label);
+        const countEl = el('span', { class: 'vote-count', style: { color: opt.countColor } }, String(count));
+        const labelEl = el('span', { class: 'vote-label' }, count === 1 ? 'vote' : 'votes');
+        return el('div', { class: 'vote-option' }, btn, el('div', { class: 'vote-count-wrap' }, countEl, labelEl));
+      }),
+    );
+
+    let lockBtn = null;
+    if (totalVotes > 0) {
+      const lLabel = stateLabel(leadingKey);
+      lockBtn = el('button', { class: 'lock-btn', onClick: () => { lockState(id); } },
+        `Lock In Decision — ${lLabel} leading with ${leadingCount} ${leadingCount === 1 ? 'vote' : 'votes'}`
+      );
+    }
+
+    content = el('div', null, optionsGrid, lockBtn);
+  }
+
+  return el('div', { class: 'voting-panel' }, votingHeader, content);
+}
+
+// ── Actions ──
+function addVote(id, opt) {
+  const prev = getVotes(id);
+  state.domainVotes[id] = { ...prev, [opt]: prev[opt] + 1 };
+  persist();
+  render();
+}
+
+function resetVotes(id) {
+  state.domainVotes[id] = { anchor: 0, deprioritize: 0, ignore: 0 };
+  persist();
+  render();
+}
+
+function lockState(id) {
+  const v = getVotes(id);
+  const max = Math.max(v.anchor, v.deprioritize, v.ignore);
+  if (!max) return;
+  const winner = v.anchor >= v.deprioritize && v.anchor >= v.ignore ? 'anchor'
+    : v.deprioritize >= v.ignore ? 'deprioritize' : 'ignore';
+  state.domainStates[id] = winner;
+  persist();
+  render();
+}
+
+function clearState(id) {
+  delete state.domainStates[id];
+  persist();
+  render();
+}
+
+// ── Drag ──
+window.addEventListener('mousemove', (e) => {
+  if (!state.drag) return;
+  const { ti, left, width, marker, id } = state.drag;
+  const pct = Math.round(Math.max(0, Math.min(100, ((e.clientX - left) / width) * 100)));
+  state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [ti]: pct };
+  marker.style.left = pct + '%';
+});
+
+window.addEventListener('mouseup', () => {
+  if (state.drag) {
+    persist();
+    state.drag = null;
+  }
+});
+
+// ── Init ──
+loadState();
+render();
+</script>
+</body>
+</html>
