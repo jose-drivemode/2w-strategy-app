@@ -225,8 +225,7 @@ const DATA = [
   {
     id: 1, number: '02', title: 'Software as Competitive Infrastructure', full: true,
     domainConfidence: 'Medium',
-    domainSources: ['Competitor infrastructure benchmarks (M2)', 'automotive financial precedents (M3)', 'internal organizational assessment (M4)'],
-    domainCaveat: null,
+    domainConfidenceNote: 'Competitor infrastructure benchmarks (Hero, Ather) and automotive financial failures (CARIAD, Ford) are drawn from public and investor-grade disclosures. Confidence is Medium rather than High because the internal capability picture (team headcount and skill gaps) comes from a single internal source (the Engineering Skills Map) that has not been independently verified. The financial precedents are automotive-scale; their direct applicability to a motorcycle OEM at lower vehicle volumes is an inference, not a measured data point.',
     domainWarning: false,
     signals: [
       {
@@ -261,59 +260,61 @@ const DATA = [
       },
       {
         title: 'The Rise of SaaS Platforms',
-        body: 'The success of platforms like Salesforce demonstrates a winning strategy: paying for a best-in-class service for a non-core function rather than building an inferior version in-house.',
+        body: 'The success of platforms like Salesforce demonstrates a winning strategy of paying for a best-in-class service for a non-core function rather than building an inferior version in-house.',
       },
       {
         title: 'The Telco Capital Trap',
         body: 'The telecommunications industry shows that owning and operating scaled, reliable infrastructure is a high-capital, low-margin business requiring a fundamentally different operating model.',
       },
     ],
-    implications: 'Software infrastructure is the foundational, non-negotiable layer for any connected vehicle strategy. An unreliable or unscalable infrastructure guarantees the failure of any rider-facing application. Possessing a reliable, efficient, and secure software infrastructure is rapidly becoming "table stakes", and the organizational structure to support it is the true differentiator.',
+    crossIndustrySubtitle: 'Interpretive Analogy',
+    implications: 'Software infrastructure is the foundational, non-negotiable layer for any connected vehicle strategy. An unreliable or unscalable infrastructure guarantees the failure of any rider-facing application. Possessing a reliable, efficient, and secure software infrastructure is rapidly becoming "table stakes", and the organizational structure to support it is a key differentiator.',
+    tensionsNote: 'The Signal and Counter-Signal in each tension summarise findings from Observed Signals above and are traceable to those sources. The Tension framing (how the contradiction is characterised) is an analytical interpretation.',
     tensions: [
       {
         title: 'The Investment Tension: The High Cost of Building vs. The High Cost of Failing',
-        signal: 'A large-scale proprietary software "build" is exceptionally high-risk and can destroy billions in capital, as the auto industry has demonstrated.',
-        counterSignal: 'Unreliable software (connectivity drops, app failures) is a primary rider frustration that damages brand equity. Under-investment also leads to failure.',
-        theTension: 'How to make the necessary, substantial investment to achieve reliable infrastructure without falling into the "big bang" proprietary build trap that has crippled larger automotive players.',
+        signal: 'The financial evidence from the auto industry shows that attempting a large-scale, proprietary software "build" is exceptionally high-risk and can destroy billions in capital.',
+        counterSignal: 'The market evidence from riders shows that unreliable software (e.g., connectivity drops) is a primary source of frustration that damages brand equity. Under-investment also leads to failure.',
+        theTension: 'How to make the necessary, substantial investment to achieve a reliable infrastructure without falling into the "big bang" proprietary build trap that has crippled larger automotive players.',
       },
       {
         title: 'The Control Tension: Strategic Differentiation vs. Commodity Outsourcing',
         signal: 'A deep, senior engineering team exists in-house, capable of building sophisticated, proprietary systems.',
-        counterSignal: 'The most successful new competitors build on top of commodity cloud platforms. The dominant pattern is to outsource non-core infrastructure and focus on unique value.',
-        theTension: 'Which parts of the software stack are a true source of competitive differentiation and must be built by our expert team, and which are commodity infrastructure best managed by a world-class partner?',
+        counterSignal: 'The most successful new competitors are building on top of commodity cloud platforms (AWS, GCP), and the dominant pattern in tech is to outsource non-core infrastructure to focus on unique value.',
+        theTension: 'Which parts of the software stack are a true source of competitive differentiation (and must be built by our expert team), and which parts are commodity infrastructure that should be managed by a world-class partner?',
       },
     ],
     capabilities: [
       {
         capability: 'Cloud Architecture & Engineering', assessment: 'Leverage / Optimize',
         evidence: [
-          'Two large Mobile/Backend engineering branches and a Cross-Functional Engineering pod total over 30 engineers, including multiple Staff-level architects.',
-          '2 dedicated Sr. DevOps Engineers manage existing cloud infrastructure and deployment pipelines.',
+          'The department contains two large Mobile/Backend engineering branches and a Cross-Functional Engineering pod, totaling over 30 engineers, including multiple Staff-level and System Architects. This is a formidable in-house talent pool.',
+          'The Cross-Functional pod includes 2 Sr. DevOps Engineers, indicating an existing, dedicated function for managing cloud infrastructure and deployment pipelines.',
         ],
-        implication: 'The organization has the senior talent to architect a world-class, scalable cloud platform. The challenge is not acquiring capability, but focusing this powerful team on a clear infrastructure strategy.',
+        implication: 'The organization has the senior technical talent to architect and build a world-class, scalable cloud platform. The challenge is not acquiring talent, but focusing this powerful team on a clear infrastructure strategy and optimizing their impact.',
       },
       {
         capability: 'OTA & Embedded Systems Engineering', assessment: 'Invest / Scale',
         evidence: [
-          'A dedicated Systems Engineering Branch exists in Tokyo with a System Architect and Sr. Software Engineer, providing a foundational foothold.',
-          'At only two personnel, this team cannot develop, validate, and manage OTA campaigns for a global, multi-model fleet. Ather delivers monthly OTAs; this cadence is currently out of reach.',
+          'A dedicated "Systems Engineering Branch" exists in Tokyo, staffed with a System Architect and a Senior Software Engineer. This provides a foundation of expertise.',
+          'With only two dedicated personnel, this team is insufficient to develop, validate, and manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs, a cadence far beyond the capacity of the current team.',
         ],
-        implication: 'Foundational knowledge exists, but the organization cannot yet deliver competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset.',
+        implication: 'While foundational knowledge exists, the organization cannot currently deliver a competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset.',
       },
       {
         capability: 'Cybersecurity', assessment: 'Explore / Acquire',
         evidence: [
-          'The organizational framework does not show a dedicated cybersecurity function, team, or security skillset listed for any of the 51 personnel.',
+          'The detailed organizational framework does not show a dedicated cybersecurity function, team, or specific skill set listed for any of the 51 personnel.',
         ],
-        implication: 'This is a critical, high-severity gap. A connected vehicle platform without a dedicated security capability represents an extreme and unacceptable brand, safety, and regulatory risk. This capability must be acquired.',
+        implication: 'This is a critical, high-severity gap. A connected vehicle platform without a dedicated security capability represents an extreme and unacceptable brand, safety, and regulatory risk. This capability must be acquired, either by hiring a dedicated team or engaging a specialist partner.',
       },
       {
         capability: 'Infrastructure Vendor Management', assessment: 'Leverage / Optimize',
         evidence: [
-          'Honda possesses a world-class, mature capability in managing a complex global supply chain and hardware vendor network.',
-          'Existing Sr. DevOps roles demonstrate experience managing infrastructure-as-code and interfacing with cloud vendor APIs.',
+          'Honda possesses a world-class, mature capability in managing a complex global supply chain and hardware vendors.',
+          'The existence of Sr. DevOps roles implies experience managing infrastructure-as-code and interfacing with cloud vendor services and APIs.',
         ],
-        implication: 'The core vendor management skill exists and can be adapted from hardware to software. The DevOps function is positioned to lead the technical side of managing cloud and SaaS vendor relationships.',
+        implication: 'The core vendor management skill exists and can be adapted from hardware to software. The DevOps function can lead the technical side of managing cloud/SaaS vendor relationships.',
       },
     ],
   },
@@ -490,7 +491,7 @@ function buildEvidencePanel(dom) {
 
   if (dom.domainConfidence) {
     const dc  = domainConfidenceConfig(dom.domainConfidence);
-    const src = (dom.domainSources || []).join('; ');
+    const src = dom.domainConfidenceNote || (dom.domainSources || []).join('; ');
     nodes.push(
       el('div', { class: 'domain-confidence-block' },
         el('div', { class: 'confidence-header-row' },
@@ -526,7 +527,7 @@ function buildEvidencePanel(dom) {
 
   if ((dom.crossIndustryPatterns || []).length) {
     nodes.push(el('div', { class: 'evidence-section-gap' }));
-    nodes.push(el('p', { class: 'section-label' }, 'Cross-Industry Patterns'));
+    nodes.push(el('p', { class: 'section-label' }, dom.crossIndustrySubtitle ? `Cross-Industry Patterns · ${dom.crossIndustrySubtitle}` : 'Cross-Industry Patterns'));
     nodes.push(
       el('div', { class: 'patterns-list' },
         ...dom.crossIndustryPatterns.map(p =>
@@ -562,7 +563,7 @@ function buildAnalysisPanel(dom, id, s) {
         ),
       ) : null,
       cap.implication ? el('div', { class: 'cap-implication-wrap' },
-        el('p', { class: 'cap-implication-label' }, 'Implication'),
+        el('p', { class: 'cap-implication-label' }, 'Implication · Analytical Interpretation'),
         el('p', { class: 'cap-implication-text' }, cap.implication),
       ) : null,
     );
@@ -577,10 +578,11 @@ function buildAnalysisPanel(dom, id, s) {
     el('div', { class: 'caps-analysis-list' }, ...capCards),
     el('div', { class: 'section-divider' }),
     el('p', { class: 'section-label' }, 'Strategic Tensions'),
+    dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
     el('div', { class: 'tensions-list' }, ...tensionItems),
     // Implication: synthesis at bottom of scroll, after reading everything
     dom.implications ? el('div', { class: 'implication-block' },
-      el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication'),
+      el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication · Analytical Interpretation'),
       el('p', { class: 'implication-text' }, dom.implications),
     ) : null,
   );
