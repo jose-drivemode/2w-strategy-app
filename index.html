@@ -53,8 +53,6 @@
   .dt-domain-counter { font-size: 10px; color: #A0B0BA; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; margin-bottom: 2px; }
   .dt-domain-title { font-size: 22px; font-family: 'EB Garamond', serif; color: #1A2332; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .dt-locked-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
-
-  /* Two-column body — wider left panel for richer evidence */
   .dt-body { flex: 1; display: grid; grid-template-columns: 330px 1fr; overflow: hidden; }
 
   /* ─────────────────────────────────────────
@@ -63,48 +61,119 @@
   .evidence-panel {
     background: #F4F3F0;
     border-right: 1px solid #EDE9E4;
-    padding: 26px 22px;
+    padding: 20px 18px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
-  /* Reusable section label */
+  /* Section label */
   .section-label {
     font-size: 9px;
     font-weight: 700;
     color: #B0BEC5;
     text-transform: uppercase;
     letter-spacing: 1.4px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
-  /* Signals */
-  .signals-list { display: flex; flex-direction: column; gap: 0; }
-  .signal-item { padding: 12px 0; border-top: 1px solid #EAE7E2; }
-  .signal-item:first-child { border-top: none; padding-top: 0; }
-  .signal-type {
-    display: inline-block;
+  /* Domain confidence header */
+  .domain-confidence-block {
+    background: white;
+    border: 1px solid #EDE9E4;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+  }
+  .confidence-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+  .confidence-meta-label {
     font-size: 9px;
     font-weight: 700;
-    color: #8A9BAA;
+    color: #B0BEC5;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-bottom: 5px;
-    background: #EBE8E3;
-    padding: 2px 6px;
-    border-radius: 3px;
+    letter-spacing: 1.2px;
   }
-  .signal-body { font-size: 12px; color: #5A6A7A; line-height: 1.6; }
+  .confidence-level-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.4px;
+  }
+  .confidence-sources-text {
+    font-size: 11px;
+    color: #6B7A86;
+    line-height: 1.5;
+  }
+  .confidence-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #EDE9E4;
+    font-size: 11px;
+    color: #B45309;
+    line-height: 1.5;
+  }
+
+  /* Enriched signal cards */
+  .signals-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 0; }
+  .signal-card {
+    border-left: 3px solid transparent;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 13px;
+  }
+  .signal-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 7px;
+  }
+  .signal-label {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.2px;
+  }
+  .signal-meta-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.3px;
+  }
+  .signal-claim {
+    font-size: 11.5px;
+    color: #2E3D4A;
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .signal-sources {
+    font-size: 10px;
+    color: #A0B0BA;
+    font-style: italic;
+    line-height: 1.5;
+    padding-top: 7px;
+    border-top: 1px dashed #DDD9D3;
+  }
 
   /* Cross-industry patterns */
-  .evidence-section-gap { margin-top: 24px; }
+  .evidence-section-gap { margin-top: 20px; }
   .patterns-list { display: flex; flex-direction: column; gap: 0; }
-  .pattern-item { padding: 12px 0; border-top: 1px solid #EAE7E2; }
+  .pattern-item { padding: 11px 0; border-top: 1px solid #EAE7E2; }
   .pattern-item:first-child { border-top: none; padding-top: 0; }
-  .pattern-title { font-size: 12px; font-weight: 600; color: #3A4A58; line-height: 1.35; margin-bottom: 5px; }
-  .pattern-body { font-size: 12px; color: #6B7A86; line-height: 1.6; }
+  .pattern-title { font-size: 12px; font-weight: 600; color: #3A4A58; line-height: 1.35; margin-bottom: 4px; }
+  .pattern-body { font-size: 11.5px; color: #6B7A86; line-height: 1.6; }
 
   /* ─────────────────────────────────────────
      RIGHT PANEL — ANALYSIS & DECISION
@@ -112,7 +181,6 @@
   .decision-panel { display: flex; flex-direction: column; overflow: hidden; background: white; }
   .decision-scroll { flex: 1; padding: 28px 40px 0; overflow-y: auto; }
 
-  /* Implication */
   .implication-text {
     font-size: 17px;
     line-height: 1.7;
@@ -121,7 +189,6 @@
     margin-bottom: 32px;
   }
 
-  /* Section divider in right panel */
   .section-divider { border-top: 1px solid #F0EDE8; margin-bottom: 26px; }
 
   /* Capabilities analysis cards */
@@ -159,9 +226,9 @@
   }
   .cap-evidence-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
   .cap-evidence-item { display: flex; gap: 8px; align-items: flex-start; }
-  .cap-evidence-dot { color: #C0CAD2; font-size: 11px; line-height: 1.6; flex-shrink: 0; margin-top: 0; }
+  .cap-evidence-dot { color: #C0CAD2; font-size: 11px; line-height: 1.6; flex-shrink: 0; }
   .cap-evidence-text { font-size: 11px; color: #5A6A7A; line-height: 1.6; }
-  .cap-implication-wrap { border-top: 1px solid #ECEAE6; padding-top: 10px; margin-top: 2px; }
+  .cap-implication-wrap { border-top: 1px solid #ECEAE6; padding-top: 10px; }
   .cap-implication-label { font-size: 9px; font-weight: 700; color: #C0CAD2; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
   .cap-implication-text {
     font-size: 13px;
@@ -188,23 +255,13 @@
   .tension-bar { height: 6px; background: linear-gradient(90deg, #0099FF, #E61E8C); border-radius: 3px; position: relative; cursor: pointer; }
   .tension-marker { position: absolute; width: 18px; height: 18px; background: white; border: 2.5px solid #1E4D5C; border-radius: 50%; transform: translate(-50%, -50%); top: 50%; cursor: ew-resize; box-shadow: 0 1px 6px rgba(0,0,0,0.25); user-select: none; z-index: 2; }
   .tension-counter-signal { font-size: 11px; color: #E61E8C; line-height: 1.5; text-align: left; }
-  .tension-description {
-    font-size: 13px;
-    font-family: 'EB Garamond', serif;
-    color: #5A6A7A;
-    line-height: 1.65;
-  }
+  .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #5A6A7A; line-height: 1.65; }
   .tension-description-label { color: #1A2332; font-weight: 600; font-style: normal; }
 
   /* ─────────────────────────────────────────
      VOTING PANEL (pinned)
   ───────────────────────────────────────── */
-  .voting-panel {
-    border-top: 2px solid #F0EDE8;
-    padding: 16px 40px;
-    flex-shrink: 0;
-    background: #FAFAF8;
-  }
+  .voting-panel { border-top: 2px solid #F0EDE8; padding: 16px 40px; flex-shrink: 0; background: #FAFAF8; }
   .voting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
   .voting-action-btn { font-size: 11px; color: #8A9BAA; background: none; border: none; cursor: pointer; text-decoration: underline; }
   .vote-options-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px; }
@@ -226,26 +283,76 @@
 <script>
 const STORAGE_KEY = 'drivemode_wkshp_v1';
 
+// ── Signal type → visual config ──
+function signalTypeConfig(label) {
+  const l = label.toLowerCase();
+  if (l.includes('competitor') || l.includes('benchmark'))
+    return { border: '#1A6FCC', bg: '#EEF5FF', labelColor: '#1A6FCC' };
+  if (l.includes('failure') || l.includes('pattern') || l.includes('risk'))
+    return { border: '#C2820A', bg: '#FFFAEC', labelColor: '#B06D00' };
+  if (l.includes('financial') || l.includes('cautionary') || l.includes('loss'))
+    return { border: '#C0392B', bg: '#FFF4F3', labelColor: '#AD2A1F' };
+  if (l.includes('internal') || l.includes('capability') || l.includes('asset'))
+    return { border: '#1A7A58', bg: '#EEF9F4', labelColor: '#1A7A58' };
+  return { border: '#8A9BAA', bg: '#F4F3F0', labelColor: '#5A6A7A' };
+}
+
+// ── Confidence level → badge colors ──
+function confidenceConfig(conf) {
+  if (!conf) return { bg: '#F0F0F0', color: '#888' };
+  const c = conf.toLowerCase();
+  if (c === 'high')        return { bg: '#E6F7F0', color: '#0F7A52' };
+  if (c === 'medium')      return { bg: '#FFF6E0', color: '#A36A00' };
+  if (c === 'low–medium' || c === 'low-medium')
+                           return { bg: '#FFF0E6', color: '#C2410C' };
+  return                          { bg: '#FFF0EF', color: '#B91C1C' }; // Low
+}
+
+// ── Domain-level confidence ──
+function domainConfidenceConfig(conf) {
+  if (!conf) return { bg: '#F0F0F0', color: '#888', border: '#88888830' };
+  const c = conf.toLowerCase();
+  if (c === 'high')   return { bg: '#E6F7F0', color: '#0F7A52', border: '#0F7A5230' };
+  if (c === 'medium') return { bg: '#FFF6E0', color: '#A36A00', border: '#A36A0030' };
+  return                     { bg: '#FFF0EF', color: '#B91C1C', border: '#B91C1C30' };
+}
+
 const DATA = [
   { id: 0, number: '01', title: 'The Future of Rider Ownership', full: false },
   {
     id: 1, number: '02', title: 'Software as Competitive Infrastructure', full: true,
+    domainConfidence: 'Medium',
+    domainSources: ['Competitor infrastructure benchmarks (M2)', 'automotive financial precedents (M3)', 'internal organizational assessment (M4)'],
+    domainCaveat: null,
+    domainWarning: false,
     signals: [
       {
-        type: 'Competitor Benchmark',
-        signal: 'Advanced competitors (Hero, Ather) are already operating on cloud-native platforms (AWS, GCP) and delivering monthly OTA updates, setting a new industry benchmark for infrastructure performance.',
+        label: 'Competitor Benchmark',
+        missionSource: 'M2',
+        confidence: 'High',
+        claim: 'Hero MotoCorp (AWS) and Ather Energy (Google Cloud) are operating production-grade cloud-native platforms with monthly OTA update cadences, setting a new industry standard for infrastructure performance.',
+        sources: 'Hero COE public disclosures; Ather Energy annual report; 40+ competitor sources across 10 OEMs.',
       },
       {
-        type: 'Systemic Failure Pattern',
-        signal: 'Widespread rider complaints about Bluetooth connectivity failures across multiple incumbent OEMs (Yamaha, Kawasaki) prove that reliable infrastructure is a non-trivial technical challenge and a key differentiator.',
+        label: 'Systemic Failure Pattern',
+        missionSource: 'M2',
+        confidence: 'Medium',
+        claim: 'Widespread rider complaints about Bluetooth connectivity failures across Yamaha Y-Connect and Kawasaki Rideology confirm that infrastructure reliability is a non-trivial technical challenge and a key differentiator.',
+        sources: 'App store reviews (both platforms); independent OEM complaints converging on same structural failure.',
       },
       {
-        type: 'Financial Cautionary Tale',
-        signal: "Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses — VW's €14B CARIAD failure and Ford's $19.5B FNV4 write-down are stark industry warnings.",
+        label: 'Financial Cautionary Tale',
+        missionSource: 'M3',
+        confidence: 'High',
+        claim: 'Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses — VW CARIAD (€14B total; €2.1B operating loss 2022; subsequently replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($19.5B total write-down, December 2025).',
+        sources: 'VW Group financial disclosures; Ford investor reports.',
       },
       {
-        type: 'Internal Capability',
-        signal: 'The engineering department consists of 51 personnel, with a high density of senior talent and dedicated teams for backend, infrastructure, and systems engineering.',
+        label: 'Internal Capability',
+        missionSource: 'M4',
+        confidence: 'Low–Medium',
+        claim: 'The engineering department consists of 51 personnel with a high density of senior talent — but platform/infrastructure is staffed by only 3 people (4% of headcount) and systems engineering by 2 people (3%), the exact teams that underpin a scalable connected vehicle platform.',
+        sources: 'Engineering Department Skills Map and Organizational Framework (primary repository source); four independent repository signals converging on same conclusion.',
       },
     ],
     crossIndustryPatterns: [
@@ -255,7 +362,7 @@ const DATA = [
       },
       {
         title: 'The Rise of SaaS Platforms',
-        body: 'The success of platforms like Salesforce demonstrates a winning strategy of paying for a best-in-class service for a non-core function rather than building an inferior version in-house.',
+        body: 'The success of platforms like Salesforce demonstrates a winning strategy: paying for a best-in-class service for a non-core function rather than building an inferior version in-house.',
       },
       {
         title: 'The Telco Capital Trap',
@@ -291,7 +398,7 @@ const DATA = [
         capability: 'OTA & Embedded Systems Engineering',
         assessment: 'Invest / Scale',
         evidence: [
-          'A dedicated Systems Engineering Branch exists in Tokyo with a System Architect and Sr. Software Engineer — providing a foundational foothold.',
+          'A dedicated Systems Engineering Branch exists in Tokyo with a System Architect and Sr. Software Engineer — a foundational foothold.',
           'At only two personnel, this team cannot develop, validate, and manage OTA campaigns for a global, multi-model fleet. Ather delivers monthly OTAs; this cadence is currently out of reach.',
         ],
         implication: 'Foundational knowledge exists, but the organization cannot yet deliver competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset.',
@@ -300,7 +407,7 @@ const DATA = [
         capability: 'Cybersecurity',
         assessment: 'Explore / Acquire',
         evidence: [
-          'The organizational framework does not show a dedicated cybersecurity function, team, or specific security skillset listed for any of the 51 personnel.',
+          'The organizational framework does not show a dedicated cybersecurity function, team, or security skillset listed for any of the 51 personnel.',
         ],
         implication: 'This is a critical, high-severity gap. A connected vehicle platform without a dedicated security capability represents an extreme and unacceptable brand, safety, and regulatory risk. This capability must be acquired.',
       },
@@ -367,9 +474,9 @@ function stateLabel(s) {
 }
 
 function badgeColors(s) {
-  if (s === 'anchor') return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
+  if (s === 'anchor')      return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
   if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
-  return { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
+  return                          { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
 }
 
 function capColor(a) {
@@ -406,9 +513,9 @@ function el(tag, attrs, ...children) {
 
 // ── OVERVIEW ──
 function buildOverview() {
-  const anchored = Object.values(state.domainStates).filter(s => s === 'anchor').length;
+  const anchored      = Object.values(state.domainStates).filter(s => s === 'anchor').length;
   const deprioritized = Object.values(state.domainStates).filter(s => s === 'deprioritize').length;
-  const ignored = Object.values(state.domainStates).filter(s => s === 'ignore').length;
+  const ignored       = Object.values(state.domainStates).filter(s => s === 'ignore').length;
 
   return el('div', { id: 'overview' },
     el('div', { class: 'ov-header' },
@@ -447,15 +554,14 @@ function buildDomainCard(d) {
   const tot = v.anchor + v.deprioritize + v.ignore;
 
   let cardStyle;
-  if (s === 'anchor')         cardStyle = { background: '#E8F2F5', border: '2px solid #1E4D5C', cursor: 'pointer' };
+  if (s === 'anchor')          cardStyle = { background: '#E8F2F5', border: '2px solid #1E4D5C', cursor: 'pointer' };
   else if (s === 'deprioritize') cardStyle = { background: '#F5F7FA', border: '2px solid #A0B0BA', cursor: 'pointer' };
-  else if (s === 'ignore')    cardStyle = { background: '#E8EDF0', border: '2px solid #C8D5DF', cursor: 'pointer', opacity: '0.55' };
-  else if (d.full)            cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
-  else                        cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
+  else if (s === 'ignore')     cardStyle = { background: '#E8EDF0', border: '2px solid #C8D5DF', cursor: 'pointer', opacity: '0.55' };
+  else if (d.full)             cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
+  else                         cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
 
-  const numColor = s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
+  const numColor   = s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
   const titleColor = (s && s !== 'anchor') ? '#6B7A86' : '#1A2332';
-
   const bc = s ? badgeColors(s) : null;
 
   const voteBarEl = (!s && tot > 0) ? el('div', { class: 'vote-bar' },
@@ -484,19 +590,17 @@ function buildDomainCard(d) {
       render();
     });
   }
-
   return card;
 }
 
 // ── DETAIL ──
 function buildDetail() {
-  const id = state.activeId;
+  const id  = state.activeId;
   const dom = DATA.find(d => d.id === id);
-  const s = state.domainStates[id];
-  const bc = s ? badgeColors(s) : null;
+  const s   = state.domainStates[id];
+  const bc  = s ? badgeColors(s) : null;
 
   return el('div', { id: 'detail' },
-    // Header
     el('div', { class: 'dt-header' },
       el('button', {
         class: 'dt-back',
@@ -510,7 +614,6 @@ function buildDetail() {
         ? el('span', { class: 'dt-locked-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s))
         : el('span'),
     ),
-    // Body
     el('div', { class: 'dt-body' },
       buildEvidencePanel(dom),
       buildAnalysisPanel(dom, id, s),
@@ -518,50 +621,121 @@ function buildDetail() {
   );
 }
 
-// LEFT: Signals + Cross-Industry Patterns
+// ── LEFT: Evidence panel ──
 function buildEvidencePanel(dom) {
-  const signalItems = (dom.signals || []).map(sig =>
-    el('div', { class: 'signal-item' },
-      el('span', { class: 'signal-type' }, sig.type),
-      el('p', { class: 'signal-body' }, sig.signal),
-    )
-  );
+  const children = [];
 
-  const patternItems = (dom.crossIndustryPatterns || []).map(p =>
-    el('div', { class: 'pattern-item' },
-      el('p', { class: 'pattern-title' }, p.title),
-      el('p', { class: 'pattern-body' }, p.body),
-    )
-  );
+  // Domain confidence header
+  if (dom.domainConfidence) {
+    const dc = domainConfidenceConfig(dom.domainConfidence);
+    const sourcesText = (dom.domainSources || []).join('; ');
 
-  return el('div', { class: 'evidence-panel' },
-    el('p', { class: 'section-label' }, 'Observed Signals'),
-    el('div', { class: 'signals-list' }, ...signalItems),
-    ...(patternItems.length ? [
-      el('div', { class: 'evidence-section-gap' }),
-      el('p', { class: 'section-label' }, 'Cross-Industry Patterns'),
-      el('div', { class: 'patterns-list' }, ...patternItems),
-    ] : []),
-  );
+    const warningEl = dom.domainWarning
+      ? el('div', { class: 'confidence-warning' },
+          el('span', null, '⚠'),
+          el('span', null, 'Do not treat as established fact. Data from a single source — treat as hypothesis requiring validation.'),
+        )
+      : null;
+
+    children.push(
+      el('div', { class: 'domain-confidence-block' },
+        el('div', { class: 'confidence-header-row' },
+          el('span', { class: 'confidence-meta-label' }, 'Signal Confidence'),
+          el('span', {
+            class: 'confidence-level-badge',
+            style: { background: dc.bg, color: dc.color, border: `1px solid ${dc.border}` },
+          }, dom.domainConfidence.toUpperCase()),
+        ),
+        el('p', { class: 'confidence-sources-text' }, sourcesText),
+        warningEl,
+      ),
+    );
+  }
+
+  // Signals
+  children.push(el('p', { class: 'section-label' }, 'Observed Signals'));
+
+  const signalCards = (dom.signals || []).map(sig => {
+    const tc = signalTypeConfig(sig.label);
+    const cc = confidenceConfig(sig.confidence);
+    const badgeText = sig.missionSource && sig.confidence
+      ? `${sig.missionSource} · ${sig.confidence}`
+      : sig.confidence || '';
+
+    return el('div', { class: 'signal-card', style: { borderLeftColor: tc.border, background: tc.bg } },
+      el('div', { class: 'signal-card-header' },
+        el('span', { class: 'signal-label', style: { color: tc.labelColor } }, sig.label),
+        el('span', {
+          class: 'signal-meta-badge',
+          style: { background: cc.bg, color: cc.color },
+        }, badgeText),
+      ),
+      el('p', { class: 'signal-claim' }, sig.claim),
+      sig.sources ? el('p', { class: 'signal-sources' }, sig.sources) : null,
+    );
+  });
+
+  children.push(el('div', { class: 'signals-list' }, ...signalCards));
+
+  // Cross-industry patterns
+  if (dom.crossIndustryPatterns && dom.crossIndustryPatterns.length) {
+    children.push(el('div', { class: 'evidence-section-gap' }));
+    children.push(el('p', { class: 'section-label' }, 'Cross-Industry Patterns'));
+    children.push(
+      el('div', { class: 'patterns-list' },
+        ...dom.crossIndustryPatterns.map(p =>
+          el('div', { class: 'pattern-item' },
+            el('p', { class: 'pattern-title' }, p.title),
+            el('p', { class: 'pattern-body' }, p.body),
+          )
+        ),
+      ),
+    );
+  }
+
+  return el('div', { class: 'evidence-panel' }, ...children);
 }
 
-// RIGHT: Implication → Capabilities Analysis → Tensions + Voting pinned
+// ── RIGHT: Analysis panel ──
 function buildAnalysisPanel(dom, id, s) {
-  const capCards = (dom.capabilities || []).map(cap => buildCapCard(cap));
+  const capCards = (dom.capabilities || []).map(cap => {
+    const color = capColor(cap.assessment);
+    const icon  = capIcon(cap.assessment);
+
+    return el('div', { class: 'cap-card', style: { borderLeftColor: color } },
+      el('div', { class: 'cap-card-header' },
+        el('span', { class: 'cap-card-name' }, `${icon}  ${cap.capability}`),
+        el('span', {
+          class: 'cap-assessment-badge',
+          style: { background: color + '18', color, border: `1px solid ${color}40` },
+        }, cap.assessment),
+      ),
+      (cap.evidence || []).length ? el('div', null,
+        el('p', { class: 'cap-evidence-label' }, 'Supporting Evidence'),
+        el('div', { class: 'cap-evidence-list' },
+          ...(cap.evidence || []).map(e =>
+            el('div', { class: 'cap-evidence-item' },
+              el('span', { class: 'cap-evidence-dot' }, '·'),
+              el('span', { class: 'cap-evidence-text' }, e),
+            )
+          ),
+        ),
+      ) : null,
+      cap.implication ? el('div', { class: 'cap-implication-wrap' },
+        el('p', { class: 'cap-implication-label' }, 'Implication'),
+        el('p', { class: 'cap-implication-text' }, cap.implication),
+      ) : null,
+    );
+  });
 
   const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
 
   const scrollArea = el('div', { class: 'decision-scroll' },
-    // Implication
     el('p', { class: 'section-label' }, 'Implication'),
     el('p', { class: 'implication-text' }, dom.implications),
-
-    // Capabilities analysis
     el('div', { class: 'section-divider' }),
     el('p', { class: 'section-label' }, 'Capabilities Analysis'),
     el('div', { class: 'caps-analysis-list' }, ...capCards),
-
-    // Strategic tensions
     el('div', { class: 'section-divider' }),
     el('p', { class: 'section-label' }, 'Strategic Tensions'),
     el('div', { class: 'tensions-list' }, ...tensionItems),
@@ -570,50 +744,13 @@ function buildAnalysisPanel(dom, id, s) {
   return el('div', { class: 'decision-panel' }, scrollArea, buildVotingPanel(id, s));
 }
 
-function buildCapCard(cap) {
-  const color = capColor(cap.assessment);
-  const icon = capIcon(cap.assessment);
-
-  const evidenceItems = (cap.evidence || []).map(e =>
-    el('div', { class: 'cap-evidence-item' },
-      el('span', { class: 'cap-evidence-dot' }, '·'),
-      el('span', { class: 'cap-evidence-text' }, e),
-    )
-  );
-
-  return el('div', { class: 'cap-card', style: { borderLeftColor: color } },
-    // Header: name + assessment badge
-    el('div', { class: 'cap-card-header' },
-      el('span', { class: 'cap-card-name' }, `${icon}  ${cap.capability}`),
-      el('span', {
-        class: 'cap-assessment-badge',
-        style: {
-          background: color + '18',  // ~10% opacity tint
-          color,
-          border: `1px solid ${color}40`,
-        },
-      }, cap.assessment),
-    ),
-    // Evidence
-    evidenceItems.length ? el('div', null,
-      el('p', { class: 'cap-evidence-label' }, 'Supporting Evidence'),
-      el('div', { class: 'cap-evidence-list' }, ...evidenceItems),
-    ) : null,
-    // Implication
-    cap.implication ? el('div', { class: 'cap-implication-wrap' },
-      el('p', { class: 'cap-implication-label' }, 'Implication'),
-      el('p', { class: 'cap-implication-text' }, cap.implication),
-    ) : null,
-  );
-}
-
 function buildTension(t, i, id) {
-  const parts = t.title.split(': ');
+  const parts    = t.title.split(': ');
   const mainTitle = parts[0];
-  const subtitle = parts.slice(1).join(': ');
-  const pct = getTensionPos(id, i);
+  const subtitle  = parts.slice(1).join(': ');
+  const pct       = getTensionPos(id, i);
 
-  const bar = el('div', { class: 'tension-bar' });
+  const bar    = el('div', { class: 'tension-bar' });
   const marker = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
   bar.appendChild(marker);
 
@@ -649,18 +786,15 @@ function buildTension(t, i, id) {
   );
 }
 
-// VOTING PANEL
+// ── VOTING PANEL ──
 function buildVotingPanel(id, s) {
-  const votes = getVotes(id);
+  const votes      = getVotes(id);
   const totalVotes = votes.anchor + votes.deprioritize + votes.ignore;
-  const hasLocked = !!s;
+  const hasLocked  = !!s;
 
   let actionBtn = null;
-  if (hasLocked) {
-    actionBtn = el('button', { class: 'voting-action-btn', onClick: () => clearState(id) }, 'Change decision');
-  } else if (totalVotes > 0) {
-    actionBtn = el('button', { class: 'voting-action-btn', onClick: () => resetVotes(id) }, 'Reset votes');
-  }
+  if (hasLocked)        actionBtn = el('button', { class: 'voting-action-btn', onClick: () => clearState(id) }, 'Change decision');
+  else if (totalVotes > 0) actionBtn = el('button', { class: 'voting-action-btn', onClick: () => resetVotes(id) }, 'Reset votes');
 
   let content;
   if (hasLocked) {
@@ -670,7 +804,7 @@ function buildVotingPanel(id, s) {
       el('p', { class: 'locked-summary' }, `Set by group vote · ${totalVotes} ${totalVotes === 1 ? 'vote' : 'votes'} cast`),
     );
   } else {
-    const leadingKey = votes.anchor >= votes.deprioritize && votes.anchor >= votes.ignore ? 'anchor'
+    const leadingKey   = votes.anchor >= votes.deprioritize && votes.anchor >= votes.ignore ? 'anchor'
       : votes.deprioritize >= votes.ignore ? 'deprioritize' : 'ignore';
     const leadingCount = Math.max(votes.anchor, votes.deprioritize, votes.ignore);
 
@@ -714,14 +848,12 @@ function buildVotingPanel(id, s) {
 function addVote(id, opt) {
   const prev = getVotes(id);
   state.domainVotes[id] = { ...prev, [opt]: prev[opt] + 1 };
-  persist();
-  render();
+  persist(); render();
 }
 
 function resetVotes(id) {
   state.domainVotes[id] = { anchor: 0, deprioritize: 0, ignore: 0 };
-  persist();
-  render();
+  persist(); render();
 }
 
 function lockState(id) {
@@ -730,14 +862,12 @@ function lockState(id) {
   const winner = v.anchor >= v.deprioritize && v.anchor >= v.ignore ? 'anchor'
     : v.deprioritize >= v.ignore ? 'deprioritize' : 'ignore';
   state.domainStates[id] = winner;
-  persist();
-  render();
+  persist(); render();
 }
 
 function clearState(id) {
   delete state.domainStates[id];
-  persist();
-  render();
+  persist(); render();
 }
 
 // ── Drag ──
