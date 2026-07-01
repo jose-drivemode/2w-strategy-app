@@ -7,7 +7,7 @@
     "full": true,
     "description": "This section is not a Decision Domain. It is a prerequisite. The seven Decision Domains that follow cannot be meaningfully acted upon until the questions raised here are resolved by Honda 2W leadership. DriveMode cannot answer these questions alone. The central question is this: Is DriveMode mandated to **lead** Honda's connected motorcycle strategy - owning the platform, the rider relationship, and the partner ecosystem - or is DriveMode mandated to **execute** a strategy that Honda 2W defines? Neither answer is wrong. But the answer determines everything that follows: governance structure, investment level, capability priorities, and the relevance of each of the seven Decision Domains below. In the absence of an explicit answer, the current default - informally defined, financially misaligned - is operationally equivalent to Execute, without the clarity that would allow DriveMode to perform even that role effectively.",
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "The existence of an organizational capability gap is confirmed by Honda's own VP-level executives on the record in December 2024, and the specific gaps (understaffed platform/infrastructure, no cybersecurity function) are corroborated by the Engineering Skills Map. Confidence is Medium rather than High for two reasons: the executive statements are a single recorded moment without external corroboration, and the automotive transformation cases (CARIAD, Toyota Woven) used for comparison are secondary references that require independent verification before being treated as established fact.",
+    "domainConfidenceNote": "The existence of an organizational capability gap is confirmed by Honda's own VP-level executives on the record in December 2024, and the specific gaps (understaffed platform/infrastructure, no cybersecurity function) are corroborated by the Engineering Skills Map. Honda's July 2026 scope communication partially resolves the role question (Execute direction now evidenced), but governance structure and long-horizon funding commitment remain without a documented answer. Confidence stays Medium: the role signal is now stronger but was arrived at implicitly, not through the explicit negotiated agreement the Precondition calls for.",
     "domainWarning": false,
     "signals": [
       {
@@ -37,6 +37,13 @@
         "confidence": "Medium",
         "claim": "VW's CARIAD failure is the most documented cautionary case: governance ambiguity between software subsidiary and hardware parent engineering teams caused cascading delays and a €14B loss before the program was abandoned. Honda/DriveMode shows the exact same early-stage governance pattern.",
         "sources": "VW Group financial disclosures (M3); OEM transformation case analysis (M4 - secondary reference, requires independent verification). Overall confidence Medium: the CARIAD facts are High, but the Honda relevance is an M4 inference."
+      },
+      {
+        "label": "Honda-Defined Execution Scope",
+        "missionSource": "M4",
+        "confidence": "Medium",
+        "claim": "Honda has communicated DriveMode's expected deliverables as: (1) RoadSync Duo development, operation, and improvement - monitoring, customer support, OTA updates, platform enhancements, KPI reporting, and A-SPICE compliance, against target platforms K4BA/K3NA/K3NF; (2) RoadSync Unified development - technical/feasibility reviews and prototype development across companion apps and DM servers. This scope definition implicitly answers the Lead vs. Execute question in the Execute direction: Honda defines the product scope and compliance requirements; DriveMode delivers against them. The mandate is communicated through a product brief, not through a jointly negotiated strategic agreement.",
+        "sources": "`raw/2026Q3_honda_drivemode_expected_scope.md`; single source, July 2026 - treat as directional, not formally binding."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -54,7 +61,7 @@
         "body": "Modern tech organizations often retain top talent by offering specific, challenging, multi-year \"missions\" rather than a life-long career path, a model very different from traditional corporate structures."
       }
     ],
-    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. The current relationship between Honda and DriveMode shows classic signs of early-stage friction. Without a clear, deliberate, and fully-backed plan for governance, funding, and talent management, even the best technical strategy will fail due to internal organizational dysfunction. This is the most critical, non-technical risk to the entire program. ---",
+    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. Honda's July 2026 scope communication reduces one dimension of uncertainty: the role question is now answered in the Execute direction by Honda's behavior, even if not by a formal agreement. DriveMode now knows what it is expected to build. What remains unresolved is consequential: the governance structure that governs how decisions are made when DriveMode's technical or product judgement differs from Honda's brief, and the funding commitment that would allow DriveMode to build platform capabilities beyond the current quarterly scope. Without those two answers, DriveMode is executing a well-defined brief inside an undefined relationship - which is functional in the short term but fragile under any pressure. ---",
     "tensionsNote": null,
     "tensions": [
       {
