@@ -47,6 +47,12 @@ Content lives entirely in `data.json`. The app code does not need to change when
 
 GitHub Pages rebuilds in ~1 minute.
 
+### Automated sync (Level 3 — git hook)
+
+A `post-commit` hook in the `2w-strategy` source repo automates the above. After any commit that includes `data.json`, it copies the file to this repo, commits, and pushes automatically.
+
+The hook lives at `2w-strategy/.git/hooks/post-commit`. Because `.git/hooks/` is not tracked by git, it only exists on the machine where it was created — if the source repo is cloned elsewhere, the hook must be recreated manually.
+
 ---
 
 ## Data schema
