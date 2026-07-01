@@ -11,35 +11,35 @@
     "signals": [
       {
         "label": "Acknowledged Capability Gap",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low",
         "claim": "Honda VP-level executives explicitly stated in December 2024 that DriveMode was acquired for capabilities Honda lacks, and that DriveMode is tasked with training Honda employees in \"modern SW development best practices.\" This is a direct, on-record admission that transformation is necessary.",
         "sources": "Honda VP-level executive statements (`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`); single source - strong signal but unverified externally."
       },
       {
         "label": "Structural Mismatch",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low–Medium",
         "claim": "The Honda/DriveMode relationship has unresolved governance, informally defined decision rights, and a software cost allocation model (global/local revenue ratio) that creates conflicting incentives - documented across multiple independent repository sources from 2017 to 2026.",
         "sources": "`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`; `wiki/brain-dumps/2026-06-25_software_cost_allocation_and_strategy.md`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-25_engineering_department_skills_map.md` - four independent signals converging on same conclusion."
       },
       {
         "label": "Capability Hotspots",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Medium",
         "claim": "The most severe un-resourced gaps are in OTA infrastructure (2 systems engineers; competitors deliver monthly OTA at scale), Cybersecurity (no dedicated function among 51 personnel), Data Engineering (no dedicated role evidenced), and Platform Product Management (PM structure oriented to feature delivery, not platform strategy).",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`."
       },
       {
         "label": "Competitor Precedent",
-        "missionSource": "M3/M4",
+        "missionSource": "Financial Intelligence",
         "confidence": "Medium",
         "claim": "VW's CARIAD failure is the most documented cautionary case: governance ambiguity between software subsidiary and hardware parent engineering teams caused cascading delays and a €14B loss before the program was abandoned. Honda/DriveMode shows the exact same early-stage governance pattern.",
-        "sources": "VW Group financial disclosures (M3); OEM transformation case analysis (M4 - secondary reference, requires independent verification). Overall confidence Medium: the CARIAD facts are High, but the Honda relevance is an M4 inference."
+        "sources": "VW Group financial disclosures (primary); OEM transformation case analysis (secondary reference, requires independent verification). Confidence Medium: the CARIAD financial facts are High confidence; the Honda/DriveMode relevance is an interpretive inference, not directly sourced."
       },
       {
         "label": "Honda-Defined Execution Scope",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Medium",
         "claim": "Honda has communicated DriveMode's expected deliverables as: (1) RoadSync Duo development, operation, and improvement - monitoring, customer support, OTA updates, platform enhancements, KPI reporting, and A-SPICE compliance, against target platforms K4BA/K3NA/K3NF; (2) RoadSync Unified development - technical/feasibility reviews and prototype development across companion apps and DM servers. This scope definition implicitly answers the Lead vs. Execute question in the Execute direction: Honda defines the product scope and compliance requirements; DriveMode delivers against them. The mandate is communicated through a product brief, not through a jointly negotiated strategic agreement.",
         "sources": "`raw/2026Q3_honda_drivemode_expected_scope.md`; single source, July 2026 - treat as directional, not formally binding."
@@ -107,28 +107,28 @@
     "signals": [
       {
         "label": "Ownership vs. Access Framing",
-        "missionSource": "M1",
+        "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "Riders draw a sharp distinction between features they feel they **own** (ride data, permanent access) and services they **access** (navigation, subscriptions). The highest frustration comes from OEMs holding personal ride data hostage.",
         "sources": "app store reviews (Honda, Kawasaki, BMW), owner forums (ADVrider, UK-Yankee), enthusiast press; 20+ independent sources."
       },
       {
         "label": "Willingness to Pay",
-        "missionSource": "M1",
+        "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "Riders resist paying for pre-installed hardware but will pay for high-stakes outcomes like theft tracking and crash detection.",
         "sources": "Monimoto (£149 + £36/yr), BikeTrac (£299 + £99/yr), EatSleepRIDE Crashlight ($49/yr); Kawasaki Canada voice subscription near-universal rejection."
       },
       {
         "label": "Competitor Failure",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "Harley-Davidson H-D Connect was discontinued August 2020 due to an insufficient user base, proving brand alone does not ensure platform adoption.",
         "sources": "triketalk.com, hdforums.com, hdlivewireforum.com; community petition to restore service active as of 2026."
       },
       {
         "label": "Competitor Success",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "Indian and Chinese competitors are building operational platforms for lifecycle ownership with tiered subscriptions, measurable KPIs, and multi-model deployment. Hero MotoCorp's Battery-as-a-Service model (monthly subscription from ₹1,242/month, including battery replacement guarantee) and CFMOTO's RIDE app (geofenced anti-theft with 4G remote lock, digital key, OTA firmware updates) demonstrate that connected subscription models are operational beyond Western markets. TVS's Crash Alert system (automatic GPS alert to emergency contacts) adds a third concurrent implementation.",
         "sources": "Hero COE structure (67% faster rollout; 19% MAU uplift; 30% service bookings); TVS Motor CDAO role; Ather 46% R&D workforce; `sources/2026-06-26_hero_deep_dive.md`; `sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`."
@@ -220,28 +220,28 @@
     "signals": [
       {
         "label": "Competitor Benchmark",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "Hero MotoCorp (AWS + Excelfore eSync for OTA), Ather Energy (Google Cloud + BigQuery), and CFMOTO (Alibaba Cloud primary; AWS/Azure for GDPR-compliant Western regions) are all operating production-grade cloud-native platforms with OTA update capabilities. CFMOTO's dual-cloud architecture - Alibaba Cloud for domestic and Asian operations, AWS/Azure for regulatory compliance in Western markets - is the first documented case of infrastructure-level regional differentiation in the competitor set, and a direct precedent for the regional architecture challenge Honda faces.",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_hero_deep_dive.md`; Ather Energy annual report; 40+ competitor sources across 10 OEMs."
       },
       {
         "label": "Systemic Failure Pattern",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "Widespread rider complaints about Bluetooth connectivity failures across Yamaha Y-Connect and Kawasaki Rideology confirm that infrastructure reliability is a non-trivial technical challenge and a key differentiator.",
         "sources": "App store reviews (both platforms); independent OEM complaints converging on same structural failure."
       },
       {
         "label": "Financial Cautionary Tale",
-        "missionSource": "M3",
+        "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses - VW CARIAD (€14B total; €2.1B operating loss 2022; subsequently replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($19.5B total write-down, December 2025).",
         "sources": "VW Group financial disclosures; Ford investor reports."
       },
       {
         "label": "Internal Capability",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low–Medium",
         "claim": "The engineering department consists of 51 personnel with a high density of senior talent - but platform/infrastructure is staffed by only 3 people (4% of headcount) and systems engineering by 2 people (3%), the exact teams that underpin a scalable connected vehicle platform.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; four independent repository signals converging on same conclusion."
@@ -328,28 +328,28 @@
     "signals": [
       {
         "label": "Voice of Rider",
-        "missionSource": "M1",
+        "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "Third-party apps that excel at a single \"job-to-be-done\" - Calimoto for scenic routing (3M+ users), REVER for route discovery, EatSleepRIDE for crash detection - are consistently preferred over comprehensive-but-mediocre OEM apps.",
         "sources": "app store reviews, Calimoto user base data, enthusiast press; 20+ independent sources."
       },
       {
         "label": "Competitor Success",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "The most advanced competitors have adopted clear platform strategies enabling multi-model deployment, tiered subscriptions, and data-driven product development. CFMOTO's systems integrator model is the most concrete documented implementation of platform-over-product thinking in the sector: they build only the app layer and vehicle integration in-house, sourcing every platform component (cloud, safety electronics, battery, AI) from specialized partners, then own the integration layer above it. Hero MotoCorp, TVS Motor, and Ather Energy follow similar integrator patterns with 7+ model deployment each.",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; Hero COE structure; TVS Motor Databricks + CDAO role; Ather 64-feature OTA cadence; TVS 8-year connected services track record."
       },
       {
         "label": "Competitor Failure",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "Ola Electric's technically sophisticated proprietary platform (MoveOS, Krutrim AI, Ola Maps, full OTA) did not prevent a market share collapse from 35%+ to ~15% (2025), proving that platform investment cannot compensate for service quality failures and capital overextension.",
         "sources": "techstory.in, e-vehicleinfo.com, peoplematters.in; three layoff rounds totalling 1,620+ employees in 24 months."
       },
       {
         "label": "Internal Capability",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low–Medium",
         "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 people) and systems engineering (2 people) - the exact capabilities that underpin a true platform strategy.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`."
@@ -418,28 +418,28 @@
     "signals": [
       {
         "label": "Honda's Localization Actions",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "Honda is already practicing deep, functional localization - RoadSync Duo carries India-only security features and battery-swapping integration in specific SEA markets. At the infrastructure level, Honda is a member of the Swappable Batteries Motorcycle Consortium (SBMC) alongside CFMOTO, KTM, Yamaha, and Piaggio, working to standardize light EV battery specifications across brands - signalling that Honda is approaching battery infrastructure localization through industry standardization rather than proprietary investment.",
         "sources": "`sources/2026-06-23_honda_roadsync_duo_app_store.pdf`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-26_cfmoto_deep_dive.md`."
       },
       {
         "label": "Voice of Rider - Critical Evidence Gap",
-        "missionSource": "M1",
+        "missionSource": "Rider Voice",
         "confidence": "Low",
         "claim": "While Western riders prioritize navigation and scenic routing, direct rider voice from Japan and Southeast Asia is almost entirely absent from the research base. All substantive forum evidence comes from Western markets.",
         "sources": "20+ sources (US, UK, Europe, India); zero substantive primary sources from Japan or SEA. This is the most significant evidentiary gap given Honda's geographic priorities."
       },
       {
         "label": "Competitor Strategy",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "The most digitally advanced competitors (Hero, Ather, TVS) are almost entirely India-centric, succeeding through deep regional focus rather than global platforms. Suzuki's connected service (3.1M India downloads) is also India-only.",
         "sources": "Hero/Ather/TVS public disclosures; Suzuki Ride Connect India press release; 40+ competitor sources."
       },
       {
         "label": "Market Dynamics",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "Asia-Pacific represents 41.7% of the connected motorcycle market with a 35.8% CAGR - the largest and fastest-growing segment globally. The first direct SEA competitor data point in this research (MForce, Malaysia's largest domestic manufacturer and distributor of Benelli, Keeway, SYM, and Zontes) shows no proprietary app, no digital ecosystem, and entirely externally-sourced white-label connectivity on its own brands. This can be read as a demand signal (SEA riders do not require connected services from their OEM) or a laggard gap (an unserved market with no current incumbent). Without direct rider voice it is impossible to distinguish between the two.",
         "sources": "ABI Research connected motorcycle market data; `sources/2026-06-26_deep_dive_mforce.md`."
@@ -505,28 +505,28 @@
     "signals": [
       {
         "label": "Voice of Rider - Data Ownership",
-        "missionSource": "M1",
+        "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "The #1 source of rider anger across all forums and app reviews is the perception of personal ride data being \"held hostage\" or inaccessible upon subscription cancellation. Conversely, riders actively consent to data collection when it delivers direct, tangible value - theft tracking, Ather's \"Warped\" annual ride report.",
         "sources": "European subscription-cancellation complaints (forums, app store reviews); Ather Energy engagement data; 20+ independent sources."
       },
       {
         "label": "Competitor Benchmark",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "The most advanced competitors have invested in dedicated data platforms capable of turning vehicle telemetry into product intelligence, using three distinct approaches. CFMOTO's T-Box IoT gateway creates a real-time digital twin of each vehicle synced to their cloud, enabling automated fault notifications, proactive maintenance alerts, and OTA firmware pushes. Hero MotoCorp built a Connected Vehicle Platform (CVP) on AWS + Excelfore eSync, using telemetry for battery degradation prediction and remote OTA ECU updates. TVS Motor acquired telematics firm Intellicar and US AI firm Predictronics Corporation rather than building capabilities from scratch, then deployed the PDX predictive maintenance platform and EV battery digital twins. Yamaha, Kawasaki, Suzuki, and Harley-Davidson show no evidence of equivalent investment.",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_hero_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`; Ather/Hero/TVS public technical disclosures."
       },
       {
         "label": "Internal Ambition",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low",
         "claim": "Honda's connected services vision explicitly includes using data for defect detection, usage evaluation, and product development feedback loops.",
         "sources": "`raw/2026Q2_organizational_capability_assessment.md`; single source - treat as directional intent, not confirmed capability."
       },
       {
         "label": "Data Collection Foundation",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low–Medium",
         "claim": "The RoadSync Duo app already collects location data, usage patterns, and user identifiers, creating a foundational data asset - but no dedicated data engineering, analytics, or data science function is evidenced within the DriveMode organization.",
         "sources": "`sources/2026-06-23_honda_roadsync_duo_app_store.pdf`; `sources/2026-06-25_engineering_department_skills_map.md` (absence of data engineering role confirmed)."
@@ -595,28 +595,28 @@
     "signals": [
       {
         "label": "Identified Open Space",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "Across all 10 competitors analyzed, no OEM has a documented partnership with an insurance provider for telematics-based services, marking this as an uncontested strategic space.",
         "sources": "40+ competitor sources across Yamaha, Kawasaki, Hero, Ather, TVS, Ola, Bajaj, KTM, Suzuki, Harley-Davidson. Caveat: this is an inference from absence - a partnership may exist but not be publicly disclosed."
       },
       {
         "label": "Common Practice",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "Navigation and mapping is the most common third-party integration point across incumbents: Yamaha partners with Garmin globally; Kawasaki with HERE; Ather with Google Maps. This signals a consistent industry default of \"buy\" for navigation capability.",
         "sources": "Yamaha, Kawasaki, and Ather product documentation and press releases; 40+ competitor sources."
       },
       {
         "label": "Competitor Enabler",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "The most advanced competitors use layered partnership models rather than vertical integration. CFMOTO is the most complete documented case: engine platform (KTM), safety electronics (Bosch/Continental/RDS), cloud (Alibaba/AWS/Azure), battery (Ampace/CATL), and AI (Potential Motors) are all sourced from specialist partners - CFMOTO builds only the app integration layer and vehicle design in-house. Hero MotoCorp extends this further into ecosystem partnerships: a Gogoro JV for battery-swapping infrastructure, an Ather Grid interoperability agreement (sharing charging network with a direct competitor), and an ONDC B2B marketplace for the dealer parts supply chain. The pattern across all advanced competitors is the same: own the integration layer, partner for everything beneath it.",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_hero_deep_dive.md`; Hero COE public disclosures; Ather Energy annual report."
       },
       {
         "label": "Financial Imperative",
-        "missionSource": "M3",
+        "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "Build-vs-integrate analysis strongly favors partnership for non-software-native OEMs. VW spent €14B to fail at a proprietary build, then committed $5.8B to license from Rivian what it could not build in-house. For a motorcycle OEM at lower vehicle volumes and ASPs, a proprietary platform build is financially very difficult to justify.",
         "sources": "VW Group financial disclosures; Rivian–VW partnership announcement; McKinsey connected vehicles analysis."
@@ -684,35 +684,35 @@
     "signals": [
       {
         "label": "Cost Hierarchy",
-        "missionSource": "M3",
+        "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "The financial evidence establishes a clear investment hierarchy: basic connectivity (embedded SIM/eSIM, basic OTA, remote access) is table stakes - a cost of doing business with no independent revenue line at any OEM. Only specific safety/security services have demonstrated monetization at scale: GM OnStar Safety ($120–$780/yr tiers); GM Super Cruise ($234M revenue, 2025).",
         "sources": "ABI Research ($31.77B global OEM connectivity spend); GM investor reports; McKinsey connected vehicles projections (2030)."
       },
       {
         "label": "Risk of Ruin",
-        "missionSource": "M3",
+        "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "Two automotive OEMs have suffered catastrophic failures attempting proprietary software platform builds: VW CARIAD (€14B total investment; program abandoned; replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($4.7B in 2023 + $5B in 2024 losses; $19.5B total write-down, December 2025). Common failure pattern: scope overreach, culture mismatch, underestimated integration complexity, multi-year cash burn before revenue.",
         "sources": "VW Group and Ford investor disclosures (primary financial sources)."
       },
       {
         "label": "Competitor R&D Investment Benchmarks",
-        "missionSource": "M2",
+        "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "The deep dives provide first motorcycle-sector R&D investment reference points. CFMOTO invests 6.18% of revenue in R&D ($170M on $2.73B FY2025 revenue), holding 2,119+ active patents with a global R&D network across China, Italy, USA, and Austria. TVS Motor acquired Intellicar (telematics) and Predictronics Corporation (AI predictive maintenance) rather than building capabilities organically, and invested £200M+ in the Norton Motorcycles acquisition to gain premium engineering capacity. Both signal that capability acquisition via M&A is an active investment strategy alongside organic R&D.",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`."
       },
       {
         "label": "Unresolved Governance",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Low–Medium",
         "claim": "Honda's internal model for allocating software costs and funding platform development remains unresolved as of 2026. The software cost split (global/local revenue ratio) functions as a financial governance mechanism that creates local-optimization incentives rather than enabling platform investment.",
         "sources": "`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`; `wiki/brain-dumps/2026-06-25_software_cost_allocation_and_strategy.md`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-25_engineering_department_skills_map.md` - four independent signals converging on same conclusion."
       },
       {
         "label": "Capability Gaps - Investment Binding Constraint",
-        "missionSource": "M4",
+        "missionSource": "Org Capability",
         "confidence": "Medium",
         "claim": "The most severe internal capability gaps - OTA infrastructure, Cybersecurity, Data Engineering, Platform PM - are in technically expensive domains requiring sustained long-term investment. Four of the fourteen capability areas assessed have a recommended approach of \"Partner\" rather than \"Build,\" directly shaping what investment sequencing is realistic.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`; `wiki/outputs/2026-06-26_signal_strengthening_findings.md`."
