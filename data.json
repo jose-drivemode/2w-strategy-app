@@ -1,11 +1,10 @@
 [
   {
-    "id": 0,
-    "number": "00",
+    "id": 1,
+    "number": "01",
     "title": "Governance and Mandate",
-    "type": "precondition",
+    "type": "domain",
     "full": true,
-    "description": "This section is not a Decision Domain. It is a prerequisite. The seven Decision Domains that follow cannot be meaningfully acted upon until the questions raised here are resolved by Honda 2W leadership. DriveMode cannot answer these questions alone. The central question is this: Is DriveMode mandated to **lead** Honda's connected motorcycle strategy - owning the platform, the rider relationship, and the partner ecosystem - or is DriveMode mandated to **execute** a strategy that Honda 2W defines? Neither answer is wrong. But the answer determines everything that follows: governance structure, investment level, capability priorities, and the relevance of each of the seven Decision Domains below. In the absence of an explicit answer, the current default - informally defined, financially misaligned - is operationally equivalent to Execute, without the clarity that would allow DriveMode to perform even that role effectively.",
     "domainConfidence": "Medium",
     "domainConfidenceNote": "The existence of an organizational capability gap is confirmed by Honda's own VP-level executives on the record in December 2024, and the specific gaps (understaffed platform/infrastructure, no cybersecurity function) are corroborated by the Engineering Skills Map. Honda's July 2026 scope communication partially resolves the role question (Execute direction now evidenced), but governance structure and long-horizon funding commitment remain without a documented answer. Confidence stays Medium: the role signal is now stronger but was arrived at implicitly, not through the explicit negotiated agreement the Precondition calls for.",
     "domainWarning": false,
@@ -61,7 +60,7 @@
         "body": "Modern tech organizations often retain top talent by offering specific, challenging, multi-year \"missions\" rather than a life-long career path, a model very different from traditional corporate structures."
       }
     ],
-    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. Honda's July 2026 scope communication reduces one dimension of uncertainty: the role question is now answered in the Execute direction by Honda's behavior, even if not by a formal agreement. DriveMode now knows what it is expected to build. What remains unresolved is consequential: the governance structure that governs how decisions are made when DriveMode's technical or product judgement differs from Honda's brief, and the funding commitment that would allow DriveMode to build platform capabilities beyond the current quarterly scope. Without those two answers, DriveMode is executing a well-defined brief inside an undefined relationship - which is functional in the short term but fragile under any pressure. ---",
+    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. DriveMode can increasingly see what near-term work is expected through RFQ-linked deliverables and headcount justification tied to RoadSync Duo, Platform 2.0, and IVI features. That short-term clarity is real and workable. What remains unresolved is equally consequential: the governance structure for deciding what happens when DriveMode's technical or product judgment diverges from Honda's current direction, and the level of committed support for building platform capabilities outside the currently justifiable scope. Those questions are still being managed informally through stakeholder alignment rather than formal agreement. In that sense, DriveMode is not operating in total ambiguity - it is executing against clearer short-term expectations inside a relationship whose longer-term decision rights and investment logic remain underdefined. That may be sustainable in the short term, but it remains vulnerable if priorities tighten or strategic disagreement surfaces. ---",
     "tensionsNote": null,
     "tensions": [
       {
@@ -97,8 +96,8 @@
     ]
   },
   {
-    "id": 1,
-    "number": "01",
+    "id": 2,
+    "number": "02",
     "title": "The Future of Rider Ownership",
     "type": "domain",
     "full": true,
@@ -210,8 +209,8 @@
     ]
   },
   {
-    "id": 2,
-    "number": "02",
+    "id": 3,
+    "number": "03",
     "title": "Software as Competitive Infrastructure",
     "type": "domain",
     "full": true,
@@ -318,8 +317,8 @@
     ]
   },
   {
-    "id": 3,
-    "number": "03",
+    "id": 4,
+    "number": "04",
     "title": "Platform vs. Product Strategy",
     "type": "domain",
     "full": true,
@@ -408,8 +407,8 @@
     ]
   },
   {
-    "id": 4,
-    "number": "04",
+    "id": 5,
+    "number": "05",
     "title": "Regional Differentiation vs. Global Scale",
     "type": "domain",
     "full": true,
@@ -495,8 +494,8 @@
     ]
   },
   {
-    "id": 5,
-    "number": "05",
+    "id": 6,
+    "number": "06",
     "title": "Data as a Strategic Asset",
     "type": "domain",
     "full": true,
@@ -585,8 +584,8 @@
     ]
   },
   {
-    "id": 6,
-    "number": "06",
+    "id": 7,
+    "number": "07",
     "title": "Partner Ecosystem Strategy",
     "type": "domain",
     "full": true,
@@ -674,8 +673,8 @@
     ]
   },
   {
-    "id": 7,
-    "number": "07",
+    "id": 8,
+    "number": "08",
     "title": "Investment Prioritization",
     "type": "domain",
     "full": true,
