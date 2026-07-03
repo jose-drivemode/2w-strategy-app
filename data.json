@@ -250,7 +250,7 @@
         "label": "Internal Capability",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The engineering department consists of 51 personnel with a high density of senior talent. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 HR-labeled people (4% of headcount) and Systems Engineering by 3 functional people (3%), the exact teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-level engineers are fully committed to the AWS Migration, and the QA team's single P5 is 70% committed to Gen1 and compliance work - meaning a portion of the org's highest-capability tier is not available for new strategic infrastructure development in the near term.",
+        "claim": "The engineering department consists of 51 personnel with a high density of senior talent. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 people (4% of headcount) and Systems Engineering by 3 functional people (3%), the exact teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-level engineers are fully committed to the AWS Migration, and the QA team's single P5 is 70% committed to Gen1 and compliance work - meaning a portion of the org's highest-capability tier is not available for new strategic infrastructure development in the near term.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_competency_matrix_engineering.md`; `raw/2026Q3_person_allocation_anonymized.md`."
       }
     ],
@@ -322,8 +322,7 @@
         ],
         "implication": "The core vendor management skill exists and can be adapted from hardware to software. The DevOps function can lead the technical side of managing cloud/SaaS vendor relationships."
       }
-    ],
-    "guided": true
+    ]
   },
   {
     "id": 4,
@@ -360,7 +359,7 @@
         "label": "Internal Capability",
         "missionSource": "Org Capability",
         "confidence": "Low",
-        "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 HR-labeled people) and systems engineering (3 functional people) - the exact capabilities that underpin a true platform strategy. In the July 2026 fiscal year plan, Platform 2.x Expansion does not appear in the monthly engineering timeline until January-February - the final two months of the visible year - indicating that platform expansion is not resourced in the current planning cycle.",
+        "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 people) and systems engineering (3 functional people) - the exact capabilities that underpin a true platform strategy. In the July 2026 fiscal year plan, Platform 2.x Expansion does not appear in the monthly engineering timeline until January-February - the final two months of the visible year - indicating that platform expansion is not resourced in the current planning cycle.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_project_allocation_july2026.md`."
       }
     ],
