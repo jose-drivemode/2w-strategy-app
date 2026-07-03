@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leadership Workshop: Strategic Decision Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; overflow: hidden; background: #F9F7F4; height: 100vh; width: 100vw; }
+  @keyframes fadeIn  { from { opacity: 0; transform: translateY(6px);  } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: #D8D4CE; border-radius: 2px; }
+  button { font-family: 'Inter', sans-serif; }
+  .app { width: 100vw; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ─────────────────────────────────────────
+     OVERVIEW
+  ───────────────────────────────────────── */
+  #overview { width: 100%; height: 100%; display: flex; flex-direction: column; }
+  .ov-header { padding: 18px 40px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; }
+  .ov-title { font-size: 26px; font-family: 'EB Garamond', serif; color: #1A2332; margin-bottom: 3px; }
+  .ov-subtitle { font-size: 12px; color: #7A8A96; }
+  .ov-legend { display: flex; align-items: center; gap: 20px; }
+  .legend-items { display: flex; gap: 12px; align-items: center; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #5A7B87; }
+  .legend-swatch { width: 8px; height: 8px; border-radius: 2px; }
+  .legend-divider { height: 16px; width: 1px; background: #EDE9E4; }
+  .ov-tally { font-size: 12px; color: #7A8A96; }
+  .ov-grid-wrap { flex: 1; padding: 28px 40px; overflow: hidden; background: linear-gradient(140deg, #F9F7F4 0%, #F0EEE9 100%); }
+  .ov-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 16px; height: 100%; }
+
+  /* Domain cards */
+  .domain-card { border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; height: 100%; transition: box-shadow 0.15s; }
+  .domain-card.clickable:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .card-num { font-size: 11px; font-weight: 600; }
+  .card-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
+  .vote-bar { height: 3px; background: #EDE9E4; border-radius: 2px; overflow: hidden; display: flex; margin-bottom: 10px; }
+  .vote-bar-seg { transition: flex 0.3s; min-width: 0; }
+  .card-title { font-size: 16px; line-height: 1.3; font-family: 'EB Garamond', serif; margin-top: 4px; }
+  .card-nodata { font-size: 11px; color: #C0C8CC; margin-top: 5px; font-style: italic; }
+
+  /* ─────────────────────────────────────────
+     DETAIL
+  ───────────────────────────────────────── */
+  #detail { width: 100%; height: 100%; display: flex; flex-direction: column; animation: fadeIn 0.2s ease-out; }
+  .dt-header { padding: 12px 32px; border-bottom: 1px solid #EDE9E4; background: white; flex-shrink: 0; display: flex; align-items: center; gap: 20px; }
+  .dt-back { padding: 7px 14px; border: 1px solid #EDE9E4; background: white; color: #7A8A96; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
+  .dt-back:hover { background: #F9F7F4; }
+  .dt-title-wrap { flex: 1; min-width: 0; }
+  .dt-domain-counter { font-size: 10px; color: #8A9BAA; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; margin-bottom: 2px; }
+  .dt-domain-title { font-size: 22px; font-family: 'EB Garamond', serif; color: #1A2332; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .dt-body { flex: 1; display: grid; grid-template-columns: 380px 1fr; overflow: hidden; }
+
+  /* ─────────────────────────────────────────
+     LEFT PANEL
+  ───────────────────────────────────────── */
+  .evidence-panel { background: #F4F3F0; border-right: 1px solid #EDE9E4; padding: 20px 20px; overflow-y: auto; display: flex; flex-direction: column; }
+  .section-label { font-size: 9px; font-weight: 700; color: #A0B0BA; text-transform: uppercase; letter-spacing: 1.4px; margin-bottom: 12px; }
+
+  /* Domain confidence */
+  .domain-confidence-block { background: white; border: 1px solid #E8E4DE; border-radius: 6px; padding: 12px 14px; margin-bottom: 18px; }
+  .confidence-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 7px; }
+  .confidence-meta-label { font-size: 9px; font-weight: 700; color: #A0B0BA; text-transform: uppercase; letter-spacing: 1.2px; }
+  .confidence-level-badge { font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 3px; letter-spacing: 0.4px; }
+  .confidence-sources-text { font-size: 11px; color: #4A5A68; line-height: 1.55; }
+  .confidence-warning { display: flex; align-items: flex-start; gap: 6px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #EDE9E4; font-size: 11px; color: #B45309; line-height: 1.5; }
+
+  /* Signal cards */
+  .signals-list { display: flex; flex-direction: column; gap: 8px; }
+  .signal-card { background: white; border-left: 3px solid transparent; border-radius: 0 6px 6px 0; padding: 12px 14px; }
+  .signal-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .signal-label { font-size: 11px; font-weight: 700; line-height: 1.3; }
+  .signal-meta-badge { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.3px; }
+  .signal-claim { font-size: 12px; color: #2A3848; line-height: 1.65; margin-bottom: 9px; }
+  .signal-sources { font-size: 10px; color: #8A9BAA; font-style: italic; line-height: 1.5; padding-top: 8px; border-top: 1px dashed #DDD9D3; }
+
+  /* Cross-industry patterns */
+  .evidence-section-gap { margin-top: 20px; }
+  .patterns-list { display: flex; flex-direction: column; }
+  .pattern-item { padding: 11px 0; border-top: 1px solid #E8E4DE; }
+  .pattern-item:first-child { border-top: none; padding-top: 0; }
+  .pattern-title { font-size: 12px; font-weight: 600; color: #2A3848; line-height: 1.35; margin-bottom: 4px; }
+  .pattern-body { font-size: 11.5px; color: #4A5A68; line-height: 1.6; }
+
+  /* ─────────────────────────────────────────
+     RIGHT PANEL
+  ───────────────────────────────────────── */
+  .decision-panel { display: flex; flex-direction: column; overflow: hidden; background: white; }
+  .decision-scroll { flex: 1; padding: 28px 40px 32px; overflow-y: auto; }
+  .section-divider { border-top: 1px solid #F0EDE8; margin-bottom: 26px; }
+
+  /* Capabilities */
+  .caps-analysis-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  .cap-card { border-left: 3px solid transparent; border-radius: 0 6px 6px 0; background: #FAFAF8; padding: 14px 18px; }
+  .cap-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 12px; }
+  .cap-card-name { font-size: 13px; font-weight: 600; color: #1A2332; line-height: 1.3; }
+  .cap-assessment-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
+  .cap-evidence-label { font-size: 9px; font-weight: 700; color: #B0BEC5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .cap-evidence-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+  .cap-evidence-item { display: flex; gap: 8px; align-items: flex-start; }
+  .cap-evidence-dot { color: #B0BEC5; font-size: 11px; line-height: 1.6; flex-shrink: 0; }
+  .cap-evidence-text { font-size: 11px; color: #3D4D5C; line-height: 1.6; }
+  .cap-implication-wrap { border-top: 1px solid #ECEAE6; padding-top: 10px; }
+  .cap-implication-label { font-size: 9px; font-weight: 700; color: #B0BEC5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .cap-implication-text { font-size: 13px; font-family: 'EB Garamond', serif; font-style: italic; color: #3D4D5C; line-height: 1.65; }
+
+  /* Tensions */
+  .tensions-list { display: flex; flex-direction: column; }
+  .tension-item { padding: 18px 0; border-top: 1px solid #F0EDE8; }
+  .tension-title-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  .tension-name { font-size: 15px; font-weight: 600; color: #1A2332; font-family: 'EB Garamond', serif; }
+  .tension-subtitle { font-size: 11px; color: #8A9BAA; font-style: italic; }
+  .tension-spectrum-row { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 16px; align-items: center; margin-bottom: 12px; }
+  .tension-signal { font-size: 11px; color: #0099FF; line-height: 1.5; text-align: right; }
+  .tension-bar { height: 6px; background: linear-gradient(90deg, #0099FF, #E61E8C); border-radius: 3px; position: relative; cursor: pointer; }
+  .tension-marker { position: absolute; width: 18px; height: 18px; background: white; border: 2.5px solid #1E4D5C; border-radius: 50%; transform: translate(-50%, -50%); top: 50%; cursor: ew-resize; box-shadow: 0 1px 6px rgba(0,0,0,0.25); user-select: none; z-index: 2; }
+  .tension-counter-signal { font-size: 11px; color: #E61E8C; line-height: 1.5; text-align: left; }
+  .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #3D4D5C; line-height: 1.65; }
+  .tension-description-label { color: #1A2332; font-weight: 600; font-style: normal; }
+
+  /* Implication block */
+  .implication-block { margin-top: 28px; padding: 22px 24px; background: #F7F5F2; border-left: 3px solid #C8BDB0; border-radius: 0 6px 6px 0; }
+  .implication-text { font-size: 17px; line-height: 1.75; color: #1A2332; font-family: 'EB Garamond', serif; }
+
+  /* ─────────────────────────────────────────
+     ANNOTATION LAYER
+     Visible on guided domain only
+  ───────────────────────────────────────── */
+  .annotation {
+    background: #EEF4F6;
+    border-left: 2px solid #7AABB8;
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+  }
+  .annotation-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: #7AABB8;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+  }
+  .annotation p {
+    font-size: 11px;
+    color: #4A6470;
+    line-height: 1.65;
+  }
+  .annotation-source-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .annotation-source-item {
+    font-size: 10px;
+    color: #4A6470;
+    background: white;
+    border: 1px solid #C0D4DA;
+    border-radius: 3px;
+    padding: 2px 7px;
+    line-height: 1.5;
+  }
+  .annotation-rating-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .annotation-rating-item {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+    font-size: 11px;
+  }
+  .annotation-rating-name {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .annotation-rating-desc { color: #4A6470; }
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+
+<script>
+const STORAGE_KEY = 'drivemode_wkshp_v1_guided';
+
+function signalTypeConfig(label) {
+  const l = label.toLowerCase();
+  if (l.includes('competitor') || l.includes('benchmark'))
+    return { color: '#1A6FCC', badgeBg: '#EEF5FF' };
+  if (l.includes('failure') || l.includes('pattern') || l.includes('risk'))
+    return { color: '#B06D00', badgeBg: '#FFF8EC' };
+  if (l.includes('financial') || l.includes('cautionary') || l.includes('loss'))
+    return { color: '#AD2A1F', badgeBg: '#FFF4F3' };
+  if (l.includes('internal') || l.includes('capability') || l.includes('asset'))
+    return { color: '#1A7A58', badgeBg: '#EEF9F4' };
+  return { color: '#5A6A7A', badgeBg: '#F4F3F0' };
+}
+
+function domainConfidenceConfig(conf) {
+  const c = (conf || '').toLowerCase();
+  if (c === 'high')   return { bg: '#E6F7F0', color: '#0F7A52', border: '#0F7A5230' };
+  if (c === 'medium') return { bg: '#FFF6E0', color: '#A36A00', border: '#A36A0030' };
+  return                     { bg: '#FFF0EF', color: '#B91C1C', border: '#B91C1C30' };
+}
+
+let DATA = [];
+
+function renderInline(text) {
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  return parts.map((p, i) => i % 2 === 1 ? el('strong', null, p) : p);
+}
+
+function applyLeverStyles(pct, signalEl, counterEl) {
+  const l = 1 - pct / 100;
+  const r = pct / 100;
+  if (signalEl) {
+    signalEl.style.fontWeight = Math.round(400 + l * 300);
+    signalEl.style.fontSize   = (11 + l * 2).toFixed(1) + 'px';
+    signalEl.style.opacity    = (0.55 + l * 0.45).toFixed(2);
+  }
+  if (counterEl) {
+    counterEl.style.fontWeight = Math.round(400 + r * 300);
+    counterEl.style.fontSize   = (11 + r * 2).toFixed(1) + 'px';
+    counterEl.style.opacity    = (0.55 + r * 0.45).toFixed(2);
+  }
+}
+
+let state = {
+  view: 'overview',
+  activeId: null,
+  domainStates: {},
+  domainVotes: {},
+  tensionPos: {},
+  drag: null,
+};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const { domainStates, domainVotes, tensionPos } = JSON.parse(raw);
+      state.domainStates = domainStates || {};
+      state.domainVotes  = domainVotes  || {};
+      state.tensionPos   = tensionPos   || {};
+    }
+  } catch (e) {}
+}
+
+function persist() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      domainStates: state.domainStates,
+      domainVotes:  state.domainVotes,
+      tensionPos:   state.tensionPos,
+    }));
+  } catch (e) {}
+}
+
+function render() {
+  const app = document.getElementById('app');
+  app.innerHTML = '';
+  app.appendChild(state.view === 'overview' ? buildOverview() : buildDetail());
+}
+
+function stateLabel(s) {
+  return s === 'anchor' ? 'ANCHOR' : s === 'deprioritize' ? 'DEPRIORITIZE' : 'IGNORE';
+}
+function badgeColors(s) {
+  if (s === 'anchor')       return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
+  if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
+  return                          { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
+}
+function capColor(a) { return a === 'Leverage / Optimize' ? '#00C490' : a === 'Invest / Scale' ? '#0099FF' : '#E61E8C'; }
+function getVotes(id) { return state.domainVotes[id] || { anchor: 0, deprioritize: 0, ignore: 0 }; }
+function getTensionPos(id, ti) { return ((state.tensionPos[id] || {})[ti]) ?? 40; }
+
+function el(tag, attrs, ...children) {
+  const e = document.createElement(tag);
+  if (attrs) {
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'class') e.className = v;
+      else if (k === 'style') Object.assign(e.style, v);
+      else if (k.startsWith('on')) e.addEventListener(k.slice(2).toLowerCase(), v);
+      else e.setAttribute(k, v);
+    }
+  }
+  for (const c of children.flat()) {
+    if (c == null || c === false) continue;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  }
+  return e;
+}
+
+// ── Annotation block ──
+function annotation(labelText, bodyText, extra) {
+  return el('div', { class: 'annotation' },
+    el('p', { class: 'annotation-label' }, labelText),
+    el('p', null, bodyText),
+    extra || null,
+  );
+}
+
+// ── OVERVIEW ──
+function buildOverview() {
+  const domainCount   = DATA.filter(d => d.type !== 'precondition').length;
+  const hasPrecondition = DATA.some(d => d.type === 'precondition');
+
+  return el('div', { id: 'overview' },
+    el('div', { class: 'ov-header' },
+      el('div', null,
+        el('h1', { class: 'ov-title' }, hasPrecondition ? `Governance Precondition + ${domainCount} Decision Domains` : `The ${domainCount} Decision Domains`),
+        el('p', { class: 'ov-subtitle' }, 'Click a domain to explore'),
+      ),
+      el('div', { class: 'ov-legend' },
+        el('div', { class: 'legend-items' },
+          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#E8F2F5', border: '1.5px solid #1E4D5C' } }), 'ANCHOR'),
+          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#F5F7FA', border: '1.5px solid #A0B0BA' } }), 'DEPRIORITIZE'),
+          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#E8EDF0', border: '1.5px solid #C8D5DF' } }), 'IGNORE'),
+        ),
+      ),
+    ),
+    el('div', { class: 'ov-grid-wrap' },
+      el('div', { class: 'ov-grid' }, ...DATA.map(buildDomainCard)),
+    ),
+  );
+}
+
+function buildDomainCard(d) {
+  const s   = state.domainStates[d.id];
+  const v   = getVotes(d.id);
+  const tot = v.anchor + v.deprioritize + v.ignore;
+  const bc  = s ? badgeColors(s) : null;
+  const isPrecondition = d.type === 'precondition';
+  const isGuided = !!d.guided;
+
+  let cardStyle;
+  if      (s === 'anchor')       cardStyle = { background: '#E8F2F5', border: '2px solid #1E4D5C', cursor: 'pointer' };
+  else if (s === 'deprioritize') cardStyle = { background: '#F5F7FA', border: '2px solid #A0B0BA', cursor: 'pointer' };
+  else if (s === 'ignore')       cardStyle = { background: '#E8EDF0', border: '2px solid #C8D5DF', cursor: 'pointer', opacity: '0.55' };
+  else if (isGuided)             cardStyle = { background: 'white', border: '1.5px solid #1E4D5C', cursor: 'pointer', boxShadow: '0 2px 8px rgba(30,77,92,0.10)' };
+  else if (d.full)               cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
+  else                           cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
+
+  const numColor   = isGuided && !s ? '#1E4D5C' : s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
+  const titleColor = (s && s !== 'anchor') ? '#6B7A86' : '#1A2332';
+
+  const voteBarEl = (!s && tot > 0) ? el('div', { class: 'vote-bar' },
+    el('div', { class: 'vote-bar-seg', style: { flex: String(v.anchor || 0), background: '#1E4D5C' } }),
+    el('div', { class: 'vote-bar-seg', style: { flex: String(v.deprioritize || 0), background: '#8A9BAA' } }),
+    el('div', { class: 'vote-bar-seg', style: { flex: String(v.ignore || 0), background: '#B8C4CC' } }),
+  ) : null;
+
+  const topRight = bc
+    ? el('span', { class: 'card-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s))
+    : el('span');
+
+  const card = el('div', { class: `domain-card${d.full ? ' clickable' : ''}`, style: cardStyle },
+    el('div', { class: 'card-top' }, el('span', { class: 'card-num', style: { color: numColor } }, d.number), topRight),
+    el('div', null,
+      voteBarEl,
+      el('h3', { class: 'card-title', style: { color: titleColor } }, d.title),
+      !d.full ? el('p', { class: 'card-nodata' }, 'Data coming soon') : null,
+    ),
+  );
+
+  if (d.full) card.addEventListener('click', () => { state.view = 'detail'; state.activeId = d.id; state.drag = null; render(); });
+  return card;
+}
+
+// ── DETAIL ──
+function buildDetail() {
+  const id  = state.activeId;
+  const dom = DATA.find(d => d.id === id);
+  const s   = state.domainStates[id];
+  const bc  = s ? badgeColors(s) : null;
+  const isGuided = !!dom.guided;
+  const domainCount = DATA.filter(d => d.type !== 'precondition').length;
+
+  return el('div', { id: 'detail' },
+    el('div', { class: 'dt-header' },
+      el('button', { class: 'dt-back', onClick: () => { state.view = 'overview'; state.activeId = null; state.drag = null; render(); } }, '← Overview'),
+      el('div', { class: 'dt-title-wrap' },
+        el('p', { class: 'dt-domain-counter' }, dom.type === 'precondition' ? 'Governance Precondition' : `Domain ${dom.number} of ${String(domainCount).padStart(2,'0')}`),
+        el('h1', { class: 'dt-domain-title' }, dom.title),
+      ),
+      bc ? el('span', { style: { padding: '3px 9px', borderRadius: '4px', fontSize: '9px', fontWeight: '700', letterSpacing: '0.6px', whiteSpace: 'nowrap', background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s)) : el('span'),
+    ),
+    el('div', { class: 'dt-body' },
+      buildEvidencePanel(dom, isGuided),
+      buildAnalysisPanel(dom, id, s, isGuided),
+    ),
+  );
+}
+
+// ── LEFT PANEL ──
+function buildEvidencePanel(dom, isGuided) {
+  const nodes = [];
+
+  // Confidence block
+  if (dom.domainConfidence) {
+    const dc  = domainConfidenceConfig(dom.domainConfidence);
+    const src = dom.domainConfidenceNote || (dom.domainSources || []).join('; ');
+
+    if (isGuided) {
+      nodes.push(annotation(
+        'How to read this block',
+        'This block summarises the overall reliability of the evidence for this domain. Confidence reflects how independently verified and triangulated the sources are.',
+        el('div', { class: 'annotation-source-key' },
+          el('span', { class: 'annotation-source-item' }, 'M1 = Rider & customer research'),
+          el('span', { class: 'annotation-source-item' }, 'M2 = Competitor & market intelligence'),
+          el('span', { class: 'annotation-source-item' }, 'M3 = Cross-industry financial precedents'),
+          el('span', { class: 'annotation-source-item' }, 'M4 = Internal organisational assessment'),
+        ),
+      ));
+    }
+
+    nodes.push(
+      el('div', { class: 'domain-confidence-block' },
+        el('div', { class: 'confidence-header-row' },
+          el('span', { class: 'confidence-meta-label' }, 'Signal Confidence'),
+          el('span', { class: 'confidence-level-badge', style: { background: dc.bg, color: dc.color, border: `1px solid ${dc.border}` } }, dom.domainConfidence.toUpperCase()),
+        ),
+        el('p', { class: 'confidence-sources-text' }, src),
+        dom.domainWarning ? el('div', { class: 'confidence-warning' },
+          el('span', null, '⚠'),
+          el('span', null, 'Do not treat as established fact. Single-source data — treat as hypothesis requiring validation.'),
+        ) : null,
+      ),
+    );
+  }
+
+  // Signals
+  if (isGuided) {
+    nodes.push(annotation(
+      'Observed Signals',
+      'Each signal presents a finding from the evidence base. The tag shows the source type and confidence level for that specific finding. The citation line shows where the evidence was drawn from.',
+    ));
+  }
+  nodes.push(el('p', { class: 'section-label' }, 'Observed Signals'));
+  nodes.push(
+    el('div', { class: 'signals-list' },
+      ...(dom.signals || []).map(sig => {
+        const tc        = signalTypeConfig(sig.label);
+        const badgeText = [sig.missionSource, sig.confidence].filter(Boolean).join(' · ');
+        return el('div', { class: 'signal-card', style: { borderLeftColor: tc.color } },
+          el('div', { class: 'signal-card-header' },
+            el('span', { class: 'signal-label', style: { color: tc.color } }, sig.label),
+            el('span', { class: 'signal-meta-badge', style: { background: tc.badgeBg, color: tc.color } }, badgeText),
+          ),
+          el('p', { class: 'signal-claim' }, ...renderInline(sig.claim)),
+          sig.sources ? el('p', { class: 'signal-sources' }, sig.sources) : null,
+        );
+      }),
+    ),
+  );
+
+  // Cross-industry patterns
+  if ((dom.crossIndustryPatterns || []).length) {
+    nodes.push(el('div', { class: 'evidence-section-gap' }));
+    if (isGuided) {
+      nodes.push(annotation(
+        'Cross-Industry Patterns',
+        'These are structural analogies from other industries facing similar choices. They are interpretive, not prescriptive — they show how comparable decisions have played out elsewhere, not what Drivemode should do.',
+      ));
+    }
+    nodes.push(el('p', { class: 'section-label' }, dom.crossIndustrySubtitle ? `Cross-Industry Patterns · ${dom.crossIndustrySubtitle}` : 'Cross-Industry Patterns'));
+    nodes.push(
+      el('div', { class: 'patterns-list' },
+        ...dom.crossIndustryPatterns.map(p =>
+          el('div', { class: 'pattern-item' },
+            el('p', { class: 'pattern-title' }, p.title),
+            el('p', { class: 'pattern-body' }, p.body),
+          )
+        ),
+      ),
+    );
+  }
+
+  return el('div', { class: 'evidence-panel' }, ...nodes);
+}
+
+// ── RIGHT PANEL ──
+function buildAnalysisPanel(dom, id, s, isGuided) {
+  const capCards = (dom.capabilities || []).map(cap => {
+    const color = capColor(cap.assessment);
+    return el('div', { class: 'cap-card', style: { borderLeftColor: color } },
+      el('div', { class: 'cap-card-header' },
+        el('span', { class: 'cap-card-name' }, cap.capability),
+        el('span', { class: 'cap-assessment-badge', style: { background: color + '18', color, border: `1px solid ${color}40` } }, cap.assessment),
+      ),
+      (cap.evidence || []).length ? el('div', null,
+        el('p', { class: 'cap-evidence-label' }, 'Supporting Evidence'),
+        el('div', { class: 'cap-evidence-list' },
+          ...(cap.evidence || []).map(e => el('div', { class: 'cap-evidence-item' },
+            el('span', { class: 'cap-evidence-dot' }, '·'),
+            el('span', { class: 'cap-evidence-text' }, e),
+          )),
+        ),
+      ) : null,
+      cap.implication ? el('div', { class: 'cap-implication-wrap' },
+        el('p', { class: 'cap-implication-label' }, 'Implication · Analytical Interpretation'),
+        el('p', { class: 'cap-implication-text' }, cap.implication),
+      ) : null,
+    );
+  });
+
+  const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
+
+  return el('div', { class: 'decision-panel' },
+    el('div', { class: 'decision-scroll' },
+
+      // Capabilities
+      isGuided ? annotation(
+        'Drivemode Capabilities Analysis',
+        'An assessment of Drivemode\'s current organisational capability against what this domain requires.',
+        el('div', { class: 'annotation-rating-list' },
+          el('div', { class: 'annotation-rating-item' },
+            el('span', { class: 'annotation-rating-name', style: { color: '#00C490' } }, 'Leverage / Optimize'),
+            el('span', { class: 'annotation-rating-desc' }, '— a genuine strength; the focus is on directing it well'),
+          ),
+          el('div', { class: 'annotation-rating-item' },
+            el('span', { class: 'annotation-rating-name', style: { color: '#0099FF' } }, 'Invest / Scale'),
+            el('span', { class: 'annotation-rating-desc' }, '— capability exists but is insufficient; requires deliberate growth'),
+          ),
+          el('div', { class: 'annotation-rating-item' },
+            el('span', { class: 'annotation-rating-name', style: { color: '#E61E8C' } }, 'Explore / Acquire'),
+            el('span', { class: 'annotation-rating-desc' }, '— critical gap; does not currently exist and must be built or sourced'),
+          ),
+        ),
+      ) : null,
+      el('p', { class: 'section-label' }, 'Drivemode Capabilities Analysis'),
+      el('div', { class: 'caps-analysis-list' }, ...capCards),
+
+      el('div', { class: 'section-divider' }),
+
+      // Tensions
+      isGuided ? annotation(
+        'Strategic Tensions',
+        'Each trade-off presents two evidence-backed observations that directly contradict each other. These are not opinions — they are documented contradictions in the evidence. The spectrum bar represents where you think Drivemode should lean. Drag the marker left or right to record your position before the workshop.',
+      ) : null,
+      el('p', { class: 'section-label' }, 'Strategic Tensions'),
+      dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
+      el('div', { class: 'tensions-list' }, ...tensionItems),
+
+      // Implication
+      dom.implications ? el('div', { class: 'implication-block' },
+        isGuided ? el('div', { class: 'annotation', style: { marginBottom: '14px' } },
+          el('p', { class: 'annotation-label' }, 'Implication'),
+          el('p', null, 'A synthesis drawn from the evidence above. This is an analytical interpretation — a framing for discussion, not a conclusion. Treat it as a starting point for the group\'s own reasoning.'),
+        ) : null,
+        el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication · Analytical Interpretation'),
+        el('p', { class: 'implication-text' }, dom.implications),
+      ) : null,
+    ),
+  );
+}
+
+function buildTension(t, i, id) {
+  const parts    = t.title.split(': ');
+  const pct      = getTensionPos(id, i);
+  const bar      = el('div', { class: 'tension-bar' });
+  const marker   = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
+  const signalEl  = el('p', { class: 'tension-signal' }, t.signal);
+  const counterEl = el('p', { class: 'tension-counter-signal' }, t.counterSignal);
+  bar.appendChild(marker);
+
+  applyLeverStyles(pct, signalEl, counterEl);
+
+  bar.addEventListener('click', (e) => {
+    if (state.drag) return;
+    const r = bar.getBoundingClientRect();
+    const p = Math.round(Math.max(0, Math.min(100, ((e.clientX - r.left) / r.width) * 100)));
+    state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [i]: p };
+    persist(); marker.style.left = p + '%';
+    applyLeverStyles(p, signalEl, counterEl);
+  });
+
+  marker.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    const r = bar.getBoundingClientRect();
+    state.drag = { ti: i, left: r.left, width: r.width, marker, id, signalEl, counterEl };
+  });
+
+  return el('div', { class: 'tension-item' },
+    el('div', { class: 'tension-title-row' },
+      el('span', { class: 'tension-name' }, parts[0].replace(/\bTension\b/g, 'Trade-off')),
+      el('span', { class: 'tension-subtitle' }, parts.slice(1).join(': ')),
+    ),
+    el('div', { class: 'tension-spectrum-row' }, signalEl, bar, counterEl),
+    el('p', { class: 'tension-description' },
+      el('span', { class: 'tension-description-label' }, 'The Trade-off: '),
+      t.theTension,
+    ),
+  );
+}
+
+// ── Drag ──
+window.addEventListener('mousemove', (e) => {
+  if (!state.drag) return;
+  const { left, width, marker, id, ti, signalEl, counterEl } = state.drag;
+  const pct = Math.round(Math.max(0, Math.min(100, ((e.clientX - left) / width) * 100)));
+  state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [ti]: pct };
+  marker.style.left = pct + '%';
+  applyLeverStyles(pct, signalEl, counterEl);
+});
+
+window.addEventListener('mouseup', () => { if (state.drag) { persist(); state.drag = null; } });
+
+// ── Init ──
+loadState();
+fetch('../data.json')
+  .then(r => r.json())
+  .then(json => { DATA = json; render(); })
+  .catch(() => {
+    document.getElementById('app').innerHTML =
+      '<p style="padding:48px;font-family:Inter,sans-serif;font-size:14px;color:#8A9BAA;">Could not load domain data.</p>';
+  });
+</script>
+</body>
+</html>
