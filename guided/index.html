@@ -410,13 +410,7 @@ function buildEvidencePanel(dom, isGuided) {
     if (isGuided) {
       nodes.push(annotation(
         'How to read this block',
-        'This block summarises the overall reliability of the evidence for this domain. Confidence reflects how independently verified and triangulated the sources are.',
-        el('div', { class: 'annotation-source-key' },
-          el('span', { class: 'annotation-source-item' }, 'M1 = Rider & customer research'),
-          el('span', { class: 'annotation-source-item' }, 'M2 = Competitor & market intelligence'),
-          el('span', { class: 'annotation-source-item' }, 'M3 = Cross-industry financial precedents'),
-          el('span', { class: 'annotation-source-item' }, 'M4 = Internal organisational assessment'),
-        ),
+        'This block summarises the overall reliability of the evidence for this domain. Confidence reflects how independently verified and triangulated the sources are. Each signal names its source type explicitly in the tag.',
       ));
     }
 
@@ -429,7 +423,7 @@ function buildEvidencePanel(dom, isGuided) {
         el('p', { class: 'confidence-sources-text' }, src),
         dom.domainWarning ? el('div', { class: 'confidence-warning' },
           el('span', null, '⚠'),
-          el('span', null, 'Do not treat as established fact. Single-source data — treat as hypothesis requiring validation.'),
+          el('span', null, 'Do not treat as established fact. Single-source data; treat as a hypothesis requiring validation.'),
         ) : null,
       ),
     );
@@ -439,7 +433,7 @@ function buildEvidencePanel(dom, isGuided) {
   if (isGuided) {
     nodes.push(annotation(
       'Observed Signals',
-      'Each signal presents a finding from the evidence base. The tag shows the source type and confidence level for that specific finding. The citation line shows where the evidence was drawn from.',
+      'Each signal presents a finding from the evidence base. The tag names the source type and confidence level for that specific finding. The citation line at the bottom shows where the evidence was drawn from.',
     ));
   }
   nodes.push(el('p', { class: 'section-label' }, 'Observed Signals'));
@@ -466,7 +460,7 @@ function buildEvidencePanel(dom, isGuided) {
     if (isGuided) {
       nodes.push(annotation(
         'Cross-Industry Patterns',
-        'These are structural analogies from other industries facing similar choices. They are interpretive, not prescriptive — they show how comparable decisions have played out elsewhere, not what Drivemode should do.',
+        'These are structural analogies from other industries facing similar choices. They are interpretive, not prescriptive. They show how comparable decisions have played out elsewhere, not what Drivemode should do.',
       ));
     }
     nodes.push(el('p', { class: 'section-label' }, dom.crossIndustrySubtitle ? `Cross-Industry Patterns · ${dom.crossIndustrySubtitle}` : 'Cross-Industry Patterns'));
@@ -522,15 +516,15 @@ function buildAnalysisPanel(dom, id, s, isGuided) {
         el('div', { class: 'annotation-rating-list' },
           el('div', { class: 'annotation-rating-item' },
             el('span', { class: 'annotation-rating-name', style: { color: '#00C490' } }, 'Leverage / Optimize'),
-            el('span', { class: 'annotation-rating-desc' }, '— a genuine strength; the focus is on directing it well'),
+            el('span', { class: 'annotation-rating-desc' }, ': a genuine strength; the focus is on directing it well'),
           ),
           el('div', { class: 'annotation-rating-item' },
             el('span', { class: 'annotation-rating-name', style: { color: '#0099FF' } }, 'Invest / Scale'),
-            el('span', { class: 'annotation-rating-desc' }, '— capability exists but is insufficient; requires deliberate growth'),
+            el('span', { class: 'annotation-rating-desc' }, ': capability exists but is insufficient; requires deliberate growth'),
           ),
           el('div', { class: 'annotation-rating-item' },
             el('span', { class: 'annotation-rating-name', style: { color: '#E61E8C' } }, 'Explore / Acquire'),
-            el('span', { class: 'annotation-rating-desc' }, '— critical gap; does not currently exist and must be built or sourced'),
+            el('span', { class: 'annotation-rating-desc' }, ': critical gap; does not currently exist and must be built or sourced'),
           ),
         ),
       ) : null,
@@ -542,7 +536,7 @@ function buildAnalysisPanel(dom, id, s, isGuided) {
       // Tensions
       isGuided ? annotation(
         'Strategic Tensions',
-        'Each trade-off presents two evidence-backed observations that directly contradict each other. These are not opinions — they are documented contradictions in the evidence. The spectrum bar represents where you think Drivemode should lean. Drag the marker left or right to record your position before the workshop.',
+        'Each trade-off presents two evidence-backed observations that directly contradict each other. These are not opinions; they are documented contradictions in the evidence. The spectrum bar represents where you think Drivemode should lean. Drag the marker left or right to record your position before the workshop.',
       ) : null,
       el('p', { class: 'section-label' }, 'Strategic Tensions'),
       dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
@@ -552,7 +546,7 @@ function buildAnalysisPanel(dom, id, s, isGuided) {
       dom.implications ? el('div', { class: 'implication-block' },
         isGuided ? el('div', { class: 'annotation', style: { marginBottom: '14px' } },
           el('p', { class: 'annotation-label' }, 'Implication'),
-          el('p', null, 'A synthesis drawn from the evidence above. This is an analytical interpretation — a framing for discussion, not a conclusion. Treat it as a starting point for the group\'s own reasoning.'),
+          el('p', null, 'A synthesis drawn from the evidence above. This is an analytical interpretation, a framing for discussion rather than a conclusion. Treat it as a starting point for the group\'s own reasoning.'),
         ) : null,
         el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication · Analytical Interpretation'),
         el('p', { class: 'implication-text' }, dom.implications),
