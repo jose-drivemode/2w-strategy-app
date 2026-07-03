@@ -1,6 +1,6 @@
 # 2W Strategy — Leadership Workshop App
 
-A single-page leadership workshop tool for exploring a strategic decision framework across 8 domains. Built for a shared screen session with executive teams at Drivemode.
+A single-page visualization tool for exploring a strategic decision framework across 8 domains. Built for a shared screen session with executive teams at Drivemode.
 
 **Live:** https://jose-drivemode.github.io/2w-strategy-app/
 
