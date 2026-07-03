@@ -6,7 +6,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "The existence of an organizational capability gap is confirmed by Honda's own VP-level executives on the record in December 2024, and the specific gaps (understaffed platform/infrastructure, no cybersecurity function) are corroborated by the Engineering Skills Map. Honda's July 2026 scope communication partially resolves the role question (Execute direction now evidenced), but governance structure and long-horizon funding commitment remain without a documented answer. Confidence stays Medium: the role signal is now stronger but was arrived at implicitly, not through the explicit negotiated agreement the Precondition calls for.",
+    "domainConfidenceNote": "The existence of an organizational capability gap is confirmed by Honda's own VP-level executives on the record in December 2024, and the specific gaps (understaffed platform/infrastructure, undersized cybersecurity) are now corroborated by two independent internal sources: the Engineering Skills Map and the July 2026 project allocation. Honda's July 2026 scope communication and the project allocation together partially resolve the role question - Execute direction is now evidenced through both product scope and Honda-directed infrastructure migrations - but governance structure and long-horizon funding commitment remain without a documented answer. Confidence stays Medium: the role signal is now stronger but was arrived at implicitly, not through an explicit negotiated agreement.",
     "domainWarning": false,
     "signals": [
       {
@@ -27,8 +27,8 @@
         "label": "Capability Hotspots",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The most severe un-resourced gaps are in OTA infrastructure (2 systems engineers; competitors deliver monthly OTA at scale), Cybersecurity (no dedicated function among 51 personnel), Data Engineering (no dedicated role evidenced), and Platform Product Management (PM structure oriented to feature delivery, not platform strategy).",
-        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`."
+        "claim": "The most severe un-resourced gaps are in OTA infrastructure (3 functional systems engineers; competitors deliver monthly OTA at scale), Cybersecurity (cybersecurity management is carried as a 20% allocation of a single System Architect - no dedicated function among 51 personnel), Data Engineering (analytics pipeline work is underway within Platform and Infrastructure but no dedicated Data Engineering function is evidenced), and Platform Product Management (PM competency framework covers P-track and M-track IC roles, with no confirmed Platform PM specialization evidenced).",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`; `raw/2026Q3_project_allocation_july2026.md`; `raw/2026Q3_competency_matrix_pm.md`."
       },
       {
         "label": "Competitor Precedent",
@@ -41,8 +41,8 @@
         "label": "Honda-Defined Execution Scope",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "Honda has communicated DriveMode's expected deliverables as: (1) RoadSync Duo development, operation, and improvement - monitoring, customer support, OTA updates, platform enhancements, KPI reporting, and A-SPICE compliance, against target platforms K4BA/K3NA/K3NF; (2) RoadSync Unified development - technical/feasibility reviews and prototype development across companion apps and DM servers.",
-        "sources": "`raw/2026Q3_honda_drivemode_expected_scope.md`; single source, July 2026 - treat as directional, not formally binding."
+        "claim": "Honda has communicated DriveMode's expected deliverables as: (1) RoadSync Duo development, operation, and improvement - monitoring, customer support, OTA updates, platform enhancements, KPI reporting, and A-SPICE compliance, against target platforms K4BA/K3NA/K3NF; (2) RoadSync Unified development - technical/feasibility reviews and prototype development across companion apps and DM servers. The July 2026 project allocation extends this picture: Honda-aligned backend commitments beyond product scope include migration to Honda One ID (2 engineers, 6 months), migration of all SaaS tooling to Honda-managed systems (2 engineers, 3 months), Honda L1 monitoring and operations tooling (1 engineer, 3 months), and a Terraform Cloud migration described as conditional on Honda's adoption decision. These are the most concrete evidence available of Honda exercising technical direction over DriveMode's infrastructure choices in addition to product scope.",
+        "sources": "`raw/2026Q3_honda_drivemode_expected_scope.md`; `raw/2026Q3_project_allocation_july2026.md` - treat as directional, not formally binding."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -222,7 +222,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Competitor infrastructure benchmarks (Hero, Ather) and automotive financial failures (CARIAD, Ford) are drawn from public and investor-grade disclosures. Confidence is Medium rather than High because the internal capability picture - team headcount and skill gaps - comes from a single internal source (the Engineering Skills Map) that has not been independently verified. The financial precedents are automotive-scale; their direct applicability to a motorcycle OEM at lower vehicle volumes is an inference, not a measured data point.",
+    "domainConfidenceNote": "Competitor infrastructure benchmarks (Hero, Ather) and automotive financial failures (CARIAD, Ford) are drawn from public and investor-grade disclosures. The internal capability picture is now corroborated by two independent internal sources: the Engineering Skills Map and the July 2026 project allocation, which shows where P5-level engineering capacity is currently committed. Confidence remains Medium rather than High because the financial precedents are automotive-scale; their direct applicability to a motorcycle OEM at lower vehicle volumes is an inference, not a measured data point.",
     "domainWarning": false,
     "signals": [
       {
@@ -250,8 +250,8 @@
         "label": "Internal Capability",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The engineering department consists of 51 personnel with a high density of senior talent - but platform/infrastructure is staffed by only 3 people (4% of headcount) and systems engineering by 2 people (3%), the exact teams that underpin a scalable connected vehicle platform.",
-        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; four independent repository signals converging on same conclusion."
+        "claim": "The engineering department consists of 51 personnel with a high density of senior talent. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 HR-labeled people (4% of headcount) and Systems Engineering by 3 functional people (3%), the exact teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-level engineers are fully committed to the AWS Migration, and the QA team's single P5 is 70% committed to Gen1 and compliance work - meaning a portion of the org's highest-capability tier is not available for new strategic infrastructure development in the near term.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_competency_matrix_engineering.md`; `raw/2026Q3_person_allocation_anonymized.md`."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -300,7 +300,7 @@
         "assessment": "Invest / Scale",
         "evidence": [
           "A dedicated \"Systems Engineering Branch\" exists in Tokyo, staffed with a System Architect and a Senior Software Engineer. This provides a foundation of expertise.",
-          "However, with only two dedicated personnel, this team is insufficient to develop, validate, and manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs, a cadence far beyond the capacity of the current team."
+          "However, with only three functional personnel (one of whom carries cybersecurity management as a 20% secondary allocation), this team is insufficient to develop, validate, and manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs, a cadence far beyond the capacity of the current team."
         ],
         "implication": "While foundational knowledge exists, the organization cannot currently deliver a competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset."
       },
@@ -308,9 +308,10 @@
         "capability": "Cybersecurity",
         "assessment": "Explore / Acquire",
         "evidence": [
-          "The detailed organizational framework does not show a dedicated cybersecurity function, team, or specific skill set listed for any of the 51 personnel."
+          "Cybersecurity management is now evidenced as a project allocation within Systems Engineering: one System Architect carries it at 20% time. This confirms individual-level awareness exists but no dedicated team or systematic security engineering function.",
+          "A 20% allocation of one engineer does not constitute a security capability sufficient to manage a cloud-connected vehicle platform across multiple markets and regulatory regimes."
         ],
-        "implication": "This is a critical, high-severity gap. A connected vehicle platform without a dedicated security capability represents an extreme and unacceptable brand, safety, and regulatory risk. This capability must be acquired, either by hiring a dedicated team or engaging a specialist partner."
+        "implication": "This is a critical, high-severity gap. The evidence shifts the characterization from \"entirely absent\" to \"present at individual level but severely undersized.\" The assessment remains Explore / Acquire because the current allocation cannot scale to meet the systematic security engineering demands of a connected vehicle platform. A dedicated capability must be built or acquired. Sources: raw/2026Q3_project_allocation_july2026.md."
       },
       {
         "capability": "Infrastructure Vendor Management",
@@ -358,8 +359,8 @@
         "label": "Internal Capability",
         "missionSource": "Org Capability",
         "confidence": "Low",
-        "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 people) and systems engineering (2 people) - the exact capabilities that underpin a true platform strategy.",
-        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`."
+        "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 HR-labeled people) and systems engineering (3 functional people) - the exact capabilities that underpin a true platform strategy. In the July 2026 fiscal year plan, Platform 2.x Expansion does not appear in the monthly engineering timeline until January-February - the final two months of the visible year - indicating that platform expansion is not resourced in the current planning cycle.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_project_allocation_july2026.md`."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -693,7 +694,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "The financial failure cases (CARIAD, Ford) and the table-stakes vs. monetizable investment hierarchy come from automotive investor disclosures. The internal capability gaps that constrain investment sequencing are drawn from the Engineering Skills Map. Confidence is Medium rather than High because no motorcycle-specific connected service financial data exists - all revenue projections and platform cost estimates are inferred from automotive and fleet analogues operating at significantly different scale and price points. Investment decisions in this domain cannot be grounded in direct motorcycle market evidence.",
+    "domainConfidenceNote": "The financial failure cases (CARIAD, Ford) and the table-stakes vs. monetizable investment hierarchy come from automotive investor disclosures. The internal capability gaps constraining investment sequencing are now drawn from two independent internal sources: the Engineering Skills Map and the July 2026 project allocation. Confidence remains Medium rather than High because no motorcycle-specific connected service financial data exists - all revenue projections and platform cost estimates are inferred from automotive and fleet analogues operating at significantly different scale and price points. Investment decisions in this domain cannot be grounded in direct motorcycle market evidence.",
     "domainWarning": false,
     "signals": [
       {
@@ -728,8 +729,8 @@
         "label": "Capability Gaps - Investment Binding Constraint",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The most severe internal capability gaps - OTA infrastructure, Cybersecurity, Data Engineering, Platform PM - are in technically expensive domains requiring sustained long-term investment. Four of the fourteen capability areas assessed have a recommended approach of \"Partner\" rather than \"Build,\" directly shaping what investment sequencing is realistic.",
-        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`; `wiki/outputs/2026-06-26_signal_strengthening_findings.md`."
+        "claim": "The most severe internal capability gaps - OTA infrastructure, Cybersecurity, Data Engineering, Platform PM - are in technically expensive domains requiring sustained long-term investment. Four of the fourteen capability areas assessed have a recommended approach of \"Partner\" rather than \"Build,\" directly shaping what investment sequencing is realistic. The July 2026 project allocation shows the compounding effect in concrete terms: A-SPICE compliance runs at approximately 20% across QA, IVI, Backend, and Analytics simultaneously throughout the year; the Backend team's highest-capability engineers are committed to AWS Migration and Honda-directed infrastructure migrations through at least Q3; and Platform 2.x expansion is not scheduled in the engineering timeline until January-February. These are factual allocation constraints documented in the source, not interpretive assessments.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`; `wiki/outputs/2026-06-26_signal_strengthening_findings.md`; `raw/2026Q3_project_allocation_july2026.md`; `raw/2026Q3_person_allocation_anonymized.md`."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
