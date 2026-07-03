@@ -102,7 +102,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Rider ownership and payment patterns are drawn from 20+ independent Western and European sources (app reviews, owner forums, enthusiast press), and competitor success and failure cases are confirmed from public disclosures. Confidence is Medium rather than High because all rider sentiment reflects Western markets - direct evidence from Japan and Southeast Asia, Honda's core volume markets, is absent. The ownership patterns described here may not transfer to Asian rider behaviour.",
+    "domainConfidenceNote": "Rider ownership and payment patterns now include primary European research (35 qualitative interviews + 301 EICMA survey respondents across Germany, France, Italy) alongside 20+ independent sources from app reviews, forums, and press. Competitor cases are confirmed from public disclosures. Confidence remains Medium rather than High because direct rider voice from Japan and Southeast Asia - Honda's core volume markets - is still absent. The ownership patterns described reflect Western and European rider behaviour and may not transfer to Asian markets.",
     "domainWarning": false,
     "signals": [
       {
@@ -116,8 +116,15 @@
         "label": "Willingness to Pay",
         "missionSource": "Rider Voice",
         "confidence": "High",
-        "claim": "Riders resist paying for pre-installed hardware but will pay for high-stakes outcomes like theft tracking and crash detection.",
-        "sources": "Monimoto (£149 + £36/yr), BikeTrac (£299 + £99/yr), EatSleepRIDE Crashlight ($49/yr); Kawasaki Canada voice subscription near-universal rejection."
+        "claim": "Riders resist paying for pre-installed hardware but will pay for high-stakes outcomes like theft tracking and crash detection. In Europe, riders across Germany, France, and Italy are already spending €200-500+ on 3rd party anti-theft devices; dealers sell these at high volume because no OEM equivalent exists. In a 301-rider European survey, Theft Alert ranked #1 single most important feature (28.3%), with 55% rating it Must Have and a further 41.7% Nice to Have.",
+        "sources": "Monimoto (£149 + £36/yr), BikeTrac (£299 + £99/yr), EatSleepRIDE Crashlight ($49/yr); Kawasaki Canada voice subscription near-universal rejection; `raw/2026Q2_europe_rider_voice_research.md` (35 qualitative interviews + 301 EICMA survey, Germany/France/Italy, 2025)."
+      },
+      {
+        "label": "Vehicle Diagnostics Demand",
+        "missionSource": "Rider Voice",
+        "confidence": "High",
+        "claim": "European riders across all three countries rank Vehicle Diagnostics as the #1 feature in qualitative card sorting (26/35 riders) and 62% of 301 surveyed riders rate it Must Have. The core need: pre-ride visibility of tire pressure, brake fluid, oil level, battery status, and service schedule so riders can maintain their vehicle safely and protect warranty and resale value. Dealers across France, Germany, and Italy confirm customers frequently do not understand vehicle warning lamps and must visit the dealer just to diagnose what a light means before making a service appointment.",
+        "sources": "`raw/2026Q2_europe_rider_voice_research.md` (35 qualitative interviews + 301 EICMA survey, Germany/France/Italy, 2025)."
       },
       {
         "label": "Competitor Failure",
@@ -227,10 +234,10 @@
       },
       {
         "label": "Systemic Failure Pattern",
-        "missionSource": "Competitor Intelligence",
-        "confidence": "Medium",
-        "claim": "Widespread rider complaints about Bluetooth connectivity failures are documented independently across Yamaha Y-Connect and Kawasaki Rideology, converging on the same structural failure.",
-        "sources": "App store reviews (both platforms); independent OEM complaints converging on same structural failure."
+        "missionSource": "Rider Voice",
+        "confidence": "High",
+        "claim": "OEM connectivity failures are documented across multiple platforms with consistent complaints. Yamaha Y-Connect and Kawasaki Rideology have independent app store records of Bluetooth reliability failures. Honda RoadSync is described by named dealers across France and Italy as \"absolutely not user friendly,\" offering only turn-by-turn with no full map or moving arrow, leading riders to abandon the system and use phone mounts with Waze and Google Maps instead. Dealers report 90% of vehicles are delivered with a third-party phone mount alongside or instead of the OEM display.",
+        "sources": "App store reviews (Yamaha, Kawasaki); `raw/2026Q2_europe_rider_voice_research.md` - named dealer interviews in France, Italy, Germany (2025). Confidence upgraded to High: now supported by primary dealer research across three countries, not app store reviews alone."
       },
       {
         "label": "Financial Cautionary Tale",
@@ -330,8 +337,8 @@
         "label": "Voice of Rider",
         "missionSource": "Rider Voice",
         "confidence": "High",
-        "claim": "Third-party apps that excel at a single \"job-to-be-done\" - Calimoto for scenic routing (3M+ users), REVER for route discovery, EatSleepRIDE for crash detection - are consistently preferred over comprehensive-but-mediocre OEM apps.",
-        "sources": "app store reviews, Calimoto user base data, enthusiast press; 20+ independent sources."
+        "claim": "Third-party apps that excel at a single \"job-to-be-done\" - Calimoto for scenic routing (3M+ users), REVER for route discovery, EatSleepRIDE for crash detection - are consistently preferred over comprehensive-but-mediocre OEM apps. European primary research confirms this pattern at point of sale: dealers report 90% of vehicles are delivered with a third-party phone mount, and riders default to Waze and Google Maps because OEM navigation does not meet their quality bar.",
+        "sources": "app store reviews, Calimoto user base data, enthusiast press; 20+ independent sources; `raw/2026Q2_europe_rider_voice_research.md` - dealer interviews Germany/France/Italy (2025)."
       },
       {
         "label": "Competitor Success",
@@ -413,7 +420,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Low",
-    "domainConfidenceNote": "This domain has the weakest evidence base of all eight. Honda's existing localization actions are confirmed from product documentation, and competitor regional strategies are drawn from public disclosures. However, the research found almost no direct rider voice from Japan or Southeast Asia - Honda's primary volume markets. All rider sentiment in this domain reflects Western users. Strategic decisions about regional differentiation should not be made from this evidence alone until Asia-Pacific rider research has been conducted.",
+    "domainConfidenceNote": "European rider voice is now well-evidenced: 35 qualitative interviews and 301 EICMA survey respondents across Germany, France, and Italy provide primary research on European needs (2025). However, Japan and Southeast Asia - Honda's primary volume markets - still have no direct rider voice in this KB. The critical gap has narrowed from \"all of Europe and Asia\" to specifically Japan and SEA. Strategic decisions about Honda's global regional differentiation strategy should not be made from this evidence alone until Asia-Pacific rider research has been conducted.",
     "domainWarning": true,
     "signals": [
       {
@@ -424,11 +431,18 @@
         "sources": "`sources/2026-06-23_honda_roadsync_duo_app_store.pdf`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-26_cfmoto_deep_dive.md`."
       },
       {
-        "label": "Voice of Rider - Critical Evidence Gap",
+        "label": "European Rider Voice",
+        "missionSource": "Rider Voice",
+        "confidence": "High",
+        "claim": "Primary research across Germany (11 riders), France (12), and Italy (12) plus a 301-rider EICMA survey identifies four core European value propositions in priority order: (1) Theft Alert and Live Tracking (Theft Alert: 28.3% single most important; 55% Must Have); (2) Reliable Navigation with real-time hazard data - police, speed cameras, accidents (63% Must Have); (3) Vehicle Diagnostics (62% Must Have; #1 in qualitative card sorting); (4) Distraction-free connectivity - not using phone while riding (58.3% Must Have). 79% of surveyed riders plan to buy connected features in their next vehicle.",
+        "sources": "`raw/2026Q2_europe_rider_voice_research.md` (DriveMode + Honda primary research, Germany/France/Italy, 2025; 35 qualitative interviews + 301 EICMA survey)."
+      },
+      {
+        "label": "Asia-Pacific Evidence Gap",
         "missionSource": "Rider Voice",
         "confidence": "Low",
-        "claim": "While Western riders prioritize navigation and scenic routing, direct rider voice from Japan and Southeast Asia is almost entirely absent from the research base. All substantive forum evidence comes from Western markets.",
-        "sources": "20+ sources (US, UK, Europe, India); zero substantive primary sources from Japan or SEA. This is the most significant evidentiary gap given Honda's geographic priorities."
+        "claim": "Direct rider voice from Japan and Southeast Asia is entirely absent from the research base. Honda's primary volume markets remain unresearched. All rider sentiment in this KB reflects Western and European markets.",
+        "sources": "20+ sources (US, UK, Europe, India); zero substantive primary sources from Japan or SEA."
       },
       {
         "label": "Competitor Strategy",
@@ -441,8 +455,8 @@
         "label": "Market Dynamics",
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
-        "claim": "Asia-Pacific represents 41.7% of the connected motorcycle market with a 35.8% CAGR - the largest and fastest-growing segment globally. The first direct SEA competitor data point in this research (MForce, Malaysia's largest domestic manufacturer and distributor of Benelli, Keeway, SYM, and Zontes) shows no proprietary app, no digital ecosystem, and entirely externally-sourced white-label connectivity on its own brands. This can be read as a demand signal (SEA riders do not require connected services from their OEM) or a laggard gap (an unserved market with no current incumbent). Without direct rider voice it is impossible to distinguish between the two.",
-        "sources": "ABI Research connected motorcycle market data; `sources/2026-06-26_deep_dive_mforce.md`."
+        "claim": "Asia-Pacific represents 41.7% of the connected motorcycle market with a 35.8% CAGR - the largest and fastest-growing segment globally. The first direct SEA competitor data point in this research (MForce, Malaysia) shows no proprietary app or digital ecosystem. In Europe, Chinese brands (CFMoto 800MT, Zontes 368G, Coge 900 DSX) have grown significantly in the LOW-MID price range (€5,000-€10,000) by offering full-map TFT navigation and dashcams at price points where Honda currently does not offer full-map navigation (Honda full-map starts at Africa Twin, €14,000+). Italian dealers confirm this competitive shift directly.",
+        "sources": "ABI Research connected motorcycle market data; `sources/2026-06-26_deep_dive_mforce.md`; `raw/2026Q2_europe_rider_voice_research.md` (HRE sales data + dealer interviews, 2025)."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
