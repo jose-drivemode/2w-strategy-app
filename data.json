@@ -323,7 +323,8 @@
         ],
         "implication": "The core vendor management skill exists and can be adapted from hardware to software. The DevOps function can lead the technical side of managing cloud/SaaS vendor relationships."
       }
-    ]
+    ],
+    "guided": true
   },
   {
     "id": 4,
