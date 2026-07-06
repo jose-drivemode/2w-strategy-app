@@ -20,8 +20,8 @@
         "label": "Structural Mismatch",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The Honda/DriveMode relationship has unresolved governance, informally defined decision rights, and a software cost allocation model (global/local revenue ratio) that creates conflicting incentives - documented across multiple independent repository sources from 2017 to 2026.",
-        "sources": "`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`; `wiki/brain-dumps/2026-06-25_software_cost_allocation_and_strategy.md`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-25_engineering_department_skills_map.md` - four independent signals converging on same conclusion."
+        "claim": "The Honda/DriveMode relationship has unresolved governance, informally defined decision rights, and a software cost allocation model (global/local revenue ratio) that creates conflicting incentives - documented across multiple independent repository sources from 2017 to 2026. Working notes from July 2026 describe a concrete operational manifestation: DriveMode-led analytics work (KPIs, self-serve dashboards) is blocked from reaching production, with Honda's only analytics request being connectivity to their governance platform; strategy meetings are consumed by realigning Honda on current DriveMode reality rather than planning next steps; and the Honda counterparty (UXC Connected) is described as focused on vehicle delivery execution rather than strategic partnership. These observations are from a single working note and carry Low confidence; they are consistent with the governance gap documented across the primary sources but should not be cited independently.",
+        "sources": "`raw/2025Q1_january_2025_all_hands_strategic_alternatives.md`; `wiki/brain-dumps/2026-06-25_software_cost_allocation_and_strategy.md`; `raw/2026Q2_organizational_capability_assessment.md`; `sources/2026-06-25_engineering_department_skills_map.md` - four independent signals on governance gap; `wiki/brain-dumps/2026-07-06_capacity_honda_alignment_pitch_reframing.md` - Low confidence working note, use as context only."
       },
       {
         "label": "Capability Hotspots",
@@ -250,7 +250,7 @@
         "label": "Internal Capability",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The engineering department consists of 51 personnel with a high density of senior talent. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 people (4% of headcount) and Systems Engineering by 3 functional people (3%), the exact teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-level engineers are fully committed to the AWS Migration, and the QA team's single P5 is 70% committed to Gen1 and compliance work - meaning a portion of the org's highest-capability tier is not available for new strategic infrastructure development in the near term.",
+        "claim": "The engineering department consists of 51 personnel. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers by title: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 people (4% of headcount) and Systems Engineering by 3 functional people (3%), the teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-titled engineers are fully committed to the AWS Migration, and the QA team's single P5-titled engineer is 70% committed to Gen1 and compliance work - meaning a significant portion of the P5-titled tier is not available for new strategic infrastructure development in the near term. P-level title distributions are structural composition data; domain expertise and delivery capability are not directly measurable from titles alone.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_competency_matrix_engineering.md`; `raw/2026Q3_person_allocation_anonymized.md`."
       }
     ],
@@ -280,9 +280,9 @@
       },
       {
         "title": "The Control Tension: Strategic Differentiation vs. Commodity Outsourcing",
-        "signal": "A deep, senior engineering team exists in-house, capable of building sophisticated, proprietary systems.",
+        "signal": "An in-house engineering team of 51 people exists, with P5-titled engineers in IVI, Mobile/CA, and Backend - levels the company's competency matrix defines as carrying cross-functional architectural and Honda-alignment responsibilities.",
         "counterSignal": "The most successful new competitors are building on top of commodity cloud platforms (AWS, GCP), and the dominant pattern in tech is to outsource non-core infrastructure to focus on unique value.",
-        "theTension": "Which parts of the software stack are a true source of competitive differentiation (and must be built by our expert team), and which parts are commodity infrastructure that should be managed by a world-class partner?"
+        "theTension": "Which parts of the software stack are a true source of competitive differentiation (and must be built in-house), and which parts are commodity infrastructure that should be managed by a world-class partner?"
       }
     ],
     "capabilities": [
@@ -290,19 +290,20 @@
         "capability": "Cloud Architecture & Engineering",
         "assessment": "Leverage / Optimize",
         "evidence": [
-          "The department contains two large Mobile/Backend engineering branches and a Cross-Functional Engineering pod, totaling over 30 engineers, including multiple Staff-level and System Architects. This is a formidable in-house talent pool.",
-          "The Cross-Functional pod includes 2 Sr. DevOps Engineers, indicating an existing, dedicated function for managing cloud infrastructure and deployment pipelines."
+          "The engineering department includes Mobile, Backend, and Platform and Infrastructure functions, with 30+ engineers across the Mobile/Backend teams and 3 in Platform and Infrastructure. P5-titled engineers are confirmed in IVI, Mobile/CA, and Backend - levels that the company's competency framework defines as responsible for cross-functional architecture decisions.",
+          "Two Sr. DevOps Engineers are confirmed in the Platform and Infrastructure function, indicating an existing dedicated function for managing cloud infrastructure and deployment pipelines."
         ],
-        "implication": "The organization has the senior technical talent to architect and build a world-class, scalable cloud platform. The challenge is not acquiring talent, but focusing this powerful team on a clear infrastructure strategy and optimizing their impact."
+        "implication": "An engineering structure and allocation for cloud infrastructure exists. The strategic question is not whether a foundation is present, but whether it is sized and focused for the scope of a scalable connected vehicle platform serving a global fleet."
       },
       {
         "capability": "OTA & Embedded Systems Engineering",
         "assessment": "Invest / Scale",
         "evidence": [
-          "A dedicated \"Systems Engineering Branch\" exists in Tokyo, staffed with a System Architect and a Senior Software Engineer. This provides a foundation of expertise.",
-          "However, with only three functional personnel (one of whom carries cybersecurity management as a 20% secondary allocation), this team is insufficient to develop, validate, and manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs, a cadence far beyond the capacity of the current team."
+          "A dedicated \"Systems Engineering Branch\" exists in Tokyo, staffed with a System Architect and a Senior Software Engineer. This is the function responsible for A-SPICE process development, system architecture, requirement elicitation, and cybersecurity management.",
+          "With only three functional personnel (one of whom carries cybersecurity management as a 20% secondary allocation), the team is not sized to manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs.",
+          "Working notes from July 2026 describe the DriveMode OTA system as technically functional, with the primary constraint being A-SPICE certification required before Honda will connect the OTA system to vehicles, and a Honda trust deficit that makes a well-built system unusable without third-party validation. This is a Low-confidence single source (working note) and should be independently verified; if accurate, it shifts the investment gap from engineering capability absence to compliance readiness and stakeholder trust."
         ],
-        "implication": "While foundational knowledge exists, the organization cannot currently deliver a competitive OTA capability at scale. This team requires significant investment and growth to become a strategic asset."
+        "implication": "Whether the OTA gap is primarily an engineering scale problem or a compliance and trust problem changes the investment approach. If the OTA system is already functionally built, the investment priority shifts from engineering headcount to A-SPICE compliance completion and Honda relationship management rather than platform construction. This distinction should be confirmed before sizing the investment. Sources: sources/2026-06-25_engineering_department_skills_map.md; raw/2026Q3_project_allocation_july2026.md; wiki/brain-dumps/2026-07-06_capacity_honda_alignment_pitch_reframing.md (Low confidence - working note)."
       },
       {
         "capability": "Cybersecurity",
@@ -407,10 +408,10 @@
         "capability": "Multi-Model Software Architecture",
         "assessment": "Invest / Scale",
         "evidence": [
-          "The senior-heavy engineering team has the raw talent to design a modular architecture.",
-          "However, the most successful competitors have a proven track record of deploying their platform across 7+ models, a scaled capability that is not yet demonstrated."
+          "The engineering team includes P5-titled engineers in IVI and Mobile/CA - levels the company's competency matrix defines as responsible for cross-functional architectural decisions. Title distribution does not confirm multi-model deployment experience.",
+          "The most successful competitors have a proven track record of deploying their platform across 7+ models, a scaled capability that is not yet demonstrated by DriveMode."
         ],
-        "implication": "The talent is in-house, but the process and demonstrated experience of building a single software core that can be configured and deployed across the vast diversity of Honda's model lineup needs to be built and proven."
+        "implication": "A foundation of senior-titled engineers exists, but the process and demonstrated experience of building a single software core that can be configured and deployed across the vast diversity of Honda's model lineup needs to be built and proven."
       }
     ]
   },
@@ -501,8 +502,8 @@
         "capability": "Modular & Extensible Architecture",
         "assessment": "Invest / Scale",
         "evidence": [
-          "The senior-heavy engineering team has the raw talent to design a modular architecture.",
-          "However, there is no evidence that the current platform is architected for this \"glocal\" model. The current approach appears to be ad-hoc feature-gating, which is not scalable."
+          "The engineering team includes P5-titled engineers in IVI and Mobile/CA - levels the company's competency matrix defines as responsible for cross-functional architectural decisions. Title distribution does not confirm what architecture exists or what has been built for regional configurability.",
+          "There is no evidence that the current platform is architected for a \"glocal\" multi-model model. The current approach appears to be ad-hoc feature-gating per region, which does not scale."
         ],
         "implication": "A significant, deliberate investment in platform architecture is required to move from a reactive, one-off regionalization model to a strategic, scalable one. Without this, costs will spiral as more regions are supported."
       }
