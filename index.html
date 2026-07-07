@@ -482,7 +482,7 @@ function buildAnalysisPanel(dom, id, s) {
     (dom.requirements || []).length ? el('p', { class: 'section-label' }, 'What This Domain Would Require') : null,
     (dom.requirements || []).length ? el('div', { class: 'requirements-list' }, ...reqCards) : null,
     el('div', { class: 'section-divider' }),
-    el('p', { class: 'section-label' }, 'Strategic Positions'),
+    el('p', { class: 'section-label' }, 'Strategic Tensions'),
     dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
     el('div', { class: 'tensions-list' }, ...tensionItems),
     // Implication: synthesis at bottom of scroll, after reading everything
