@@ -76,22 +76,18 @@
         "theTension": "How to balance the short-term need to acquire specialized software talent with the long-term, more difficult challenge of evolving the core organizational culture to one that can attract, retain, and empower that talent."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Hybrid Governance Design",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The research shows the current governance model is \"informally defined\" and \"unresolved,\" leading to conflicting incentives. This is the #1 organizational risk factor identified in the analysis of failed transformations like CARIAD."
-        ],
-        "implication": "The organization lacks a formal, proven model for managing a subsidiary software entity. This is the most urgent capability to develop or acquire (e.g., by bringing in outside experts who have managed similar transformations)."
+        "requirement": "Formal Governance Design",
+        "description": "A documented structure defining decision rights between Honda 2W and DriveMode for product roadmap, technology choices, and investment priorities - with a clear escalation path for when judgments diverge."
       },
       {
-        "capability": "Software-Centric Financial Planning",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The \"unresolved\" issue of software cost allocation proves the organization's financial planning processes are still rooted in a hardware-sales model."
-        ],
-        "implication": "Without the ability to financially model, fund, and measure the success of long-term software platforms (which have different cost structures and ROI profiles than a vehicle), any strategic plan is purely theoretical."
+        "requirement": "Software-Centric Financial Planning",
+        "description": "A financial model capable of evaluating and funding platform investments with long ROI horizons, ongoing operational cost structures, and utilization-based value measurement - distinct from project-based hardware cost models."
+      },
+      {
+        "requirement": "Mandate Documentation",
+        "description": "A formal, written statement of DriveMode's role that can be referenced when Honda's direction and DriveMode's technical or product judgment conflict - not managed informally through stakeholder alignment. ---"
       }
     ]
   },
@@ -178,40 +174,18 @@
         "theTension": "How to leverage the strategic value of rider data without violating the user's sense of ownership and destroying the trust required to collect that data in the first place."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Business Model Design",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The issue of software cost governance remains unresolved, indicating a lack of institutional processes for valuing and funding service-based business models.",
-          "The only proven monetization patterns in the market are for specific, tangible outcomes, a model unfamiliar to the current hardware-sales organization."
-        ],
-        "implication": "Lacking this capability, any decision on the \"Monetization Tension\" will be based on incomplete financial assumptions, posing a significant business risk."
+        "requirement": "Outcome-Based Service Design",
+        "description": "The ability to define, price, and deliver connected services whose value is measured by outcomes for the rider - bike found, crash alert sent, data permanently accessible - rather than by features shipped."
       },
       {
-        "capability": "API Product Management",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The research found no evidence of a public developer program, published APIs, or dedicated API product managers for the motorcycle division."
-        ],
-        "implication": "An \"open ecosystem\" strategy to resolve the \"Experience Tension\" is not currently viable; the capability to enable a third-party developer ecosystem must be built or acquired first."
+        "requirement": "Rider Data Governance",
+        "description": "A capability to manage rider data in ways that earn active consent - giving riders control and visibility over their own data as a design principle, not as a compliance response to regulation."
       },
       {
-        "capability": "Data Privacy Governance",
-        "assessment": "Invest / Scale",
-        "evidence": [
-          "Baseline legal compliance exists.",
-          "However, the \"data held hostage\" pattern is a primary source of rider anger, proving that the current capability is insufficient for building strategic trust."
-        ],
-        "implication": "To navigate the \"Data Tension,\" the current compliance-level capability must be scaled into a strategic, user-centric function that builds rider trust."
-      },
-      {
-        "capability": "Digital Partnership Management",
-        "assessment": "Leverage / Optimize",
-        "evidence": [
-          "Honda has a world-class, mature capability in managing complex, long-term partnerships in manufacturing and motorsports."
-        ],
-        "implication": "This is an existing strength that can be leveraged. It needs to be optimized and adapted for the faster cadence and different integration needs of digital platform partnerships."
+        "requirement": "Lifecycle Touchpoint Coverage",
+        "description": "The ability to reach the rider at every stage of the Honda ownership relationship - consideration, purchase, active ownership, service, and replacement consideration - not only while riding. ---"
       }
     ]
   },
@@ -285,43 +259,18 @@
         "theTension": "Which parts of the software stack are a true source of competitive differentiation (and must be built in-house), and which parts are commodity infrastructure that should be managed by a world-class partner?"
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Cloud Architecture & Engineering",
-        "assessment": "Leverage / Optimize",
-        "evidence": [
-          "The engineering department includes Mobile, Backend, and Platform and Infrastructure functions, with 30+ engineers across the Mobile/Backend teams and 3 in Platform and Infrastructure. P5-titled engineers are confirmed in IVI, Mobile/CA, and Backend - levels that the company's competency framework defines as responsible for cross-functional architecture decisions.",
-          "Two Sr. DevOps Engineers are confirmed in the Platform and Infrastructure function, indicating an existing dedicated function for managing cloud infrastructure and deployment pipelines."
-        ],
-        "implication": "An engineering structure and allocation for cloud infrastructure exists. The strategic question is not whether a foundation is present, but whether it is sized and focused for the scope of a scalable connected vehicle platform serving a global fleet."
+        "requirement": "OTA Delivery at Fleet Scale",
+        "description": "The ability to deliver software updates to vehicles reliably, securely, and at the compliance certification level Honda requires to authorize vehicle connection - across multiple models and markets."
       },
       {
-        "capability": "OTA & Embedded Systems Engineering",
-        "assessment": "Invest / Scale",
-        "evidence": [
-          "A dedicated \"Systems Engineering Branch\" exists in Tokyo, staffed with a System Architect and a Senior Software Engineer. This is the function responsible for A-SPICE process development, system architecture, requirement elicitation, and cybersecurity management.",
-          "With only three functional personnel (one of whom carries cybersecurity management as a 20% secondary allocation), the team is not sized to manage secure OTA update campaigns for a global, multi-model vehicle fleet. Competitors like Ather deliver monthly OTAs.",
-          "Working notes from July 2026 describe the DriveMode OTA system as technically functional, with the primary constraint being A-SPICE certification required before Honda will connect the OTA system to vehicles, and a Honda trust deficit that makes a well-built system unusable without third-party validation. This is a Low-confidence single source (working note) and should be independently verified; if accurate, it shifts the investment gap from engineering capability absence to compliance readiness and stakeholder trust."
-        ],
-        "implication": "Whether the OTA gap is primarily an engineering scale problem or a compliance and trust problem changes the investment approach. If the OTA system is already functionally built, the investment priority shifts from engineering headcount to A-SPICE compliance completion and Honda relationship management rather than platform construction. This distinction should be confirmed before sizing the investment. Sources: sources/2026-06-25_engineering_department_skills_map.md; raw/2026Q3_project_allocation_july2026.md; wiki/brain-dumps/2026-07-06_capacity_honda_alignment_pitch_reframing.md (Low confidence - working note)."
+        "requirement": "Dedicated Cybersecurity Function",
+        "description": "A systematic security engineering capability - not a secondary allocation within another role - covering vehicle-side, cloud-side, and data-in-transit security at the level required by a connected vehicle platform operating across multiple regulatory environments."
       },
       {
-        "capability": "Cybersecurity",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "Cybersecurity management is now evidenced as a project allocation within Systems Engineering: one System Architect carries it at 20% time. This confirms individual-level awareness exists but no dedicated team or systematic security engineering function.",
-          "A 20% allocation of one engineer does not constitute a security capability sufficient to manage a cloud-connected vehicle platform across multiple markets and regulatory regimes."
-        ],
-        "implication": "This is a critical, high-severity gap. The evidence shifts the characterization from \"entirely absent\" to \"present at individual level but severely undersized.\" The assessment remains Explore / Acquire because the current allocation cannot scale to meet the systematic security engineering demands of a connected vehicle platform. A dedicated capability must be built or acquired. Sources: raw/2026Q3_project_allocation_july2026.md."
-      },
-      {
-        "capability": "Infrastructure Vendor Management",
-        "assessment": "Leverage / Optimize",
-        "evidence": [
-          "Honda possesses a world-class, mature capability in managing a complex global supply chain and hardware vendors.",
-          "The existence of Sr. DevOps roles implies experience managing infrastructure-as-code and interfacing with cloud vendor services and APIs."
-        ],
-        "implication": "The core vendor management skill exists and can be adapted from hardware to software. The DevOps function can lead the technical side of managing cloud/SaaS vendor relationships."
+        "requirement": "Infrastructure Reliability Engineering",
+        "description": "The operational capability to maintain availability, performance, and security of connected vehicle services at a quality level that does not damage brand trust when connectivity is impaired. ---"
       }
     ],
     "guided": true
@@ -396,23 +345,18 @@
         "theTension": "How to allocate limited engineering resources between building new, visible rider features (Rider-Facing App) and the deep, often invisible work of building the data pipeline, OTA delivery, and identity layer that a Rider Lifecycle Infrastructure strategy requires."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Lifecycle Infrastructure Product Management",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The PM organization is structured for delivering rider-facing features and Honda-facing coordination. Managing infrastructure-as-a-product - defining APIs, data contracts, OTA pipelines, and identity services as products consumed by Honda regional teams and third-party developers - is a distinct discipline not evidenced in the current PM function."
-        ],
-        "implication": "If DriveMode pursues a Rider Lifecycle Infrastructure position, the capability to define, version, and manage the infrastructure layer as a product for internal and external consumers must be deliberately built or acquired. Without it, the infrastructure will be built for internal use only and will not scale to enable the partner ecosystem the strategy requires."
+        "requirement": "Infrastructure Product Management (if Rider Lifecycle Infrastructure)",
+        "description": "The ability to define OTA delivery, data pipelines, and identity APIs as products - with version governance, access controls, and SLAs for internal teams and external partners, not as rider-facing features."
       },
       {
-        "capability": "Multi-Model Software Architecture",
-        "assessment": "Invest / Scale",
-        "evidence": [
-          "The engineering team includes P5-titled engineers in IVI and Mobile/CA - levels the company's competency matrix defines as responsible for cross-functional architectural decisions. Title distribution does not confirm multi-model deployment experience.",
-          "The most successful competitors have a proven track record of deploying their platform across 7+ models, a scaled capability that is not yet demonstrated by DriveMode."
-        ],
-        "implication": "A foundation of senior-titled engineers exists, but the process and demonstrated experience of building a single software core that can be configured and deployed across the vast diversity of Honda's model lineup needs to be built and proven."
+        "requirement": "Multi-Model Deployment Architecture (if Rider Lifecycle Infrastructure)",
+        "description": "The ability to scale connected vehicle infrastructure across Honda's full model range without rebuilding per vehicle or per market."
+      },
+      {
+        "requirement": "Application Quality Engineering (if Rider-Facing App)",
+        "description": "The ability to match or exceed the reliability and experience quality of best-in-class third-party apps in the specific jobs riders prioritize - navigation, theft protection, and vehicle diagnostics. ---"
       }
     ]
   },
@@ -489,24 +433,18 @@
         "theTension": "How to design a software and hardware platform that provides the economic benefits of a shared global core while allowing for the necessary flexibility and autonomy to meet divergent regional requirements."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "International Product Management",
-        "assessment": "Invest / Scale",
-        "evidence": [
-          "The existence of two distinct Product Leadership Groups provides a structure that could be adapted to focus on specific international markets.",
-          "However, the research shows a critical gap in market intelligence for Honda's core Asian markets, indicating this structure is not yet being effectively used for data-driven, region-specific product strategy."
-        ],
-        "implication": "A foundational structure exists, but it requires significant investment in market-specific research and a clear mandate for the PM teams to focus on regional needs to become effective."
+        "requirement": "Asia-Pacific Market Intelligence",
+        "description": "The ability to generate primary insight about rider needs, willingness to pay, and competitive dynamics in Honda's core growth markets - not extended from European or North American research."
       },
       {
-        "capability": "Modular & Extensible Architecture",
-        "assessment": "Invest / Scale",
-        "evidence": [
-          "The engineering team includes P5-titled engineers in IVI and Mobile/CA - levels the company's competency matrix defines as responsible for cross-functional architectural decisions. Title distribution does not confirm what architecture exists or what has been built for regional configurability.",
-          "There is no evidence that the current platform is architected for a \"glocal\" multi-model model. The current approach appears to be ad-hoc feature-gating per region, which does not scale."
-        ],
-        "implication": "A significant, deliberate investment in platform architecture is required to move from a reactive, one-off regionalization model to a strategic, scalable one. Without this, costs will spiral as more regions are supported."
+        "requirement": "Configurable Regional Architecture",
+        "description": "A platform architecture enabling market-specific feature variation - India security features, SEA battery-swap integration, European hazard alerts, regional regulatory compliance - without forking the codebase or requiring a rebuild per market."
+      },
+      {
+        "requirement": "Local Partner Integration",
+        "description": "The ability to connect to locally relevant partners (navigation providers, payment rails, regulatory compliance systems) in each market without a custom engineering project per integration. ---"
       }
     ]
   },
@@ -580,23 +518,18 @@
         "theTension": "How to build the powerful, centralized data platform needed for advanced analytics while architecting the system in a way that honors the rider's fundamental sense of ownership and control over their information."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Data Engineering & Analytics",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The engineering organizational map shows strong capability in backend and mobile application development, but no dedicated \"Data Engineering,\" \"Data Science,\" or \"Analytics\" function.",
-          "Advanced competitors have explicitly partnered with or built on sophisticated data platforms (Databricks, Google BigQuery), a capability for which there is no evidence at DriveMode."
-        ],
-        "implication": "The organization can collect data from the app but is not currently equipped to process, analyze, or derive strategic insights from that data at scale. This is a critical gap."
+        "requirement": "Vehicle and Rider Data Engineering",
+        "description": "The ability to collect, process, and derive product intelligence from vehicle telemetry and rider behavior data at scale - across multiple models, markets, and use cases."
       },
       {
-        "capability": "Data Product Management",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The PM organization is structured for delivering user-facing features. There is no evidence of the specialized skill of \"Data Product Management,\" which focuses on creating internal data platforms, tools, and services for other teams (like R&D or marketing) to consume."
-        ],
-        "implication": "Without this capability, any data collected will likely remain siloed in a database, failing to be integrated into the broader business for functions like predictive maintenance or product planning."
+        "requirement": "Rider-Facing Data Experience",
+        "description": "The ability to deliver personal data back to riders as a product feature - usage summaries, vehicle health, ride history - in ways that build trust and consent for further data collection, rather than treating data as purely internal."
+      },
+      {
+        "requirement": "Multi-Market Data Governance",
+        "description": "The ability to manage rider data collection, storage, and use in compliance with multiple concurrent regulatory frameworks as Honda expands connected services across regions. ---"
       }
     ]
   },
@@ -636,7 +569,7 @@
         "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "VW spent €14B on a failed proprietary software build (CARIAD), then committed $5.8B to license equivalent capability from Rivian. McKinsey projects connected vehicle software investment to reach double-digit billions for ADAS, while basic connectivity remains relatively low investment by comparison.",
-        "sources": "VW Group financial disclosures; Rivian–VW partnership announcement; McKinsey connected vehicles analysis."
+        "sources": "VW Group financial disclosures; Rivian-VW partnership announcement; McKinsey connected vehicles analysis."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -654,38 +587,34 @@
         "body": "For decades, successful global brands (from fast food to automotive) have used partnership models with local dealers/franchisees to achieve global scale while leveraging local market expertise and capital."
       }
     ],
-    "implications": "A \"do-it-all-yourself\" strategy for a connected platform is a documented failure mode. The ability to identify, manage, and build a successful partner ecosystem is not an optional tactic; it is a core, strategic requirement for managing cost, mitigating risk, and delivering a best-in-class user experience. The central strategic question is not if we should partner, but where on the stack and how to structure those partnerships to retain a defensible position. ---",
+    "implications": "The evidence establishes that building everything in-house is a documented failure mode and that the most effective competitors operate as systems integrators - owning the integration layer and sourcing everything below it from specialists. The decision the evidence cannot pre-empt is which specific layers DriveMode owns, which it sources, and what terms it must retain in each partnership to protect its position. Three types of partnership require different decisions. Infrastructure partnerships (cloud hosting, OTA delivery, identity) involve integrating managed services and ceding technical ownership of the component - the decision is which services to use and what data-access and SLA terms to require. Capability partnerships (navigation, insurance, safety electronics, battery-swap) involve DriveMode controlling the integration layer while the partner provides the capability - the decision is which rider data each partner can access and whether that access creates a pathway for the partner to build its own direct relationship with Honda or with riders. Data-access partnerships (scenic routing, fleet analytics, third-party safety apps) involve external parties accessing vehicle and rider data through DriveMode-managed interfaces - the decision is what data is exposed, at what granularity, and what DriveMode retains as non-negotiable in every agreement. Without explicit decisions across all three types, each partnership will be negotiated case-by-case with no consistent framework for what DriveMode retains. The compounding risk is that individually reasonable partnership terms can collectively erode DriveMode's position in ways that are only visible in aggregate. ---",
     "tensionsNote": null,
     "tensions": [
       {
-        "title": "The Value Tension: Faster Time-to-Market vs. Shared Value Capture",
-        "signal": "Partnering with an established leader (e.g., for navigation) can get a best-in-class capability to market in months, not years.",
-        "counterSignal": "A partnership requires sharing revenue, data, or the customer relationship, reducing the total value captured directly by the OEM.",
-        "theTension": "How to balance the need for execution speed, which favors partnership, with the desire to capture the maximum lifetime value from the rider relationship, which favors building in-house."
+        "title": "The Stack Ownership Tension: Where to Draw the Integration Line",
+        "signal": "The most effective competitors (CFMOTO, Hero MotoCorp) draw their ownership line at the integration layer - sourcing cloud, OTA, safety electronics, and charging infrastructure from specialist partners, and owning only the vehicle integration and rider experience above that line. This model delivers production-grade capability at a fraction of the cost and timeline of building in-house.",
+        "counterSignal": "Every layer DriveMode cedes to a partner is a layer where it loses data visibility, technical control, and the ability to retain the rider relationship. Infrastructure partners with direct vehicle access have built their own OEM relationships at scale (AWS with Hero; Google Cloud with Ather) and gain leverage over DriveMode's position over time.",
+        "theTension": "Where DriveMode draws its ownership line is not a default decision - it must be made explicitly. Drawing it too high (building everything) recreates the CARIAD failure. Drawing it too low (ceding the integration layer itself) leaves DriveMode with no defensible position. The line must be named."
       },
       {
-        "title": "The Brand Tension: Best-in-Class Experience vs. Brand Dilution",
-        "signal": "Integrating a partner's well-regarded service (e.g., a familiar navigation UI on the dashboard) can significantly improve the user experience.",
-        "counterSignal": "Ceding control of a core part of the user interface to a third party can dilute the OEM's brand and make the experience feel generic or fragmented.",
-        "theTension": "How to leverage partners to provide a superior user experience without weakening the unique brand identity and sense of a cohesive, OEM-built ecosystem."
+        "title": "The Asset Retention Tension: Enabling Partners vs. Protecting the Rider Relationship",
+        "signal": "Integrating best-in-class partners for navigation, insurance, and safety delivers a superior rider experience faster than DriveMode could build it - and the evidence shows riders will use third-party apps anyway when OEM quality falls short (Calimoto: 3M+ users; 90% of European bikes delivered with a third-party phone mount).",
+        "counterSignal": "Navigation providers, insurance companies, and safety electronics suppliers all have incentives to build direct relationships with riders. Every partner that accesses rider identity, usage data, or location history has a pathway to eventually displace the OEM as the primary rider relationship holder.",
+        "theTension": "How to structure partnership agreements that deliver best-in-class rider experience while defining - contractually, not by assumption - which data, identity, and relationship elements remain under DriveMode and Honda control regardless of partner type."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Digital Partnership Management",
-        "assessment": "Leverage / Optimize",
-        "evidence": [
-          "Honda has a world-class, mature capability in managing complex, long-term partnerships in its hardware and motorsports divisions."
-        ],
-        "implication": "This is a core institutional strength. The challenge is to adapt this proven capability to the faster, more agile, and technically different world of software and platform partnerships."
+        "requirement": "Partnership Architecture Design",
+        "description": "A structured framework defining what each partner type can access, what DriveMode retains in every agreement, and how those terms are governed as the partnership evolves - applied consistently across all partner relationships, not negotiated case by case."
       },
       {
-        "capability": "API Product Management",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The research found no evidence of a public developer program, published APIs, or dedicated API product managers, which are the foundational elements for building a scalable partner ecosystem rather than just a few one-off integrations."
-        ],
-        "implication": "Without this capability, partnerships will remain one-off, resource-intensive projects, and the organization will be unable to scale an ecosystem strategy."
+        "requirement": "Software Partnership Management",
+        "description": "The ability to negotiate, govern, and evolve software integration agreements at the pace and with the continuous technical governance that software partnerships require - operating on materially different timescales and terms than hardware partnerships."
+      },
+      {
+        "requirement": "API and Data Interface Management",
+        "description": "The ability to define, version, and maintain data interfaces as products that external partners can rely on - rather than as custom integrations built for each new partner relationship. ---"
       }
     ]
   },
@@ -769,22 +698,18 @@
         "theTension": "How to allocate capital between funding exciting, innovative new features and the non-negotiable, but often invisible, work of ensuring the underlying platform is secure, stable, and maintainable."
       }
     ],
-    "capabilities": [
+    "requirements": [
       {
-        "capability": "Software-Centric Financial Planning",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "The \"unresolved\" issue of software cost allocation proves the organization's financial planning processes are still rooted in a hardware-sales model."
-        ],
-        "implication": "This is a critical gap. Without the ability to financially model, fund, and measure the success of long-term software platforms (which have different cost structures and ROI profiles than a vehicle), any strategic plan is purely theoretical."
+        "requirement": "Platform Investment Modeling",
+        "description": "The ability to evaluate and fund platform investments with cost structures and ROI horizons that differ from feature delivery - including multi-year build horizons, ongoing operational costs, and value measured through platform utilization rather than direct feature revenue."
       },
       {
-        "capability": "Portfolio Management / Venture-Style Funding",
-        "assessment": "Explore / Acquire",
-        "evidence": [
-          "There is no evidence of a mechanism for making small, experimental bets and then doubling down on winners, as seen in VC or modern tech portfolio management. The current structure appears geared toward large, pre-approved projects."
-        ],
-        "implication": "The organization may be forced to make a single \"big bet\" because it lacks the process to manage a portfolio of smaller, iterative experiments, thereby increasing financial risk."
+        "requirement": "Strategic Capacity Planning",
+        "description": "The ability to look beyond current delivery commitments - accounting for Honda-directed overhead, compliance work, and infrastructure migrations - to identify what capacity genuinely exists for strategic investment at any given point."
+      },
+      {
+        "requirement": "Portfolio Funding Mechanism",
+        "description": "A funding approach that can run parallel capability bets at different scales and redirect resources toward what demonstrates traction - rather than forcing every capability decision into a single large upfront commitment. --- The following is an analytical synthesis derived from all sections of this framework. It is not a sourced claim - it represents the analyst's interpretation of what the cumulative evidence supports as a coherent strategic direction for DriveMode. The eight Decision Domains in this framework represent a strategic direction built on evidence. Across seven of them, the direction is clear enough to advance: rider ownership requires lifecycle investment over feature delivery; software infrastructure requires a build-and-partner model over proprietary build; the platform-vs-product question points toward an integration layer over a comprehensive app; regional strategy requires a proved-then-expanded model over simultaneous global build; data strategy requires rider-controlled assets over OEM extraction; partner ecosystem strategy requires tiered integration over vertical self-sufficiency; and investment sequencing requires staged table-stakes-first over a single platform commitment. Domain 1 - Governance and Mandate - sits differently. Its tensions cannot be resolved by DriveMode alone. But the purpose of this framework is not to wait for Honda to resolve them first. It is to place a strategy in front of Honda leadership that makes explicit what governance structure that strategy requires. Honda's response to this proposal is what will define the mandate going forward. On that basis, this framework proposes three governance positions for Honda to respond to: 1. DriveMode as strategic platform lead, not execution contractor The evidence across seven domains consistently points to a platform layer - a middleware and integration capability - as the defensible strategic asset. That position cannot be held by a contractor executing a feature list. DriveMode proposes to be accountable for the connected motorcycle platform strategy: owning the rider data relationship, the partner integration layer, the OTA infrastructure roadmap, and the product direction. Honda's vehicle engineering, distribution, and regulatory relationships remain Honda's domain. The question for Honda is whether to confirm this division of ownership or propose a different one. 2. A formal governance structure for technical and product decisions The current model - informal alignment through stakeholder relationships - is evidenced as a structure that consumes strategy time on realignment rather than planning, and that creates conflicting incentives when software cost governance remains unresolved. DriveMode proposes that the governance structure define: who holds product roadmap decision rights, how conflicts between Honda 2W engineering and DriveMode are resolved, and who owns the software investment model. Without formal agreement on these three points, the capability investments proposed in this framework are at risk of being redirected by competing incentives on either side. 3. A multi-year platform investment commitment The competitive evidence shows that the four capability gaps most critical to a connected motorcycle strategy - OTA infrastructure, cybersecurity, data engineering, and platform product management - require sustained multi-year investment before they produce results. A project-by-project approval model cannot close these gaps. DriveMode proposes that Honda confirm a platform investment horizon - naming the commitment, the timeline, and the capability targets - so that a credible capability roadmap can be built against it. These three governance positions are not prerequisites for this strategy to be defined. They are what this strategy is proposing Honda respond to. The strategic direction across the other seven domains is already set by the evidence. The governance structure is the remaining variable that Honda's leadership now holds - and the purpose of presenting this document is to make DriveMode's position on that structure explicit enough to drive a decision."
       }
     ]
   }
