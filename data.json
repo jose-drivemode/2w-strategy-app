@@ -87,7 +87,7 @@
       },
       {
         "requirement": "Mandate Documentation",
-        "description": "A formal, written statement of DriveMode's role that can be referenced when Honda's direction and DriveMode's technical or product judgment conflict - not managed informally through stakeholder alignment. ---"
+        "description": "A formal, written statement of DriveMode's role that can be referenced when Honda's direction and DriveMode's technical or product judgment conflict - not managed informally through stakeholder alignment."
       }
     ]
   },
@@ -185,7 +185,7 @@
       },
       {
         "requirement": "Lifecycle Touchpoint Coverage",
-        "description": "The ability to reach the rider at every stage of the Honda ownership relationship - consideration, purchase, active ownership, service, and replacement consideration - not only while riding. ---"
+        "description": "The ability to reach the rider at every stage of the Honda ownership relationship - consideration, purchase, active ownership, service, and replacement consideration - not only while riding."
       }
     ]
   },
@@ -270,7 +270,7 @@
       },
       {
         "requirement": "Infrastructure Reliability Engineering",
-        "description": "The operational capability to maintain availability, performance, and security of connected vehicle services at a quality level that does not damage brand trust when connectivity is impaired. ---"
+        "description": "The operational capability to maintain availability, performance, and security of connected vehicle services at a quality level that does not damage brand trust when connectivity is impaired."
       }
     ],
     "guided": true
@@ -356,7 +356,7 @@
       },
       {
         "requirement": "Application Quality Engineering (if Rider-Facing App)",
-        "description": "The ability to match or exceed the reliability and experience quality of best-in-class third-party apps in the specific jobs riders prioritize - navigation, theft protection, and vehicle diagnostics. ---"
+        "description": "The ability to match or exceed the reliability and experience quality of best-in-class third-party apps in the specific jobs riders prioritize - navigation, theft protection, and vehicle diagnostics."
       }
     ]
   },
@@ -444,7 +444,7 @@
       },
       {
         "requirement": "Local Partner Integration",
-        "description": "The ability to connect to locally relevant partners (navigation providers, payment rails, regulatory compliance systems) in each market without a custom engineering project per integration. ---"
+        "description": "The ability to connect to locally relevant partners (navigation providers, payment rails, regulatory compliance systems) in each market without a custom engineering project per integration."
       }
     ]
   },
@@ -529,7 +529,7 @@
       },
       {
         "requirement": "Multi-Market Data Governance",
-        "description": "The ability to manage rider data collection, storage, and use in compliance with multiple concurrent regulatory frameworks as Honda expands connected services across regions. ---"
+        "description": "The ability to manage rider data collection, storage, and use in compliance with multiple concurrent regulatory frameworks as Honda expands connected services across regions."
       }
     ]
   },
@@ -614,7 +614,7 @@
       },
       {
         "requirement": "API and Data Interface Management",
-        "description": "The ability to define, version, and maintain data interfaces as products that external partners can rely on - rather than as custom integrations built for each new partner relationship. ---"
+        "description": "The ability to define, version, and maintain data interfaces as products that external partners can rely on - rather than as custom integrations built for each new partner relationship."
       }
     ]
   },
@@ -709,7 +709,7 @@
       },
       {
         "requirement": "Portfolio Funding Mechanism",
-        "description": "A funding approach that can run parallel capability bets at different scales and redirect resources toward what demonstrates traction - rather than forcing every capability decision into a single large upfront commitment. --- The following is an analytical synthesis derived from all sections of this framework. It is not a sourced claim - it represents the analyst's interpretation of what the cumulative evidence supports as a coherent strategic direction for DriveMode. The eight Decision Domains in this framework represent a strategic direction built on evidence. Across seven of them, the direction is clear enough to advance: rider ownership requires lifecycle investment over feature delivery; software infrastructure requires a build-and-partner model over proprietary build; the platform-vs-product question points toward an integration layer over a comprehensive app; regional strategy requires a proved-then-expanded model over simultaneous global build; data strategy requires rider-controlled assets over OEM extraction; partner ecosystem strategy requires tiered integration over vertical self-sufficiency; and investment sequencing requires staged table-stakes-first over a single platform commitment. Domain 1 - Governance and Mandate - sits differently. Its tensions cannot be resolved by DriveMode alone. But the purpose of this framework is not to wait for Honda to resolve them first. It is to place a strategy in front of Honda leadership that makes explicit what governance structure that strategy requires. Honda's response to this proposal is what will define the mandate going forward. On that basis, this framework proposes three governance positions for Honda to respond to: 1. DriveMode as strategic platform lead, not execution contractor The evidence across seven domains consistently points to a platform layer - a middleware and integration capability - as the defensible strategic asset. That position cannot be held by a contractor executing a feature list. DriveMode proposes to be accountable for the connected motorcycle platform strategy: owning the rider data relationship, the partner integration layer, the OTA infrastructure roadmap, and the product direction. Honda's vehicle engineering, distribution, and regulatory relationships remain Honda's domain. The question for Honda is whether to confirm this division of ownership or propose a different one. 2. A formal governance structure for technical and product decisions The current model - informal alignment through stakeholder relationships - is evidenced as a structure that consumes strategy time on realignment rather than planning, and that creates conflicting incentives when software cost governance remains unresolved. DriveMode proposes that the governance structure define: who holds product roadmap decision rights, how conflicts between Honda 2W engineering and DriveMode are resolved, and who owns the software investment model. Without formal agreement on these three points, the capability investments proposed in this framework are at risk of being redirected by competing incentives on either side. 3. A multi-year platform investment commitment The competitive evidence shows that the four capability gaps most critical to a connected motorcycle strategy - OTA infrastructure, cybersecurity, data engineering, and platform product management - require sustained multi-year investment before they produce results. A project-by-project approval model cannot close these gaps. DriveMode proposes that Honda confirm a platform investment horizon - naming the commitment, the timeline, and the capability targets - so that a credible capability roadmap can be built against it. These three governance positions are not prerequisites for this strategy to be defined. They are what this strategy is proposing Honda respond to. The strategic direction across the other seven domains is already set by the evidence. The governance structure is the remaining variable that Honda's leadership now holds - and the purpose of presenting this document is to make DriveMode's position on that structure explicit enough to drive a decision."
+        "description": "A funding approach that can run parallel capability bets at different scales and redirect resources toward what demonstrates traction - rather than forcing every capability decision into a single large upfront commitment."
       }
     ]
   }
