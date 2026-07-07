@@ -473,7 +473,7 @@ function buildAnalysisPanel(dom, id, s) {
   // Tensions
   const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
 
-  // Scroll area: requirements → tensions → implication (synthesis at end)
+  // Scroll area: requirements → directional signal → tensions
   const scrollArea = el('div', { class: 'decision-scroll' },
     dom.description ? el('div', { style: { marginBottom: '28px', padding: '18px 22px', background: '#FFF8EC', borderLeft: '3px solid #D4920A', borderRadius: '0 6px 6px 0' } },
       el('p', { style: { fontSize: '9px', fontWeight: '700', color: '#B06D00', textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '10px' } }, 'Precondition'),
@@ -482,14 +482,13 @@ function buildAnalysisPanel(dom, id, s) {
     (dom.requirements || []).length ? el('p', { class: 'section-label' }, 'What This Domain Would Require') : null,
     (dom.requirements || []).length ? el('div', { class: 'requirements-list' }, ...reqCards) : null,
     el('div', { class: 'section-divider' }),
+    dom.implications ? el('div', { class: 'implication-block' },
+      el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Where the Evidence Points'),
+      el('p', { class: 'implication-text' }, dom.implications),
+    ) : null,
     el('p', { class: 'section-label' }, 'Strategic Tensions'),
     dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
     el('div', { class: 'tensions-list' }, ...tensionItems),
-    // Implication: synthesis at bottom of scroll, after reading everything
-    dom.implications ? el('div', { class: 'implication-block' },
-      el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication · Analytical Interpretation'),
-      el('p', { class: 'implication-text' }, dom.implications),
-    ) : null,
   );
 
   return el('div', { class: 'decision-panel' },

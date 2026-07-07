@@ -493,6 +493,16 @@ function buildAnalysisPanel(dom, id, s, isGuided) {
 
       el('div', { class: 'section-divider' }),
 
+      // Directional signal - frames the tensions
+      dom.implications ? el('div', { class: 'implication-block' },
+        isGuided ? el('div', { class: 'annotation', style: { marginBottom: '14px' } },
+          el('p', { class: 'annotation-label' }, 'Where the Evidence Points'),
+          el('p', null, 'This is the analyst\'s directional read of the evidence above. It is not a prescription - it is a signal to react to. Before engaging with the tensions, consider: do you agree with this direction, would you qualify it, or would you push back on it?'),
+        ) : null,
+        el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Where the Evidence Points'),
+        el('p', { class: 'implication-text' }, dom.implications),
+      ) : null,
+
       // Tensions
       isGuided ? annotation(
         'Strategic Tensions',
@@ -501,16 +511,6 @@ function buildAnalysisPanel(dom, id, s, isGuided) {
       el('p', { class: 'section-label' }, 'Strategic Tensions'),
       dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
       el('div', { class: 'tensions-list' }, ...tensionItems),
-
-      // Implication
-      dom.implications ? el('div', { class: 'implication-block' },
-        isGuided ? el('div', { class: 'annotation', style: { marginBottom: '14px' } },
-          el('p', { class: 'annotation-label' }, 'Implication'),
-          el('p', null, 'A synthesis drawn from the evidence above. This is an analytical interpretation, a framing for discussion rather than a conclusion. Treat it as a starting point for the group\'s own reasoning.'),
-        ) : null,
-        el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Implication · Analytical Interpretation'),
-        el('p', { class: 'implication-text' }, dom.implications),
-      ) : null,
     ),
   );
 }
