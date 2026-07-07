@@ -41,8 +41,8 @@
         "label": "Honda-Defined Execution Scope",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "Honda has communicated DriveMode's expected deliverables as: (1) RoadSync Duo development, operation, and improvement - monitoring, customer support, OTA updates, platform enhancements, KPI reporting, and A-SPICE compliance, against target platforms K4BA/K3NA/K3NF; (2) RoadSync Unified development - technical/feasibility reviews and prototype development across companion apps and DM servers. The July 2026 project allocation extends this picture: Honda-aligned backend commitments beyond product scope include migration to Honda One ID (2 engineers, 6 months), migration of all SaaS tooling to Honda-managed systems (2 engineers, 3 months), Honda L1 monitoring and operations tooling (1 engineer, 3 months), and a Terraform Cloud migration described as conditional on Honda's adoption decision. These are the most concrete evidence available of Honda exercising technical direction over DriveMode's infrastructure choices in addition to product scope.",
-        "sources": "`raw/2026Q3_honda_drivemode_expected_scope.md`; `raw/2026Q3_project_allocation_july2026.md` - treat as directional, not formally binding."
+        "claim": "Honda has communicated DriveMode's expected deliverables as: (1) RoadSync Duo development, operation, and improvement - monitoring, customer support, OTA updates, platform enhancements, KPI reporting, and A-SPICE compliance, against target platforms K4BA/K3NA/K3NF; (2) RoadSync Unified development - technical/feasibility reviews and prototype development across companion apps and DM servers. The July 2026 project allocation extends this picture: Honda-aligned backend commitments beyond product scope include migration to Honda One ID (2 engineers, 6 months), migration of all SaaS tooling to Honda-managed systems (2 engineers, 3 months), Honda L1 monitoring and operations tooling (1 engineer, 3 months), and a Terraform Cloud migration described as conditional on Honda's adoption decision. An internal Platform 2.0 presentation by DriveMode's Product Management Team Lead states that \"expanding RoadSync Duo was always part of the long-term vision shared between Honda and Drivemode,\" and cites K4RA project, Gen 2, and ICE expansion initiatives as the Honda-named programs that drove the need for a scalable software foundation - providing the first named documentation of Honda multi-vehicle expansion direction in the KB. These are the most concrete evidence available of Honda exercising technical direction over DriveMode's infrastructure choices in addition to product scope.",
+        "sources": "`raw/2026Q3_honda_drivemode_expected_scope.md`; `raw/2026Q3_project_allocation_july2026.md`; `raw/2026Q3_platform_2_0_presentation.md` - all treat as directional; Honda multi-vehicle direction is a DriveMode-authored statement, not a direct Honda communication."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -60,7 +60,7 @@
         "body": "Modern tech organizations often retain top talent by offering specific, challenging, multi-year \"missions\" rather than a life-long career path, a model very different from traditional corporate structures."
       }
     ],
-    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. DriveMode can increasingly see what near-term work is expected through RFQ-linked deliverables and headcount justification tied to RoadSync Duo, Platform 2.0, and IVI features. That short-term clarity is real and workable. What remains unresolved is equally consequential: the governance structure for deciding what happens when DriveMode's technical or product judgment diverges from Honda's current direction, and the level of committed support for building platform capabilities outside the currently justifiable scope. Those questions are still being managed informally through stakeholder alignment rather than formal agreement. In that sense, DriveMode is not operating in total ambiguity - it is executing against clearer short-term expectations inside a relationship whose longer-term decision rights and investment logic remain underdefined. That may be sustainable in the short term, but it remains vulnerable if priorities tighten or strategic disagreement surfaces. ---",
+    "implications": "The strategic success of any connected vehicle initiative is inseparable from the success of the organizational transformation required to support it. DriveMode can increasingly see what near-term work is expected through RFQ-linked deliverables and headcount justification tied to RoadSync Duo, Platform 2.0, and IVI features. That short-term clarity is real and workable. What remains unresolved is equally consequential: the governance structure for deciding what happens when DriveMode's technical or product judgment diverges from Honda's current direction, and the level of committed support for building platform capabilities outside the currently justifiable scope. Those questions are still being managed informally through stakeholder alignment rather than formal agreement. In that sense, DriveMode is not operating in total ambiguity - it is executing against clearer short-term expectations inside a relationship whose longer-term decision rights and investment logic remain underdefined. That may be sustainable in the short term, but it remains vulnerable if priorities tighten or strategic disagreement surfaces. This framework places the governance question in front of Honda leadership not as a blocker, but as a proposal. The evidence in this domain describes what a sound governance model needs to address. Honda's response to the strategy as a whole is what will shape the mandate - the governance and relationship structure is an output of that conversation, not a precondition for having it. ---",
     "tensionsNote": null,
     "tensions": [
       {
@@ -250,8 +250,8 @@
         "label": "Internal Capability",
         "missionSource": "Org Capability",
         "confidence": "Medium",
-        "claim": "The engineering department consists of 51 personnel. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers by title: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 people (4% of headcount) and Systems Engineering by 3 functional people (3%), the teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-titled engineers are fully committed to the AWS Migration, and the QA team's single P5-titled engineer is 70% committed to Gen1 and compliance work - meaning a significant portion of the P5-titled tier is not available for new strategic infrastructure development in the near term. P-level title distributions are structural composition data; domain expertise and delivery capability are not directly measurable from titles alone.",
-        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_competency_matrix_engineering.md`; `raw/2026Q3_person_allocation_anonymized.md`."
+        "claim": "The engineering department consists of 51 personnel. The P5 tier - the Creator level defined by the company competency framework as responsible for cross-functional work and DriveMode-Honda alignment - accounts for at least 7 confirmed engineers by title: 3 in IVI, 3 in Mobile/Companion App, and 1 in QA. Platform and Infrastructure is staffed by 3 people (4% of headcount) and Systems Engineering by 3 functional people (3%), the teams that underpin a scalable connected vehicle platform. As of the July 2026 allocation, the Backend team's two Staff-titled engineers are fully committed to the AWS Migration, and the QA team's single P5-titled engineer is 70% committed to Gen1 and compliance work - meaning a significant portion of the P5-titled tier is not available for new strategic infrastructure development in the near term. An internal quality audit documented 189 open Gen 1 issues (39 P1/P2 critical; 150 P3/P4 non-critical) as of the Platform 2.0 presentation - the first quantified quality debt figure in the KB. P-level title distributions are structural composition data; domain expertise and delivery capability are not directly measurable from titles alone.",
+        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_competency_matrix_engineering.md`; `raw/2026Q3_person_allocation_anonymized.md`; `raw/2026Q3_platform_2_0_presentation.md` (issue count - single internal source, no snapshot date confirmed)."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -329,11 +329,11 @@
   {
     "id": 4,
     "number": "04",
-    "title": "Platform vs. Product Strategy",
+    "title": "Rider Lifecycle Infrastructure vs. Rider-Facing App",
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Rider preference for best-in-class third-party apps over OEM apps is strongly evidenced from Western markets (20+ sources; Calimoto 3M+ users). Competitor platform strategies for Hero, TVS, and Ather are confirmed from public disclosures. Confidence is Medium because the financial evidence comes from automotive OEMs at significantly larger scale, and the successful platform cases are India-centric - it is not confirmed whether the same strategy translates to Honda's global market mix.",
+    "domainConfidenceNote": "Rider preference for best-in-class third-party apps over OEM apps is strongly evidenced from Western markets (20+ sources; Calimoto 3M+ users). Competitor platform strategies for Hero, TVS, and Ather are confirmed from public disclosures. An internal Platform 2.0 presentation provides direct evidence of DriveMode's current platform scope and its explicit boundaries - specifically that identity, security, and pre/post-sale lifecycle are not included in the current platform definition. Confidence remains Medium because the financial evidence comes from automotive OEMs at significantly larger scale, the successful platform cases are India-centric, and the internal capability data is a single self-assessed source.",
     "domainWarning": false,
     "signals": [
       {
@@ -360,9 +360,9 @@
       {
         "label": "Internal Capability",
         "missionSource": "Org Capability",
-        "confidence": "Low",
-        "claim": "The engineering organization is heavily weighted toward application development (Mobile/Backend branches: 30+ engineers) and proportionally weak in platform/infrastructure (3 people) and systems engineering (3 functional people) - the exact capabilities that underpin a true platform strategy. In the July 2026 fiscal year plan, Platform 2.x Expansion does not appear in the monthly engineering timeline until January-February - the final two months of the visible year - indicating that platform expansion is not resourced in the current planning cycle.",
-        "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_project_allocation_july2026.md`."
+        "confidence": "Medium",
+        "claim": "Platform 2.0 is an active IVI architecture investment explicitly designed for multi-vehicle scalability: it introduces an abstraction layer separating hardware from feature layers, targets approximately 65% deployment cost reduction per new vehicle model (from ~18 months / 324M yen to ~6 months / 108M yen), and aims to resolve 189 documented Gen 1 issues. However, DriveMode's own Product Management Team Lead explicitly scopes Platform 2.0 as referring exclusively to the embedded IVI software and its scalability capacity - it does not include identity, security, pre-sale, or post-sale capabilities. The forward-looking questions posed in the same presentation - \"should we keep investing in preparation for future vehicles' digital value, and continue to aim for software monetization?\" - are framed as open decisions, not resolved direction. In the July 2026 fiscal year plan, Platform 2.x Expansion does not appear in the monthly engineering timeline until January-February, indicating the broader platform expansion is not yet resourced within the current planning cycle.",
+        "sources": "`raw/2026Q3_platform_2_0_presentation.md` (internal single source; cost figures are internal estimates, methodology not disclosed); `sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_project_allocation_july2026.md`."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -380,30 +380,30 @@
         "body": "Brands constantly face the choice between leveraging a massive existing platform (Amazon) for its scale and traffic, versus building a proprietary product experience (their own website) for greater control and brand identity."
       }
     ],
-    "implications": "The choice between a \"Platform\" or \"Product\" strategy is not just a technical decision; it is a fundamental choice about where the organization believes it can create defensible value. A \"Product\" strategy focuses on building a world-class, self-contained application. A \"Platform\" strategy focuses on enabling others (including internal teams and third parties) to build value on top of a shared, stable core. Attempting to do both without a clear focus often results in a mediocre platform that supports mediocre products. ---",
+    "implications": "The choice between investing in Rider Lifecycle Infrastructure versus the Rider-Facing App is a fundamental choice about where defensible value is created. A Rider-Facing App strategy competes directly with best-in-class third-party apps on experience quality - and the evidence shows third-party apps are already winning on the most important rider jobs (navigation, route discovery, crash detection). A Rider Lifecycle Infrastructure strategy owns the layer that third parties cannot replicate: the vehicle data stream, the rider identity, and the full customer journey data from consideration through replacement. The trade-off is that infrastructure ownership requires Honda's formal mandate to expose vehicle data, sustained long-horizon investment, and governance clarity before the value becomes visible. Attempting to compete on both without a clear primary position typically produces a rider app that is not best-in-class and an infrastructure that is never complete. ---",
     "tensionsNote": null,
     "tensions": [
       {
         "title": "The Value Capture Tension: Direct Control vs. Ecosystem Scale",
-        "signal": "A proprietary, all-in-one product (app) gives the OEM total control over the user experience and captures 100% of any potential revenue.",
-        "counterSignal": "The most valuable platforms in history (Windows, iOS, Android) created astronomical value by enabling an ecosystem of third-party developers, capturing only a fraction of the total value they enabled.",
-        "theTension": "How to reconcile the desire to own and control the entire user experience (Product strategy) with the evidence that the greatest value is often created by enabling an ecosystem of others (Platform strategy)."
+        "signal": "A proprietary, all-in-one rider app gives DriveMode total control over the user experience and captures the full value of the rider relationship directly.",
+        "counterSignal": "The most valuable infrastructure layers in technology history (operating systems, cloud platforms, payment rails) created greater value by enabling an ecosystem of others to build on top of them, capturing a smaller fraction of a much larger total.",
+        "theTension": "How to reconcile the desire to own the entire rider experience directly (Rider-Facing App) with the evidence that the greatest defensible value often comes from owning the infrastructure layer that others cannot bypass (Rider Lifecycle Infrastructure)."
       },
       {
         "title": "The Resource Allocation Tension: Feature Velocity vs. Foundational Stability",
-        "signal": "Business stakeholders and customers often demand new, visible features, pushing engineering resources toward application-level \"product\" development.",
-        "counterSignal": "The research shows that the most common failure mode for OEM apps is infrastructure instability (e.g., Bluetooth drops), a problem solved by deep, non-visible \"platform\" engineering.",
-        "theTension": "How to allocate limited engineering resources between building new, marketable features (Product) and the deep, often invisible work of ensuring the underlying platform is stable, scalable, and secure (Platform)."
+        "signal": "Business stakeholders and riders demand new, visible features - navigation improvements, vehicle status, connectivity - which pulls engineering resources toward the rider-facing application layer.",
+        "counterSignal": "The evidence shows the most common failure mode for OEM apps is infrastructure instability (Bluetooth drops, connectivity failures, data gaps) - problems that are solved by deep, non-visible investment in OTA, telemetry, and identity infrastructure, not by adding features.",
+        "theTension": "How to allocate limited engineering resources between building new, visible rider features (Rider-Facing App) and the deep, often invisible work of building the data pipeline, OTA delivery, and identity layer that a Rider Lifecycle Infrastructure strategy requires."
       }
     ],
     "capabilities": [
       {
-        "capability": "Platform Product Management",
+        "capability": "Lifecycle Infrastructure Product Management",
         "assessment": "Explore / Acquire",
         "evidence": [
-          "The organizational map confirms the existence of dedicated Product Managers. However, a pure Product Manager role is typically focused on user needs and feature prioritization, which is distinct from the technical discipline of managing a platform-as-a-product for developer-users."
+          "The PM organization is structured for delivering rider-facing features and Honda-facing coordination. Managing infrastructure-as-a-product - defining APIs, data contracts, OTA pipelines, and identity services as products consumed by Honda regional teams and third-party developers - is a distinct discipline not evidenced in the current PM function."
         ],
-        "implication": "The organization is structured to define user-facing products but is not currently equipped to manage a platform-as-a-product. This capability must be deliberately built or acquired."
+        "implication": "If DriveMode pursues a Rider Lifecycle Infrastructure position, the capability to define, version, and manage the infrastructure layer as a product for internal and external consumers must be deliberately built or acquired. Without it, the infrastructure will be built for internal use only and will not scale to enable the partner ecosystem the strategy requires."
       },
       {
         "capability": "Multi-Model Software Architecture",
@@ -696,7 +696,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "The financial failure cases (CARIAD, Ford) and the table-stakes vs. monetizable investment hierarchy come from automotive investor disclosures. The internal capability gaps constraining investment sequencing are now drawn from two independent internal sources: the Engineering Skills Map and the July 2026 project allocation. Confidence remains Medium rather than High because no motorcycle-specific connected service financial data exists - all revenue projections and platform cost estimates are inferred from automotive and fleet analogues operating at significantly different scale and price points. Investment decisions in this domain cannot be grounded in direct motorcycle market evidence.",
+    "domainConfidenceNote": "The financial failure cases (CARIAD, Ford) and the table-stakes vs. monetizable investment hierarchy come from automotive investor disclosures. The internal capability gaps constraining investment sequencing are drawn from two independent internal sources: the Engineering Skills Map and the July 2026 project allocation. An internal Platform 2.0 presentation adds the first DriveMode-specific deployment cost figures (108M yen / ~6 months per new vehicle model; 65% reduction vs. Gen 1) - these are self-assessed internal estimates, not independently verified, and are treated as Low confidence directional data. Confidence remains Medium rather than High because no motorcycle-specific connected service financial data exists - all revenue projections and platform cost estimates are either inferred from automotive and fleet analogues operating at significantly different scale, or are internal estimates without disclosed methodology. Investment decisions in this domain cannot be grounded in verified motorcycle market financial evidence.",
     "domainWarning": false,
     "signals": [
       {
@@ -733,6 +733,13 @@
         "confidence": "Medium",
         "claim": "The most severe internal capability gaps - OTA infrastructure, Cybersecurity, Data Engineering, Platform PM - are in technically expensive domains requiring sustained long-term investment. Four of the fourteen capability areas assessed have a recommended approach of \"Partner\" rather than \"Build,\" directly shaping what investment sequencing is realistic. The July 2026 project allocation shows the compounding effect in concrete terms: A-SPICE compliance runs at approximately 20% across QA, IVI, Backend, and Analytics simultaneously throughout the year; the Backend team's highest-capability engineers are committed to AWS Migration and Honda-directed infrastructure migrations through at least Q3; and Platform 2.x expansion is not scheduled in the engineering timeline until January-February. These are factual allocation constraints documented in the source, not interpretive assessments.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `sources/2026-06-25_product_management_skills_map.md`; `wiki/outputs/2026-06-26_signal_strengthening_findings.md`; `raw/2026Q3_project_allocation_july2026.md`; `raw/2026Q3_person_allocation_anonymized.md`."
+      },
+      {
+        "label": "Internal Deployment Cost Benchmark",
+        "missionSource": "Financial Intelligence",
+        "confidence": "Low",
+        "claim": "An internal Platform 2.0 cost assessment provides the first deployment cost figures specific to DriveMode's IVI platform. Deploying IVI 1.x (Gen 1) to one new vehicle model: approximately 18 months / 324,000,000 yen. Deploying IVI 2.0 (Platform 2.0) to one new vehicle model: approximately 6 months / 108,000,000 yen. Stated savings: 216,000,000 yen per vehicle model; approximately 65% development cost reduction. The value model formula proposed is: Total Value = (Value x N x Vehicle market share) / Cost, where N is the number of vehicle models carrying RoadSync Duo. The presentation explicitly frames a future revenue extension: ROI = (Revenue x N x Vehicle market share) / Cost - and labels software monetization as a \"next stage\" after product-market fit is achieved. Confidence is Low: these are internal self-assessed estimates with no disclosed methodology; the author explicitly flags that hardware variable costs are excluded and that additional costs \"likely need to be computed.\" The figures are useful as directional indicators of the cost structure, not as independently verified data.",
+        "sources": "`raw/2026Q3_platform_2_0_presentation.md` - single internal source."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
