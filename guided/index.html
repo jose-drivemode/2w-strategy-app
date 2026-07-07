@@ -92,20 +92,11 @@
   .decision-scroll { flex: 1; padding: 28px 40px 32px; overflow-y: auto; }
   .section-divider { border-top: 1px solid #F0EDE8; margin-bottom: 26px; }
 
-  /* Capabilities */
-  .caps-analysis-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
-  .cap-card { border-left: 3px solid transparent; border-radius: 0 6px 6px 0; background: #FAFAF8; padding: 14px 18px; }
-  .cap-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 12px; }
-  .cap-card-name { font-size: 13px; font-weight: 600; color: #1A2332; line-height: 1.3; }
-  .cap-assessment-badge { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; }
-  .cap-evidence-label { font-size: 9px; font-weight: 700; color: #B0BEC5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-  .cap-evidence-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
-  .cap-evidence-item { display: flex; gap: 8px; align-items: flex-start; }
-  .cap-evidence-dot { color: #B0BEC5; font-size: 11px; line-height: 1.6; flex-shrink: 0; }
-  .cap-evidence-text { font-size: 11px; color: #3D4D5C; line-height: 1.6; }
-  .cap-implication-wrap { border-top: 1px solid #ECEAE6; padding-top: 10px; }
-  .cap-implication-label { font-size: 9px; font-weight: 700; color: #B0BEC5; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-  .cap-implication-text { font-size: 13px; font-family: 'EB Garamond', serif; font-style: italic; color: #3D4D5C; line-height: 1.65; }
+  /* Requirements */
+  .requirements-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+  .req-card { border-left: 3px solid #1E4D5C; border-radius: 0 6px 6px 0; background: #FAFAF8; padding: 14px 18px; }
+  .req-card-name { font-size: 13px; font-weight: 600; color: #1A2332; line-height: 1.3; margin-bottom: 8px; }
+  .req-card-description { font-size: 12px; color: #3D4D5C; line-height: 1.65; }
 
   /* Tensions */
   .tensions-list { display: flex; flex-direction: column; }
@@ -276,7 +267,6 @@ function badgeColors(s) {
   if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
   return                          { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
 }
-function capColor(a) { return a === 'Leverage / Optimize' ? '#00C490' : a === 'Invest / Scale' ? '#0099FF' : '#E61E8C'; }
 function getVotes(id) { return state.domainVotes[id] || { anchor: 0, deprioritize: 0, ignore: 0 }; }
 function getTensionPos(id, ti) { return ((state.tensionPos[id] || {})[ti]) ?? 40; }
 
@@ -481,55 +471,25 @@ function buildEvidencePanel(dom, isGuided) {
 
 // ── RIGHT PANEL ──
 function buildAnalysisPanel(dom, id, s, isGuided) {
-  const capCards = (dom.capabilities || []).map(cap => {
-    const color = capColor(cap.assessment);
-    return el('div', { class: 'cap-card', style: { borderLeftColor: color } },
-      el('div', { class: 'cap-card-header' },
-        el('span', { class: 'cap-card-name' }, cap.capability),
-        el('span', { class: 'cap-assessment-badge', style: { background: color + '18', color, border: `1px solid ${color}40` } }, cap.assessment),
-      ),
-      (cap.evidence || []).length ? el('div', null,
-        el('p', { class: 'cap-evidence-label' }, 'Supporting Evidence'),
-        el('div', { class: 'cap-evidence-list' },
-          ...(cap.evidence || []).map(e => el('div', { class: 'cap-evidence-item' },
-            el('span', { class: 'cap-evidence-dot' }, '·'),
-            el('span', { class: 'cap-evidence-text' }, e),
-          )),
-        ),
-      ) : null,
-      cap.implication ? el('div', { class: 'cap-implication-wrap' },
-        el('p', { class: 'cap-implication-label' }, 'Implication · Analytical Interpretation'),
-        el('p', { class: 'cap-implication-text' }, cap.implication),
-      ) : null,
-    );
-  });
+  const reqCards = (dom.requirements || []).map(req =>
+    el('div', { class: 'req-card' },
+      el('p', { class: 'req-card-name' }, req.requirement),
+      req.description ? el('p', { class: 'req-card-description' }, req.description) : null,
+    )
+  );
 
   const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
 
   return el('div', { class: 'decision-panel' },
     el('div', { class: 'decision-scroll' },
 
-      // Capabilities
+      // Requirements
       isGuided ? annotation(
-        'Drivemode Capabilities Analysis',
-        'An assessment of Drivemode\'s current organisational capability against what this domain requires.',
-        el('div', { class: 'annotation-rating-list' },
-          el('div', { class: 'annotation-rating-item' },
-            el('span', { class: 'annotation-rating-name', style: { color: '#00C490' } }, 'Leverage / Optimize'),
-            el('span', { class: 'annotation-rating-desc' }, ': a genuine strength; the focus is on directing it well'),
-          ),
-          el('div', { class: 'annotation-rating-item' },
-            el('span', { class: 'annotation-rating-name', style: { color: '#0099FF' } }, 'Invest / Scale'),
-            el('span', { class: 'annotation-rating-desc' }, ': capability exists but is insufficient; requires deliberate growth'),
-          ),
-          el('div', { class: 'annotation-rating-item' },
-            el('span', { class: 'annotation-rating-name', style: { color: '#E61E8C' } }, 'Explore / Acquire'),
-            el('span', { class: 'annotation-rating-desc' }, ': critical gap; does not currently exist and must be built or sourced'),
-          ),
-        ),
+        'What This Domain Would Require',
+        'Each card names a capability area this domain\'s decision would demand. These are not assessments of what DriveMode currently has - they are prompts. For each requirement, consider: is this a strength we can leverage? Something we need to scale? Or a capability we would need to build or acquire?',
       ) : null,
-      el('p', { class: 'section-label' }, 'Drivemode Capabilities Analysis'),
-      el('div', { class: 'caps-analysis-list' }, ...capCards),
+      (dom.requirements || []).length ? el('p', { class: 'section-label' }, 'What This Domain Would Require') : null,
+      (dom.requirements || []).length ? el('div', { class: 'requirements-list' }, ...reqCards) : null,
 
       el('div', { class: 'section-divider' }),
 

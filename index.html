@@ -284,7 +284,6 @@ function badgeColors(s) {
   if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
   return                          { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
 }
-function capColor(a) { return a === 'Leverage / Optimize' ? '#00C490' : a === 'Invest / Scale' ? '#0099FF' : '#E61E8C'; }
 function capIcon(a)  { return a === 'Leverage / Optimize' ? '✓' : a === 'Invest / Scale' ? '→' : '◆'; }
 function getVotes(id) { return state.domainVotes[id] || { anchor: 0, deprioritize: 0, ignore: 0 }; }
 function getTensionPos(id, ti) { return ((state.tensionPos[id] || {})[ti]) ?? 40; }
@@ -474,7 +473,7 @@ function buildAnalysisPanel(dom, id, s) {
   // Tensions
   const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
 
-  // Scroll area: capabilities → tensions → implication (synthesis at end)
+  // Scroll area: requirements → tensions → implication (synthesis at end)
   const scrollArea = el('div', { class: 'decision-scroll' },
     dom.description ? el('div', { style: { marginBottom: '28px', padding: '18px 22px', background: '#FFF8EC', borderLeft: '3px solid #D4920A', borderRadius: '0 6px 6px 0' } },
       el('p', { style: { fontSize: '9px', fontWeight: '700', color: '#B06D00', textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '10px' } }, 'Precondition'),
