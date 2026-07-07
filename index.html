@@ -95,7 +95,7 @@
   .decision-panel { display: flex; flex-direction: column; overflow: hidden; background: white; }
   .decision-scroll { flex: 1; padding: 28px 40px 32px; overflow-y: auto; }
 
-  .section-divider { border-top: 1px solid #F0EDE8; margin-bottom: 26px; }
+  .section-divider { border-top: 1px solid #F0EDE8; margin-top: 28px; margin-bottom: 26px; }
 
   /* Requirements */
   .requirements-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
@@ -479,16 +479,17 @@ function buildAnalysisPanel(dom, id, s) {
       el('p', { style: { fontSize: '9px', fontWeight: '700', color: '#B06D00', textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '10px' } }, 'Precondition'),
       el('p', { style: { fontSize: '14px', fontFamily: "'EB Garamond', serif", lineHeight: '1.7', color: '#1A2332' } }, ...renderInline(dom.description)),
     ) : null,
-    (dom.requirements || []).length ? el('p', { class: 'section-label' }, 'What This Domain Would Require') : null,
-    (dom.requirements || []).length ? el('div', { class: 'requirements-list' }, ...reqCards) : null,
-    el('div', { class: 'section-divider' }),
     dom.implications ? el('div', { class: 'implication-block' },
       el('p', { class: 'section-label', style: { marginBottom: '10px' } }, 'Where the Evidence Points'),
       el('p', { class: 'implication-text' }, dom.implications),
     ) : null,
+    el('div', { class: 'section-divider' }),
     el('p', { class: 'section-label' }, 'Strategic Tensions'),
     dom.tensionsNote ? el('p', { style: { fontSize: '11px', fontStyle: 'italic', color: '#8A9BAA', lineHeight: '1.6', marginBottom: '6px' } }, dom.tensionsNote) : null,
     el('div', { class: 'tensions-list' }, ...tensionItems),
+    (dom.requirements || []).length ? el('div', { class: 'section-divider', style: { marginTop: '26px' } }) : null,
+    (dom.requirements || []).length ? el('p', { class: 'section-label' }, 'What This Domain Would Require') : null,
+    (dom.requirements || []).length ? el('div', { class: 'requirements-list' }, ...reqCards) : null,
   );
 
   return el('div', { class: 'decision-panel' },
