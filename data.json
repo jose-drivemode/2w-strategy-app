@@ -72,14 +72,14 @@
     "tensions": [
       {
         "title": "The Governance Tension: Autonomy vs. Integration",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Honda VP-level acknowledgement that DriveMode was acquired because Honda lacks software capability implies DriveMode needs operational independence to apply that capability - requiring autonomy from Honda's slower, plan-driven processes.",
+        "counterSignal": "Honda is simultaneously directing specific infrastructure migrations (One ID, SaaS tooling, L1 monitoring) that require deep integration with Honda systems and consume a material portion of DriveMode's engineering capacity without a formal decision framework.",
         "theTension": "DriveMode is expected to move faster than Honda as a justification for its existence, while being operationally directed by Honda in ways that reduce the discretionary capacity needed to do so. Resolving this requires either a formal governance zone that separates Honda-directed work from DriveMode-discretionary investment, or an explicit renegotiation of scope."
       },
       {
         "title": "The Mandate Tension: Implicit Dependency vs. Formal Agreement",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Honda's VP-level statement and the Honda-directed project allocation together establish that Honda depends on DriveMode for software capability it does not have internally - creating a de facto mandate.",
+        "counterSignal": "No documented formal mandate exists. The role question is being answered implicitly through scope communications and project allocations, not through a written agreement that defines decision rights, escalation paths, or investment commitments.",
         "theTension": "The absence of a formal mandate is not neutral - it creates asymmetric risk. Honda can redirect DriveMode's priorities through informal scope communications; DriveMode has no documented basis for declining or negotiating. The CARIAD and Argo AI cases suggest that this asymmetry resolves badly when programme pressure increases."
       }
     ],
@@ -175,20 +175,20 @@
     "tensions": [
       {
         "title": "The Monetization Tension: Proven Niche Payments vs. Broad Subscription Resistance",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Riders demonstrate a clear willingness to pay for specific, high-stakes outcomes - theft tracking (55% Must Have in European survey; €200-500+ already spent on third-party devices), crash alerts, and scenic route navigation (Calimoto 3M+ users at $60/yr).",
+        "counterSignal": "The same riders show near-universal rejection of broad subscription models for general access and features they feel should be included with the vehicle. Kawasaki Canada's voice command subscription was met with rejection; paywalling pre-installed hardware features is described as \"sacrilege.\"",
         "theTension": "How to capture proven willingness to pay for specific outcomes without triggering widespread resistance to a general subscription model. The evidence suggests the distinction riders make is outcome-specificity and stakes clarity, not price level."
       },
       {
         "title": "The Experience Tension: Brand Control vs. Feature Excellence",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "A strong, controlled brand experience is a core tenet of a premium OEM strategy.",
+        "counterSignal": "OEM apps are systemically rated as inferior to best-in-class third-party apps for core jobs-to-be-done. European dealer evidence is explicit: 90% of vehicles are delivered with a phone mount alongside the OEM display because riders default to Waze and Google Maps the moment OEM navigation falls below their reliability bar.",
         "theTension": "How to deliver the best-in-class user experience the market demands, even if it means relinquishing total brand control by partnering with superior applications. The research team's conclusion - that Honda needs the right foundational functions at a software quality level that matches its hardware reputation, not more features - sharpens this tension."
       },
       {
         "title": "The Data Tension: Strategic Asset vs. User Trust",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "The most advanced competitors are building platforms to leverage rider data as a strategic asset for improving their products and services. Honda's own customer journey model extends the relationship through post-sale lifecycle stages that depend on data continuity.",
+        "counterSignal": "A top-ranked rider frustration - evidenced across app store reviews, owner forums, and European qualitative interviews - is personal ride data being held hostage or used opaquely. Riders describe subscription lock-in on ride data as a form of data theft.",
         "theTension": "How to leverage the strategic value of rider data without violating the user's sense of ownership and destroying the trust required to collect that data in the first place."
       }
     ],
@@ -270,14 +270,14 @@
     "tensions": [
       {
         "title": "The Investment Tension: The High Cost of Building vs. The High Cost of Failing",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "The financial evidence from VW CARIAD (€14B total) and Ford Model e ($19.5B write-down) shows that large-scale proprietary software builds at automotive OEMs are exceptionally high-risk and can destroy capital at a scale that dwarfs any plausible motorcycle-segment revenue opportunity.",
+        "counterSignal": "The rider voice and competitor failure evidence shows that under-investment in infrastructure reliability also destroys value: Honda RoadSync abandonment by dealers, H-D Connect discontinuation, and Yamaha/Kawasaki Bluetooth failures each represent brand equity costs with no capital write-down event to signal them.",
         "theTension": "How to make the necessary investment to achieve infrastructure reliability - as Hero has done at 99.6% availability - without replicating the proprietary build structures that failed at CARIAD and Ford. The Hero/Ather pattern (cloud-native, specialist partners, no proprietary infrastructure layer) may represent the resolution to this tension, but applying it requires governance decisions about what DriveMode builds versus buys."
       },
       {
         "title": "The Control Tension: Strategic Differentiation vs. Commodity Outsourcing",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Platform and Infrastructure is staffed by 3 people and Systems Engineering by 3 people, with the most senior Backend engineers currently committed to the AWS Migration. This is the team composition available to sustain and evolve connected vehicle infrastructure at the current moment.",
+        "counterSignal": "The most effective competitors (Hero, Ather, CFMOTO) are building on top of commodity cloud platforms and specialist OTA providers rather than building infrastructure in-house. Their engineering investment is concentrated in product and feature layers, not the infrastructure layer.",
         "theTension": "Which parts of the software stack are a true source of competitive differentiation that require in-house ownership, and which parts are commodity infrastructure where a partner platform would outperform what a 3-6 person team could build and maintain? This question is not answerable from structural data alone - it requires a capability and product strategy conversation about where DriveMode's differentiated value actually lives."
       }
     ],
@@ -367,20 +367,20 @@
     "tensions": [
       {
         "title": "The Value Capture Tension: Direct Control vs. Ecosystem Scale",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "A proprietary, all-in-one rider app gives DriveMode total control over the user experience and captures the full value of the rider relationship directly.",
+        "counterSignal": "The most valuable infrastructure layers in technology history (operating systems, cloud platforms, payment rails) created greater value by enabling an ecosystem of others to build on top of them, capturing a smaller fraction of a much larger total.",
         "theTension": "How to reconcile the desire to own the entire rider experience directly (Rider-Facing App) with the evidence that the greatest defensible value often comes from owning the infrastructure layer that others cannot bypass (Rider Lifecycle Infrastructure)."
       },
       {
         "title": "The Resource Allocation Tension: Feature Velocity vs. Foundational Stability",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Business stakeholders and riders demand new, visible features - navigation improvements, vehicle status, connectivity - which pulls engineering resources toward the rider-facing application layer.",
+        "counterSignal": "The evidence shows the most common failure mode for OEM apps is infrastructure instability (Bluetooth drops, connectivity failures, data gaps) - problems that are solved by deep, non-visible investment in OTA, telemetry, and identity infrastructure, not by adding features. Hero's investment in named infrastructure partners (AWS IoT, Excelfore OTA) preceded its measurable outcome improvements.",
         "theTension": "How to allocate limited engineering resources between building new, visible rider features (Rider-Facing App) and the deep, often invisible work of building the data pipeline, OTA delivery, and identity layer that a Rider Lifecycle Infrastructure strategy requires - particularly when Platform 2.x Expansion is not resourced until late in the current fiscal year."
       },
       {
         "title": "The Full-Stack Risk Tension: Ambition vs. Execution Capacity",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "The Ola Electric case shows that the most technically ambitious full-stack strategy in the two-wheeler sector - proprietary OS, AI, maps, and OTA - did not prevent a market share collapse from 35% to 15% and severe financial deterioration.",
+        "counterSignal": "Hero MotoCorp's more selective infrastructure investment, using specialist partners for cloud, OTA, and CRM while building integration and platform governance in-house, produced documented commercial outcomes without the same financial fragility.",
         "theTension": "Whether the risk of full-stack ambition outweighs the control benefits, and whether a partner-led infrastructure model - as practiced by Hero, TVS, and CFMOTO - represents a more durable path for DriveMode given its current resource position."
       }
     ],
@@ -476,20 +476,20 @@
     "tensions": [
       {
         "title": "The Evidence Tension: European Confidence vs. Asia-Pacific Void",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Europe now has the strongest primary rider evidence in the KB (35 qualitative interviews + 301 EICMA survey), providing actionable, high-confidence feature priorities that can directly inform product roadmap.",
+        "counterSignal": "India (#1 growth market), Vietnam/SEA (41.7% of global connected motorcycle market), and Japan (HQ, strategic decision-making centre) all have zero direct rider voice in this KB. The markets with the most evidence are not the markets driving Honda's volume or growth.",
         "theTension": "Decisions made primarily from European evidence risk optimising for a retention and upselling market rather than for the acquisition and growth markets. Acting on European evidence alone is efficient in the short term but structurally misaligned with where Honda's connected vehicle opportunity is largest."
       },
       {
         "title": "The Platform Tension: Shared Core vs. Regional Autonomy",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Building a single, shared global platform maximizes engineering efficiency, reduces costs, and allows for faster deployment of core updates. Regulatory requirements (GDPR, DPDP Act, PDPA, Vietnam data localisation) already create mandatory variation across regions.",
+        "counterSignal": "Enabling deep regional differentiation (India-only security features, SEA battery-swap integration, European hazard alert data, Japan-specific navigation providers) adds significant complexity to the core platform and risks the fragmentation pattern documented in four-wheel automotive.",
         "theTension": "How to design a software platform that provides the economic benefits of a shared global core while enabling the necessary regional variation - without requiring a custom engineering project per market or drifting into an unmaintainable multi-codebase model."
       },
       {
         "title": "The HQ Paradox Tension: Where Decisions Are Made vs. Where Growth Is",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Honda's strategic direction for the global 2W software programme originates from Japanese HQ, where the domestic market ranks #8 globally and connected services opportunity is rated Low. The markets that shape the strategic frame are not the markets driving connected vehicle growth.",
+        "counterSignal": "India, Vietnam, and Indonesia - Honda's primary volume growth markets - are the segments where the connected motorcycle market is growing fastest (Asia-Pacific 35.8% CAGR), but these markets have no rider voice input into the current evidence base.",
         "theTension": "There is a structural risk that connected services strategy is calibrated to a Japan-domestic market context that is not representative of the markets where connected vehicle investment will generate the most return. Resolving this tension requires both market intelligence (Asia-Pacific rider research) and governance design (regional input into strategic prioritisation)."
       }
     ],
@@ -585,14 +585,14 @@
     "tensions": [
       {
         "title": "The Value Tension: Long-Term Platform Intelligence vs. Short-Term Privacy Risk",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Collecting rich, long-term rider and vehicle data is a prerequisite for the predictive maintenance, battery health, and product feedback loop capabilities that Hero, TVS, and CFMOTO are building as competitive infrastructure.",
+        "counterSignal": "Every piece of data collected increases regulatory exposure under GDPR, cybersecurity risk, and the reputational damage potential of a breach or a perceived \"data hostage\" incident - the pattern already confirmed as the highest-anger trigger in rider voice research.",
         "theTension": "How to invest in the data infrastructure needed for long-term product intelligence while designing consent, portability, and return-to-rider experiences that prevent the data relationship from becoming the primary source of rider distrust."
       },
       {
         "title": "The Control Tension: Centralised Data Platform vs. Rider Data Ownership",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "To deliver predictive maintenance, personalised ride summaries, and fleet-level product intelligence, a centralised data platform with sufficient engineering depth is required - Hero CVP's 2.2M API requests/day benchmark indicates the scale of investment involved.",
+        "counterSignal": "Riders react with confirmed, documented anger to any architecture that makes their ride history inaccessible on cancellation. European riders additionally expect GDPR-compliant data portability as a right. The architecture that enables centralised analytics is the same architecture that riders experience as data hostage if portability is not built in.",
         "theTension": "How to build a centralised data platform capable of delivering fleet-scale intelligence while architecting data portability, cancellation export, and consent flows from the start - not as a compliance retrofit."
       }
     ],
@@ -684,14 +684,14 @@
     "tensions": [
       {
         "title": "The Stack Ownership Tension: Where to Draw the Integration Line",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "The most effective competitors (Hero MotoCorp, CFMOTO) draw their ownership line at the integration layer - sourcing cloud, OTA, navigation, and safety electronics from specialist partners, and owning only the vehicle integration and rider experience above that line. Hero's AWS + Excelfore deployment demonstrates this delivers production-grade OTA capability at documented fleet scale. CFMOTO's dual-cloud architecture demonstrates it can be tuned per regulatory region.",
+        "counterSignal": "Every layer DriveMode cedes to a partner is a layer where it loses data visibility, technical control, and the ability to retain the rider relationship. Infrastructure partners with direct vehicle access have built their own OEM relationships at scale (AWS with Hero; Google Cloud with Ather) and gain leverage over DriveMode's position over time.",
         "theTension": "Where DriveMode draws its ownership line is not a default decision - it must be made explicitly. Drawing it too high (building everything) recreates the CARIAD failure. Drawing it too low (ceding the integration layer itself) leaves DriveMode with no defensible position. The line must be named."
       },
       {
         "title": "The Asset Retention Tension: Enabling Partners vs. Protecting the Rider Relationship",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "Integrating best-in-class partners for navigation, insurance, and safety delivers a superior rider experience faster than DriveMode could build it. The European rider evidence makes this concrete: 90% phone-mount adoption means riders have already chosen their navigation solution regardless of what OEM software provides. Yamaha and Kawasaki have both responded to this by partnering with Garmin and HERE rather than competing with rider-chosen tools.",
+        "counterSignal": "Navigation providers, insurance companies, and safety electronics suppliers all have incentives to build direct relationships with riders. Every partner that accesses rider identity, usage data, or location history has a pathway to eventually displace the OEM as the primary rider relationship holder.",
         "theTension": "How to structure partnership agreements that deliver best-in-class rider experience while defining - contractually, not by assumption - which data, identity, and relationship elements remain under DriveMode and Honda control regardless of partner type."
       }
     ],
@@ -794,20 +794,20 @@
     "tensions": [
       {
         "title": "The Pacing Tension: \"Big Bet\" Transformation vs. Incremental Evolution",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "To catch up with advanced competitors and establish a competitive connected platform position, a large decisive investment in platform capability may be necessary to break through the allocation constraints visible in the July 2026 engineering timeline.",
+        "counterSignal": "The VW CARIAD (€14B write-down) and Ford ($19.5B write-down) cases show that large proprietary platform bets carry the highest documented risk of catastrophic failure. The VW-Rivian licensing deal ($5.8B) was adopted specifically as a less risky alternative after the build approach failed.",
         "theTension": "How to invest at a pace sufficient to be competitive - particularly in India and Vietnam, where the growth window is time-sensitive - without taking on the level of financial and execution risk that has crippled larger automotive players attempting proprietary platform builds."
       },
       {
         "title": "The Allocation Tension: Funding New Features vs. Maintaining the Core",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "The business will naturally prioritize investment in new, marketable features that are visible to customers and can be tied to near-term revenue.",
+        "counterSignal": "A significant and documented portion of the current engineering allocation is consumed by non-glamorous but mandatory work: A-SPICE compliance running at approximately 20% across four teams simultaneously, infrastructure migrations, and Honda-directed overhead. This leaves less discretionary capacity for strategic investment than a headcount count would suggest.",
         "theTension": "How to allocate capital between funding new capability and the non-negotiable, but often invisible, work of compliance, infrastructure, and technical debt reduction - when the latter is not discretionary and the former is what external stakeholders are evaluating."
       },
       {
         "title": "The Geography Tension: Invest Where Growth Is vs. Invest Where Honda Is",
-        "signal": "",
-        "counterSignal": "",
+        "signal": "The macroeconomic data ranks India #1 and Vietnam #2 for growth and connected service investment priority, suggesting that the highest-return investment geography is emerging markets.",
+        "counterSignal": "Honda's organizational center of gravity and the bulk of the current software cost allocation model remain Japan-anchored. Deploying investment capacity primarily toward India and Vietnam requires a deliberate reallocation that is not yet evidenced as a funded commitment.",
         "theTension": "Whether the investment sequencing follows the macroeconomic evidence (India and Vietnam first) or the organizational gravity (Japan and existing markets first) - and whether that choice is made explicitly or by default."
       }
     ],
