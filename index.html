@@ -109,12 +109,20 @@
   .tension-title-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
   .tension-name { font-size: 15px; font-weight: 600; color: #1A2332; font-family: 'EB Garamond', serif; }
   .tension-subtitle { font-size: 11px; color: #8A9BAA; font-style: italic; }
-  .tension-spectrum-row { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 16px; align-items: center; margin-bottom: 12px; }
+  .tension-spectrum-row { display: grid; grid-template-columns: 1fr 140px 1fr; gap: 16px; align-items: center; margin-bottom: 4px; }
   .tension-signal { font-size: 11px; color: #0099FF; line-height: 1.5; text-align: right; }
+  .tension-bar-wrap { display: flex; flex-direction: column; align-items: stretch; }
+  .tension-bar-ends { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .tension-bar-end { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; opacity: 0.5; }
+  .tension-bar-end.left { color: #0099FF; }
+  .tension-bar-end.right { color: #E61E8C; }
   .tension-bar { height: 6px; background: linear-gradient(90deg, #0099FF, #E61E8C); border-radius: 3px; position: relative; cursor: pointer; }
+  .tension-ticks { display: flex; justify-content: space-between; padding: 3px 0 0; }
+  .tension-tick { width: 1px; height: 4px; background: rgba(0,0,0,0.18); border-radius: 1px; }
+  .tension-stance { font-size: 9px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; text-align: center; margin-top: 4px; transition: color 0.1s; }
   .tension-marker { position: absolute; width: 18px; height: 18px; background: white; border: 2.5px solid #1E4D5C; border-radius: 50%; transform: translate(-50%, -50%); top: 50%; cursor: ew-resize; box-shadow: 0 1px 6px rgba(0,0,0,0.25); user-select: none; z-index: 2; }
   .tension-counter-signal { font-size: 11px; color: #E61E8C; line-height: 1.5; text-align: left; }
-  .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #3D4D5C; line-height: 1.65; }
+  .tension-description { font-size: 13px; font-family: 'EB Garamond', serif; color: #3D4D5C; line-height: 1.65; margin-top: 10px; }
   .tension-description-label { color: #1A2332; font-weight: 600; font-style: normal; }
 
   /* Implication / synthesis block */
@@ -195,9 +203,19 @@ function renderInline(text) {
   return parts.map((p, i) => i % 2 === 1 ? el('strong', null, p) : p);
 }
 
+// 5-zone stance label for the tension lever
+// pct 0 = full Signal, pct 100 = full Counter-Signal
+function getStanceLabel(pct) {
+  if (pct <= 15) return { text: 'Strongly Signal',  color: '#0099FF' };
+  if (pct <= 35) return { text: 'Lean Signal',       color: '#3399CC' };
+  if (pct <= 65) return { text: 'Open Question',     color: '#8A9BAA' };
+  if (pct <= 85) return { text: 'Lean Counter',      color: '#CC3388' };
+  return              { text: 'Strongly Counter',   color: '#E61E8C' };
+}
+
 // Apply lever-position-driven typography to signal/counter-signal elements
 // pct 0 = full left (signal), pct 100 = full right (counter-signal)
-function applyLeverStyles(pct, signalEl, counterEl) {
+function applyLeverStyles(pct, signalEl, counterEl, stanceEl) {
   const l = 1 - pct / 100;
   const r = pct / 100;
   if (signalEl) {
@@ -209,6 +227,11 @@ function applyLeverStyles(pct, signalEl, counterEl) {
     counterEl.style.fontWeight = Math.round(400 + r * 300);
     counterEl.style.fontSize   = (11 + r * 2).toFixed(1) + 'px';
     counterEl.style.opacity    = (0.55 + r * 0.45).toFixed(2);
+  }
+  if (stanceEl) {
+    const s = getStanceLabel(pct);
+    stanceEl.textContent   = s.text;
+    stanceEl.style.color   = s.color;
   }
 }
 
@@ -499,16 +522,34 @@ function buildAnalysisPanel(dom, id, s) {
 }
 
 function buildTension(t, i, id) {
-  const parts    = t.title.split(': ');
-  const pct      = getTensionPos(id, i);
-  const bar      = el('div', { class: 'tension-bar' });
-  const marker   = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
-  const signalEl = el('p', { class: 'tension-signal' }, t.signal);
+  const parts     = t.title.split(': ');
+  const pct       = getTensionPos(id, i);
+  const bar       = el('div', { class: 'tension-bar' });
+  const marker    = el('div', { class: 'tension-marker', style: { left: pct + '%' } });
+  const signalEl  = el('p', { class: 'tension-signal' }, t.signal);
   const counterEl = el('p', { class: 'tension-counter-signal' }, t.counterSignal);
+  const stanceEl  = el('div', { class: 'tension-stance' });
   bar.appendChild(marker);
 
-  // Apply typography reflecting current lever position
-  applyLeverStyles(pct, signalEl, counterEl);
+  // Bar wrapper: end labels + bar + ticks + stance label
+  const barWrap = el('div', { class: 'tension-bar-wrap' },
+    el('div', { class: 'tension-bar-ends' },
+      el('span', { class: 'tension-bar-end left' }, '◀ Signal'),
+      el('span', { class: 'tension-bar-end right' }, 'Counter ▶'),
+    ),
+    bar,
+    el('div', { class: 'tension-ticks' },
+      el('div', { class: 'tension-tick' }),
+      el('div', { class: 'tension-tick' }),
+      el('div', { class: 'tension-tick' }),
+      el('div', { class: 'tension-tick' }),
+      el('div', { class: 'tension-tick' }),
+    ),
+    stanceEl,
+  );
+
+  // Apply typography and stance label reflecting current lever position
+  applyLeverStyles(pct, signalEl, counterEl, stanceEl);
 
   bar.addEventListener('click', (e) => {
     if (state.drag) return;
@@ -517,13 +558,13 @@ function buildTension(t, i, id) {
     state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [i]: p };
     persist();
     marker.style.left = p + '%';
-    applyLeverStyles(p, signalEl, counterEl);
+    applyLeverStyles(p, signalEl, counterEl, stanceEl);
   });
 
   marker.addEventListener('mousedown', (e) => {
     e.preventDefault();
     const r = bar.getBoundingClientRect();
-    state.drag = { ti: i, left: r.left, width: r.width, marker, id, signalEl, counterEl };
+    state.drag = { ti: i, left: r.left, width: r.width, marker, id, signalEl, counterEl, stanceEl };
   });
 
   return el('div', { class: 'tension-item' },
@@ -533,7 +574,7 @@ function buildTension(t, i, id) {
     ),
     el('div', { class: 'tension-spectrum-row' },
       signalEl,
-      bar,
+      barWrap,
       counterEl,
     ),
     el('p', { class: 'tension-description' },
@@ -641,11 +682,11 @@ function clearState(id) { delete state.domainStates[id]; persist(); render(); }
 // ── Drag ──
 window.addEventListener('mousemove', (e) => {
   if (!state.drag) return;
-  const { left, width, marker, id, ti, signalEl, counterEl } = state.drag;
+  const { left, width, marker, id, ti, signalEl, counterEl, stanceEl } = state.drag;
   const pct = Math.round(Math.max(0, Math.min(100, ((e.clientX - left) / width) * 100)));
   state.tensionPos[id] = { ...(state.tensionPos[id] || {}), [ti]: pct };
   marker.style.left = pct + '%';
-  applyLeverStyles(pct, signalEl, counterEl);
+  applyLeverStyles(pct, signalEl, counterEl, stanceEl);
 });
 window.addEventListener('mouseup', () => { if (state.drag) { persist(); state.drag = null; } });
 
