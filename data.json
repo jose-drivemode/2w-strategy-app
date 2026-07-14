@@ -445,8 +445,8 @@
         "label": "Competitor Regional Focus vs. Global Ambition",
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
-        "claim": "The most digitally advanced competitors (Hero, Ather, TVS) are almost entirely India-centric, succeeding through deep regional focus rather than global platforms. Suzuki's connected service (3.1M India downloads) is also India-only. In Europe, Chinese brands (CFMoto 800MT, Zontes 368G, Coge 900 DSX) have grown significantly in the low-mid price range (EUR 5,000-10,000) by offering full-map TFT navigation and dashcams at price points where Honda currently does not offer full-map navigation (Honda full-map starts at Africa Twin, EUR 14,000+). Italian dealers confirm this competitive shift directly.",
-        "sources": "Hero/Ather/TVS public disclosures; Suzuki Ride Connect India press release; `raw/2026Q2_europe_rider_voice_research.md` (HRE sales data + dealer interviews, 2025); 40+ competitor sources."
+        "claim": "The most digitally advanced competitors (Hero, Ather, TVS) are almost entirely India-centric, succeeding through deep regional focus rather than global platforms. Suzuki's connected service (3.1M India downloads) is also India-only. In Europe, Chinese brands (CFMoto 800MT, Zontes 368G, Coge 900 DSX) have grown significantly in the low-mid price range (EUR 5,000-10,000) by offering full-map TFT navigation and dashcams at price points where Honda currently does not offer full-map navigation (Honda full-map starts at Africa Twin, EUR 14,000+). Italian dealers confirm this competitive shift directly. In Brazil, Shineray achieved 69.6% growth in 2025 (130,600 units) and a 7.24% peak monthly market share in 2026 - becoming the third-largest motorcycle manufacturer by targeting the gig economy delivery segment (iFood, Rappi riders) with ultra-affordable utility models, without any proprietary connected platform.",
+        "sources": "Hero/Ather/TVS public disclosures; Suzuki Ride Connect India press release; `raw/2026Q2_europe_rider_voice_research.md` (HRE sales data + dealer interviews, 2025); 40+ competitor sources; `raw/2026Q3_shineray_brazil_equity_research.md` (Medium confidence - single equity research source, unverified primary data)."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -653,8 +653,8 @@
         "label": "Rider Evidence Against OEM Navigation Build",
         "missionSource": "Rider Voice",
         "confidence": "High",
-        "claim": "European rider research explicitly recommends OEM integration with Waze or Google Maps rather than proprietary navigation builds, grounded in documented behavior: approximately 90% of European motorcycles are delivered with a third-party phone mount, indicating that riders have already chosen their navigation solution independently of OEM provision. This is direct behavioral evidence that OEM navigation builds are not replacing third-party alternatives in the European market.",
-        "sources": "European rider research (wiki/outputs/regen); rider voice data on phone-mount adoption."
+        "claim": "European rider research explicitly recommends OEM integration with Waze or Google Maps rather than proprietary navigation builds, grounded in documented behavior: approximately 90% of European motorcycles are delivered with a third-party phone mount, indicating that riders have already chosen their navigation solution independently of OEM provision. This is direct behavioral evidence that OEM navigation builds are not replacing third-party alternatives in the European market. Competitor evidence reinforces this from the other side: Shineray's premium SBM line in Brazil offloads navigation entirely to Carbit Ride (Google Maps mirroring) with no proprietary app - a fast-growing competitor at 7%+ Brazil market share that has chosen not to build navigation at all.",
+        "sources": "European rider research (`raw/2026Q2_europe_rider_voice_research.md`); rider voice data on phone-mount adoption; `raw/2026Q3_shineray_brazil_equity_research.md`."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
