@@ -10,6 +10,13 @@
     "domainWarning": false,
     "signals": [
       {
+        "label": "OEM Governance Failure Pattern",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "High",
+        "claim": "VW's CARIAD programme and Ford's Argo AI investment are the two most documented OEM-software subsidiary failure modes. CARIAD: governance ambiguity between the software subsidiary and parent hardware engineering teams caused cascading delays and a EUR 14B loss before the programme was restructured. Ford-Argo: Ford invested approximately USD 1B in Argo AI and wound it down in 2022 after failing to define a clear path from research capability to vehicle production - the relationship lacked a shared definition of what the subsidiary was for. Both cases share a common failure pattern: the OEM acquired or funded a software capability without resolving governance and mandate at the outset. The evidence is investor-grade: VW Group financial disclosures and Ford investor communications. The pattern is independently corroborated across multiple external sources and applies directly to any OEM-software subsidiary relationship where mandate and decision rights are deferred.",
+        "sources": "VW Group financial disclosures (CARIAD); Ford investor communications (Argo AI wind-down, 2022); independently corroborated external references."
+      },
+      {
         "label": "Acknowledged Capability Gap",
         "missionSource": "Org Capability",
         "confidence": "Medium",
@@ -38,11 +45,11 @@
         "sources": "`raw/2026Q3_project_allocation_july2026.md`."
       },
       {
-        "label": "Governance Failure Mode Precedent",
+        "label": "Honda SDV Self-Diagnosis",
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
-        "claim": "VW's CARIAD programme and Ford's Argo AI investment are the two most documented OEM-software subsidiary failure modes. CARIAD: governance ambiguity between the software subsidiary and parent hardware engineering teams caused cascading delays and a EUR 14B loss before the programme was restructured. Ford-Argo: Ford invested approximately USD 1B in Argo AI and wound it down in 2022 after failing to define a clear path from research capability to vehicle production - the relationship lacked a shared definition of what the subsidiary was for. Both cases share a common failure pattern: the OEM acquired or funded a software capability without resolving governance and mandate at the outset. Honda's own internal assessment places its SDV software strategy in the same \"Restart\" category as VW and Ford - characterizing its current state as \"Uncertain | Flexibility | Consistency | Restart\" in an internal comparison presented at the July 2026 DriveMode all-hands. This self-diagnosis, while not a public statement, is consistent with Honda's structural reset actions: new SDV organization formation, executive personnel changes, and the explicit proactive mandate to DriveMode.",
-        "sources": "VW Group financial disclosures (CARIAD); Ford investor communications (Argo AI wind-down, 2022); `sources/2026-07-26_drivemode_allhands_fy2027q1.md` (Honda self-diagnosis - secondhand via DriveMode CEO)."
+        "claim": "Honda's own internal assessment places its SDV software strategy in the same \"Restart\" category as VW and Ford - characterizing its current state as \"Uncertain | Flexibility | Consistency | Restart\" in an internal comparison presented at the July 2026 DriveMode all-hands. This self-diagnosis is consistent with Honda's observable structural reset actions: new SDV organization formation, executive personnel changes, and the explicit proactive mandate to DriveMode. The pattern maps directly to the OEM Governance Failure Pattern above: acknowledged failure mode followed by organizational reset and external partnership as remediation. Confidence is Medium because the self-diagnosis is secondhand - reported by DriveMode's CEO, not sourced from a direct Honda document.",
+        "sources": "`sources/2026-07-26_drivemode_allhands_fy2027q1.md` (Honda self-diagnosis - secondhand via DriveMode CEO, not a direct Honda document)."
       },
       {
         "label": "Competitiveness Stage and Proactive Mandate",
