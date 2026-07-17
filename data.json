@@ -6,7 +6,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Domain signal confidence: Medium - Honda's acquisition purpose was reconfirmed at board level (July 2026): \"build products, not internalize capabilities for in-sourcing.\" The Competitiveness Stage (2026+) is formally declared, with an explicit ask to the 2W team to proactively propose strategy - not wait for Honda to define it. Four named Honda executives expressed direct support. These signals establish directional clarity. Formal governance structure, documented decision rights, and a confirmed vehicle target for Platform 2.0 remain absent. The IVI 2.0 backport cancellation - Honda redirecting major product scope without a formal mechanism - illustrates the cost of that absence in practice.",
+    "domainConfidenceNote": "Honda's acquisition purpose was reconfirmed at board level (July 2026): \"build products, not internalize capabilities for in-sourcing.\" The Competitiveness Stage (2026+) is formally declared, with an explicit ask to the 2W team to proactively propose strategy - not wait for Honda to define it. Four named Honda executives expressed direct support. These signals establish directional clarity. Formal governance structure, documented decision rights, and a confirmed vehicle target for Platform 2.0 remain absent. The IVI 2.0 backport cancellation - Honda redirecting major product scope without a formal mechanism - illustrates the cost of that absence in practice.",
     "domainWarning": false,
     "signals": [
       {
@@ -116,7 +116,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "High",
-    "domainConfidenceNote": "Domain signal confidence: High - Evidence includes 35 qualitative interviews and a 301-respondent EICMA survey across Germany, France, and Italy (conducted jointly by DriveMode and Honda's Connected Technology Development Department in 2025), alongside 20+ independent sources from app stores, owner forums, and enthusiast press. The European research provides direct, methodologically rigorous willingness-to-pay data and feature priority rankings at point of purchase. Competitor cases are confirmed from public disclosures. Confidence is High for Western and European rider behaviour. The decision-making gap: no direct rider voice from Japan or Southeast Asia - Honda's core volume markets. Signals anchored in European data cannot be assumed to transfer to those markets.",
+    "domainConfidenceNote": "Evidence includes 35 qualitative interviews and a 301-respondent EICMA survey across Germany, France, and Italy (conducted jointly by DriveMode and Honda's Connected Technology Development Department in 2025), alongside 20+ independent sources from app stores, owner forums, and enthusiast press. The European research provides direct, methodologically rigorous willingness-to-pay data and feature priority rankings at point of purchase. Competitor cases are confirmed from public disclosures. Confidence is High for Western and European rider behaviour. The decision-making gap: no direct rider voice from Japan or Southeast Asia - Honda's core volume markets. Signals anchored in European data cannot be assumed to transfer to those markets.",
     "domainWarning": false,
     "signals": [
       {
@@ -231,7 +231,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "High",
-    "domainConfidenceNote": "Domain signal confidence: High - Evidence draws on three layers: verified production metrics from motorcycle OEM competitors (Hero MotoCorp AWS case study; Ather Energy IPO and partner disclosures), documented infrastructure failure cases from the motorcycle sector (H-D Connect) and automotive sector (VW CARIAD, Ford Model e), and internal org composition data from two independent sources (Engineering Skills Map and July 2026 project allocation). Competitor benchmarks are sourced from AWS case studies and IPO-grade disclosures; failure cases are documented in investor-grade filings. The decision-making qualification: internal org data establishes structural composition - headcount and allocation - not delivery capability. Participants should bring their direct knowledge of what the teams can actually produce.",
+    "domainConfidenceNote": "Evidence draws on three layers: verified production metrics from motorcycle OEM competitors (Hero MotoCorp AWS case study; Ather Energy IPO and partner disclosures), documented infrastructure failure cases from the motorcycle sector (H-D Connect) and automotive sector (VW CARIAD, Ford Model e), and internal org composition data from two independent sources (Engineering Skills Map and July 2026 project allocation). Competitor benchmarks are sourced from AWS case studies and IPO-grade disclosures; failure cases are documented in investor-grade filings. The decision-making qualification: internal org data establishes structural composition - headcount and allocation - not delivery capability. Participants should bring their direct knowledge of what the teams can actually produce.",
     "domainWarning": false,
     "signals": [
       {
@@ -292,6 +292,19 @@
         "confidence": "Medium",
         "claim": "The engineering department consists of 51 personnel across six functional sub-teams. Platform and Infrastructure is staffed by 3 people (approximately 4% of engineering headcount) and Systems Engineering by 3 people (approximately 4% of engineering headcount) - these are the two teams that underpin scalable connected vehicle infrastructure. As of the July 2026 allocation, the Backend team's two most senior engineers are fully committed to the AWS Migration.",
         "sources": "`sources/2026-06-25_engineering_department_skills_map.md`; `raw/2026Q3_project_allocation_july2026.md`; `raw/2026Q3_person_allocation_anonymized.md`."
+      },
+      {
+        "label": "European OEM Infrastructure Benchmark - No Predictive Maintenance",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "High",
+        "claim": "KTM AG (PIERER Mobility) - Europe's largest motorcycle manufacturer by volume (375,612 units, €2.66B revenue in FY2023) - has no predictive maintenance capability. The TFT display shows service reminders based on distance traveled or time elapsed only: pre-programmed scheduled reminders with no real-time sensor data, telemetry, or cloud-based analytics for component failure prediction. KTM's HMI runs on a proprietary RTOS (in-house, not Android Automotive), offloads navigation processing to the companion app (KTMconnect, powered by Sygic), and uses a \"bring-your-own-processor\" approach that minimizes onboard compute cost and complexity. This is the documented connected infrastructure maturity level of Europe's largest premium OEM - below Hero/TVS/Ather and defining the European premium OEM reference floor. The significance: Honda's connected infrastructure target must be positioned against both the Hero production benchmark (top) and the KTM European OEM floor (bottom) to correctly characterize the competitive range. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_ktm_competitive_analysis.md`.*"
+      },
+      {
+        "label": "Map Infrastructure as Operating Cost Signal",
+        "missionSource": "Org Capability",
+        "confidence": "High",
+        "claim": "43% of RoadSync Duo's total platform operating cost is Mapbox licensing (61% for RoadSync Classic), per Honda's own internal \"Connected Products Strategy\" document. Owning the map data and rendering layer - architecturally distinct from navigation routing and voice guidance, which remain partner decisions - eliminates this cost and removes the external licensing dependency. A PoC for map rendering on low-cost hardware has been achieved; the map infrastructure workstream is an active development track. The Linux IVI hardware porting track is a separate workstream with a different production path: it requires Tier 1 automotive-grade hardware certification (not currently in the project) and SPICE compliance (minimum 1 year from July 2026) and should not be treated as a near-term production deliverable. *(Sourced Evidence)*",
+        "sources": "Honda internal \"Connected Products Strategy\" (operating cost split: map license 43% of RoadSync Duo, 61% of RoadSync Classic); `wiki/meta/extractions_2026Q3_linux_ivi_map_infrastructure_context.md` (SPICE compliance constraint; map infrastructure as separate development track from Linux IVI hardware porting)."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -360,7 +373,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Domain signal confidence: Medium - Rider preference for third-party best-in-class apps is evidenced across 20+ independent sources from Western markets, with documented willingness to pay for single-purpose apps (Calimoto, EatSleepRIDE). Competitor platform outcomes span from verified production metrics (Hero: 67% faster rollout, 99.6% availability across 40,000 vehicles) to documented full-stack collapse (Ola: 35% to ~15% market share). DriveMode's internal platform scope comes from a single self-assessed source. The strategic decision risk: Platform 2.x Expansion is not resourced in the current planning cycle - the question of whether to fund connected lifecycle infrastructure is explicitly open, not resolved.",
+    "domainConfidenceNote": "Rider preference for third-party best-in-class apps is evidenced across 20+ independent sources from Western markets, with documented willingness to pay for single-purpose apps (Calimoto, EatSleepRIDE). Competitor platform outcomes span from verified production metrics (Hero: 67% faster rollout, 99.6% availability across 40,000 vehicles) to documented full-stack collapse (Ola: 35% to ~15% market share). DriveMode's internal platform scope comes from a single self-assessed source. The strategic decision risk: Platform 2.x Expansion is not resourced in the current planning cycle - the question of whether to fund connected lifecycle infrastructure is explicitly open, not resolved.",
     "domainWarning": false,
     "signals": [
       {
@@ -397,6 +410,18 @@
         "confidence": "High",
         "claim": "The most advanced competitors have adopted clear platform strategies enabling multi-model deployment, tiered subscriptions, and data-driven product development. CFMOTO's systems integrator model is the most concrete documented implementation of platform-over-product thinking in the sector: they build only the app layer and vehicle integration in-house, sourcing every platform component (cloud, safety electronics, battery, AI) from specialized partners, then own the integration layer above it. Hero MotoCorp, TVS Motor, and Ather Energy follow similar integrator patterns with 7+ model deployment each. ZX Moto provides a third archetype - a hybrid model: core IP (engine, chassis, software UI/UX) strictly in-house, while safety-critical and performance-credibility components (Bosch IMU/ECU, Brembo brakes, Ohlins suspension) are fully externalized. Distinct from the full systems integrator (CFMOTO) and from a full in-house build, this selective in-house plus Tier 1 partner model achieved superbike-level connected features with $13.1M in Series A funding. ZX Moto's approach to navigation is explicit and deliberate: despite a feature-rich companion app (OTA mode tuning, track telemetry, anti-theft geofencing), navigation is handled via phone mirroring with no proprietary navigation build. This extends the \"no proprietary navigation\" pattern to the premium startup context: the hybrid model is app for OEM-differentiating features (tuning, telemetry, security) and phone for navigation. *(Sourced Evidence)*",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; Hero COE structure; TVS Motor Databricks + CDAO role; Ather 64-feature OTA cadence; TVS 8-year connected services track record; `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`."
+      },
+      {
+        "label": "European OEM Post-Sale Software Revenue Model",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "High",
+        "claim": "KTM's KTMconnect implements the most explicitly documented post-sale software revenue model for a European OEM in the KB. Two mechanisms: (1) on-dash navigation via subscription within KTMconnect, powered by Sygic - the \"license navigation, own the app\" pattern, consistent with Yamaha/Garmin and Kawasaki/HERE, with an explicit subscription structure; (2) \"Demo Mode\" on new vehicles - all optional software features (Track Pack, Tech Pack) active for the first 1,500 kilometers, then locked behind a paid dealership-activated license. Demo Mode is a \"try-before-you-buy\" mechanism that unbundles high-margin software features from initial vehicle price and creates a post-sale revenue channel shared with the dealer network. KTM's HMI is a \"bring-your-own-processor\" display layer offloading computation to the phone - not a full-fledged OS platform. The European premium OEM model is targeted software unlocks via app, not broad platform ownership. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_ktm_competitive_analysis.md`.*"
+      },
+      {
+        "label": "Map Layer Ownership as Platform Infrastructure",
+        "missionSource": "Org Capability",
+        "confidence": "Medium",
+        "claim": "The map data and rendering layer is architecturally and strategically distinct from navigation routing, voice guidance, and navigation intelligence - which remain partner decisions. Owning the map rendering layer is an infrastructure-layer position comparable to OTA delivery or rider identity: it enables the partner ecosystem strategy (third-party navigation apps integrate on top of a Honda-owned map layer) without positioning Honda as a navigation app competitor to Waze or Google Maps. This distinction is directly relevant to the Rider Lifecycle Infrastructure vs. Rider-Facing App choice: map infrastructure ownership is an infrastructure decision, not an app strategy. The Linux IVI hardware porting track (SPICE-blocked, R&D only, minimum 1 year to compliance) is a separate investment decision with a different production path and strategic argument - the two workstreams should not be conflated in any investment discussion. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_linux_ivi_map_infrastructure_context.md`.*"
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -583,7 +608,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Domain signal confidence: Medium - The \"data held hostage\" frustration pattern is documented across 20+ independent sources and is the most anger-producing finding in the rider voice research. Competitor data platform investments are confirmed from public technical disclosures: Hero CVP at verified production scale; Ather and TVS with named third-party data infrastructure. GDPR as a constraint is confirmed from primary European research (35 interviews, 301 survey respondents). The decision risk: Honda's internal data ambitions rest on a single December 2024 executive source. Connected data strategy requires a confirmed organizational intent from Honda - this evidence base establishes the rider expectation clearly, but cannot confirm the organizational capability to meet it.",
+    "domainConfidenceNote": "The \"data held hostage\" frustration pattern is documented across 20+ independent sources and is the most anger-producing finding in the rider voice research. Competitor data platform investments are confirmed from public technical disclosures: Hero CVP at verified production scale; Ather and TVS with named third-party data infrastructure. GDPR as a constraint is confirmed from primary European research (35 interviews, 301 survey respondents). The decision risk: Honda's internal data ambitions rest on a single December 2024 executive source. Connected data strategy requires a confirmed organizational intent from Honda - this evidence base establishes the rider expectation clearly, but cannot confirm the organizational capability to meet it.",
     "domainWarning": false,
     "signals": [
       {
@@ -709,8 +734,8 @@
         "label": "Navigation Partnership Pattern",
         "missionSource": "Competitor Intelligence",
         "confidence": "High",
-        "claim": "Navigation and mapping is the most common third-party integration point across incumbents: Yamaha partners with Garmin globally (Connected Vision program, January 2024); Kawasaki with HERE Technologies (HERE SDK Navigate Edition, November 2024); Ather with Google Maps. Both Japanese OEM partnerships chose best-of-breed navigation specialists rather than proprietary builds, and both partnerships are confirmed by press releases.",
-        "sources": "Yamaha global.yamaha-motor.com news; Kawasaki/HERE press release here.com/about/press-releases/Kawasaki-Motors-boosts-rider-experience-with-HERE-in-mobile-app-upgrade; Ather product documentation."
+        "claim": "Navigation and mapping is the most common third-party integration point across incumbents: Yamaha partners with Garmin globally (Connected Vision program, January 2024); Kawasaki with HERE Technologies (HERE SDK Navigate Edition, November 2024); Ather with Google Maps; KTM with Sygic (KTMconnect companion app, confirmed via joint KTM-Sygic press releases). All four chose best-of-breed navigation specialists rather than proprietary builds. The pattern now extends across Japanese incumbents (Yamaha, Kawasaki), Indian EV-native OEMs (Ather), and European premium OEMs (KTM) - four independent OEM archetypes converging on the same model.",
+        "sources": "Yamaha global.yamaha-motor.com news; Kawasaki/HERE press release here.com/about/press-releases/Kawasaki-Motors-boosts-rider-experience-with-HERE-in-mobile-app-upgrade; Ather product documentation; `wiki/meta/extractions_2026Q3_ktm_competitive_analysis.md` (KTM/Sygic - joint press releases, Tier 1 and Tier 4)."
       },
       {
         "label": "OTA Infrastructure Partnership at Scale",
@@ -744,6 +769,12 @@
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium-High",
         "claim": "ZX Moto establishes a third competitor archetype distinct from full integrator (Shineray/CFMOTO) and full in-house build (Ola Electric). The model: 100% in-house ownership of engine, chassis design, and software UI/UX as core IP; 100% externalized safety-critical and performance-credibility systems (Bosch IMU/ECU, Brembo brakes, Ohlins suspension). Navigation is explicitly not built - phone mirroring only. The hybrid model defines a boundary: in-house where the brand's performance identity is expressed; externalized where Tier 1 credibility cannot be replicated without the partners' accumulated IP and certification. This model achieved superbike-level ARAS deployment with $13.1M in Series A capital. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`.*"
+      },
+      {
+        "label": "European Premium OEM Named Partner Stack (KTM)",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "High",
+        "claim": "KTM's partner ecosystem is the most completely named for any European OEM in the KB: Sygic (navigation engine inside KTMconnect - confirmed via joint press releases), Bosch (full ARAS suite: 6-axis IMU plus front/rear radar for ACC/BSD - stated in investor presentations and press materials), Bajaj Auto (manufacturing + India/subcontinent distribution, 49.9% KTM AG stake), CFMoto (China mid-size manufacturing under license), WP Suspension (in-house subsidiary retained for chassis performance). Core IP retained in-house: engine architecture, chassis dynamics, TFT UI/UX, KTMconnect mobile app, riding mode firmware. This named stack is the European reference case for \"partner for infrastructure, own the integration layer\" - the same principle as CFMOTO and Hero, applied in the premium European performance segment. The model distinguishes what the partner stack enables (Bosch ARAS without developing IMU or radar hardware in-house; Sygic navigation without a proprietary build; Asian manufacturing scale without local factories) from what is retained as brand-defining IP. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_ktm_competitive_analysis.md`.*"
       },
       {
         "label": "Rider Evidence Against OEM Navigation Build",
@@ -810,7 +841,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Domain signal confidence: Medium - Build-vs-partner financial precedents are investor-grade (VW Group financials, Rivian 8-K, Ford 10-K, GM investor reports). Growth market rankings come from a single internal macroeconomic dashboard (June 2026). Internal capability constraints are documented across two independent internal sources (Engineering Skills Map; July 2026 project allocation). The critical gap: no independently verified motorcycle-specific connected service revenue data exists. The ARPU range ($80–370/vehicle/year) is an estimate derived from automotive analogues, not observed motorcycle market data. Investment sequencing decisions in this domain rest on financial evidence from a different industry at a different scale.",
+    "domainConfidenceNote": "Build-vs-partner financial precedents are investor-grade (VW Group financials, Rivian 8-K, Ford 10-K, GM investor reports). Growth market rankings come from a single internal macroeconomic dashboard (June 2026). Internal capability constraints are documented across two independent internal sources (Engineering Skills Map; July 2026 project allocation). The critical gap: no independently verified motorcycle-specific connected service revenue data exists. The ARPU range ($80–370/vehicle/year) is an estimate derived from automotive analogues, not observed motorcycle market data. Investment sequencing decisions in this domain rest on financial evidence from a different industry at a different scale.",
     "domainWarning": false,
     "signals": [
       {
@@ -866,6 +897,12 @@
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "ZX Moto achieved superbike-level ARAS deployment (6-axis Bosch IMU, front/rear radar, cornering ABS, cornering traction control, FCW, blind spot detection, lane keeping assist) with a $13.1M Series A. This is evidence that the Tier 1 partner ecosystem (Bosch, Brembo, Qualcomm) enables premium connected feature deployment at significantly lower capital cost than full in-house development of equivalent capability. The cost efficiency comes from certifying and integrating existing Tier 1 systems rather than developing them from first principles. For investment sequencing, this matters: connected safety and performance features in the premium segment do not require the capital investment levels implied by the CARIAD and Ford cases - which were building architecture layers, not integrating certified Tier 1 components. *(Analytical Interpretation)* *Source: `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`.*"
+      },
+      {
+        "label": "European Premium OEM R&D Capital Allocation (KTM)",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium",
+        "claim": "KTM's annual R&D budget exceeds €300 million - concentrated entirely on core IP: lightweight chassis engineering, high-performance powertrain, and vehicle dynamics. KTM deliberately does not build infotainment OS, safety sensor hardware, or cloud infrastructure - these are sourced from Bosch (full ARAS suite: 6-axis IMU, front/rear radar, ABS/MSC firmware), Sygic (navigation engine inside KTMconnect), Bajaj Auto (manufacturing + India distribution), and CFMoto (China manufacturing). WP Suspension (in-house subsidiary) extends the core IP perimeter only for suspension technology proven in racing before consumer adaptation. The capital efficiency result: Bosch's ARAS suite is deployed across flagship KTM models without KTM developing IMU hardware or radar sensors in-house - superbike-level ARAS via Tier 1 integration, not proprietary development. This is the documented articulation of \"build the core, partner for the rest\" at European premium OEM scale. R&D budget figure is analyst estimate; Sygic and Bosch attributions are confirmed from press releases and investor materials (Tier 1). *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_ktm_competitive_analysis.md`.*"
       },
       {
         "label": "India Onboarding Failure as Pre-First-Use Investment Priority",
