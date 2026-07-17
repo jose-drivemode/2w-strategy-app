@@ -148,6 +148,12 @@
         "sources": "`raw/2026Q2_europe_rider_voice_research.md` (301 EICMA survey, 2025); `raw/2026Q2_honda_detailed_customer_journey_breakdown.md`."
       },
       {
+        "label": "India Rider Preferences - First Primary Voice",
+        "missionSource": "Rider Voice",
+        "confidence": "High",
+        "claim": "An internal Honda/DriveMode analytics report (India, October 2025, 27 Activa-E connected vehicles, 10 Bangalore qualitative interviews) provides the first primary India rider voice in the KB on connected feature priorities. Navigation is the stated primary purchase driver for the connected variant - confirmed directly by qualitative participants. Battery percentage display is preferred over estimated range (\"I cannot trust this range\"). Music and calls are not meaningful features during commuting: 87 stationary clicks vs 4 at-speed for music; 30 total CallStart events, all stationary. These findings are structurally different from European evidence, where theft alert ranks #1. The structural divergence between India (navigation primary, battery %, minimal audio use) and Europe (theft alert primary, hazard navigation, diagnostics) is now evidenced from primary research in both geographies, not inferred. *(Sourced Evidence)* Sample caveat: 27 vehicles, 10 interviews, Bangalore urban EV commuter only - not projectable to the broader India market. *Source: `sources/2025-10-28_honda_roadsync_duo_ux_analytics_india.md`.*"
+      },
+      {
         "label": "Competitor Failure",
         "missionSource": "Competitor Intelligence",
         "confidence": "High",
@@ -255,6 +261,30 @@
         "confidence": "High",
         "claim": "Attempts to build proprietary, large-scale software stacks at automotive OEMs have produced catastrophic financial losses. VW CARIAD accumulated a total investment of approximately €14 billion, operating at an estimated annual loss of ~€2.8 billion in the 24 months before the Rivian JV announcement - before VW licensed Rivian's software architecture for $5.8 billion, effectively replacing the internal build. Named product casualties: the Porsche e-Macan and Audi Q6 e-tron were each delayed over 24 months due to E3 1.2 platform instability - demonstrating that the financial loss was accompanied by concrete product failures, not only capital write-downs. Ford's FNV4/Model e platform resulted in a total write-down of $19.5 billion (disclosed Q4 2025), with $4.7 billion in 2023 and approximately $5 billion in 2024. The technical root cause in both cases: a legacy architecture of 100+ ECUs with proprietary firmware from dozens of Tier-1 suppliers made it physically impossible to deliver reliable OTA updates - an infotainment domain update could create CAN bus conflicts impacting powertrain or braking ECUs, requiring dealership visits to fix. The failure was not a shortage of talent or investment; it was architectural.",
         "sources": "VW Group financial disclosures; InsideEVs; GermanAutopreneur; TheStack.Technology; Ford 8-K; CNBC; CBT News; Rivian 8-K; `raw/2026Q3_vw_cariad_rivian_jv_analysis.md` (Medium confidence - equity research; operating loss figure is analyst estimate, not directly from VW Group filings)."
+      },
+      {
+        "label": "Competitor OTA Failure: Technical Root Cause",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "High",
+        "claim": "The CARIAD E3 1.2 platform instability was not primarily a project management failure - it was a specific architectural failure caused by the 100+ ECU spaghetti architecture. CAN bus conflicts were triggered during OTA updates: an infotainment domain update could propagate across the bus and affect powertrain or braking ECUs, requiring a dealership visit to resolve. This is the technical mechanism behind the financial failure narrative. The Porsche e-Macan and Audi Q6 e-tron were each delayed 24+ months as direct product-level consequences of this instability - not as collateral scheduling delays. The lesson is architectural before it is financial: OTA reliability in a multi-ECU vehicle is a systems integration problem that cannot be solved by adding investment at the software layer alone. *(Sourced Evidence)* `[Competitor Intelligence · High]` *Source: `wiki/meta/extractions_2026Q3_vw_cariad_rivian_jv_analysis.md`.*"
+      },
+      {
+        "label": "ZX Moto ARAS Benchmark",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium-High",
+        "claim": "ZX Moto (Chinese startup, founded 2024, Series A $13.1M) deployed a full ARAS suite on its debut 820RR: 6-axis Bosch IMU plus front and rear radar, cornering ABS, cornering traction control, forward collision warning, blind spot detection with mirror-integrated alerts, and lane keeping assist. The companion app delivers OTA tuning of 5 riding modes (throttle response, traction control, wheelie control) and records track telemetry (lap times, G-forces, lean angles). Anti-theft geofencing and remote ignition lockout are also in the app. Navigation is handled via phone mirroring - no proprietary navigation build. This feature set was achieved by outsourcing all safety-critical and performance-credibility components (Bosch IMU/ECU, Brembo brakes, Ohlins suspension) while maintaining in-house ownership of engine/chassis design and software UI/UX. The result is a new benchmark for connected infrastructure deployment in the premium performance segment at sub-$20K. *(Sourced Evidence)* Note: brand is 2 years old; all connectivity claims are specification-based, not field-validated. *Source: `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`.*"
+      },
+      {
+        "label": "Shineray Zero-Infrastructure Counter-Evidence",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium",
+        "claim": "Shineray (Brazil) achieved 69.6% unit growth in 2025 and 7%+ peak monthly market share without any proprietary connected infrastructure - no cloud backend, no OTA, no companion app. This is a deliberate strategic choice, not an omission. Shineray captured market position entirely in the gig economy delivery rider segment (iFood, Rappi) through vehicle affordability and distribution, not software. The evidence argues that connected infrastructure investment is a sequencing question, not a universal prerequisite for market share growth. The counter-evidence applies specifically to the utility/gig segment; it does not generalize to premium or retention-focused strategies where the competitive dynamics are different. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_shineray_brazil_equity_research.md`.*"
+      },
+      {
+        "label": "Honda India Fleet Connectivity Failure",
+        "missionSource": "Org Capability",
+        "confidence": "High",
+        "claim": "Internal production data from Honda's India Activa-E connected vehicle fleet (August 2025, 27 vehicles) shows 99.71% of ignition-on time is offline. Only 15.1% of ride sessions had the companion app connected. Bluetooth PAN is described as \"virtually non-existent\" in the internal analytics report. This is first-party evidence - from Honda's own production fleet - confirming the same infrastructure reliability failure documented externally for competitor platforms (H-D Connect, Yamaha, Kawasaki). The significance is the source: this is not a competitor inference but an internal Honda/DriveMode finding, published jointly by the Honda UX Connected team and the DriveMode Product team. Infrastructure reliability in Honda's primary growth market is not an aspiration gap - it is a documented production reality. *(Sourced Evidence)* Note: small base (27 vehicles); potential dataset contamination from internal-use vehicles without VIN sales-status flags. *Source: `sources/2025-10-28_honda_roadsync_duo_ux_analytics_india.md`.*"
       },
       {
         "label": "Internal Structural Composition",
@@ -365,8 +395,8 @@
         "label": "Integrator Pattern",
         "missionSource": "Competitor Intelligence",
         "confidence": "High",
-        "claim": "The most advanced competitors have adopted clear platform strategies enabling multi-model deployment, tiered subscriptions, and data-driven product development. CFMOTO's systems integrator model is the most concrete documented implementation of platform-over-product thinking in the sector: they build only the app layer and vehicle integration in-house, sourcing every platform component (cloud, safety electronics, battery, AI) from specialized partners, then own the integration layer above it. Hero MotoCorp, TVS Motor, and Ather Energy follow similar integrator patterns with 7+ model deployment each. ZX Moto provides a third archetype - a hybrid model: core IP (engine, chassis, software UI/UX) strictly in-house, while safety-critical and performance-credibility components (Bosch IMU/ECU, Brembo brakes, Öhlins suspension) are fully externalized. Distinct from the full systems integrator (CFMOTO) and from a full in-house build, this selective in-house plus Tier 1 partner model achieved superbike-level connected features with $13.1M in Series A funding.",
-        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; Hero COE structure; TVS Motor Databricks + CDAO role; Ather 64-feature OTA cadence; TVS 8-year connected services track record; `raw/2026Q3_zxmoto_china_equity_research.md`."
+        "claim": "The most advanced competitors have adopted clear platform strategies enabling multi-model deployment, tiered subscriptions, and data-driven product development. CFMOTO's systems integrator model is the most concrete documented implementation of platform-over-product thinking in the sector: they build only the app layer and vehicle integration in-house, sourcing every platform component (cloud, safety electronics, battery, AI) from specialized partners, then own the integration layer above it. Hero MotoCorp, TVS Motor, and Ather Energy follow similar integrator patterns with 7+ model deployment each. ZX Moto provides a third archetype - a hybrid model: core IP (engine, chassis, software UI/UX) strictly in-house, while safety-critical and performance-credibility components (Bosch IMU/ECU, Brembo brakes, Ohlins suspension) are fully externalized. Distinct from the full systems integrator (CFMOTO) and from a full in-house build, this selective in-house plus Tier 1 partner model achieved superbike-level connected features with $13.1M in Series A funding. ZX Moto's approach to navigation is explicit and deliberate: despite a feature-rich companion app (OTA mode tuning, track telemetry, anti-theft geofencing), navigation is handled via phone mirroring with no proprietary navigation build. This extends the \"no proprietary navigation\" pattern to the premium startup context: the hybrid model is app for OEM-differentiating features (tuning, telemetry, security) and phone for navigation. *(Sourced Evidence)*",
+        "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; Hero COE structure; TVS Motor Databricks + CDAO role; Ather 64-feature OTA cadence; TVS 8-year connected services track record; `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -471,6 +501,18 @@
         "sources": "`wiki/outputs/2026-07-07_regional_analysis_vietnam_sea.md`; `wiki/outputs/2026-07-07_regional_analysis_malaysia.md`; ABI Research connected motorcycle market data cited in `wiki/outputs/2026-06-26_signal_strengthening_findings.md`; `sources/2026-06-26_deep_dive_mforce.md`; `raw/2026Q3_vinfast_philippines_market_analysis.md` (Medium confidence - secondary analyst source; VinFast entry and V-Green facts credible; TCO figures are analyst estimates; market share projections are model-based, not observed data)."
       },
       {
+        "label": "Brazil Market Baseline - First KB Coverage",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium",
+        "claim": "Brazil is the third-largest motorcycle market in the Americas. Shineray achieved 69.6% growth in 2025 (130,600 units) and a 7.24% peak monthly market share by targeting the gig economy delivery rider segment (iFood, Rappi riders) with ultra-affordable utility models, operated through the only major motorcycle assembly plant outside the Manaus Free Trade Zone (Pernambuco). Shineray operates with zero proprietary connected infrastructure - no cloud backend, no OTA, no companion app - and has broken the Honda-Yamaha Brazilian duopoly entirely through vehicle access and distribution. Latin America had zero prior KB coverage. The Brazil evidence establishes a market where connected software infrastructure is not a competitive differentiator in the dominant growth segment; the competitive variable is price and distribution, not features. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_shineray_brazil_equity_research.md`.*"
+      },
+      {
+        "label": "India Rider Voice - Structural Divergence from Europe Confirmed",
+        "missionSource": "Rider Voice",
+        "confidence": "High",
+        "claim": "The internal Honda/DriveMode India analytics report (October 2025, 27 vehicles, 10 Bangalore interviews) confirms structural divergence from European rider behavior in five dimensions: (1) Navigation is the primary purchase driver - stated directly, not inferred; (2) Full-map view required alongside TBT - riders use TBT for next-turn distance, full map for overall route context; (3) Battery percentage preferred over estimated range (\"I cannot trust this range\"); (4) Music and calls near-zero during riding - no connected headsets, no perceived need; (5) Swap station navigation = 17.2% of India trips - an EV-specific India use case with no European parallel. These are direct interview findings, not preference inferences from competitor feature presence. The divergence from European priorities (theft alert #1, hazard navigation, diagnostics) is now evidenced from primary research in both geographies. *(Sourced Evidence)* Same sample caveat as India signal above: 27 vehicles, 10 interviews, Bangalore urban EV cohort only. *Source: `sources/2025-10-28_honda_roadsync_duo_ux_analytics_india.md`.*"
+      },
+      {
         "label": "Competitor Regional Focus vs. Global Ambition",
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
@@ -490,7 +532,7 @@
       },
       {
         "title": "Automotive OEM Software Fragmentation",
-        "body": "In four-wheel automotive, OEMs that built separate regional software stacks for China, Europe, and North America have documented significant integration and maintenance cost burdens as the stacks diverge over time. VW Group's response to this is the most documented current case: Western markets (NA/EU) will run the Rivian zonal architecture; the Chinese market will run a localized XPeng architecture (CEA - China Electrical Architecture) for seamless integration with WeChat, AutoNavi, and local payment providers. This is a deliberate, fully segregated dual-platform strategy - not fragmentation by accident but architectural separation by design. The trade-off is two parallel engineering tracks with different suppliers and different tech ecosystem integrations. The risk of a similar pattern in two-wheel connected services - driven by regulatory divergence (GDPR in Europe, DPDP Act in India, PDPA in Malaysia, data localisation in Vietnam) - is a structural concern that architecture decisions must address proactively. *Source: `raw/2026Q3_vw_cariad_rivian_jv_analysis.md`.*"
+        "body": "In four-wheel automotive, OEMs that built separate regional software stacks for China, Europe, and North America have documented significant integration and maintenance cost burdens as the stacks diverge over time. VW Group's response to this is the most documented current case: Western markets (NA/EU) will run the Rivian zonal architecture; the Chinese market will run a localized XPeng architecture (CEA - China Electrical Architecture) for seamless integration with WeChat, AutoNavi, and local payment providers. This is a deliberate, fully segregated dual-platform strategy - not fragmentation by accident but architectural separation by design. The trade-off is two parallel engineering tracks with different suppliers and different tech ecosystem integrations. This is the most documented automotive-scale example of geographic software segregation by platform in the KB. The risk of a similar pattern in two-wheel connected services - driven by regulatory divergence (GDPR in Europe, DPDP Act in India, PDPA in Malaysia, data localisation in Vietnam) - is a structural concern that architecture decisions must address proactively. *(Sourced Evidence)* `[Competitor Intelligence · High]` *Source: `wiki/meta/extractions_2026Q3_vw_cariad_rivian_jv_analysis.md`.*"
       }
     ],
     "implications": "A single global software platform serving Honda's full regional footprint - India (#1 growth), Vietnam/SEA (41.7% of connected motorcycle market, 35.8% CAGR), Europe (primary rider voice, high connected intent), and Japan (HQ, #8 growth, Low domestic demand) - faces structurally divergent requirements. The European evidence base now allows confident specification of European feature priorities. India and SEA together represent the dominant growth and volume opportunity, but the absence of rider voice from both regions means the European findings cannot be extended there by assumption. The Japan HQ paradox - where strategic decisions are made in a market ranked #8 for connected vehicle opportunity - is a structural alignment risk: decisions made from a domestic Japanese market context may not serve India, Vietnam, or Indonesia. The strategic question is not whether to localise, but how to architect a platform that enables deep regional differentiation without fracturing into multiple unsustainable one-off codebases - and whether the organisational governance model supports the regional intelligence inputs needed to make those differentiation decisions well.",
@@ -585,6 +627,12 @@
         "confidence": "Low",
         "claim": "The RoadSync Duo app already collects location data, usage patterns, and user identifiers, creating a foundational data asset.",
         "sources": "`sources/2026-06-23_honda_roadsync_duo_app_store.pdf`."
+      },
+      {
+        "label": "India Analytics Design Gap",
+        "missionSource": "Org Capability",
+        "confidence": "Medium",
+        "claim": "The India RoadSync Duo analytics dataset (October 2025, 27 vehicles) documents its own measurement gaps. Multiple event types are not tracked: long press actions, call acceptance, internal settings screen depth, home/work address setup, search destination, find dealership, call type (incoming vs. outgoing). The dataset may be contaminated by unsold or internal-use vehicles because no VIN sales-status flag was applied. These are not minor gaps - they are structural omissions that prevent the data from answering core product questions. The analytics design as currently implemented is insufficient to support the data strategy ambitions in this domain. Investment in analytics instrumentation and dataset governance precedes any useful data strategy for India. *(Sourced Evidence)* *Source: `sources/2025-10-28_honda_roadsync_duo_ux_analytics_india.md`.*"
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -682,8 +730,20 @@
         "label": "Build vs. Integrate Precedent",
         "missionSource": "Financial Intelligence",
         "confidence": "High",
-        "claim": "VW spent EUR 14B on a failed proprietary software build through CARIAD, then committed $5.8B (USD) to license equivalent capability from Rivian after the failure - a documented sequence of build failure followed by partnership as remediation. Post-pivot, CARIAD's mandate was restructured to: (1) managing the Hardware Abstraction Layer between the Rivian OS and VW-specific components; (2) operating the VW.AC cloud backend for vehicle data ingestion and fleet analytics; (3) creating brand-specific UX skins for VW, Audi, Porsche. CARIAD also retains co-ownership of ADAS perception and sensor fusion algorithms via a Bosch ADAS Alliance - IP that is platform-agnostic. This restructured mandate defines a documented precedent for what an OEM software entity retains after ceding the OS and architecture layer to a partner: cloud backend, integration governance, brand differentiation layer, and platform-agnostic IP. McKinsey projects connected vehicle software investment for ADAS can require double-digit billions, while basic connectivity remains relatively low investment by comparison.",
-        "sources": "VW Group financial disclosures; Rivian-VW partnership announcement (Rivian 8-K, Wikipedia joint venture disclosure); McKinsey connected vehicles analysis; `raw/2026Q3_vw_cariad_rivian_jv_analysis.md`."
+        "claim": "VW spent EUR 14B on a failed proprietary software build through CARIAD, then committed $5.8B (USD) to license equivalent capability from Rivian after the failure - a documented sequence of build failure followed by partnership as remediation. Post-pivot, CARIAD's restructured mandate is specifically: (1) integration gatekeeper - managing the Hardware Abstraction Layer (HAL) between the Rivian OS and VW-specific components; (2) operating the VW.AC cloud backend for vehicle data ingestion and fleet analytics; (3) creating brand-specific UX skins for VW, Audi, and Porsche; (4) co-ownership of ADAS perception and sensor fusion algorithms via a Bosch ADAS Alliance - IP that is platform-agnostic. This is a significant position despite ceding the OS layer: it retains cloud backend, integration governance, brand differentiation layer, and platform-agnostic IP. This restructured mandate is the most documented example in the KB of what an OEM software entity retains after ceding the OS layer to a partner - and it defines a reference point for what DriveMode should expect to retain if Honda's own SDV organization or a third-party platform eventually takes the OS layer. McKinsey projects connected vehicle software investment for ADAS can require double-digit billions, while basic connectivity remains relatively low investment by comparison. *(Sourced Evidence)*",
+        "sources": "VW Group financial disclosures; Rivian-VW partnership announcement (Rivian 8-K); McKinsey connected vehicles analysis; `wiki/meta/extractions_2026Q3_vw_cariad_rivian_jv_analysis.md`."
+      },
+      {
+        "label": "Shineray Full Integrator Archetype",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium",
+        "claim": "Shineray (Brazil) represents the most extreme systems integrator case documented in the KB. Its technology stack is 100% externalized: QJMotor (a Geely subsidiary) supplies engines, chassis, and base electronics; Bosch provides ABS; Carbit Ride (third-party) provides Google Maps mirroring navigation; external suppliers provide EV components. Shineray's retained in-house functions are limited to assembly, distribution, and marketing. This is the full integrator endpoint on the build-vs-partner spectrum - a manufacturer with no proprietary technology layer that achieved 7%+ market share and broke a duopoly in a major market. It sits at the opposite pole from full in-house build (Ola Electric) and alongside CFMOTO as the clearest documented implementations of pure integration strategy. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_shineray_brazil_equity_research.md`.*"
+      },
+      {
+        "label": "ZX Moto: Selective In-House IP Plus Tier 1 Partner Archetype",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium-High",
+        "claim": "ZX Moto establishes a third competitor archetype distinct from full integrator (Shineray/CFMOTO) and full in-house build (Ola Electric). The model: 100% in-house ownership of engine, chassis design, and software UI/UX as core IP; 100% externalized safety-critical and performance-credibility systems (Bosch IMU/ECU, Brembo brakes, Ohlins suspension). Navigation is explicitly not built - phone mirroring only. The hybrid model defines a boundary: in-house where the brand's performance identity is expressed; externalized where Tier 1 credibility cannot be replicated without the partners' accumulated IP and certification. This model achieved superbike-level ARAS deployment with $13.1M in Series A capital. *(Sourced Evidence)* *Source: `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`.*"
       },
       {
         "label": "Rider Evidence Against OEM Navigation Build",
@@ -794,6 +854,24 @@
         "confidence": "Medium",
         "claim": "The deep dives provide first motorcycle-sector R&D investment reference points. CFMOTO invests 6.18% of revenue in R&D ($170M on $2.73B FY2025 revenue), holding 2,119+ active patents across R&D centres in China, Italy, USA, and Austria. TVS Motor acquired Intellicar (telematics) and Predictronics Corporation (AI predictive maintenance), and invested £200M+ in the Norton Motorcycles acquisition.",
         "sources": "`sources/2026-06-26_cfmoto_deep_dive.md`; `sources/2026-06-26_tvs_deep_dive.md`."
+      },
+      {
+        "label": "EV-Native OS Adaptation Risk",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium",
+        "claim": "The VW-Rivian JV adopted an EV-native zonal architecture (Rivian's SDV platform) as the basis for VW's next-generation vehicles - including ICE and hybrid variants. The risk: adapting an EV-native OS to ICE/hybrid vehicle architectures introduces architectural strain that may recreate the complexity the Rivian pivot was intended to eliminate. A platform designed around zonal EV electrical architecture does not map cleanly to ICE power management, transmission integration, or hybrid-specific sensor domains. This forward risk is documented as a strategic concern in the equity research analysis. Where Honda faces analogous decisions - choosing a software platform architecture for vehicles spanning EV, ICE, and hybrid - the same adaptation strain risk applies. *(Analytical Interpretation)* `[Competitor Intelligence · Medium]` *Source: `wiki/meta/extractions_2026Q3_vw_cariad_rivian_jv_analysis.md`.*"
+      },
+      {
+        "label": "Tier 1 Partner Ecosystem as Capital Efficiency Enabler",
+        "missionSource": "Competitor Intelligence",
+        "confidence": "Medium",
+        "claim": "ZX Moto achieved superbike-level ARAS deployment (6-axis Bosch IMU, front/rear radar, cornering ABS, cornering traction control, FCW, blind spot detection, lane keeping assist) with a $13.1M Series A. This is evidence that the Tier 1 partner ecosystem (Bosch, Brembo, Qualcomm) enables premium connected feature deployment at significantly lower capital cost than full in-house development of equivalent capability. The cost efficiency comes from certifying and integrating existing Tier 1 systems rather than developing them from first principles. For investment sequencing, this matters: connected safety and performance features in the premium segment do not require the capital investment levels implied by the CARIAD and Ford cases - which were building architecture layers, not integrating certified Tier 1 components. *(Analytical Interpretation)* *Source: `wiki/meta/extractions_2026Q3_zxmoto_china_equity_research.md`.*"
+      },
+      {
+        "label": "India Onboarding Failure as Pre-First-Use Investment Priority",
+        "missionSource": "Org Capability",
+        "confidence": "High",
+        "claim": "India analytics data reveals pre-first-use failure at scale: 44.4% of vehicle owners (12 of 27) did not complete onboarding. The primary failure point is Invoice QR scanning. Pairing process data shows 34.8% of sessions experienced friction. These are not retention metrics - they are pre-first-use failures in Honda's primary growth market. Investment in onboarding reliability and connectivity stability is a prerequisite for any data strategy, subscription model, or retention program in India. The sequencing implication is direct: a rider who never completes onboarding cannot be retained, monetized, or studied. *(Sourced Evidence)* `[Org Capability · High]` *Source: `sources/2025-10-28_honda_roadsync_duo_ux_analytics_india.md`.*"
       },
       {
         "label": "Deferred Platform Investment",
