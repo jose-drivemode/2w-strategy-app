@@ -929,18 +929,18 @@
     "crossIndustryPatterns": [
       {
         "title": "Venture Capital Portfolio Strategy",
-        "body": "VC firms mitigate risk by making many small, early-stage bets and then concentrating follow-on funding only on the handful of proven winners. The VW CARIAD failure and subsequent Rivian licensing deal illustrate the automotive equivalent: a €14B single platform bet collapsed, and was replaced by a structured partnership commitment. The pattern suggests that staged investment with decision points performs better than a single large upfront commitment to proprietary build."
+        "body": "VC firms make many small early bets and concentrate follow-on funding only on the handful of proven winners. The VW CARIAD failure illustrates the automotive equivalent: a €14B single platform bet was abandoned and replaced by a $5.8B Rivian licensing deal. Staged investment with decision points has a better track record than a single large upfront commitment to proprietary build."
       },
       {
         "title": "Corporate Budgeting (Project vs. Product)",
-        "body": "Traditional corporations fund discrete \"projects\" with a defined start, end, and budget. Modern software companies fund persistent \"products\" or \"platforms\" with continuous, operational budgets, recognizing that the work is never \"done.\" When project-based approval structures are applied to platform investments, the result is the kind of allocation deferral visible in the July 2026 engineering timeline - Platform 2.x expansion pushed to January-February because no continuous platform investment mandate exists."
+        "body": "Traditional corporations fund discrete \"projects\" with a defined start, end, and budget. Software platforms require continuous, ongoing investment - the work is not complete after a launch. When project-based approval structures are applied to platform investments, the result is allocation deferral: Platform 2.x expansion is pushed to January-February because no continuous platform investment mandate exists."
       },
       {
         "title": "Subscription Monetization Sequencing",
-        "body": "GM Super Cruise's $234M in 2025 revenue with 80% subscriber growth was preceded by years of infrastructure investment before any subscription revenue line was opened. The monetization came after the table-stakes layer (connectivity, OTA, navigation) was established and a specific premium capability (hands-free highway driving) was proven at scale. This sequencing - table stakes first, then premium service layer, then subscription monetization - is the observable pattern across automotive connected services, not simultaneous investment across all layers."
+        "body": "GM Super Cruise's $234M in 2025 revenue with 80% subscriber growth came after years of infrastructure investment with no subscription revenue line. The table-stakes layer (connectivity, OTA, navigation) had to be established first; only then was a premium capability (hands-free highway driving) proven at scale. Table stakes before premium service before subscription monetization is the observable sequence across automotive connected services."
       }
     ],
-    "implications": "The cumulative evidence in this domain points to a sequencing problem, not a capability problem. The financial evidence from automotive OEMs shows that investment at the wrong layer, at the wrong time, produces either catastrophic write-downs (CARIAD, Ford) or sustained deferral of the monetization layer (table-stakes investment that never advances to premium services). The macroeconomic data sharpens the geographic sequencing question: India and Vietnam present the strongest growth trajectories and connected opportunity assessments, while Japan presents a downgraded forecast and currency headwind. This creates a compounded investment prioritization decision - not only which layer to invest in first (infrastructure before monetization) but also which markets to lead with (high-growth emerging markets before premium developed markets). The July 2026 allocation documents that Platform 2.x expansion does not appear in the engineering timeline until January-February - establishing current sequencing as a concrete starting point for the investment prioritization discussion this domain is designed to inform.",
+    "implications": "The evidence points to a sequencing problem, not a capability problem. Investment at the wrong layer at the wrong time produces either catastrophic write-downs (CARIAD, Ford) or sustained deferral of the monetization layer - table-stakes investment that never advances to premium services. The macroeconomic data adds geographic dimension: India and Vietnam present the strongest growth trajectories and connected opportunity assessments; Japan presents a downgraded forecast and currency headwind. This creates a compounded decision - not only which layer to invest in first, but which markets to lead with. The July 2026 allocation establishes where that sequencing stands today: Platform 2.x expansion is not in the engineering timeline until January-February. That is the concrete starting point for the investment prioritization discussion this domain is designed to inform.",
     "tensionsNote": null,
     "tensions": [
       {
@@ -973,11 +973,11 @@
       },
       {
         "requirement": "Portfolio Funding Mechanism",
-        "description": "A funding approach that can run parallel capability bets at different scales and redirect resources toward what demonstrates traction - rather than forcing every capability decision into a single large upfront commitment. The VW-Rivian case illustrates the cost of not having this mechanism: €14B was committed to a single proprietary build before the alternative (licensing) was pursued."
+        "description": "A funding approach that can run parallel capability bets at different scales and redirect resources toward what demonstrates traction - rather than forcing every capability decision into a single large upfront commitment. The VW case illustrates the cost of the alternative: €14B committed to a single proprietary build before licensing was pursued."
       },
       {
         "requirement": "Geographic Investment Sequencing",
-        "description": "A deliberate framework for sequencing connected service investment across markets based on growth trajectory, connected opportunity assessment, and currency risk - rather than defaulting to market investment based on organizational proximity. The macroeconomic evidence establishing India and Vietnam as the highest-priority growth markets provides an evidence base for this sequencing decision, but the decision itself requires a governance structure that can act on it."
+        "description": "A framework for sequencing connected service investment across markets based on growth trajectory, connected opportunity assessment, and currency risk - rather than defaulting to organizational proximity. The macroeconomic evidence establishing India and Vietnam as the highest-priority growth markets provides the basis for this sequencing; the decision itself requires a governance structure that can act on it."
       }
     ]
   }
