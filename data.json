@@ -98,7 +98,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Rider ownership and payment patterns now include primary European research (35 qualitative interviews + 301 EICMA survey respondents across Germany, France, Italy) alongside 20+ independent sources from app reviews, forums, and press. Competitor cases are confirmed from public disclosures. Confidence remains Medium rather than High because direct rider voice from Japan and Southeast Asia - Honda's core volume markets - is still absent. The ownership patterns described reflect Western and European rider behaviour and may not transfer to Asian markets.",
+    "domainConfidenceNote": "The evidence for European markets is substantial: 35 qualitative interviews and a 301-respondent survey across Germany, France, and Italy, reinforced by 20+ independent sources from app reviews, forums, and enthusiast press. Competitor cases are confirmed from public disclosures. The domain is Medium rather than High because direct rider voice from Japan and Southeast Asia - Honda's primary volume markets - is entirely absent. The ownership patterns, willingness-to-pay thresholds, and feature priorities described here reflect Western European rider behaviour. Feature prioritization decisions for Honda's core volume markets cannot be made from this evidence base alone.",
     "domainWarning": false,
     "signals": [
       {
@@ -196,7 +196,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Competitor infrastructure benchmarks (Hero, Ather) and automotive financial failures (CARIAD, Ford) are drawn from public and investor-grade disclosures. The internal capability picture is now corroborated by two independent internal sources: the Engineering Skills Map and the July 2026 project allocation, which shows where P5-level engineering capacity is currently committed. Confidence remains Medium rather than High because the financial precedents are automotive-scale; their direct applicability to a motorcycle OEM at lower vehicle volumes is an inference, not a measured data point.",
+    "domainConfidenceNote": "Competitor infrastructure benchmarks (Hero, Ather) and automotive financial failures (CARIAD, Ford) are drawn from public and investor-grade disclosures. The internal capability picture is supported by two independent internal sources: the Engineering Skills Map and the July 2026 project allocation, documenting where engineering capacity is currently committed. The domain is Medium rather than High because the financial precedents are automotive-scale; their direct applicability to a motorcycle OEM at significantly lower vehicle volumes is an inference, not a measured data point. Infrastructure cost and failure estimates should be treated as directional, not as verified motorcycle market benchmarks.",
     "domainWarning": false,
     "signals": [
       {
@@ -282,7 +282,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
-    "domainConfidenceNote": "Rider preference for best-in-class third-party apps over OEM apps is strongly evidenced from Western markets (20+ sources; Calimoto 3M+ users). Competitor platform strategies for Hero, TVS, and Ather are confirmed from public disclosures. An internal Platform 2.0 presentation provides direct evidence of DriveMode's current platform scope and its explicit boundaries - specifically that identity, security, and pre/post-sale lifecycle are not included in the current platform definition. Confidence remains Medium because the financial evidence comes from automotive OEMs at significantly larger scale, the successful platform cases are India-centric, and the internal capability data is a single self-assessed source.",
+    "domainConfidenceNote": "Rider preference for best-in-class third-party apps over OEM apps is strongly evidenced from Western markets (20+ sources; Calimoto 3M+ users). Competitor platform strategies for Hero, TVS, and Ather are confirmed from public disclosures. An internal Platform 2.0 presentation documents Drivemode's current platform scope and its explicit boundaries - identity, security, and pre/post-sale lifecycle are outside the current platform definition. The domain is Medium rather than High on three grounds: the financial evidence comes from automotive OEMs operating at significantly larger scale; the successful platform cases are India-centric; and the internal capability data is a single self-assessed source. Platform investment economics in this domain are directional, not verified.",
     "domainWarning": false,
     "signals": [
       {
@@ -367,7 +367,7 @@
     "type": "domain",
     "full": true,
     "domainConfidence": "Low",
-    "domainConfidenceNote": "European rider voice is now well-evidenced: 35 qualitative interviews and 301 EICMA survey respondents across Germany, France, and Italy provide primary research on European needs (2025). However, Japan and Southeast Asia - Honda's primary volume markets - still have no direct rider voice in this KB. The critical gap has narrowed from \"all of Europe and Asia\" to specifically Japan and SEA. Strategic decisions about Honda's global regional differentiation strategy should not be made from this evidence alone until Asia-Pacific rider research has been conducted.",
+    "domainConfidenceNote": "European regional preferences are well-evidenced: 35 qualitative interviews and a 301-respondent survey across Germany, France, and Italy, alongside 20+ independent secondary sources. Japan and Southeast Asia - Honda's primary volume markets - have no direct rider voice in this evidence base. The domain is Low confidence because the evidence covers markets that represent a minority of Honda's global volume. Regional differentiation decisions for Asia-Pacific cannot be derived from this evidence base. Any strategic conclusion about global or regional feature prioritization that is not specifically scoped to European markets should be treated as speculative until Asia-Pacific research is conducted.",
     "domainWarning": true,
     "signals": [
       {
