@@ -37,10 +37,9 @@
   .card-top { display: flex; justify-content: space-between; align-items: flex-start; }
   .card-num { font-size: 11px; font-weight: 600; }
   .card-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
-  .vote-bar { height: 3px; background: #EDE9E4; border-radius: 2px; overflow: hidden; display: flex; margin-bottom: 10px; }
-  .vote-bar-seg { transition: flex 0.3s; min-width: 0; }
   .card-title { font-size: 16px; line-height: 1.3; font-family: 'EB Garamond', serif; padding-top: 10px; margin-top: 8px; }
   .card-nodata { font-size: 11px; color: #C0C8CC; margin-top: 5px; font-style: italic; }
+  .card-stance-snippet { font-size: 10px; color: #5A7B87; line-height: 1.5; margin-top: 6px; font-style: italic; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
   /* ─────────────────────────────────────────
      DETAIL
@@ -52,7 +51,7 @@
   .dt-title-wrap { flex: 1; min-width: 0; }
   .dt-domain-counter { font-size: 10px; color: #8A9BAA; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700; margin-bottom: 2px; }
   .dt-domain-title { font-size: 22px; font-family: 'EB Garamond', serif; color: #1A2332; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .dt-locked-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
+  .dt-concluded-badge { padding: 3px 9px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; background: #E6F4F0; color: #1A6B52; border: 1px solid #1A6B5230; }
 
   /* Wider left panel for signal real estate */
   .dt-body { flex: 1; display: grid; grid-template-columns: 380px 1fr; overflow: hidden; }
@@ -80,6 +79,9 @@
   .signal-meta-badge { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; letter-spacing: 0.3px; }
   .signal-claim { font-size: 12px; color: #2A3848; line-height: 1.65; margin-bottom: 9px; }
   .signal-sources { font-size: 10px; color: #8A9BAA; font-style: italic; line-height: 1.5; padding-top: 8px; border-top: 1px dashed #DDD9D3; }
+  .source-file-link { display: inline-block; font-size: 9.5px; font-weight: 500; font-style: normal; color: #5B8DB8; background: #EEF4FB; border: 1px solid #C8DCF0; border-radius: 8px; padding: 1px 6px; text-decoration: none; margin: 2px 2px 0 0; transition: background 0.15s ease; }
+  .source-file-link:hover { background: #D4E8F5; color: #1E5A8A; border-color: #A0C4E0; }
+  .source-file-link::before { content: "↗ "; opacity: 0.6; }
 
   /* Cross-industry patterns */
   .evidence-section-gap { margin-top: 20px; }
@@ -153,11 +155,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 11px 40px;
+    padding: 10px 40px;
     background: #F9F7F4;
   }
   .facilitation-toggle-left { display: flex; align-items: center; gap: 12px; }
-  .facilitation-toggle-label { font-size: 9px; font-weight: 700; color: #A0B0BA; text-transform: uppercase; letter-spacing: 1.4px; }
+  .facilitation-toggle-label { font-size: 9px; font-weight: 700; color: #A0B0BA; text-transform: uppercase; letter-spacing: 1.4px; flex-shrink: 0; }
   .facilitation-helper { font-size: 11px; color: #A0B0BA; }
   .facilitation-toggle-btn {
     font-size: 11px;
@@ -167,35 +169,161 @@
     cursor: pointer;
     transition: all 0.15s;
     letter-spacing: 0.2px;
+    flex-shrink: 0;
   }
+  .group-name-input {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #1A2332;
+    border: 1px solid #D0D8DF;
+    border-radius: 4px;
+    padding: 4px 10px;
+    background: white;
+    width: 180px;
+    outline: none;
+  }
+  .group-name-input:focus { border-color: #1E4D5C; }
+  .group-name-input::placeholder { color: #B0BEC5; font-weight: 400; }
 
-  /* Voting panel */
-  .voting-panel {
+  /* Conclusion panel */
+  .conclusion-panel {
     padding: 16px 40px 18px;
     background: #FAFAF8;
     border-top: 1px solid #EDE9E4;
     animation: slideUp 0.18s ease-out;
+    overflow-y: auto;
+    max-height: 300px;
   }
-  .voting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-  .voting-action-btn { font-size: 11px; color: #7A8A96; background: none; border: none; cursor: pointer; text-decoration: underline; }
-  .vote-options-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-  .vote-option { display: flex; flex-direction: column; gap: 8px; align-items: center; }
-  .vote-btn { width: 100%; padding: 11px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 0.5px; }
-  .vote-count { font-size: 22px; font-weight: 700; display: block; line-height: 1.2; }
-  .vote-label { font-size: 10px; color: #8A9BAA; display: block; text-align: center; }
-  .vote-count-wrap { text-align: center; }
-  .lock-btn { width: 100%; padding: 12px; background: #1E4D5C; color: white; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; letter-spacing: 0.3px; transition: background 0.15s; }
-  .lock-btn:hover { background: #163A47; }
-  .locked-display { display: flex; align-items: center; gap: 16px; padding: 14px 20px; background: #F0EEE9; border-radius: 8px; }
-  .locked-badge-lg { padding: 7px 18px; border-radius: 4px; font-size: 13px; font-weight: 700; letter-spacing: 0.6px; white-space: nowrap; }
-  .locked-summary { font-size: 13px; color: #3D4D5C; }
+
+  .conclusion-section { margin-bottom: 14px; }
+  .conclusion-section:last-child { margin-bottom: 0; }
+
+  .stance-textarea {
+    width: 100%;
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #1A2332;
+    border: 1px solid #D8D4CE;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: white;
+    resize: none;
+    min-height: 72px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .stance-textarea:focus { border-color: #1E4D5C; }
+  .stance-textarea::placeholder { color: #C0C8CC; font-style: italic; }
+
+  .project-list { display: flex; flex-direction: column; gap: 5px; margin-bottom: 7px; }
+  .project-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: white;
+    border: 1px solid #E8E4DE;
+    border-radius: 5px;
+    padding: 7px 10px;
+    font-size: 12px;
+    color: #2A3848;
+    line-height: 1.4;
+  }
+  .project-item-dot { color: #1E4D5C; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .project-item-text { flex: 1; }
+  .project-remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #B0BEC5;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    flex-shrink: 0;
+    transition: color 0.1s;
+  }
+  .project-remove-btn:hover { color: #E53935; }
+
+  .project-add-row { display: flex; gap: 6px; align-items: center; }
+  .project-add-input {
+    flex: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: #1A2332;
+    border: 1px solid #D0D8DF;
+    border-radius: 5px;
+    padding: 6px 10px;
+    background: white;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .project-add-input:focus { border-color: #1E4D5C; }
+  .project-add-input::placeholder { color: #C0C8CC; }
+  .project-add-btn {
+    padding: 6px 12px;
+    background: #1E4D5C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .project-add-btn:hover { background: #163A47; }
+
+  .export-row {
+    display: flex;
+    gap: 8px;
+    padding-top: 4px;
+  }
+  .export-btn {
+    flex: 1;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: all 0.15s;
+  }
+  .export-btn-json {
+    background: white;
+    color: #1E4D5C;
+    border: 1.5px solid #1E4D5C;
+  }
+  .export-btn-json:hover { background: #E8F2F5; }
+  .export-btn-pdf {
+    background: #1E4D5C;
+    color: white;
+    border: 1.5px solid #1E4D5C;
+  }
+  .export-btn-pdf:hover { background: #163A47; }
+
+  .conclusion-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .clear-session-btn {
+    font-size: 10px;
+    color: #B0BEC5;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .clear-session-btn:hover { color: #E53935; }
 </style>
 </head>
 <body>
 <div class="app" id="app"></div>
 
 <script>
-const STORAGE_KEY = 'drivemode_wkshp_v1';
+const STORAGE_KEY = 'drivemode_wkshp_v2';
 
 // Render inline **bold** markdown as DOM nodes
 function renderInline(text) {
@@ -203,8 +331,43 @@ function renderInline(text) {
   return parts.map((p, i) => i % 2 === 1 ? el('strong', null, p) : p);
 }
 
+// Parses the sources string and converts two patterns into clickable badges:
+//   1. `raw/file.md`, `sources/file.md`, `wiki/file.md` — repo file links (GitHub)
+//   2. [Label](https://...) — external markdown links
+// Everything else is preserved as plain text.
+const REPO_BASE = 'https://github.com/jose-drivemode/2w-strategy/blob/main/';
+const SOURCE_RE = /`((raw|sources|wiki)\/[^`]+)`|\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g;
+
+function renderSources(text) {
+  const nodes = [];
+  let lastIndex = 0;
+  let match;
+  SOURCE_RE.lastIndex = 0;
+  while ((match = SOURCE_RE.exec(text)) !== null) {
+    if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
+    const a = document.createElement('a');
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = 'source-file-link';
+    if (match[1]) {
+      // Repo file path
+      a.href = REPO_BASE + match[1];
+      a.textContent = match[1].split('/').pop();
+      a.title = match[1];
+    } else {
+      // External markdown link
+      a.href = match[4];
+      a.textContent = match[3];
+      a.title = match[4];
+    }
+    nodes.push(a);
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
+  return nodes.length > 0 ? nodes : [text];
+}
+
 // 5-zone stance label for the tension lever
-// pct 0 = full Signal, pct 100 = full Counter-Signal
 function getStanceLabel(pct) {
   if (pct <= 15) return { text: 'Strongly Signal',  color: '#0099FF' };
   if (pct <= 35) return { text: 'Lean Signal',       color: '#3399CC' };
@@ -213,8 +376,6 @@ function getStanceLabel(pct) {
   return              { text: 'Strongly Counter',   color: '#E61E8C' };
 }
 
-// Apply lever-position-driven typography to signal/counter-signal elements
-// pct 0 = full left (signal), pct 100 = full right (counter-signal)
 function applyLeverStyles(pct, signalEl, counterEl, stanceEl) {
   const l = 1 - pct / 100;
   const r = pct / 100;
@@ -235,7 +396,6 @@ function applyLeverStyles(pct, signalEl, counterEl, stanceEl) {
   }
 }
 
-// Signal type → unified color (border + label + badge share one hue)
 function signalTypeConfig(label) {
   const l = label.toLowerCase();
   if (l.includes('competitor') || l.includes('benchmark'))
@@ -249,7 +409,6 @@ function signalTypeConfig(label) {
   return { color: '#5A6A7A', badgeBg: '#F4F3F0' };
 }
 
-// Domain-level confidence (isolated to header block only)
 function domainConfidenceConfig(conf) {
   const c = (conf || '').toLowerCase();
   if (c === 'high')   return { bg: '#E6F7F0', color: '#0F7A52', border: '#0F7A5230' };
@@ -263,21 +422,21 @@ let DATA = [];
 let state = {
   view: 'overview',
   activeId: null,
-  domainStates: {},
-  domainVotes: {},
+  groupName: '',
+  domainConclusions: {}, // { [id]: { stance, ongoingProjects: [], potentialProjects: [] } }
   tensionPos: {},
   drag: null,
-  facilitationMode: false, // session-only, not persisted
+  facilitationMode: false, // session-only
 };
 
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
-      const { domainStates, domainVotes, tensionPos } = JSON.parse(raw);
-      state.domainStates = domainStates || {};
-      state.domainVotes  = domainVotes  || {};
-      state.tensionPos   = tensionPos   || {};
+      const { groupName, domainConclusions, tensionPos } = JSON.parse(raw);
+      state.groupName        = groupName        || '';
+      state.domainConclusions = domainConclusions || {};
+      state.tensionPos       = tensionPos       || {};
     }
   } catch (e) {}
 }
@@ -285,9 +444,9 @@ function loadState() {
 function persist() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      domainStates: state.domainStates,
-      domainVotes:  state.domainVotes,
-      tensionPos:   state.tensionPos,
+      groupName:        state.groupName,
+      domainConclusions: state.domainConclusions,
+      tensionPos:       state.tensionPos,
     }));
   } catch (e) {}
 }
@@ -299,16 +458,15 @@ function render() {
 }
 
 // ── Helpers ──
-function stateLabel(s) {
-  return s === 'anchor' ? 'ANCHOR' : s === 'deprioritize' ? 'DEPRIORITIZE' : 'IGNORE';
+function getConclusion(id) {
+  return state.domainConclusions[id] || { stance: '', ongoingProjects: [], potentialProjects: [] };
 }
-function badgeColors(s) {
-  if (s === 'anchor')       return { bg: '#E8F2F5', color: '#1E4D5C', border: '#1E4D5C' };
-  if (s === 'deprioritize') return { bg: '#D4DFE5', color: '#5A7B87', border: '#A0B0BA' };
-  return                          { bg: '#C8D5DF', color: '#5A6A76', border: '#A0B0BA' };
+
+function isConcluded(id) {
+  const c = getConclusion(id);
+  return c.stance.trim() !== '' || c.ongoingProjects.length > 0 || c.potentialProjects.length > 0;
 }
-function capIcon(a)  { return a === 'Leverage / Optimize' ? '✓' : a === 'Invest / Scale' ? '→' : '◆'; }
-function getVotes(id) { return state.domainVotes[id] || { anchor: 0, deprioritize: 0, ignore: 0 }; }
+
 function getTensionPos(id, ti) { return ((state.tensionPos[id] || {})[ti]) ?? 40; }
 
 function el(tag, attrs, ...children) {
@@ -330,26 +488,25 @@ function el(tag, attrs, ...children) {
 
 // ── OVERVIEW ──
 function buildOverview() {
-  const anchored      = Object.values(state.domainStates).filter(s => s === 'anchor').length;
-  const deprioritized = Object.values(state.domainStates).filter(s => s === 'deprioritize').length;
-  const ignored       = Object.values(state.domainStates).filter(s => s === 'ignore').length;
-  const domainCount   = DATA.filter(d => d.type !== 'precondition').length;
+  const concluded  = DATA.filter(d => d.full && isConcluded(d.id)).length;
+  const totalFull  = DATA.filter(d => d.full).length;
+  const domainCount = DATA.filter(d => d.type !== 'precondition').length;
   const hasPrecondition = DATA.some(d => d.type === 'precondition');
+  const groupLabel = state.groupName ? ` · ${state.groupName}` : '';
 
   return el('div', { id: 'overview' },
     el('div', { class: 'ov-header' },
       el('div', null,
         el('h1', { class: 'ov-title' }, hasPrecondition ? `Governance Precondition + ${domainCount} Decision Domains` : `The ${domainCount} Decision Domains`),
-        el('p', { class: 'ov-subtitle' }, 'Click a domain to explore · decisions persist across sessions'),
+        el('p', { class: 'ov-subtitle' }, 'Click a domain to explore · conclusions persist across sessions'),
       ),
       el('div', { class: 'ov-legend' },
         el('div', { class: 'legend-items' },
-          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#E8F2F5', border: '1.5px solid #1E4D5C' } }), 'ANCHOR'),
-          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#F5F7FA', border: '1.5px solid #A0B0BA' } }), 'DEPRIORITIZE'),
-          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#E8EDF0', border: '1.5px solid #C8D5DF' } }), 'IGNORE'),
+          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: '#E6F4F0', border: '1.5px solid #1A6B52' } }), 'Concluded'),
+          el('div', { class: 'legend-item' }, el('div', { class: 'legend-swatch', style: { background: 'white', border: '1.5px solid #E8EDF0' } }), 'Open'),
         ),
         el('div', { class: 'legend-divider' }),
-        el('span', { class: 'ov-tally' }, `${anchored} anchored · ${deprioritized} deprioritized · ${ignored} ignored`),
+        el('span', { class: 'ov-tally' }, `${concluded} of ${totalFull} concluded${groupLabel}`),
       ),
     ),
     el('div', { class: 'ov-grid-wrap' },
@@ -359,41 +516,31 @@ function buildOverview() {
 }
 
 function buildDomainCard(d) {
-  const s   = state.domainStates[d.id];
-  const v   = getVotes(d.id);
-  const tot = v.anchor + v.deprioritize + v.ignore;
-  const bc  = s ? badgeColors(s) : null;
+  const concluded      = d.full && isConcluded(d.id);
   const isPrecondition = d.type === 'precondition';
+  const c              = getConclusion(d.id);
 
   let cardStyle;
-  if      (s === 'anchor')       cardStyle = { background: '#E8F2F5', border: '2px solid #1E4D5C', cursor: 'pointer' };
-  else if (s === 'deprioritize') cardStyle = { background: '#F5F7FA', border: '2px solid #A0B0BA', cursor: 'pointer' };
-  else if (s === 'ignore')       cardStyle = { background: '#E8EDF0', border: '2px solid #C8D5DF', cursor: 'pointer', opacity: '0.55' };
-  else if (isPrecondition)       cardStyle = { background: '#FFF8EC', border: '1.5px solid #D4920A', cursor: 'pointer' };
-  else if (d.full)               cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
-  else                           cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
+  if      (concluded)      cardStyle = { background: '#E6F4F0', border: '2px solid #1A6B52', cursor: 'pointer' };
+  else if (isPrecondition) cardStyle = { background: '#FFF8EC', border: '1.5px solid #D4920A', cursor: 'pointer' };
+  else if (d.full)         cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'pointer', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' };
+  else                     cardStyle = { background: 'white', border: '1px solid #E8EDF0', cursor: 'default', opacity: '0.55' };
 
-  const numColor   = isPrecondition ? '#B06D00' : s === 'anchor' ? '#1E4D5C' : s === 'deprioritize' ? '#8A9BAA' : s === 'ignore' ? '#7A8A96' : d.full ? '#C0CAD2' : '#D8D4CE';
-  const titleColor = (s && s !== 'anchor') ? '#6B7A86' : '#1A2332';
-
-  const voteBarEl = (!s && tot > 0) ? el('div', { class: 'vote-bar' },
-    el('div', { class: 'vote-bar-seg', style: { flex: String(v.anchor || 0), background: '#1E4D5C' } }),
-    el('div', { class: 'vote-bar-seg', style: { flex: String(v.deprioritize || 0), background: '#8A9BAA' } }),
-    el('div', { class: 'vote-bar-seg', style: { flex: String(v.ignore || 0), background: '#B8C4CC' } }),
-  ) : null;
+  const numColor   = isPrecondition ? '#B06D00' : concluded ? '#1A6B52' : d.full ? '#C0CAD2' : '#D8D4CE';
+  const titleColor = concluded ? '#1A2332' : '#1A2332';
 
   const card = el('div', { class: `domain-card${d.full ? ' clickable' : ''}`, style: cardStyle },
     el('div', { class: 'card-top' },
       el('span', { class: 'card-num', style: { color: numColor } }, d.number),
-      bc
-        ? el('span', { class: 'card-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s))
+      concluded
+        ? el('span', { class: 'card-badge', style: { background: '#E6F4F0', color: '#1A6B52', border: '1px solid #1A6B5230' } }, 'CONCLUDED')
         : isPrecondition
           ? el('span', { class: 'card-badge', style: { background: '#FFF0D0', color: '#B06D00', border: '1px solid #D4920A' } }, 'PRECONDITION')
           : el('span'),
     ),
     el('div', null,
-      voteBarEl,
       el('h3', { class: 'card-title', style: { color: titleColor } }, d.title),
+      concluded && c.stance ? el('p', { class: 'card-stance-snippet' }, c.stance) : null,
       !d.full ? el('p', { class: 'card-nodata' }, 'Data coming soon') : null,
     ),
   );
@@ -406,8 +553,7 @@ function buildDomainCard(d) {
 function buildDetail() {
   const id  = state.activeId;
   const dom = DATA.find(d => d.id === id);
-  const s   = state.domainStates[id];
-  const bc  = s ? badgeColors(s) : null;
+  const concluded = isConcluded(id);
 
   return el('div', { id: 'detail' },
     el('div', { class: 'dt-header' },
@@ -416,11 +562,11 @@ function buildDetail() {
         el('p', { class: 'dt-domain-counter' }, dom.type === 'precondition' ? 'Governance Precondition' : `Domain ${dom.number} of ${String(DATA.filter(d => d.type !== 'precondition').length).padStart(2,'0')}`),
         el('h1', { class: 'dt-domain-title' }, dom.title),
       ),
-      bc ? el('span', { class: 'dt-locked-badge', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s)) : el('span'),
+      concluded ? el('span', { class: 'dt-concluded-badge' }, 'CONCLUDED') : el('span'),
     ),
     el('div', { class: 'dt-body' },
       buildEvidencePanel(dom),
-      buildAnalysisPanel(dom, id, s),
+      buildAnalysisPanel(dom, id),
     ),
   );
 }
@@ -459,7 +605,7 @@ function buildEvidencePanel(dom) {
             el('span', { class: 'signal-meta-badge', style: { background: tc.badgeBg, color: tc.color } }, badgeText),
           ),
           el('p', { class: 'signal-claim' }, ...renderInline(sig.claim)),
-          sig.sources ? el('p', { class: 'signal-sources' }, sig.sources) : null,
+          sig.sources ? el('p', { class: 'signal-sources' }, ...renderSources(sig.sources)) : null,
         );
       }),
     ),
@@ -484,8 +630,7 @@ function buildEvidencePanel(dom) {
 }
 
 // ── RIGHT PANEL ──
-function buildAnalysisPanel(dom, id, s) {
-  // Requirements
+function buildAnalysisPanel(dom, id) {
   const reqCards = (dom.requirements || []).map(req =>
     el('div', { class: 'req-card' },
       el('p', { class: 'req-card-name' }, req.requirement),
@@ -493,10 +638,8 @@ function buildAnalysisPanel(dom, id, s) {
     )
   );
 
-  // Tensions
   const tensionItems = (dom.tensions || []).map((t, i) => buildTension(t, i, id));
 
-  // Scroll area: requirements → directional signal → tensions
   const scrollArea = el('div', { class: 'decision-scroll' },
     dom.description ? el('div', { style: { marginBottom: '28px', padding: '18px 22px', background: '#FFF8EC', borderLeft: '3px solid #D4920A', borderRadius: '0 6px 6px 0' } },
       el('p', { style: { fontSize: '9px', fontWeight: '700', color: '#B06D00', textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '10px' } }, 'Precondition'),
@@ -517,7 +660,7 @@ function buildAnalysisPanel(dom, id, s) {
 
   return el('div', { class: 'decision-panel' },
     scrollArea,
-    buildFacilitationArea(id, s),
+    buildFacilitationArea(id),
   );
 }
 
@@ -531,7 +674,6 @@ function buildTension(t, i, id) {
   const stanceEl  = el('div', { class: 'tension-stance' });
   bar.appendChild(marker);
 
-  // Bar wrapper: end labels + bar + ticks + stance label
   const barWrap = el('div', { class: 'tension-bar-wrap' },
     el('div', { class: 'tension-bar-ends' },
       el('span', { class: 'tension-bar-end left' }, '◀ Signal'),
@@ -548,7 +690,6 @@ function buildTension(t, i, id) {
     stanceEl,
   );
 
-  // Apply typography and stance label reflecting current lever position
   applyLeverStyles(pct, signalEl, counterEl, stanceEl);
 
   bar.addEventListener('click', (e) => {
@@ -585,7 +726,7 @@ function buildTension(t, i, id) {
 }
 
 // ── FACILITATION AREA ──
-function buildFacilitationArea(id, s) {
+function buildFacilitationArea(id) {
   const isOn = state.facilitationMode;
 
   const toggleBtn = el('button', {
@@ -594,90 +735,236 @@ function buildFacilitationArea(id, s) {
       ? { background: '#1E4D5C', color: 'white', border: '1px solid #1E4D5C' }
       : { background: 'white', color: '#7A8A96', border: '1px solid #D0D8DF' },
     onClick: () => { state.facilitationMode = !state.facilitationMode; render(); },
-  }, isOn ? 'Enabled · Turn off' : 'Enable voting');
+  }, isOn ? 'Enabled · Turn off' : 'Enable facilitation');
 
   const toggleBar = el('div', { class: 'facilitation-toggle-bar' },
     el('div', { class: 'facilitation-toggle-left' },
-      el('span', { class: 'facilitation-toggle-label' }, 'Facilitation Mode'),
-      !isOn ? el('span', { class: 'facilitation-helper' }, 'Collect group votes and lock a decision.') : null,
+      el('span', { class: 'facilitation-toggle-label' }, 'Facilitation'),
+      isOn
+        ? el('input', {
+            class: 'group-name-input',
+            type: 'text',
+            placeholder: 'Group name (e.g. Engineering)',
+            value: state.groupName,
+            onInput: (e) => { state.groupName = e.target.value; persist(); },
+          })
+        : el('span', { class: 'facilitation-helper' }, 'Capture group stance, link projects, export summary.'),
     ),
     toggleBtn,
   );
 
   const nodes = [toggleBar];
-
   if (isOn) {
-    nodes.unshift(buildVotingPanel(id, s));
+    nodes.unshift(buildConclusionPanel(id));
   }
 
   return el('div', { class: 'facilitation-area' }, ...nodes);
 }
 
-// ── VOTING PANEL ──
-function buildVotingPanel(id, s) {
-  const votes      = getVotes(id);
-  const totalVotes = votes.anchor + votes.deprioritize + votes.ignore;
-  const hasLocked  = !!s;
+// ── CONCLUSION PANEL ──
+function buildConclusionPanel(id) {
+  const conclusion = getConclusion(id);
+  const dom = DATA.find(d => d.id === id);
 
-  let actionBtn = null;
-  if (hasLocked)           actionBtn = el('button', { class: 'voting-action-btn', onClick: () => clearState(id) }, 'Change decision');
-  else if (totalVotes > 0) actionBtn = el('button', { class: 'voting-action-btn', onClick: () => resetVotes(id) }, 'Reset votes');
+  // Stance textarea — updates state on input without re-rendering
+  const stanceTA = el('textarea', {
+    class: 'stance-textarea',
+    placeholder: 'Summarise the group\'s stance on this domain — what does the team believe and why?',
+    onInput: (e) => {
+      if (!state.domainConclusions[id]) state.domainConclusions[id] = { stance: '', ongoingProjects: [], potentialProjects: [] };
+      state.domainConclusions[id].stance = e.target.value;
+      persist();
+    },
+  });
+  stanceTA.value = conclusion.stance;
 
-  let content;
-  if (hasLocked) {
-    const bc = badgeColors(s);
-    content = el('div', { class: 'locked-display' },
-      el('span', { class: 'locked-badge-lg', style: { background: bc.bg, color: bc.color, border: `1px solid ${bc.border}` } }, stateLabel(s)),
-      el('p', { class: 'locked-summary' }, `Set by group vote · ${totalVotes} ${totalVotes === 1 ? 'vote' : 'votes'} cast`),
-    );
-  } else {
-    const leadingKey   = votes.anchor >= votes.deprioritize && votes.anchor >= votes.ignore ? 'anchor'
-      : votes.deprioritize >= votes.ignore ? 'deprioritize' : 'ignore';
-    const leadingCount = Math.max(votes.anchor, votes.deprioritize, votes.ignore);
+  // Project list builder
+  function buildProjectList(type) {
+    const projects = conclusion[type] || [];
+    const listEl = projects.length
+      ? el('div', { class: 'project-list' },
+          ...projects.map((p, i) =>
+            el('div', { class: 'project-item' },
+              el('span', { class: 'project-item-dot' }, '→'),
+              el('span', { class: 'project-item-text' }, p),
+              el('button', { class: 'project-remove-btn', onClick: () => removeProject(id, type, i) }, '×'),
+            )
+          )
+        )
+      : null;
 
-    const optDefs = [
-      { key: 'anchor',       label: 'ANCHOR',       btnStyle: { background: '#E8F2F5', color: '#1E4D5C', border: '2px solid #1E4D5C' }, countColor: '#1E4D5C' },
-      { key: 'deprioritize', label: 'DEPRIORITIZE', btnStyle: { background: '#F5F7FA', color: '#5A7B87', border: '2px solid #A0B0BA' }, countColor: '#A0B0BA' },
-      { key: 'ignore',       label: 'IGNORE',       btnStyle: { background: '#F5F7FA', color: '#7A8A96', border: '2px solid #C8D5DF' }, countColor: '#C8D5DF' },
-    ];
+    const inputId = `proj-input-${id}-${type}`;
+    const inputEl = el('input', {
+      class: 'project-add-input',
+      type: 'text',
+      id: inputId,
+      placeholder: type === 'ongoingProjects' ? 'Project or initiative name…' : 'Potential project or initiative…',
+    });
 
-    content = el('div', null,
-      el('div', { class: 'vote-options-grid' },
-        ...optDefs.map(opt => {
-          const count = votes[opt.key];
-          return el('div', { class: 'vote-option' },
-            el('button', { class: 'vote-btn', style: opt.btnStyle, onClick: () => addVote(id, opt.key) }, opt.label),
-            el('div', { class: 'vote-count-wrap' },
-              el('span', { class: 'vote-count', style: { color: opt.countColor } }, String(count)),
-              el('span', { class: 'vote-label' }, count === 1 ? 'vote' : 'votes'),
-            ),
-          );
-        }),
+    const addBtn = el('button', {
+      class: 'project-add-btn',
+      onClick: () => {
+        const val = inputEl.value.trim();
+        if (!val) return;
+        addProject(id, type, val);
+      },
+    }, '+ Add');
+
+    // Allow Enter key to add
+    inputEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') { e.preventDefault(); addBtn.click(); }
+    });
+
+    return el('div', { class: 'conclusion-section' },
+      el('p', { class: 'section-label', style: { marginBottom: '7px' } },
+        type === 'ongoingProjects' ? 'Ongoing projects that support this stance' : 'Potential projects to pursue'
       ),
-      totalVotes > 0 ? el('button', { class: 'lock-btn', onClick: () => lockState(id) },
-        `Lock In Decision: ${stateLabel(leadingKey)} leading with ${leadingCount} ${leadingCount === 1 ? 'vote' : 'votes'}`) : null,
+      listEl,
+      el('div', { class: 'project-add-row' }, inputEl, addBtn),
     );
   }
 
-  return el('div', { class: 'voting-panel' },
-    el('div', { class: 'voting-header' },
-      el('p', { class: 'section-label' }, 'Group Decision'),
-      actionBtn || el('span'),
+  const clearBtn = el('button', {
+    class: 'clear-session-btn',
+    onClick: () => {
+      if (confirm('Clear all conclusions for this domain?')) {
+        delete state.domainConclusions[id];
+        persist();
+        render();
+      }
+    },
+  }, 'Clear domain');
+
+  return el('div', { class: 'conclusion-panel' },
+    el('div', { class: 'conclusion-header-row' },
+      el('p', { class: 'section-label' }, `Group Stance · ${dom.title}`),
+      clearBtn,
     ),
-    content,
+    el('div', { class: 'conclusion-section' }, stanceTA),
+    buildProjectList('ongoingProjects'),
+    buildProjectList('potentialProjects'),
+    el('div', { class: 'export-row' },
+      el('button', { class: 'export-btn export-btn-json', onClick: exportJSON }, '↓ Export JSON'),
+      el('button', { class: 'export-btn export-btn-pdf',  onClick: exportPDF  }, '⎙ Print / Save PDF'),
+    ),
   );
 }
 
 // ── Actions ──
-function addVote(id, opt) { const prev = getVotes(id); state.domainVotes[id] = { ...prev, [opt]: prev[opt] + 1 }; persist(); render(); }
-function resetVotes(id)   { state.domainVotes[id] = { anchor: 0, deprioritize: 0, ignore: 0 }; persist(); render(); }
-function lockState(id) {
-  const v = getVotes(id);
-  if (!Math.max(v.anchor, v.deprioritize, v.ignore)) return;
-  const winner = v.anchor >= v.deprioritize && v.anchor >= v.ignore ? 'anchor' : v.deprioritize >= v.ignore ? 'deprioritize' : 'ignore';
-  state.domainStates[id] = winner; persist(); render();
+function addProject(id, type, name) {
+  if (!state.domainConclusions[id]) state.domainConclusions[id] = { stance: '', ongoingProjects: [], potentialProjects: [] };
+  state.domainConclusions[id][type] = [...(state.domainConclusions[id][type] || []), name];
+  persist();
+  render();
 }
-function clearState(id) { delete state.domainStates[id]; persist(); render(); }
+
+function removeProject(id, type, index) {
+  if (!state.domainConclusions[id]) return;
+  state.domainConclusions[id][type] = state.domainConclusions[id][type].filter((_, i) => i !== index);
+  persist();
+  render();
+}
+
+// ── Export ──
+function buildExportData() {
+  return {
+    group: state.groupName || 'Unnamed Group',
+    exportedAt: new Date().toISOString(),
+    domains: DATA.filter(d => d.full).map(d => {
+      const c = getConclusion(d.id);
+      return {
+        id:                d.id,
+        number:            d.number,
+        title:             d.title,
+        stance:            c.stance,
+        ongoingProjects:   c.ongoingProjects,
+        potentialProjects: c.potentialProjects,
+      };
+    }),
+  };
+}
+
+function exportJSON() {
+  const data     = buildExportData();
+  const filename = `${(state.groupName || 'session').toLowerCase().replace(/\s+/g, '-')}-${new Date().toISOString().slice(0,10)}.json`;
+  const blob     = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url      = URL.createObjectURL(blob);
+  const a        = document.createElement('a');
+  a.href = url; a.download = filename; a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportPDF() {
+  const data      = buildExportData();
+  const concluded = data.domains.filter(d => d.stance || d.ongoingProjects.length || d.potentialProjects.length);
+  const date      = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  const domainSections = concluded.map(d => `
+    <div class="domain-section">
+      <div class="domain-header">
+        <span class="domain-num">${d.number}</span>
+        <span class="domain-title">${d.title}</span>
+      </div>
+      ${d.stance ? `
+        <div class="block">
+          <div class="block-label">Group Stance</div>
+          <div class="stance-text">${d.stance}</div>
+        </div>` : ''}
+      ${d.ongoingProjects.length ? `
+        <div class="block">
+          <div class="block-label">Ongoing Projects</div>
+          <ul>${d.ongoingProjects.map(p => `<li>${p}</li>`).join('')}</ul>
+        </div>` : ''}
+      ${d.potentialProjects.length ? `
+        <div class="block">
+          <div class="block-label">Potential Projects</div>
+          <ul>${d.potentialProjects.map(p => `<li>${p}</li>`).join('')}</ul>
+        </div>` : ''}
+    </div>`).join('');
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>${data.group} — Session Summary</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Georgia, serif; color: #1A2332; padding: 48px; max-width: 760px; margin: 0 auto; }
+  .report-header { border-bottom: 2px solid #1A2332; padding-bottom: 20px; margin-bottom: 32px; }
+  .report-group { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #5A7B87; margin-bottom: 8px; }
+  .report-title { font-size: 28px; margin-bottom: 6px; }
+  .report-meta { font-family: Arial, sans-serif; font-size: 12px; color: #7A8A96; }
+  .domain-section { margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid #E8E4DE; }
+  .domain-section:last-child { border-bottom: none; }
+  .domain-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
+  .domain-num { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: #A0B0BA; }
+  .domain-title { font-size: 20px; }
+  .block { margin-bottom: 14px; }
+  .block-label { font-family: Arial, sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: #A0B0BA; margin-bottom: 6px; }
+  .stance-text { font-size: 15px; line-height: 1.7; color: #1A2332; }
+  ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  li { font-family: Arial, sans-serif; font-size: 13px; color: #3D4D5C; padding-left: 16px; position: relative; }
+  li::before { content: '→'; position: absolute; left: 0; color: #1E4D5C; font-weight: 700; }
+  .no-content { font-family: Arial, sans-serif; font-size: 13px; color: #A0B0BA; font-style: italic; }
+  @media print { body { padding: 24px; } }
+</style>
+</head>
+<body>
+  <div class="report-header">
+    <div class="report-group">${data.group}</div>
+    <h1 class="report-title">Strategic Framework — Session Summary</h1>
+    <p class="report-meta">${date} · ${concluded.length} of ${data.domains.length} domains concluded</p>
+  </div>
+  ${concluded.length ? domainSections : '<p class="no-content">No domain conclusions captured yet.</p>'}
+</body>
+</html>`;
+
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 400);
+}
 
 // ── Drag ──
 window.addEventListener('mousemove', (e) => {
