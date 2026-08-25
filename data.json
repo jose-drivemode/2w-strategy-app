@@ -106,14 +106,14 @@
         "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "Riders draw a sharp distinction between features they feel they **own** (ride data, permanent access) and services they **access** (navigation, subscriptions). The highest frustration comes from OEMs holding personal ride data hostage.",
-        "sources": "app store reviews (Honda, Kawasaki, BMW), owner forums ([ADVrider](https://advrider.com), [UK-Yankee](https://www.uk-yankee.com)), enthusiast press; 20+ independent sources."
+        "sources": "app store reviews (Honda, Kawasaki, BMW), owner forums (ADVrider, UK-Yankee), enthusiast press; 20+ independent sources."
       },
       {
         "label": "Willingness to Pay",
         "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "Riders resist paying for pre-installed hardware but will pay for high-stakes outcomes like theft tracking and crash detection. In Europe, riders across Germany, France, and Italy are already spending €200-500+ on 3rd party anti-theft devices; dealers sell these at high volume because no OEM equivalent exists. In a 301-rider European survey, Theft Alert ranked #1 single most important feature (28.3%), with 55% rating it Must Have and a further 41.7% Nice to Have. In Vietnam, the same pattern appears at a lower price point: Vietnamese riders are actively spending on aftermarket GPS tracker subscriptions (VieTrack ~1,500,000 VND/year, approximately $60 USD; Viettel V-Tracking ~2,850,000 VND/year, approximately $114 USD) - roughly 3-5x lower than European equivalents for equivalent functionality. One Vietnamese rider quote: \"People like having that security. There's that confidence that your bike's not going to get taken.\" In Indonesia, a commercially active aftermarket GPS tracker market confirms the same demand pattern: entry price IDR 599,000-799,000 (~USD 37-50, including SIM card and server access) through Tokopedia and Shopee, with a market ceiling of approximately IDR 2 million+ (~USD 125+) for non-fleet products. This is the lowest SEA price floor found in research and establishes the minimum willingness-to-pay threshold for anti-theft connectivity in the region. Note: Indonesia aftermarket data reflects market pricing, not direct rider voice.",
-        "sources": "[Monimoto](https://monimoto.com) (£149 + £36/yr), [BikeTrac](https://biketrac.co.uk) (£299 + £99/yr), [EatSleepRIDE](https://eatsleepride.com) Crashlight ($49/yr); Kawasaki Canada voice subscription near-universal rejection; `raw/2026Q2_europe_rider_voice_research.md` (35 qualitative interviews + 301 EICMA survey, Germany/France/Italy, 2025); Saigoneer (VieTrack/Viettel pricing, Vietnam GPS tracker market); `raw/2026Q3_vietnam_rider_voice_online.md` (online desk research, August 2026) - Vietnam price data confidence: Medium; sources dated 2017-2021; Tokopedia and Shopee marketplace listings (Indonesia, July-August 2026); `raw/2026Q3_indonesia_rider_voice_online.md` (online desk research, August 2026) - Indonesia price data confidence: High (active marketplace listings)."
+        "sources": "[Monimoto](https://monimoto.com/uk/gps-tracker-for-vehicles/) (£149 + £36/yr), BikeTrac (£299 + £99/yr), [EatSleepRIDE](https://eatsleepride.com/stories/how_crashlight_works-236335) Crashlight ($49/yr); Kawasaki Canada voice subscription near-universal rejection; `raw/2026Q2_europe_rider_voice_research.md` (35 qualitative interviews + 301 EICMA survey, Germany/France/Italy, 2025); Saigoneer (VieTrack/Viettel pricing, Vietnam GPS tracker market); `raw/2026Q3_vietnam_rider_voice_online.md` (online desk research, August 2026) - Vietnam price data confidence: Medium; sources dated 2017-2021; Tokopedia and Shopee marketplace listings (Indonesia, July-August 2026); `raw/2026Q3_indonesia_rider_voice_online.md` (online desk research, August 2026) - Indonesia price data confidence: High (active marketplace listings)."
       },
       {
         "label": "Vehicle Diagnostics Demand",
@@ -127,7 +127,7 @@
         "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "Harley-Davidson H-D Connect was discontinued August 2020 due to an insufficient user base.",
-        "sources": "[triketalk.com](https://www.triketalk.com), [hdforums.com](https://www.hdforums.com), [hdlivewireforum.com](https://www.hdlivewireforum.com); community petition to restore service active as of 2026."
+        "sources": "[triketalk.com](https://triketalk.com/threads/harley-cancels-hd-connect-service.57392/), [hdforums.com](https://www.hdforums.com/forum/touring-models/1334500-hd-connect-discontinued.html), [hdlivewireforum.com](https://www.hdlivewireforum.com/threads/kiss-h-d-connect-goodbye.5649/); community petition to restore service active as of 2026."
       },
       {
         "label": "Competitor Success",
@@ -218,7 +218,7 @@
         "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "Attempts to build proprietary, large-scale software stacks have resulted in catastrophic financial losses - VW CARIAD (€14B total; €2.1B operating loss 2022; subsequently replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($19.5B total write-down, December 2025).",
-        "sources": "[VW Group financial disclosures](https://www.volkswagenag.com/en/InvestorRelations.html); [Ford investor reports](https://investor.ford.com)."
+        "sources": "[VW Group financial disclosures](https://www.volkswagenag.com/en/InvestorRelations.html); Ford investor reports."
       },
       {
         "label": "Internal Capability",
@@ -290,7 +290,7 @@
         "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "Third-party apps that excel at a single \"job-to-be-done\" - Calimoto for scenic routing (3M+ users), REVER for route discovery, EatSleepRIDE for crash detection - are consistently preferred over comprehensive-but-mediocre OEM apps. European primary research confirms this pattern at point of sale: dealers report 90% of vehicles are delivered with a third-party phone mount, and riders default to Waze and Google Maps because OEM navigation does not meet their quality bar.",
-        "sources": "app store reviews, [Calimoto](https://calimoto.com) user base data, enthusiast press; 20+ independent sources; `raw/2026Q2_europe_rider_voice_research.md` - dealer interviews Germany/France/Italy (2025)."
+        "sources": "app store reviews, [Calimoto](https://calimoto.com/en) user base data, enthusiast press; 20+ independent sources; `raw/2026Q2_europe_rider_voice_research.md` - dealer interviews Germany/France/Italy (2025)."
       },
       {
         "label": "Competitor Success",
@@ -304,7 +304,7 @@
         "missionSource": "Competitor Intelligence",
         "confidence": "High",
         "claim": "Ola Electric's technically sophisticated proprietary platform (MoveOS, Krutrim AI, Ola Maps, full OTA) did not prevent a market share collapse from 35%+ to ~15% (2025), concurrent with three layoff rounds totalling 1,620+ employees in 24 months.",
-        "sources": "[techstory.in](https://techstory.in), [e-vehicleinfo.com](https://e-vehicleinfo.com), [peoplematters.in](https://peoplematters.in)."
+        "sources": "[techstory.in](https://techstory.in/ola-electric-mobility-hits-all-time-low-as-sales-crash-market-share-slips/), [e-vehicleinfo.com](https://e-vehicleinfo.com/ola-electric-market-share-crash/), [peoplematters.in](https://www.peoplematters.in/news/strategic-hr/ola-electric-to-cut-5percent-of-staff-amid-revenue-slump-and-operational-reset-48240)."
       },
       {
         "label": "Internal Capability",
@@ -403,7 +403,7 @@
         "missionSource": "Competitor Intelligence",
         "confidence": "Medium",
         "claim": "The most digitally advanced competitors (Hero, Ather, TVS) are almost entirely India-centric, succeeding through deep regional focus rather than global platforms. Suzuki's connected service (3.1M India downloads) is also India-only.",
-        "sources": "Hero/Ather/TVS public disclosures; [Suzuki Ride Connect India](https://www.suzuki-motorcycle.com/en/news/) press release; 40+ competitor sources."
+        "sources": "Hero/Ather/TVS public disclosures; [Suzuki Ride Connect India](https://play.google.com/store/apps/details?id=suzuki.com.suzuki&hl=en_IN) (3.1M downloads, Google Play); 40+ competitor sources."
       },
       {
         "label": "Market Dynamics",
@@ -470,7 +470,7 @@
         "missionSource": "Rider Voice",
         "confidence": "High",
         "claim": "The #1 source of rider anger across all forums and app reviews is the perception of personal ride data being \"held hostage\" or inaccessible upon subscription cancellation. Conversely, riders actively consent to data collection when it delivers direct, tangible value - theft tracking, Ather's \"Warped\" annual ride report.",
-        "sources": "European subscription-cancellation complaints (forums, app store reviews); [Ather Energy](https://www.atherenergy.com) engagement data; 20+ independent sources."
+        "sources": "European subscription-cancellation complaints (forums, app store reviews); [Ather Energy Warped 2025](https://forum.atherenergy.com/t/your-ather-year-warped-ather-warped-2025/377684) engagement data; 20+ independent sources."
       },
       {
         "label": "Competitor Benchmark",
@@ -576,7 +576,7 @@
         "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "VW spent €14B on a failed proprietary software build (CARIAD), then committed $5.8B to license equivalent capability from Rivian. McKinsey projects connected vehicle software investment to reach double-digit billions for ADAS, while basic connectivity remains relatively low investment by comparison.",
-        "sources": "[VW Group financial disclosures](https://www.volkswagenag.com/en/InvestorRelations.html); [Rivian-VW partnership announcement](https://rivian.com/newsroom); McKinsey connected vehicles analysis."
+        "sources": "[VW Group financial disclosures](https://www.volkswagenag.com/en/InvestorRelations.html); [Rivian-VW partnership announcement](https://rivian.com/newsroom/article/rivian-and-volkswagen-group-announce-plans-for-joint-venture); McKinsey connected vehicles analysis."
       }
     ],
     "crossIndustrySubtitle": "Interpretive Analogy",
@@ -640,14 +640,14 @@
         "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "The financial evidence establishes a clear investment hierarchy: basic connectivity (embedded SIM/eSIM, basic OTA, remote access) is table stakes - a cost of doing business with no independent revenue line at any OEM. Only specific safety/security services have demonstrated monetization at scale: GM OnStar Safety ($120-$780/yr tiers); GM Super Cruise ($234M revenue, 2025). Indonesia aftermarket GPS tracker market data provides a SEA market benchmark for anti-theft connectivity value: entry price IDR 599,000-799,000 (~USD 37-50, including SIM card and server access) through Tokopedia and Shopee; ceiling approximately IDR 2 million+ (~USD 125+) for non-fleet products. This is the lowest consumer-market price floor in the research base for GPS anti-theft connectivity and anchors the pricing constraint for any OEM-integrated anti-theft feature targeting the Indonesian market. Structural investment implication: Indonesia's 6.5M annual unit sales are concentrated in mass-market models (Honda Beat, Vario, Scoopy) priced below IDR 21M (~USD 1,300), none of which carry OEM connectivity. The commuter segment - the majority of volume - is structurally outside OEM connectivity reach at current Honda product and pricing architecture. Any investment in Indonesia-market OEM anti-theft connectivity must address this structural gap to reach the relevant rider population.",
-        "sources": "ABI Research ($31.77B global OEM connectivity spend); [GM investor reports](https://investor.gm.com); McKinsey connected vehicles projections (2030); Tokopedia and Shopee marketplace listings (GPS tracker pricing, July-August 2026, High confidence); MotorcyclesData.com (Indonesia market data, Aug 2026); OEM product listings confirming mass-market model connectivity absence; `raw/2026Q3_indonesia_rider_voice_online.md`."
+        "sources": "ABI Research ($31.77B global OEM connectivity spend); [GM investor reports](https://investor.gm.com/news-releases/news-release-details/q4-2025-letter-shareholders); McKinsey connected vehicles projections (2030); Tokopedia and Shopee marketplace listings (GPS tracker pricing, July-August 2026, High confidence); MotorcyclesData.com (Indonesia market data, Aug 2026); OEM product listings confirming mass-market model connectivity absence; `raw/2026Q3_indonesia_rider_voice_online.md`."
       },
       {
         "label": "Risk of Ruin",
         "missionSource": "Financial Intelligence",
         "confidence": "High",
         "claim": "Two automotive OEMs have suffered catastrophic failures attempting proprietary software platform builds: VW CARIAD (€14B total investment; program abandoned; replaced by $5.8B Rivian licensing deal); Ford FNV4/Model e ($4.7B in 2023 + $5B in 2024 losses; $19.5B total write-down, December 2025). Common failure pattern: scope overreach, culture mismatch, underestimated integration complexity, multi-year cash burn before revenue.",
-        "sources": "[VW Group investor disclosures](https://www.volkswagenag.com/en/InvestorRelations.html) and [Ford investor disclosures](https://investor.ford.com) (primary financial sources)."
+        "sources": "[VW Group investor disclosures](https://www.volkswagenag.com/en/InvestorRelations.html) and Ford investor disclosures (primary financial sources)."
       },
       {
         "label": "Competitor R&D Investment Benchmarks",
