@@ -94,7 +94,7 @@
   {
     "id": 2,
     "number": "02",
-    "title": "The Future of Rider Ownership",
+    "title": "Rider Ownership Relationship",
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
@@ -192,7 +192,7 @@
   {
     "id": 3,
     "number": "03",
-    "title": "Software as Competitive Infrastructure",
+    "title": "Connected Vehicle Platform",
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
@@ -278,7 +278,7 @@
   {
     "id": 4,
     "number": "04",
-    "title": "Rider Lifecycle Infrastructure vs. Rider-Facing App",
+    "title": "Rider Lifecycle vs. App Strategy",
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
@@ -363,7 +363,7 @@
   {
     "id": 5,
     "number": "05",
-    "title": "Regional Differentiation vs. Global Scale",
+    "title": "Regional vs. Global Strategy",
     "type": "domain",
     "full": true,
     "domainConfidence": "Low",
@@ -543,7 +543,7 @@
   {
     "id": 7,
     "number": "07",
-    "title": "Partner Ecosystem Strategy",
+    "title": "Partner & Integration Strategy",
     "type": "domain",
     "full": true,
     "domainConfidence": "Medium",
